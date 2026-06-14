@@ -1,0 +1,123 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Reviews from '../../components/Reviews.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import TeamStrip from '../../components/TeamStrip.astro';
+import PhysicianLed from '../../components/PhysicianLed.astro';
+import ImageFeature from '../../components/ImageFeature.astro';
+import InsuranceBanner from '../../components/InsuranceBanner.astro';
+
+const faqs = [
+  { q: 'Is meth or cocaine withdrawal dangerous?', a: "It's not usually physically life-threatening, but the crash can cause severe depression and suicidal thoughts — medical and psychiatric supervision is strongly advised." },
+  { q: 'How long does stimulant withdrawal last?', a: 'The acute crash often lasts several days to a couple of weeks, with cravings lingering longer; we support you throughout.' },
+  { q: 'Is there a medication for meth or cocaine addiction?', a: 'No FDA-approved medication exists specifically for stimulants; treatment is behavioral plus medical and psychiatric support.' },
+  { q: 'Do you treat both meth and cocaine?', a: 'Yes — including crack cocaine and misused prescription stimulants.' },
+  { q: 'What about the depression that comes with it?', a: 'We treat co-occurring depression and anxiety through integrated dual-diagnosis care.' },
+  { q: 'Does insurance cover stimulant treatment?', a: 'Most PPO plans do. As an out-of-network provider, we verify your benefits for free.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'Meth & Cocaine (Stimulant) Treatment in Los Angeles', about: { '@type': 'MedicalCondition', name: 'Stimulant Use Disorder' }, reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
+
+const continuum = [
+  ['detox', 'Medically Supervised Detox', 'Safe, monitored stabilization through the crash.', '/programs/medical-detox/'],
+  ['home', 'Residential Treatment', 'CBT, motivational interviewing, and behavioral approaches.', '/programs/residential-treatment/'],
+  ['dual', 'Dual-Diagnosis Care', 'Treating the depression, anxiety, or trauma that fuel use.', '/programs/dual-diagnosis-treatment/'],
+  ['heart', 'Continuing Care', 'Relapse prevention + personal follow-up.', '/programs/continuing-care/'],
+];
+const NIDA = 'https://nida.nih.gov/research-topics/stimulants';
+const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
+---
+<Layout
+  title="Meth & Cocaine Detox in Los Angeles | Regain Hope Detox and Recovery Center"
+  description="Physician-led detox and treatment for methamphetamine and cocaine in the Los Angeles area. Medical and psychiatric support through stimulant withdrawal. PPO accepted. Call 24/7."
+  schema={[pageSchema, faqSchema]}
+>
+  <Hero
+    variant="form"
+    eyebrow="What We Treat · Serving Los Angeles · 24/7"
+    title="Meth & Cocaine (Stimulant) Treatment in the Los Angeles Area"
+    byline="Mileidys Gomez Gonzalez, MD"
+    chips={['24/7 medical & psychiatric support', 'In-house psychiatry for the crash', 'Owned & run by two physicians', 'Care in English, Spanish & Korean']}
+  />
+
+  <div class="trust"><div class="container">
+    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span><span>Joint Commission Accredited</span><span class="sep">|</span><span>California DHCS Licensed</span><span class="sep">|</span><span>LegitScript Certified</span><span class="sep">|</span><span>Two physicians on-site daily</span>
+  </div></div>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>What is stimulant use disorder?</h2>
+    <p><b>Stimulant use disorder is the compulsive use of drugs that speed up the central nervous system</b> — most commonly <b>methamphetamine</b> and <b>cocaine</b> (including crack), and sometimes misused prescription stimulants (NIDA). Stimulants flood the brain with dopamine, producing intense but short-lived highs that drive repeated use and powerful cravings. Over time, the brain's reward system is disrupted, making it very hard to stop without help — and use can take a serious toll on the heart, mind, and body.</p>
+    <p>That toll is real: stimulants strain the heart and blood vessels — raising the risk of high blood pressure, irregular heartbeat, heart attack, and stroke — while methamphetamine in particular can damage teeth, skin, and memory. Heavy use can also trigger paranoia, severe anxiety, and even stimulant-induced psychosis.</p>
+    <p>Because the most acute danger in early recovery is psychological rather than physical, having physicians and in-house psychiatry on hand isn't a luxury — it's what keeps the hardest days safe. With medical stabilization and the right behavioral care, the brain's reward system can recover, cravings fade, and energy and mood return.</p>
+  </div></section>
+
+  <ImageFeature
+    bg="cream"
+    image="/images/stock/therapy-session.webp"
+    alt="A person resting peacefully during recovery"
+    side="left"
+    eyebrow="Through the crash, together"
+    title="The mind heals when it's supported"
+    body="Stimulant recovery is as much mental as physical. With psychiatry on-site, the depression and cravings of the crash are met with real care — not a clipboard."
+    points={[['brain', 'In-house psychiatry'], ['chat', 'Evidence-based therapy'], ['heart', 'Round-the-clock support']]}
+  />
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Signs of stimulant addiction</h2>
+    <p>Signs include:</p>
+    <ul>
+      <li>Bingeing followed by crashes</li>
+      <li>Intense cravings</li>
+      <li>Needing more for the same effect</li>
+      <li>Paranoia, anxiety, or agitation</li>
+      <li>Sleeplessness, then prolonged exhaustion</li>
+      <li>Weight loss and neglected responsibilities</li>
+      <li>Continuing to use despite clear harm</li>
+    </ul>
+  </div></section>
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>What stimulant withdrawal is like</h2>
+    <p>Unlike alcohol or benzos, stimulant withdrawal isn't usually <i>physically</i> life-threatening — but it can be <b>psychologically intense and risky</b>. The "crash" brings extreme fatigue, depression, anxiety, vivid cravings, and sometimes <b>suicidal thoughts</b>. That psychological danger is exactly why medical and psychiatric supervision matters: at Regain Hope Detox and Recovery Center, you're monitored 24/7, with physicians and mental-health support to keep you safe through the hardest days. <a href="/programs/medical-detox/">See medical detox →</a></p>
+  </div></section>
+
+  <TeamStrip bg="white" />
+
+  <section class="bg-cream"><div class="container">
+    <div class="sec-head"><span class="eyebrow">Our approach</span><h2>How we treat meth & cocaine addiction</h2><p>Because there's no FDA-approved medication specifically for stimulant use disorder, effective treatment is built on medical stabilization plus evidence-based behavioral care.</p></div>
+    <div class="grid2" style="max-width:920px;margin:0 auto;">
+      {continuum.map(([ico, t, d, href]) => (
+        <a class="pcard" href={href} style="text-decoration:none;display:block;"><div class="ico"><Icon name={ico} /></div><h3>{t}</h3><p>{d}</p><span class="more">Learn more →</span></a>
+      ))}
+    </div>
+  </div></section>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>When to seek help for stimulant use</h2>
+    <p>Because stimulant withdrawal can trigger severe depression and suicidal thinking, doing it alone is genuinely risky. If you're bingeing and crashing, can't stop despite wanting to, or feel hopeless when you're not using, reach out now. With medical support and behavioral treatment, the brain heals and cravings fade — recovery is very possible. <b>If you're having thoughts of suicide, call or text 988 anytime.</b></p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>Stimulants and co-occurring mental health</h2>
+    <p>Stimulant use is closely tied to depression, anxiety, trauma, and sometimes stimulant-induced psychosis. Treating the substance use and the mental health together is essential — our integrated <a href="/programs/dual-diagnosis-treatment/">dual-diagnosis care</a> does exactly that. Untreated, the cycle tends to deepen — the substance briefly lifts mood, then the crash drops it lower than before. Treating both at once breaks that loop, which is why integrated care consistently outperforms addressing either problem alone.</p>
+  </div></section>
+
+  <PhysicianLed bg="white" />
+
+  <Reviews bg="cream" />
+
+  <InsuranceBanner />
+
+  <section><div class="container">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Stimulant treatment — frequently asked questions</h2></div>
+    <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+    <p style="text-align:center;margin-top:26px;color:var(--muted);font-size:13px;">Clinical information on this page is informed by the <a href={NIDA} target="_blank" rel="noopener">National Institute on Drug Abuse (NIDA)</a> · In crisis? Call or text <b>988</b>.</p>
+  </div></section>
+
+  <section class="ctaband"><div class="container">
+    <h2>Recovery from stimulants is possible</h2>
+    <p>The crash is brutal, but you don't have to face it alone. One confidential call, answered 24/7, is the first step.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
+  </div></section>
+</Layout>

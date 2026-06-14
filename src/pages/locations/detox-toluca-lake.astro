@@ -1,0 +1,136 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import ImageFeature from '../../components/ImageFeature.astro';
+import InsuranceBanner from '../../components/InsuranceBanner.astro';
+import Reviews from '../../components/Reviews.astro';
+
+const faqs = [
+  {
+    "q": "Is there a discreet detox center near Toluca Lake?",
+    "a": "Yes — minutes away in Burbank, in a private residential setting."
+  },
+  {
+    "q": "How far is it from Toluca Lake?",
+    "a": "About 5 to 10 minutes by surface streets."
+  },
+  {
+    "q": "Is treatment private and discreet?",
+    "a": "Yes — a small, home-like residence with no institutional setting or crowd."
+  },
+  {
+    "q": "Can I stay reachable for work?",
+    "a": "Yes — a flexible technology policy supports working professionals."
+  },
+  {
+    "q": "Can my family stay involved?",
+    "a": "Yes — the close location keeps family connected; family therapy on request."
+  },
+  {
+    "q": "Why not detox at home?",
+    "a": "Withdrawal can be medically dangerous and home is full of triggers; supervised detox nearby is safer and more effective."
+  },
+  {
+    "q": "Does it accept PPO insurance?",
+    "a": "Most PPO plans, as an out-of-network provider; benefits verified free."
+  },
+  {
+    "q": "What substances can be detoxed from?",
+    "a": "Alcohol, opioids and fentanyl, benzodiazepines, stimulants, prescription drugs, and polysubstance use."
+  },
+  {
+    "q": "Is detox done with 24/7 medical supervision?",
+    "a": "Yes — two physicians provide in-person care daily, with around-the-clock monitoring."
+  },
+  {
+    "q": "Is care available in Spanish or Korean?",
+    "a": "Yes — care is provided in English, Spanish, and Korean."
+  }
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalClinic', name: 'Regain Hope Detox and Recovery Center', address: { '@type': 'PostalAddress', streetAddress: '1134 N Lima St', addressLocality: 'Burbank', addressRegion: 'CA', postalCode: '91505', addressCountry: 'US' }, telephone: '+1-818-281-2458', geo: { '@type': 'GeoCoordinates', latitude: 34.1719189, longitude: -118.3451238 }, areaServed: "Toluca Lake, CA", reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
+const why = [["stethoscope","Two physicians, on-site daily","The owners are the doctors — and they care for you in person, every day."],["heart","Whole-person medical care","Our lead physician (internal and family medicine) watches your full health through withdrawal."],["home","A private, family-run home","\"Feels like home, not a clinic\" is the recurring theme in our 5.0-star reviews."],["mat","MAT to protect sobriety","Relapse-prevention medication like long-acting Vivitrol, started before discharge."],["globe","Bilingual, culturally-aware care","English, Spanish, and Korean, with a team that respects where you come from."]];
+const continuum = [["detox","Medical Detox","24/7 physician-supervised withdrawal management.","/programs/medical-detox/"],["home","Residential Treatment","Live-in care after detox, in a real home.","/programs/residential-treatment/"],["dual","Dual Diagnosis","Integrated care for co-occurring anxiety, depression, or trauma.","/programs/dual-diagnosis-treatment/"],["mat","Medication-Assisted Treatment","Physician-prescribed medication to ease withdrawal and prevent relapse.","/programs/medication-assisted-treatment/"],["heart","Continuing Care","Trusted local referrals plus personal physician follow-up.","/programs/continuing-care/"]];
+---
+<Layout title="Medical Detox in Toluca Lake, CA | Regain Hope Detox and Recovery Center" description="Discreet, physician-supervised medical detox for Toluca Lake, CA — right next door in Burbank. Two doctors on-site daily, MAT, private home setting. PPO accepted. Call 24/7." schema={[pageSchema, faqSchema]}>
+  <Hero variant="form" eyebrow="For Toluca Lake, CA · Right Next Door in Burbank · 24/7" title="Medical Detox for Toluca Lake, CA Residents" byline="Mileidys Gomez Gonzalez, MD" chips={["Minutes from Toluca Lake","Owned & run by two physicians","Private & discreet","PPO accepted"]} />
+
+  <div class="trust"><div class="container">
+    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span><span>Joint Commission Accredited</span><span class="sep">|</span><span>California DHCS Licensed</span><span class="sep">|</span><span>LegitScript Certified</span><span class="sep">|</span><span>Two physicians on-site daily</span>
+  </div></div>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Discreet medical detox right next to Toluca Lake, California</h2>
+    <p>Toluca Lake is one of the Valley's most quietly prestigious neighborhoods — a small, leafy enclave tucked between Burbank, Studio City, and North Hollywood, long favored by entertainment-industry figures who value privacy over flash. It's a place of tree-lined streets and discreet wealth, steps from the major studios. And in a community where reputation and discretion matter, seeking treatment for alcohol or drug use can feel especially daunting — even when help is desperately needed.</p>
+    <p>That's exactly why Regain Hope works so well for Toluca Lake residents: <b>help is essentially next door, and it doesn't look or feel like a hospital.</b> Located just minutes away across the Burbank line, Regain Hope Detox and Recovery Center offers 24/7 physician-supervised detox inside a private residence — a real home, with a small, family-run team and no institutional signage or crowd. You can step into serious medical care without traveling far and without the exposure that comes with a large facility. For people used to guarding their privacy, that combination of nearby, professional, and genuinely discreet is rare.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>Why a private, nearby option changes the decision</h2>
+    <p>For many Toluca Lake residents, the barrier to treatment isn't willingness — it's visibility. The fear of being recognized in a large lobby, of a long absence raising questions, of an institutional setting that feels stigmatizing, keeps people stuck. Detoxing at home, meanwhile, is both medically risky and surrounded by the same triggers.</p>
+    <p>A small, physician-owned home minutes away removes those barriers. You're close enough that a short, private stay doesn't upend your life, and family can remain involved. You're cared for by the two doctors who own the program — not a rotating staff — in a setting that feels residential, not clinical. And a flexible technology policy means professionals can stay reachable for the commitments that can't pause. Discretion isn't an add-on here; it's the nature of the place.</p>
+  </div></section>
+
+  <section><div class="container">
+    <div class="sec-head"><span class="eyebrow">Why choose Regain Hope</span><h2>Why Toluca Lake residents choose us</h2></div>
+    <div class="grid3">
+      {why.map(([ico, t, d]) => (<div class="pcard"><div class="ico"><Icon name={ico} /></div><h3>{t}</h3><p>{d}</p></div>))}
+    </div>
+  </div></section>
+
+  <ImageFeature bg="cream" image="/images/stock/therapy-session.webp" alt="A calm reset in recovery near Toluca Lake" side="right" eyebrow="Close to home, a real reset" title="Far enough to heal, close enough to stay connected" body="A quiet Burbank neighborhood with a private garden and water-feature courtyard, minutes from Toluca Lake — so family stays close while you recover in genuine privacy, away from the spotlight." points={[['pin', 'A short, familiar drive from Toluca Lake'], ['heart', 'Family stays close'], ['home', 'A private, home-like setting']]} />
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>What medical detox involves</h2>
+    <p>Medical detox safely clears alcohol or drugs from your body under 24/7 medical supervision while a care team manages withdrawal. Because alcohol, benzodiazepine, and opioid withdrawal can be dangerous — and for some substances life-threatening — supervised detox is far safer than quitting alone.</p>
+    <p>At Regain Hope Detox and Recovery Center, your detox is overseen <b>in person, every day</b> by the two physicians who own the program — not a remote doctor checking in by phone. The process generally runs <b>5–10 days</b> depending on the substance and your health, and flows directly into <a href="/programs/residential-treatment/">residential treatment</a> so progress doesn't stall.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container">
+    <div class="sec-head"><span class="eyebrow">The continuum</span><h2>Detox and treatment available to Toluca Lake residents</h2></div>
+    <div class="grid3">
+      {continuum.map(([ico, t, d, href]) => (<a class="pcard" href={href} style="text-decoration:none;display:block;"><div class="ico"><Icon name={ico} /></div><h3>{t}</h3><p>{d}</p><span class="more">Learn more →</span></a>))}
+    </div>
+  </div></section>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Addictions we treat for Toluca Lake clients</h2>
+    <p>We provide detox and treatment for alcohol, opioids and fentanyl, benzodiazepines, stimulants (meth and cocaine), prescription drugs, and polysubstance use — plus co-occurring anxiety, depression, and trauma through integrated <a href="/programs/dual-diagnosis-treatment/">dual-diagnosis care</a>. See everything we treat on our <a href="/what-we-treat/">What We Treat</a> page.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container"><div class="loc">
+    <div>
+      <span class="eyebrow">Directions</span>
+      <h2>How to reach us from Toluca Lake, CA</h2>
+      <p>Regain Hope Detox and Recovery Center is at <b>1134 N Lima St, Burbank, CA 91505</b> — just <b>5 to 10 minutes from Toluca Lake</b>, right across the Burbank border. For most residents it's a short surface-street drive, no freeway required. We're minutes from Hollywood Burbank Airport, which keeps arrivals discreet and easy for out-of-town family. Ask about transportation assistance.</p>
+      <p style="margin-top:14px;"><a href="/admissions/verify-insurance/" class="btn btn-outline">Verify Your Insurance →</a></p>
+    </div>
+    <div class="locmap"><iframe src="https://www.google.com/maps?q=1134%20N%20Lima%20St%2C%20Burbank%2C%20CA%2091505&output=embed" loading="lazy" title="Driving map from Toluca Lake to Regain Hope Detox and Recovery Center"></iframe></div>
+  </div></div></section>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Addiction in the Toluca Lake area — discreet help is close</h2>
+    <p>In a small, studio-adjacent enclave like Toluca Lake, the pressures of public-facing careers and the culture around them can make alcohol and drug use easy to normalize — and especially hard to address openly. Across Los Angeles County, tens of thousands of people enter substance-use treatment each year, and proximity to the industry doesn't make anyone immune. The good news: discreet, physician-led help sits minutes away, so a Toluca Lake resident can step into care without a long absence or public exposure, and family can stay close throughout.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>Fresh air and recovery near Toluca Lake</h2>
+    <p>Recovery at Regain Hope moves outdoors, and Toluca Lake's surroundings fit naturally. The Los Angeles River path, the green of nearby Lakeside, and the vast trails of Griffith Park just to the east are the kinds of calm, low-key settings that suit the walks and fresh air we build into early recovery. Paired with our private garden and water-feature courtyard in Burbank — minutes from home — clients from Toluca Lake heal somewhere that feels familiar and restorative, not institutional.</p>
+  </div></section>
+
+  <Reviews bg="white" />
+
+  <InsuranceBanner />
+
+  <section><div class="container">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Detox near Toluca Lake, CA — frequently asked questions</h2></div>
+    <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+  </div></section>
+
+  <section class="ctaband"><div class="container">
+    <h2>Help is right next door to Toluca Lake</h2>
+    <p>One confidential call is all it takes. Our admissions line is open 24/7.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
+  </div></section>
+</Layout>

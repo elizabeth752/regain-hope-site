@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalClinic', name: 'Regain Hope Detox and Recovery Center', address: { '@type': 'PostalAddress', streetAddress: '1134 N Lima St', addressLocality: 'Burbank', addressRegion: 'CA', postalCode: '91505', addressCountry: 'US' }, telephone: '+1-818-281-2458', email: 'info@regainhopedetox.com', geo: { '@type': 'GeoCoordinates', latitude: 34.1719189, longitude: -118.3451238 } };
+---
+<Layout
+  title="Contact Us | Regain Hope Detox and Recovery Center"
+  description="Contact Regain Hope Detox and Recovery Center in Burbank, CA. Call 24/7 at (818) 281-2458, verify your insurance, or send us a message. Confidential and judgment-free."
+  schema={pageSchema}
+>
+  <section class="minihero"><div class="container">
+    <span class="eyebrow">Available 24/7 · Confidential</span>
+    <h1>Contact Regain Hope Detox and Recovery Center</h1>
+    <p>Whether you're ready to start or just have questions, we're here 24/7 — confidential, judgment-free, no pressure. We also speak Spanish and Korean.</p>
+  </div></section>
+
+  <section><div class="container"><div class="loc">
+    <div class="rich">
+      <h2>Reach us</h2>
+      <ul>
+        <li><b>24/7 Admissions:</b> <a href="tel:+18182812458">(818) 281-2458</a></li>
+        <li><b>Address:</b> 1134 N. Lima St., Burbank, CA 91505</li>
+        <li><b>Email:</b> <a href="mailto:info@regainhopedetox.com">info@regainhopedetox.com</a></li>
+        <li><b>Hours:</b> Open 24 hours, every day</li>
+      </ul>
+      <p style="margin-top:8px;"><b>Quick links:</b> <a href="/admissions/verify-insurance/">Verify your insurance</a> · <a href="/admissions/">How admission works</a></p>
+      <div class="callout" style="margin-top:18px;">In crisis? Call or text <b>988</b> (Suicide &amp; Crisis Lifeline) or <b>911</b>. See our <a href="/crisis-resources/" style="color:var(--gold-soft);">crisis resources</a>.</div>
+    </div>
+    <div class="locmap"><iframe src="https://www.google.com/maps?q=1134%20N%20Lima%20St%2C%20Burbank%2C%20CA%2091505&output=embed" loading="lazy" title="Map to Regain Hope Detox and Recovery Center"></iframe></div>
+  </div></div></section>
+
+  <section class="ctaband"><div class="container">
+    <h2>Reaching out is the hardest step</h2>
+    <p>Whatever you say is confidential, and there's no obligation — just a conversation with people who care.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="tel:+18182812458" class="btn btn-gold">📞 Call 24/7 — (818) 281-2458</a></div>
+  </div></section>
+</Layout>

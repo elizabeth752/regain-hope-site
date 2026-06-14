@@ -1,0 +1,199 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Reviews from '../components/Reviews.astro';
+import Hero from '../components/Hero.astro';
+import Divider from '../components/Divider.astro';
+import PhysicianLed from '../components/PhysicianLed.astro';
+import Icon from '../components/Icon.astro';
+
+const faqs = [
+  { q: 'How long does medical detox take?', a: 'Most detox programs last 5–10 days depending on the substance and your medical history; your doctor sets the timeline.' },
+  { q: 'Is detox done with medical supervision?', a: 'Yes. Detox here is physician-supervised 24/7, with doctors on-site in person daily to keep withdrawal as safe and comfortable as possible.' },
+  { q: 'Does insurance cover detox?', a: 'Most PPO plans do. As an out-of-network provider, we verify your benefits for free before you commit to anything.' },
+  { q: 'What happens after detox?', a: 'You step into residential treatment and, when ready, a continuing-care plan with trusted referrals for IOP or sober living.' },
+  { q: 'Do you offer care in Spanish or Korean?', a: 'Yes — services are available in English, Spanish, and Korean.' },
+  { q: 'Can I keep working during treatment?', a: 'Yes — we offer a flexible technology policy for working professionals.' },
+];
+const faqSchema = {
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+
+const insurers = [
+  ['aetna', 'Aetna'], ['anthem', 'Anthem'], ['bcbs', 'Blue Cross Blue Shield'], ['cigna', 'Cigna'],
+  ['united-healthcare', 'UnitedHealthcare'], ['highmark', 'HighMark'], ['geha', 'GEHA'],
+  ['magellan', 'Magellan'], ['halcyon', 'Halcyon'], ['tricare', 'TRICARE'], ['triwest', 'TriWest'],
+];
+const gallery = [
+  ['regain-05', 'Living room'], ['regain-10', 'Kitchen island'], ['regain-11', 'Kitchen'], ['regain-09', 'Lounge with fireplace'],
+  ['regain-06', 'Dining area'], ['regain-12', 'Outdoor deck'], ['regain-14', 'Courtyard'], ['regain-02', 'Bathroom'],
+];
+const areas = ['Glendale','Sherman Oaks','Pasadena','Toluca Lake','La Cañada','Encino','Studio City'];
+const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
+---
+<Layout
+  title="Medical Detox & Residential Treatment in Burbank, CA | Regain Hope Detox and Recovery Center"
+  description="Physician-owned medical detox & residential treatment in Burbank, CA. Daily in-person doctor care, whole-person medicine, boutique setting. We verify your PPO benefits — call 24/7."
+  schema={faqSchema}
+>
+  <!-- HERO (exterior photo · copy left · verify form right) -->
+  <Hero
+    variant="form"
+    eyebrow="Burbank, California · Available 24/7"
+    title="Physician-Led Medical Detox in Burbank, California"
+    lead="A boutique, doctor-owned detox and residential program where two physicians care for you in person, every day — and treat the whole person, not just the addiction."
+    chips={['Owned & run by two on-site physicians', 'Couples accepted & treated together', 'Stay connected — flexible device & technology policy', 'Care in English, Spanish & Korean']}
+  />
+
+  <!-- TRUST STRIP -->
+  <div class="trust"><div class="container">
+    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span>
+    <span>Joint Commission Accredited</span><span class="sep">|</span>
+    <span>Licensed by California DHCS</span><span class="sep">|</span>
+    <span>LegitScript Certified</span><span class="sep">|</span>
+    <span>Physician-Owned</span>
+  </div></div>
+
+  <!-- INSURANCE (moved up — replaces the soft "Why Regain" stat band) -->
+  <section id="insurance"><div class="container">
+    <Divider />
+    <div class="sec-head" style="margin-top:16px;"><span class="eyebrow">Insurance</span><h2>Your insurance may cover treatment</h2><p>Most PPO plans cover medical detox and residential treatment. As an out-of-network provider, we verify your benefits free in about 5 minutes — no obligation.</p></div>
+    <div class="ins-strip">
+      {insurers.map(([f, alt]) => <img src={`/images/logos/insurance/${f}.svg`} alt={`${alt} insurance accepted`} loading="lazy" />)}
+    </div>
+    <div style="text-align:center;"><a href="/admissions/verify-insurance/" class="btn btn-primary">Verify Your Benefits</a></div>
+  </div></section>
+
+  <!-- INTENT SPLIT -->
+  <section class="bg-cream"><div class="container">
+    <div class="sec-head"><h2>Getting help in Burbank starts with one conversation</h2></div>
+    <div class="intent">
+      <div class="imgcard is-intent">
+        <img class="ph" src="/images/stock/holistic-care.webp" alt="A man outdoors with arms open, finding relief in recovery" loading="lazy" width="600" height="375" />
+        <div class="bd"><h3>I need help for myself</h3><p>You don't have to detox alone or cold-turkey. Our doctors make withdrawal safer and more comfortable, starting today.</p><a href="/programs/medical-detox/" class="btn btn-outline">Explore treatment</a></div>
+      </div>
+      <div class="imgcard is-intent">
+        <img class="ph" src="/images/stock/family-therapy.webp" alt="A supportive group therapy session" loading="lazy" width="600" height="375" />
+        <div class="bd"><h3>I'm worried about someone I love</h3><p>We'll walk you through how to talk to them, what insurance covers, and how admission works.</p><a href="/admissions/for-families/" class="btn btn-outline">Help for families</a></div>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- PHYSICIAN-LED (the standout differentiator + scenarios) -->
+  <PhysicianLed />
+
+  <!-- PROGRAMS -->
+  <section id="programs" class="bg-cream"><div class="container">
+    <div class="sec-head"><span class="eyebrow">Programs</span><h2>Our detox &amp; treatment programs</h2></div>
+    <div class="grid3">
+      <div class="pcard"><div class="ico"><Icon name="detox" /></div><h3>Medical Detox</h3><p>24/7 physician-supervised, medically managed withdrawal.</p><a class="more" href="/programs/medical-detox/">Learn more →</a></div>
+      <div class="pcard"><div class="ico"><Icon name="home" /></div><h3>Residential Treatment</h3><p>Live-in care in a comfortable home setting after detox.</p><a class="more" href="/programs/residential-treatment/">Learn more →</a></div>
+      <div class="pcard"><div class="ico"><Icon name="dual" /></div><h3>Dual Diagnosis</h3><p>Addiction and co-occurring mental health, treated together.</p><a class="more" href="/programs/dual-diagnosis-treatment/">Learn more →</a></div>
+      <div class="pcard"><div class="ico"><Icon name="mat" /></div><h3>Medication-Assisted Treatment</h3><p>Vivitrol &amp; other tools to ease withdrawal and prevent relapse.</p><a class="more" href="/programs/medication-assisted-treatment/">Learn more →</a></div>
+      <div class="pcard"><div class="ico"><Icon name="heart" /></div><h3>Continuing Care</h3><p>Aftercare and trusted step-down referrals (IOP, sober living).</p><a class="more" href="/programs/continuing-care/">Learn more →</a></div>
+      <div class="pcard" style="background:var(--caoba-dark);color:#fff;"><h3 style="color:#fff;">Not sure where to start?</h3><p style="color:#f4eee5;">A free, confidential call will help you figure out the right first step.</p><a class="more" style="color:var(--gold-soft);" href="tel:+18182812458">Call 24/7 →</a></div>
+    </div>
+    <Divider />
+    <h3 style="text-align:center;margin:32px 0 22px;">Your path to recovery</h3>
+    <div class="flow">
+      <div class="step"><div class="num">1</div><h4>Medical Detox</h4><p>Safely stabilize — about 5–10 days.</p></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="num">2</div><h4>Residential</h4><p>Live-in therapy &amp; recovery skills.</p></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="num">3</div><h4>Continuing Care</h4><p>Step-down referrals &amp; personal follow-up.</p></div>
+    </div>
+  </div></section>
+
+  <!-- WHAT WE TREAT -->
+  <section id="treat"><div class="container">
+    <div class="sec-head"><span class="eyebrow">What We Treat</span><h2>Addictions and conditions we treat</h2></div>
+    <div class="treat-cols">
+      <div><h3>Substances</h3><ul><li>Alcohol</li><li>Opioids &amp; Fentanyl</li><li>Benzodiazepines</li><li>Stimulants (Meth &amp; Cocaine)</li><li>Prescription Drugs</li><li>Polysubstance</li></ul></div>
+      <div><h3>Co-occurring</h3><ul><li>Anxiety</li><li>Depression</li><li>Trauma &amp; PTSD</li><li>Bipolar Disorder</li></ul><p style="margin-top:14px;"><a href="/what-we-treat/" class="btn btn-outline">What we treat →</a></p></div>
+    </div>
+  </div></section>
+
+  <!-- WHO WE HELP -->
+  <section id="who" class="bg-cream"><div class="container">
+    <div class="sec-head"><span class="eyebrow">Who We Help</span><h2>Personalized care for who you are</h2><p>A small, physician-owned program tailors care to your life.</p></div>
+    <div class="grid2" style="max-width:920px;margin:0 auto;">
+      <div class="imgcard">
+        <img class="ph" src="/images/stock/therapy-session.webp" alt="A professional resting peacefully during recovery" loading="lazy" width="600" height="375" />
+        <div class="bd"><h3>Professionals &amp; Executives</h3><p>Discreet care with a flexible technology policy so you can stay connected.</p><a class="more" href="/who-we-help/professionals-executives/">Learn more →</a></div>
+      </div>
+      <div class="imgcard">
+        <img class="ph" src="/images/stock/support.webp" alt="A person feeling supported and at ease" loading="lazy" width="600" height="375" />
+        <div class="bd"><h3>LGBTQ+</h3><p>Affirming, judgment-free treatment that respects who you are.</p><a class="more" href="/who-we-help/lgbtq/">Learn more →</a></div>
+      </div>
+      <div class="imgcard">
+        <img class="ph" src="/images/stock/wellness-lifestyle.webp" alt="A man outdoors regaining strength in recovery" loading="lazy" width="600" height="375" />
+        <div class="bd"><h3>Veterans &amp; First Responders</h3><p>Care for those who've carried heavy loads for others.</p><a class="more" href="/who-we-help/veterans-first-responders/">Learn more →</a></div>
+      </div>
+      <div class="imgcard">
+        <img class="ph" src="/images/stock/residential-day.webp" alt="A welcoming group in a bright, supportive setting" loading="lazy" width="600" height="375" />
+        <div class="bd"><h3>Spanish &amp; Korean Speakers</h3><p>Real bilingual care — full treatment in English, Spanish, and Korean.</p><a class="more" href="/who-we-help/spanish-speaking/">Learn more →</a></div>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- HIGHLIGHT -->
+  <section><div class="container">
+    <div class="highlight">
+      <div class="txt">
+        <span class="eyebrow" style="color:var(--gold-soft)">The setting</span>
+        <h2>Recovery in the heart of Southern California</h2>
+        <p>Set in a quiet Burbank neighborhood with a private garden, water-feature courtyard, and sunny outdoor lounges, Regain Hope Detox and Recovery Center blends structured care with room to breathe — including hillside walks toward the Hollywood sign.</p>
+        <div class="row">Private garden &amp; courtyard · Outdoor lounges · Hillside hikes · On-site fitness</div>
+      </div>
+      <div class="img" role="img" aria-label="Outdoor courtyard with water feature" style="background-image:url('/images/regain-14.jpeg')"></div>
+    </div>
+  </div></section>
+
+  <!-- GALLERY -->
+  <section class="bg-cream"><div class="container">
+    <Divider />
+    <div class="sec-head" style="margin-top:16px;"><span class="eyebrow">The home</span><h2>A place that feels like home</h2><p>Comfortable bedrooms, a renovated chef's kitchen, and private outdoor spaces.</p></div>
+    <div class="gallery">
+      {gallery.map(([f, alt]) => <img src={`/images/${f}.jpeg`} alt={alt} loading="lazy" width="280" height="190" />)}
+    </div>
+  </div></section>
+
+  <!-- LOCATION -->
+  <section><div class="container"><div class="loc">
+    <div>
+      <span class="eyebrow">Location</span>
+      <h2>Detox and recovery in Burbank — close to home, far from the chaos</h2>
+      <p>Regain Hope Detox and Recovery Center is in Burbank, California — minutes from Glendale, the San Fernando Valley, and greater Los Angeles. Close enough to stay connected to family, private enough to truly step away. Out-of-state? We help arrange travel.</p>
+      <p style="font-weight:600;color:var(--caoba-dark);">📍 1134 N Lima St, Burbank, CA 91505</p>
+      <div class="areas">{areas.map((a) => <span class="pill">{a}</span>)}</div>
+    </div>
+    <div class="map">🗺️ Google Map embed<br /><small>(NAP exact GBP match)</small></div>
+  </div></div></section>
+
+  <Reviews bg="cream" />
+
+  <!-- TEAM -->
+  <section id="team"><div class="container">
+    <div class="sec-head"><span class="eyebrow">Meet the team</span><h2>Care led by physicians who own this program</h2><p>And a team that treats you like family.</p></div>
+    <div class="team">
+      <div class="tcard"><img class="avatar" src="/images/team/mileidys-gomez.webp" alt="Mileidys Gomez Gonzalez, MD" width="72" height="72" loading="lazy" /><div><h3>Mileidys Gomez Gonzalez, MD</h3><p>Co-founder &amp; Medical Lead · Internal &amp; family medicine. Follows up with clients personally after discharge.</p></div></div>
+      <div class="tcard"><img class="avatar" src="/images/team/carlos-yoo.webp" alt="Dr. Carlos Yoo" width="72" height="72" loading="lazy" /><div><h3>Dr. Carlos Yoo</h3><p>Co-founder &amp; physician. Leads admissions and daily care alongside Dr. Gomez.</p></div></div>
+    </div>
+    <p style="text-align:center;margin-top:24px;color:var(--muted);font-size:14px;">A close-knit, largely family team — care available in English, Spanish, and Korean.</p>
+  </div></section>
+
+  <!-- FAQ -->
+  <section class="bg-cream"><div class="container">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Frequently asked questions</h2></div>
+    <div class="faqwrap">
+      {faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}
+    </div>
+  </div></section>
+
+  <!-- CTA BAND (single CTA) -->
+  <section class="ctaband"><div class="container">
+    <h2>You can start today</h2>
+    <p>One phone call is all it takes to find out what's possible. Our admissions line is open 24/7 — confidential, judgment-free, and answered by people who care.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
+  </div></section>
+</Layout>

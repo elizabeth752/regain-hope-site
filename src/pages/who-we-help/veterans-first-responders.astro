@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Reviews from '../../components/Reviews.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import ImageFeature from '../../components/ImageFeature.astro';
+import ScenarioHighlight from '../../components/ScenarioHighlight.astro';
+import InsuranceBanner from '../../components/InsuranceBanner.astro';
+
+const faqs = [
+  { q: 'Do you treat veterans and first responders?', a: 'Yes — we welcome veterans, active service members, firefighters, police, EMS, and their families.' },
+  { q: 'Do you accept TRICARE?', a: 'We work with TRICARE benefits and verify them for free, alongside most commercial PPO plans.' },
+  { q: 'Do you treat PTSD and trauma along with addiction?', a: 'Yes — trauma and PTSD are treated alongside substance use through our dual-diagnosis care.' },
+  { q: 'Is the setting private?', a: 'Yes — a small, physician-owned residence, not a large facility.' },
+  { q: 'What if I have a PPO instead of TRICARE?', a: 'Most PPO plans are accepted; we verify out-of-network benefits for free.' },
+  { q: 'Where are you located?', a: 'In Burbank, serving the greater Los Angeles area.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'Detox & Rehab for Veterans and First Responders', reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
+
+const serves = [
+  ['stethoscope', 'Whole-person, physician-led treatment', 'Two doctors on-site daily treat the addiction and coordinate the medical and mental-health picture.'],
+  ['home', 'A small, family-run home', 'No institutional feel — a close-knit team and a private setting where you are known by name.'],
+  ['check', 'TRICARE & PPO benefits verified', 'We work with TRICARE and most commercial PPO plans, and verify your benefits for free.'],
+  ['shieldalert', 'Dual-diagnosis care for trauma', 'PTSD and service-related trauma are treated alongside substance use.'],
+];
+const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
+---
+<Layout
+  title="Rehab for Veterans & First Responders | Regain Hope Detox and Recovery Center"
+  description="Detox and rehab for veterans and first responders in the Los Angeles area. Physician-owned, trauma-aware, TRICARE benefits verified. Private home setting. Call 24/7."
+  schema={[pageSchema, faqSchema]}
+>
+  <Hero
+    variant="form"
+    eyebrow="For Veterans & First Responders · Los Angeles · 24/7"
+    title="Detox & Rehab for Veterans and First Responders"
+    byline="Mileidys Gomez Gonzalez, MD"
+    chips={['TRICARE & PPO benefits verified', 'Trauma-aware, whole-person care', 'Owned & run by two physicians', 'Private & respectful']}
+  />
+
+  <div class="trust"><div class="container">
+    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span><span>Joint Commission Accredited</span><span class="sep">|</span><span>California DHCS Licensed</span><span class="sep">|</span><span>LegitScript Certified</span><span class="sep">|</span><span>Physician-owned</span>
+  </div></div>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>When the job leaves a mark</h2>
+    <p>Veterans, active service members, firefighters, police officers, and EMS personnel spend their careers running toward what others run from. That kind of service can leave a mark — trauma, chronic stress, sleeplessness, loss — and far too often, alcohol or prescription medication becomes the way to cope with what can't easily be put into words.</p>
+    <p>Asking for help can feel like the opposite of everything the job taught you. But getting treatment isn't weakness — it's the same courage you've always shown, pointed in a new direction.</p>
+    <p>It's also a decision that protects more than you. The people who rely on you — at home, at the station, in your unit — need you whole, not running on fumes and self-medication. Getting help isn't stepping away from the mission; it's making sure you can keep showing up for it, for years to come.</p>
+  </div></section>
+
+  <ImageFeature
+    bg="cream"
+    image="/images/stock/holistic-care.webp"
+    alt="A person finding relief and strength in recovery"
+    side="left"
+    eyebrow="Treated together, not in pieces"
+    title="Addiction and trauma have to be treated together"
+    body="For those who've served, substance use rarely stands alone — it's usually entangled with trauma, PTSD symptoms, depression, or grief. Treating the addiction without what's driving it tends to lead right back to relapse."
+    points={[['shieldalert', 'PTSD & service-related trauma'], ['stethoscope', 'Whole-person medical care'], ['heart', 'Respect for your service']]}
+  />
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Why trauma-aware care matters</h2>
+    <p>Integrated, whole-person care — addressing mind and body together — gives veterans and first responders a real shot at lasting recovery rather than a temporary reset. When the trauma underneath the substance use is finally treated, the cycle of using to cope starts to break, and recovery can actually hold.</p>
+    <p>We're honest about what we are: a welcoming, trauma-aware program — not a VA-contracted facility or a formal first-responder track. What we offer is physician-led care that takes your service and its weight seriously, in a setting built for dignity and privacy.</p>
+    <p>It matters, too, because the instinct that served you on the job — push through, don't complain, handle it yourself — is often the very thing that keeps recovery out of reach. In a small program where the same two physicians see you every day, there's room to set that instinct down safely, without losing the respect you've earned. You're not a case to be processed; you're someone whose service is understood, and whose recovery is taken as seriously as you once took everyone else's safety.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container">
+    <div class="sec-head"><span class="eyebrow">The difference</span><h2>Care that respects your service</h2></div>
+    <div class="grid2" style="max-width:920px;margin:0 auto;">
+      {serves.map(([ico, t, d]) => (
+        <div class="pcard"><div class="ico"><Icon name={ico} /></div><h3>{t}</h3><p>{d}</p></div>
+      ))}
+    </div>
+  </div></section>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Complete care, built around recovery</h2>
+    <p><a href="/programs/medical-detox/">Medical detox</a>, <a href="/programs/residential-treatment/">residential treatment</a>, <a href="/programs/dual-diagnosis-treatment/">dual-diagnosis care</a> for trauma, and <a href="/programs/medication-assisted-treatment/">MAT</a> — in a private home with home-cooked meals and a calm setting where you can finally exhale. We verify your <a href="/insurance/">TRICARE or PPO</a> benefits for free and walk you through every step.</p>
+    <p>The setting matters as much as the clinical care. Instead of a crowded institution, you recover in a quiet home with home-cooked meals, private spaces, and a team small enough to know your story. For people used to being the ones holding the line, that calm — and the permission to finally exhale — is often where the real work begins.</p>
+  </div></section>
+
+  <ScenarioHighlight
+    bg="cream"
+    eyebrow="You showed up for others"
+    title="Let us show up for you"
+    intro="You've spent a career carrying weight for other people. Here, in a small home led by physicians who genuinely care, you get to set it down for a while and do the work of getting well."
+    badTitle="What too often happens"
+    bad={['Trauma left untreated under the addiction', 'Asking for help feels like weakness', "A facility that doesn't get the job"]}
+    good={['Trauma & PTSD treated with the addiction', 'The same courage, pointed in a new direction', 'A respectful, private, physician-led home']}
+    momentLabel="When it matters"
+    scenarios={[
+      ['shieldalert', 'The trauma under it all', 'PTSD and service-related trauma are treated alongside substance use.'],
+      ['stethoscope', 'A body running on empty', 'Physicians coordinate the full medical picture, not just the addiction.'],
+      ['heart', 'Setting the weight down', "A small home where you're known by name and treated with respect."],
+    ]}
+  />
+
+  <Reviews bg="white" />
+
+  <InsuranceBanner />
+
+  <section><div class="container">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Veterans & first responders — FAQs</h2></div>
+    <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+  </div></section>
+
+  <section class="ctaband"><div class="container">
+    <h2>Getting help is the same courage you've always shown</h2>
+    <p>One confidential call, 24/7 — we'll verify your TRICARE or PPO benefits and walk you through every step.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
+  </div></section>
+</Layout>

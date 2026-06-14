@@ -1,0 +1,142 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Reviews from '../../components/Reviews.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import ImageFeature from '../../components/ImageFeature.astro';
+import HomeNotClinic from '../../components/HomeNotClinic.astro';
+import InsuranceBanner from '../../components/InsuranceBanner.astro';
+
+const faqs = [
+  { q: 'I got addicted to a medication my doctor prescribed — is that common?', a: "Very — many people's dependence begins with a legitimate prescription. There's no shame in it, and treatment works." },
+  { q: 'Is it dangerous to stop prescription drugs on my own?', a: 'It can be — especially with opioids or benzodiazepines (seizure risk). A physician-led detox is the safest path.' },
+  { q: 'Which prescription drugs do you treat?', a: 'Opioid painkillers, benzodiazepines/sedatives, and prescription stimulants.' },
+  { q: 'Will you treat the pain or anxiety I was prescribed it for?', a: 'Yes — through dual-diagnosis and whole-person care, with safer long-term strategies.' },
+  { q: 'Is MAT used?', a: 'Where appropriate — for example, naltrexone/Vivitrol for opioid-class dependence.' },
+  { q: 'Does insurance cover it?', a: 'Most PPO plans do. As an out-of-network provider, we verify your benefits for free.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'Prescription Drug Detox & Treatment in Los Angeles', about: { '@type': 'MedicalCondition', name: 'Prescription Drug Use Disorder' }, reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
+
+const continuum = [
+  ['detox', 'Medical Detox', 'Tailored to your specific medication(s), 24/7.', '/programs/medical-detox/'],
+  ['home', 'Residential Treatment', 'Therapy and skills in a home-like setting.', '/programs/residential-treatment/'],
+  ['mat', 'Medication-Assisted Treatment', 'Where appropriate (e.g., naltrexone/Vivitrol for opioid-class).', '/programs/medication-assisted-treatment/'],
+  ['dual', 'Dual-Diagnosis Care', 'Treating the pain, anxiety, or attention condition underneath.', '/programs/dual-diagnosis-treatment/'],
+  ['heart', 'Continuing Care', 'Relapse prevention + personal follow-up.', '/programs/continuing-care/'],
+];
+const NIDA = 'https://nida.nih.gov/research-topics/prescription-drugs';
+const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
+---
+<Layout
+  title="Prescription Drug Detox in Los Angeles | Regain Hope Detox and Recovery Center"
+  description="Physician-led detox and treatment for prescription drug dependence — painkillers, sedatives, and stimulants — in the Los Angeles area. Judgment-free care. PPO accepted. Call 24/7."
+  schema={[pageSchema, faqSchema]}
+>
+  <Hero
+    variant="form"
+    eyebrow="What We Treat · Serving Los Angeles · 24/7"
+    title="Prescription Drug Detox & Treatment in the Los Angeles Area"
+    byline="Mileidys Gomez Gonzalez, MD"
+    chips={['Physician-led, judgment-free detox', 'Care tailored to your medication', 'Owned & run by two physicians', 'Care in English, Spanish & Korean']}
+  />
+
+  <div class="trust"><div class="container">
+    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span><span>Joint Commission Accredited</span><span class="sep">|</span><span>California DHCS Licensed</span><span class="sep">|</span><span>LegitScript Certified</span><span class="sep">|</span><span>Two physicians on-site daily</span>
+  </div></div>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>What is prescription drug addiction?</h2>
+    <p><b>Prescription drug misuse means taking a medication in a way not intended by a prescriber</b> — taking more than directed, taking someone else's, or taking it for the feeling it produces (NIDA). It can progress to dependence and addiction even when use started with a legitimate prescription. The three most-misused classes are:</p>
+    <ul>
+      <li><b>Opioid painkillers</b> (oxycodone, hydrocodone, etc.) — see <a href="/what-we-treat/opioids/">opioids</a></li>
+      <li><b>Benzodiazepines &amp; sedatives</b> (Xanax, Valium, Ambien) — see <a href="/what-we-treat/benzodiazepines/">benzodiazepines</a></li>
+      <li><b>Stimulants</b> (Adderall, Ritalin) — see <a href="/what-we-treat/stimulants/">stimulants</a></li>
+    </ul>
+    <p>What makes prescription dependence so common is how quietly it begins: a legitimate prescription for pain after surgery, anxiety during a hard season, or focus at school — taken exactly as directed, until the body adapts and stopping feels impossible. It can affect anyone, at any age, regardless of background.</p>
+    <p>Recognizing it isn't an admission of failure; it's the first step toward getting your life back. Because the medication was likely treating something real, lasting recovery means more than just stopping the drug — it means finding safer, effective ways to manage the pain, anxiety, or attention condition underneath it. That's the heart of how we approach prescription dependence.</p>
+  </div></section>
+
+  <ImageFeature
+    bg="cream"
+    image="/images/stock/admissions-assessment.webp"
+    alt="A physician discussing a tailored care plan with a client"
+    side="left"
+    eyebrow="No shame in how it started"
+    title="Care tailored to your medication"
+    body="Dependence that began with a prescription is incredibly common. Our physicians tailor your detox to exactly what you've been taking — safely, and without judgment."
+    points={[['clipboard', 'Physician-led assessment'], ['stethoscope', 'A plan for your specific drug'], ['heart', 'Judgment-free care']]}
+  />
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Signs of prescription drug dependence</h2>
+    <p>Common signs include:</p>
+    <ul>
+      <li>Taking more than prescribed or running out early</li>
+      <li>"Doctor shopping" or seeking multiple prescriptions</li>
+      <li>Using a medication for its feeling rather than its purpose</li>
+      <li>Needing more for the same effect</li>
+      <li>Withdrawal between doses</li>
+      <li>Failed attempts to stop, despite harm to health, work, or relationships</li>
+    </ul>
+  </div></section>
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>Why medical detox matters — and depends on the drug</h2>
+    <p>The risk of withdrawal depends on the class of medication:</p>
+    <ul>
+      <li><b>Opioids:</b> intensely uncomfortable, with high relapse/overdose risk — medical detox strongly advised.</li>
+      <li><b>Benzodiazepines/sedatives:</b> withdrawal can be <b>life-threatening (seizures)</b> — never stop cold turkey; a medical taper is essential.</li>
+      <li><b>Stimulants:</b> withdrawal is mainly psychological (crash, depression) but can carry suicidal-thinking risk.</li>
+    </ul>
+    <p>Because the right approach differs so much, a <b>physician-led assessment</b> is the safest first step. At Regain Hope Detox and Recovery Center, our doctors tailor your <a href="/programs/medical-detox/">detox</a> to exactly what you've been taking.</p>
+  </div></section>
+
+  <ImageFeature
+    bg="white"
+    image="/images/stock/support.webp"
+    alt="A person at peace, supported in recovery"
+    side="right"
+    eyebrow="Treating the whole picture"
+    title="Better tools than the medication"
+    body="Because the medication was likely treating something real, lasting recovery means finding safer ways to manage the pain, anxiety, or focus underneath it."
+    points={[['brain', 'Dual-diagnosis & whole-person care'], ['chat', 'Therapy & safer strategies'], ['cycle', 'Relapse-prevention planning']]}
+  />
+
+  <section class="bg-cream"><div class="container">
+    <div class="sec-head"><span class="eyebrow">Our approach</span><h2>How we treat prescription drug dependence</h2></div>
+    <div class="grid3">
+      {continuum.map(([ico, t, d, href]) => (
+        <a class="pcard" href={href} style="text-decoration:none;display:block;"><div class="ico"><Icon name={ico} /></div><h3>{t}</h3><p>{d}</p><span class="more">Learn more →</span></a>
+      ))}
+    </div>
+  </div></section>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>When to seek help</h2>
+    <p>If you're taking a prescription medication in a way you know you shouldn't — or you can't stop, or you feel awful when you try — that's worth a conversation, no matter how it started. Dependence that began with a doctor's prescription is incredibly common and nothing to be ashamed of. Getting help early is safer and easier.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>Prescription drugs and co-occurring conditions</h2>
+    <p>Prescription dependence usually sits on top of the condition the medication was meant to treat — <b>chronic pain, anxiety, insomnia, or ADHD.</b> Lasting recovery means addressing both: safely stopping the medication <i>and</i> finding effective, safer ways to manage the underlying issue. That's the heart of our <a href="/programs/dual-diagnosis-treatment/">dual-diagnosis and whole-person care</a>. For chronic pain, that can mean non-opioid pain strategies and physical therapy; for anxiety or insomnia, evidence-based therapy and safer medications; for ADHD, a carefully reconsidered treatment plan. The goal is never to leave you white-knuckling the very problem that led to the prescription — but to give you better, more sustainable tools than the medication you became dependent on.</p>
+  </div></section>
+
+  <HomeNotClinic bg="white" />
+
+  <Reviews bg="cream" />
+
+  <InsuranceBanner />
+
+  <section><div class="container">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Prescription drug treatment — frequently asked questions</h2></div>
+    <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+    <p style="text-align:center;margin-top:26px;color:var(--muted);font-size:13px;">Clinical information on this page is informed by the <a href={NIDA} target="_blank" rel="noopener">National Institute on Drug Abuse (NIDA)</a>.</p>
+  </div></section>
+
+  <section class="ctaband"><div class="container">
+    <h2>Stop safely — and treat the whole picture</h2>
+    <p>However your dependence started, there's a safe way out. One confidential call, answered 24/7, is the first step.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
+  </div></section>
+</Layout>

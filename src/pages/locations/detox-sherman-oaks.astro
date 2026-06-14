@@ -1,0 +1,136 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import ImageFeature from '../../components/ImageFeature.astro';
+import InsuranceBanner from '../../components/InsuranceBanner.astro';
+import Reviews from '../../components/Reviews.astro';
+
+const faqs = [
+  {
+    "q": "Is there a medical detox center near Sherman Oaks?",
+    "a": "Yes — minutes away across the Valley in Burbank."
+  },
+  {
+    "q": "How far is it from Sherman Oaks?",
+    "a": "About 15 to 20 minutes east."
+  },
+  {
+    "q": "Why leave Sherman Oaks for detox instead of staying home?",
+    "a": "Detoxing among your usual triggers is risky and relapse-prone; a short move to a supervised, home-like setting improves both safety and focus."
+  },
+  {
+    "q": "Is treatment discreet?",
+    "a": "Yes — a small, private, family-run residence, not an institutional facility."
+  },
+  {
+    "q": "Can I stay reachable for work?",
+    "a": "Yes — a flexible technology policy supports working professionals."
+  },
+  {
+    "q": "Can my family in Sherman Oaks stay involved?",
+    "a": "Yes — the close location keeps family connected, and family therapy is available on request."
+  },
+  {
+    "q": "Does it accept PPO insurance?",
+    "a": "Most PPO plans, as an out-of-network provider; benefits verified free."
+  },
+  {
+    "q": "What substances can be detoxed from?",
+    "a": "Alcohol, opioids and fentanyl, benzodiazepines, stimulants, prescription drugs, and polysubstance use."
+  },
+  {
+    "q": "Is detox done with 24/7 medical supervision?",
+    "a": "Yes — two physicians provide in-person care daily, with around-the-clock monitoring."
+  },
+  {
+    "q": "Is care available in Spanish or Korean?",
+    "a": "Yes — care is provided in English, Spanish, and Korean."
+  }
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalClinic', name: 'Regain Hope Detox and Recovery Center', address: { '@type': 'PostalAddress', streetAddress: '1134 N Lima St', addressLocality: 'Burbank', addressRegion: 'CA', postalCode: '91505', addressCountry: 'US' }, telephone: '+1-818-281-2458', geo: { '@type': 'GeoCoordinates', latitude: 34.1719189, longitude: -118.3451238 }, areaServed: 'Sherman Oaks, CA', reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
+const why = [["stethoscope","Two physicians, on-site daily","The owners are the doctors — and they care for you in person, every day."],["heart","Whole-person medical care","Our lead physician (internal and family medicine) watches your full health through withdrawal."],["home","A private, family-run home","\"Feels like home, not a clinic\" is the recurring theme in our 5.0-star reviews."],["mat","MAT to protect sobriety","Relapse-prevention medication like long-acting Vivitrol, started before discharge."],["globe","Bilingual, culturally-aware care","English, Spanish, and Korean, with a team that respects where you come from."]];
+const continuum = [["detox","Medical Detox","24/7 physician-supervised withdrawal management.","/programs/medical-detox/"],["home","Residential Treatment","Live-in care after detox, in a real home.","/programs/residential-treatment/"],["dual","Dual Diagnosis","Integrated care for co-occurring anxiety, depression, or trauma.","/programs/dual-diagnosis-treatment/"],["mat","Medication-Assisted Treatment","Physician-prescribed medication to ease withdrawal and prevent relapse.","/programs/medication-assisted-treatment/"],["heart","Continuing Care","Trusted local referrals plus personal physician follow-up.","/programs/continuing-care/"]];
+---
+<Layout title="Medical Detox near Sherman Oaks, CA | Regain Hope Detox and Recovery Center" description="Physician-supervised medical detox for Sherman Oaks, CA residents — minutes away in Burbank. Two doctors on-site daily, MAT, private home setting. Discreet, PPO accepted. Call 24/7." schema={[pageSchema, faqSchema]}>
+  <Hero variant="form" eyebrow="For Sherman Oaks, CA · ~15–20 Min Away in Burbank · 24/7" title="Medical Detox for Sherman Oaks, CA Residents" byline="Mileidys Gomez Gonzalez, MD" chips={["~15–20 min from Sherman Oaks","Owned & run by two physicians","Discreet & private","PPO accepted"]} />
+
+  <div class="trust"><div class="container">
+    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span><span>Joint Commission Accredited</span><span class="sep">|</span><span>California DHCS Licensed</span><span class="sep">|</span><span>LegitScript Certified</span><span class="sep">|</span><span>Two physicians on-site daily</span>
+  </div></div>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Trusted medical detox near Sherman Oaks, California</h2>
+    <p>Sherman Oaks sits at the heart of the San Fernando Valley — a community defined by the buzz of Ventura Boulevard, the Sherman Oaks Galleria and Westfield Fashion Square, leafy hillside streets climbing toward Mulholland, and a large share of families and professionals tied to the entertainment industry. It's a comfortable, fast-moving place to live, and that pace can quietly mask a growing dependence on alcohol, prescription medications, or stimulants until it can't be ignored.</p>
+    <p>For Sherman Oaks residents ready for help, <b>physician-led medical detox is only minutes away.</b> Regain Hope Detox and Recovery Center is located just across the Valley in Burbank — roughly 15 to 20 minutes from Sherman Oaks — offering 24/7 doctor-supervised detox in a private, home-like setting rather than a clinical ward. You stay close to family, your kids' schools, and your work, while stepping just far enough from the bars, routines, and stress that keep the cycle going. For high-functioning professionals especially, that proximity-plus-privacy is what makes getting help feel possible.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>Why leaving the Sherman Oaks bubble — just barely — works</h2>
+    <p>The hardest place to get sober is the exact environment where addiction took root: the same Ventura Boulevard happy hours, the same friend group, the same pressures of an industry that runs on long hours and late nights. Detoxing at home rarely sticks, because nothing around you has changed. But leaving town entirely can feel impossible when you have a family, a job, and a life here.</p>
+    <p>Burbank solves both problems for Sherman Oaks residents. It's close enough that loved ones can visit and your transition back to local outpatient care is seamless — but far enough that you're out of your triggers during the most fragile days of withdrawal. And because Regain Hope is small and physician-owned, the discretion and personalized attention that matter to Sherman Oaks professionals are built in, not bolted on.</p>
+  </div></section>
+
+  <section><div class="container">
+    <div class="sec-head"><span class="eyebrow">Why choose Regain Hope</span><h2>Why Sherman Oaks residents choose us</h2></div>
+    <div class="grid3">
+      {why.map(([ico, t, d]) => (<div class="pcard"><div class="ico"><Icon name={ico} /></div><h3>{t}</h3><p>{d}</p></div>))}
+    </div>
+  </div></section>
+
+  <ImageFeature bg="cream" image="/images/stock/wellness-lifestyle.webp" alt="A calm reset in recovery near Sherman Oaks" side="right" eyebrow="Close to home, a real reset" title="Far enough to heal, close enough to stay connected" body="A quiet Burbank neighborhood with a private garden and water-feature courtyard — minutes across the Valley from Sherman Oaks, so family stays close while you focus on getting well. Out-of-state family? We help arrange travel." points={[['pin', 'A short, familiar drive from Sherman Oaks'], ['heart', 'Family stays close'], ['home', 'A private, home-like setting']]} />
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>What medical detox involves</h2>
+    <p>Medical detox safely clears alcohol or drugs from your body under 24/7 medical supervision while a care team manages withdrawal. Because alcohol, benzodiazepine, and opioid withdrawal can be dangerous — and for some substances life-threatening — supervised detox is far safer than quitting alone.</p>
+    <p>At Regain Hope Detox and Recovery Center, your detox is overseen <b>in person, every day</b> by the two physicians who own the program — not a remote doctor checking in by phone. The process generally runs <b>5–10 days</b> depending on the substance and your health, and flows directly into <a href="/programs/residential-treatment/">residential treatment</a> so progress doesn't stall.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container">
+    <div class="sec-head"><span class="eyebrow">The continuum</span><h2>Detox and treatment available to Sherman Oaks residents</h2></div>
+    <div class="grid3">
+      {continuum.map(([ico, t, d, href]) => (<a class="pcard" href={href} style="text-decoration:none;display:block;"><div class="ico"><Icon name={ico} /></div><h3>{t}</h3><p>{d}</p><span class="more">Learn more →</span></a>))}
+    </div>
+  </div></section>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Addictions we treat for Sherman Oaks clients</h2>
+    <p>We provide detox and treatment for alcohol, opioids and fentanyl, benzodiazepines, stimulants (meth and cocaine), prescription drugs, and polysubstance use — plus co-occurring anxiety, depression, and trauma through integrated <a href="/programs/dual-diagnosis-treatment/">dual-diagnosis care</a>. See everything we treat on our <a href="/what-we-treat/">What We Treat</a> page.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container"><div class="loc">
+    <div>
+      <span class="eyebrow">Directions</span>
+      <h2>How to reach us from Sherman Oaks, CA</h2>
+      <p>Regain Hope Detox and Recovery Center is at <b>1134 N Lima St, Burbank, CA 91505</b> — about <b>15 to 20 minutes from Sherman Oaks</b>, an easy drive east across the Valley via the 134 or the Ventura/Riverside corridor. From the Galleria or Ventura Boulevard, you're at our door faster than the typical 405 crawl. We're near Hollywood Burbank Airport for out-of-town family, and we can help arrange transportation to start treatment.</p>
+      <p style="margin-top:14px;"><a href="/admissions/verify-insurance/" class="btn btn-outline">Verify Your Insurance →</a></p>
+    </div>
+    <div class="locmap"><iframe src="https://www.google.com/maps?q=1134%20N%20Lima%20St%2C%20Burbank%2C%20CA%2091505&output=embed" loading="lazy" title="Driving map from Sherman Oaks to Regain Hope Detox and Recovery Center"></iframe></div>
+  </div></div></section>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Addiction in the Sherman Oaks area — you're not alone</h2>
+    <p>Behind Sherman Oaks' comfortable, fast-moving lifestyle, substance use often hides in plain sight — a function of long hours, an industry built on socializing, and the quiet stress of keeping up. Across Los Angeles County, tens of thousands of people enter substance-use treatment every year, and Valley communities like Sherman Oaks are no exception. Reaching out isn't failure; it's the decision that changes everything. Because Regain Hope is just minutes east in Burbank, Sherman Oaks families can support a loved one through detox without long drives or long separations — and many clients continue with our physicians as outpatients after stepping down, keeping care close to home.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>Fresh air and recovery near Sherman Oaks</h2>
+    <p>Recovery at Regain Hope moves outdoors, and the Sherman Oaks area's hillsides fit that naturally. The trails of Fryman Canyon and Coldwater Canyon Park, the green of nearby Lake Balboa, and the paths climbing toward Mulholland are the kinds of settings that inspire the walks, fresh air, and movement we build into early recovery. Paired with our private garden and water-feature courtyard in Burbank, it means clients from Sherman Oaks heal in a calm, restorative environment — close to the outdoors they already know.</p>
+  </div></section>
+
+  <Reviews bg="white" />
+
+  <InsuranceBanner />
+
+  <section><div class="container">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Detox near Sherman Oaks, CA — frequently asked questions</h2></div>
+    <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+  </div></section>
+
+  <section class="ctaband"><div class="container">
+    <h2>Help is a short drive from Sherman Oaks</h2>
+    <p>One confidential call is all it takes. Our admissions line is open 24/7.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
+  </div></section>
+</Layout>

@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { posts, getAuthor } from '../../data/blog.js';
+const featured = posts[0];
+const fa = getAuthor(featured.author);
+const pageSchema = { '@context': 'https://schema.org', '@type': 'Blog', name: 'Regain Hope Detox and Recovery Center Blog', publisher: { '@type': 'Organization', name: 'Regain Hope Detox and Recovery Center' } };
+---
+<Layout
+  title="Blog: Recovery, Explained | Regain Hope Detox and Recovery Center"
+  description="Clear, physician-written guidance on detox, addiction, and recovery — from the two doctors who own Regain Hope Detox and Recovery Center in Burbank, CA."
+  schema={pageSchema}
+>
+  <section class="minihero"><div class="container">
+    <span class="eyebrow">The Regain Hope Blog</span>
+    <h1>Recovery, explained</h1>
+    <p>Clear, honest answers about detox, addiction, and recovery — written by the physicians who care for our clients every day.</p>
+  </div></section>
+
+  <section><div class="container">
+    <a class="bp-featured" href={`/blog/${featured.slug}/`} style="text-decoration:none;">
+      <img class="ph" src={featured.image} alt={featured.title} loading="lazy" />
+      <div class="bd">
+        <div class="postcard" style="border:0;box-shadow:none;padding:0;background:none;"><div class="cat">Featured · {featured.category}</div></div>
+        <h2>{featured.title}</h2>
+        <p>{featured.excerpt}</p>
+        <div class="pmeta" style="display:flex;align-items:center;gap:9px;"><img src={fa.photo} alt={fa.name} style="width:34px;height:34px;border-radius:50%;object-fit:cover;object-position:top;" /><div><div class="a" style="font-weight:600;font-size:13.5px;">{fa.name}</div><div class="d" style="font-size:12px;color:var(--muted);">{featured.date}</div></div></div>
+      </div>
+    </a>
+  </div></section>
+
+  <section class="bg-cream"><div class="container">
+    <div class="sec-head" style="margin-bottom:34px;"><span class="eyebrow">All articles</span><h2>Latest from our physicians</h2></div>
+    <div class="postgrid">
+      {posts.map((p) => { const a = getAuthor(p.author); return (
+        <a class="postcard" href={`/blog/${p.slug}/`}>
+          <img class="ph" src={p.image} alt={p.title} loading="lazy" />
+          <div class="bd">
+            <div class="cat">{p.category}</div>
+            <h3>{p.title}</h3>
+            <div class="pmeta"><img src={a.photo} alt={a.name} /><div><div class="a">{a.name}</div><div class="d">{p.date}</div></div></div>
+          </div>
+        </a>
+      ); })}
+    </div>
+  </div></section>
+
+  <section class="ctaband"><div class="container">
+    <h2>Reading is a good first step. Talking is the next.</h2>
+    <p>Whatever you're facing, our admissions line is open 24/7 — confidential and judgment-free.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
+  </div></section>
+</Layout>

@@ -1,0 +1,36 @@
+---
+import Divider from './Divider.astro';
+import Icon from './Icon.astro';
+// Second flagship highlight (same vs + scenario format as PhysicianLed).
+// Milks the #1 review theme: a small family-run home, not an institution.
+export interface Props { bg?: 'white' | 'cream'; }
+const { bg = 'white' } = Astro.props;
+const scenarios = [
+  ['home', 'Your first night', 'You arrive to a real bedroom and a home-cooked meal — not an intake desk under fluorescent lights.'],
+  ['meal', 'Around the dinner table', 'Meals are cooked fresh in the house and shared together, not trays on a schedule.'],
+  ['heart', 'Weeks in', 'The team knows your name and your story — because the program is small by design.'],
+];
+---
+<section class={bg === 'cream' ? 'bg-cream' : ''}><div class="container">
+  <Divider />
+  <div class="sec-head" style="margin-top:22px;">
+    <span class="eyebrow">A small, family-run home</span>
+    <h2>A home, not a clinic</h2>
+    <p>Most programs are 100-bed facilities with institutional halls and a rotating staff. Regain Hope Detox and Recovery Center is a real residential home, run by the family who owns it — which is exactly why our reviews so often say it <b>"feels like home, not a clinic."</b></p>
+  </div>
+  <div class="vs">
+    <div class="vs-col vs-bad">
+      <h4>A big treatment center</h4>
+      <ul><li>Institutional wards and long hallways</li><li>A rotating staff you won't remember</li><li>You're a number on a chart</li></ul>
+    </div>
+    <div class="vs-col vs-good">
+      <h4>Regain Hope Detox and Recovery Center</h4>
+      <ul><li>A real home with private, comfortable spaces</li><li>The same small team, every single day</li><li>Known by name and treated like family</li></ul>
+    </div>
+  </div>
+  <div class="grid3 scenarios">
+    {scenarios.map(([ico, moment, text]) => (
+      <div class="scn"><div class="ico"><Icon name={ico} /></div><div class="moment">What it feels like</div><h3>{moment}</h3><p>{text}</p></div>
+    ))}
+  </div>
+</div></section>

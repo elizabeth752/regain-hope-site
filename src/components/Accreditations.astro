@@ -1,0 +1,22 @@
+---
+import Divider from './Divider.astro';
+// Accreditation / certification logo band. Pairs a sunrise divider with real proof logos.
+// Use anywhere a divider belongs (homepage, detail pages) to reinforce E-E-A-T.
+export interface Props { bg?: 'white' | 'cream'; divider?: boolean; }
+const { bg = 'white', divider = true } = Astro.props;
+const logos: [string, string][] = [
+  ['joint-commission.png', 'Joint Commission Accredited'],
+  ['legitscript.png', 'LegitScript Certified'],
+  ['dhcs.png', 'Licensed by California DHCS'],
+  ['samhsa.svg', 'SAMHSA'],
+  ['psychology-today.png', 'Verified by Psychology Today'],
+  ['bbb.png', 'BBB A+ Accredited'],
+];
+---
+<section class={bg === 'cream' ? 'bg-cream' : ''}><div class="container accred">
+  {divider && <Divider />}
+  <p class="lbl" style={divider ? 'margin-top:22px;' : ''}>Accredited &amp; Certified</p>
+  <div class="accred-row">
+    {logos.map(([f, alt]) => <img src={`/images/logos/${f}`} alt={alt} loading="lazy" />)}
+  </div>
+</div></section>

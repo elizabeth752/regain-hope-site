@@ -1,0 +1,57 @@
+---
+// Sitewide footer — accreditation bar + 4 columns + non-negotiable crisis line (988)
+const accreditations: [string, string][] = [
+  ['joint-commission.png', 'Joint Commission Accredited'],
+  ['legitscript.png', 'LegitScript Certified'],
+  ['dhcs.png', 'Licensed by California DHCS'],
+  ['samhsa.svg', 'SAMHSA'],
+  ['psychology-today.png', 'Verified by Psychology Today'],
+  ['bbb.png', 'BBB A+ Accredited'],
+];
+---
+<div class="facc"><div class="container">
+  {accreditations.map(([f, alt]) => <img src={`/images/logos/${f}`} alt={alt} loading="lazy" />)}
+</div></div>
+<footer><div class="container">
+  <div class="fgrid">
+    <div>
+      <div class="fbrand">Regain Hope Detox and Recovery Center</div>
+      <p>Physician-owned medical detox &amp; residential treatment in Burbank, CA.</p>
+      <div class="crisis">In crisis? Call or text <b>988</b> (Suicide &amp; Crisis Lifeline) or <b>911</b>. Available 24/7.</div>
+    </div>
+    <div>
+      <h4>Programs</h4>
+      <a href="/programs/medical-detox/">Medical Detox</a>
+      <a href="/programs/residential-treatment/">Residential</a>
+      <a href="/programs/dual-diagnosis-treatment/">Dual Diagnosis</a>
+      <a href="/programs/medication-assisted-treatment/">MAT</a>
+      <a href="/programs/continuing-care/">Continuing Care</a>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="/what-we-treat/">What We Treat</a>
+      <a href="/who-we-help/">Who We Help</a>
+      <a href="/insurance/">Insurance</a>
+      <a href="/locations/">Locations</a>
+      <a href="/about-us/">About</a>
+      <a href="/admissions/">Admissions</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <div>
+      <h4>Get Help Now</h4>
+      <a href="tel:+18182812458">📞 (818) 281-2458 — 24/7</a>
+      <a href="/admissions/verify-insurance/">Verify Insurance</a>
+      <a href="/contact/">Contact</a>
+      <a href="/crisis-resources/">Crisis Resources</a>
+      <p style="margin-top:12px;font-size:13px;">1134 N Lima St,<br />Burbank, CA 91505</p>
+    </div>
+  </div>
+  <div class="fbot">
+    <span>© {new Date().getFullYear()} Regain Hope Detox and Recovery Center, Inc. All rights reserved.</span>
+    <span>
+      <a href="/privacy/" style="display:inline;">Privacy</a> ·
+      <a href="/terms-of-use/" style="display:inline;">Terms</a> ·
+      <a href="/your-privacy-choices/" style="display:inline;">Your Privacy Choices</a>
+    </span>
+  </div>
+</div></footer>

@@ -1,0 +1,136 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import ImageFeature from '../../components/ImageFeature.astro';
+import InsuranceBanner from '../../components/InsuranceBanner.astro';
+import Reviews from '../../components/Reviews.astro';
+
+const faqs = [
+  {
+    "q": "Is there a medical detox center near Studio City?",
+    "a": "Yes — minutes away over the hill in Burbank."
+  },
+  {
+    "q": "How far is it from Studio City?",
+    "a": "About 10 to 15 minutes."
+  },
+  {
+    "q": "Why leave Studio City for detox instead of staying home?",
+    "a": "Detoxing among your usual triggers is risky and relapse-prone; a short move to a supervised, home-like setting improves safety and focus."
+  },
+  {
+    "q": "Is treatment private and discreet?",
+    "a": "Yes — a small, family-run residence, not an institutional facility."
+  },
+  {
+    "q": "Can I stay reachable for work?",
+    "a": "Yes — a flexible technology policy supports industry professionals."
+  },
+  {
+    "q": "Can my family stay involved?",
+    "a": "Yes — the close location keeps family connected, and family therapy is available on request."
+  },
+  {
+    "q": "Does it accept PPO insurance?",
+    "a": "Most PPO plans, as an out-of-network provider; benefits verified free."
+  },
+  {
+    "q": "What substances can be detoxed from?",
+    "a": "Alcohol, opioids and fentanyl, benzodiazepines, stimulants, prescription drugs, and polysubstance use."
+  },
+  {
+    "q": "Is detox done with 24/7 medical supervision?",
+    "a": "Yes — two physicians provide in-person care daily, with around-the-clock monitoring."
+  },
+  {
+    "q": "Is care available in Spanish or Korean?",
+    "a": "Yes — care is provided in English, Spanish, and Korean."
+  }
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalClinic', name: 'Regain Hope Detox and Recovery Center', address: { '@type': 'PostalAddress', streetAddress: '1134 N Lima St', addressLocality: 'Burbank', addressRegion: 'CA', postalCode: '91505', addressCountry: 'US' }, telephone: '+1-818-281-2458', geo: { '@type': 'GeoCoordinates', latitude: 34.1719189, longitude: -118.3451238 }, areaServed: 'Studio City, CA', reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
+const why = [["stethoscope","Two physicians, on-site daily","The owners are the doctors — and they care for you in person, every day."],["heart","Whole-person medical care","Our lead physician (internal and family medicine) watches your full health through withdrawal."],["home","A private, family-run home","\"Feels like home, not a clinic\" is the recurring theme in our 5.0-star reviews."],["mat","MAT to protect sobriety","Relapse-prevention medication like long-acting Vivitrol, started before discharge."],["globe","Bilingual, culturally-aware care","English, Spanish, and Korean, with a team that respects where you come from."]];
+const continuum = [["detox","Medical Detox","24/7 physician-supervised withdrawal management.","/programs/medical-detox/"],["home","Residential Treatment","Live-in care after detox, in a real home.","/programs/residential-treatment/"],["dual","Dual Diagnosis","Integrated care for co-occurring anxiety, depression, or trauma.","/programs/dual-diagnosis-treatment/"],["mat","Medication-Assisted Treatment","Physician-prescribed medication to ease withdrawal and prevent relapse.","/programs/medication-assisted-treatment/"],["heart","Continuing Care","Trusted local referrals plus personal physician follow-up.","/programs/continuing-care/"]];
+---
+<Layout title="Medical Detox near Studio City, CA | Regain Hope Detox and Recovery Center" description="Physician-supervised medical detox for Studio City, CA residents — minutes away in Burbank. Two doctors on-site daily, MAT, private home setting. Discreet, PPO accepted. Call 24/7." schema={[pageSchema, faqSchema]}>
+  <Hero variant="form" eyebrow="For Studio City, CA · ~10–15 Min Away in Burbank · 24/7" title="Medical Detox for Studio City, CA Residents" byline="Mileidys Gomez Gonzalez, MD" chips={["~10–15 min from Studio City","Owned & run by two physicians","Private & discreet","PPO accepted"]} />
+
+  <div class="trust"><div class="container">
+    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span><span>Joint Commission Accredited</span><span class="sep">|</span><span>California DHCS Licensed</span><span class="sep">|</span><span>LegitScript Certified</span><span class="sep">|</span><span>Two physicians on-site daily</span>
+  </div></div>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Trusted medical detox near Studio City, California</h2>
+    <p>Studio City sits where the San Fernando Valley meets the entertainment industry — a walkable, energetic neighborhood built around Ventura Boulevard, the CBS Studio Center (Radford), and a wave of younger professionals, creatives, and families drawn by its restaurants, farmers market, and proximity to the studios. It's a fast, social, work-hard environment, and that culture of late nights, networking, and constant pressure can make alcohol and stimulant use easy to normalize until it becomes a problem.</p>
+    <p>For Studio City residents ready to take the first step, <b>physician-led medical detox is just minutes away.</b> Regain Hope Detox and Recovery Center is located right over the hill in Burbank — about 10 to 15 minutes from Studio City — offering 24/7 doctor-supervised detox in a private, home-like setting rather than a clinical ward. You stay close to your work, your circle, and your family while stepping just far enough from the Ventura Boulevard scene and routines that keep the cycle going. For industry professionals who can't simply vanish, that proximity-with-privacy is what makes treatment feel doable.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>Why leaving the Studio City scene — briefly — works</h2>
+    <p>The toughest place to get sober is the one where the using became part of the routine: the same Ventura Boulevard spots, the same industry crowd, the same long-hours-and-late-nights culture. Detoxing at home, in the middle of all of it, is how the first hard days collapse. But for someone with a career tied to the studios and a life rooted here, leaving town entirely isn't realistic.</p>
+    <p>Burbank — just over the hill — is the answer. It's close enough that family and work stay within reach and the move back to local outpatient care is seamless, but far enough to break the daily pattern during the most fragile phase of withdrawal. And because Regain Hope is small, discreet, and physician-owned, with a flexible technology policy, professionals can get real medical care without disappearing or losing their footing.</p>
+  </div></section>
+
+  <section><div class="container">
+    <div class="sec-head"><span class="eyebrow">Why choose Regain Hope</span><h2>Why Studio City residents choose us</h2></div>
+    <div class="grid3">
+      {why.map(([ico, t, d]) => (<div class="pcard"><div class="ico"><Icon name={ico} /></div><h3>{t}</h3><p>{d}</p></div>))}
+    </div>
+  </div></section>
+
+  <ImageFeature bg="cream" image="/images/stock/therapy-session.webp" alt="A calm reset in recovery near Studio City" side="right" eyebrow="Close to home, a real reset" title="Far enough to heal, close enough to stay connected" body="A quiet Burbank home with a private garden and water-feature courtyard, just over the hill from Studio City — so family and work stay close while you focus on getting well. Out-of-state family? We coordinate travel." points={[['pin', 'A short, familiar drive from Studio City'], ['heart', 'Family stays close'], ['home', 'A private, home-like setting']]} />
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>What medical detox involves</h2>
+    <p>Medical detox safely clears alcohol or drugs from your body under 24/7 medical supervision while a care team manages withdrawal. Because alcohol, benzodiazepine, and opioid withdrawal can be dangerous — and for some substances life-threatening — supervised detox is far safer than quitting alone.</p>
+    <p>At Regain Hope Detox and Recovery Center, your detox is overseen <b>in person, every day</b> by the two physicians who own the program — not a remote doctor checking in by phone. The process generally runs <b>5–10 days</b> depending on the substance and your health, and flows directly into <a href="/programs/residential-treatment/">residential treatment</a> so progress doesn't stall.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container">
+    <div class="sec-head"><span class="eyebrow">The continuum</span><h2>Detox and treatment available to Studio City residents</h2></div>
+    <div class="grid3">
+      {continuum.map(([ico, t, d, href]) => (<a class="pcard" href={href} style="text-decoration:none;display:block;"><div class="ico"><Icon name={ico} /></div><h3>{t}</h3><p>{d}</p><span class="more">Learn more →</span></a>))}
+    </div>
+  </div></section>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Addictions we treat for Studio City clients</h2>
+    <p>We provide detox and treatment for alcohol, opioids and fentanyl, benzodiazepines, stimulants (meth and cocaine), prescription drugs, and polysubstance use — plus co-occurring anxiety, depression, and trauma through integrated <a href="/programs/dual-diagnosis-treatment/">dual-diagnosis care</a>. See everything we treat on our <a href="/what-we-treat/">What We Treat</a> page.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container"><div class="loc">
+    <div>
+      <span class="eyebrow">Directions</span>
+      <h2>How to reach us from Studio City, CA</h2>
+      <p>Regain Hope Detox and Recovery Center is at <b>1134 N Lima St, Burbank, CA 91505</b> — about <b>10 to 15 minutes from Studio City</b>, a quick drive over the hill via Barham/Pass or the SR-134. From Ventura Boulevard or near CBS Radford, you're at our door fast. We're minutes from Hollywood Burbank Airport for out-of-town family, and we can help arrange transportation to start treatment.</p>
+      <p style="margin-top:14px;"><a href="/admissions/verify-insurance/" class="btn btn-outline">Verify Your Insurance →</a></p>
+    </div>
+    <div class="locmap"><iframe src="https://www.google.com/maps?q=1134%20N%20Lima%20St%2C%20Burbank%2C%20CA%2091505&output=embed" loading="lazy" title="Driving map from Studio City to Regain Hope Detox and Recovery Center"></iframe></div>
+  </div></div></section>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Addiction in the Studio City area — you're not alone</h2>
+    <p>Studio City's energetic, industry-driven culture — long shoots, late nights, and a social scene built around Ventura Boulevard — can make heavy drinking and stimulant use feel routine until it isn't. Across Los Angeles County, tens of thousands of people enter substance-use treatment every year, and creative professionals are far from immune. Asking for help is the turning point. Because Regain Hope sits just over the hill in Burbank, Studio City residents can step into discreet, physician-led detox without a long absence, stay reachable for work, and keep family close throughout.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>Fresh air and recovery near Studio City</h2>
+    <p>Recovery at Regain Hope moves outdoors, and Studio City's surroundings fit perfectly. Fryman Canyon and Wilacre Park, the LA River path, and the trails climbing toward Mulholland are the kinds of calm, restorative settings that suit the walks and fresh air we build into early recovery. Paired with our private garden and water-feature courtyard in Burbank — just over the hill — clients from Studio City heal somewhere familiar and grounding, far from the pace of Ventura Boulevard.</p>
+  </div></section>
+
+  <Reviews bg="white" />
+
+  <InsuranceBanner />
+
+  <section><div class="container">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Detox near Studio City, CA — frequently asked questions</h2></div>
+    <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+  </div></section>
+
+  <section class="ctaband"><div class="container">
+    <h2>Help is a short drive from Studio City</h2>
+    <p>One confidential call is all it takes. Our admissions line is open 24/7.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
+  </div></section>
+</Layout>

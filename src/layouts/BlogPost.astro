@@ -1,0 +1,86 @@
+---
+import Layout from './Layout.astro';
+import { getPost, getAuthor, otherPosts } from '../data/blog.js';
+export interface Props { slug: string; toc?: [string, string][]; }
+const { slug, toc = [] } = Astro.props;
+const post = getPost(slug);
+const author = getAuthor(post.author);
+const related = otherPosts(slug, 3);
+const SITE = 'https://regainhopedetox.com';
+const url = `${SITE}/blog/${slug}/`;
+const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
+const insurers = ['aetna', 'cigna', 'bcbs', 'united-healthcare', 'anthem', 'tricare'];
+const schema = {
+  '@context': 'https://schema.org', '@type': 'BlogPosting',
+  headline: post.title, image: SITE + post.image, datePublished: post.date,
+  author: { '@type': 'Person', name: author.name },
+  publisher: { '@type': 'Organization', name: 'Regain Hope Detox and Recovery Center' },
+  mainEntityOfPage: url,
+};
+---
+<Layout title={`${post.title} | Regain Hope Detox and Recovery Center`} description={post.excerpt} image={post.image} schema={schema}>
+  <article class="blogpost">
+    <header class="bp-head">
+      <span class="pill">{post.category}</span>
+      <h1>{post.title}</h1>
+    </header>
+    <div class="bp-byline">
+      <img src={author.photo} alt={author.name} width="54" height="54" loading="lazy" />
+      <div class="who">
+        <div class="nm">{author.name}</div>
+        <div class="role">{author.role}</div>
+        <a href={`/blog/author/${author.slug}/`}>Read full bio →</a>
+      </div>
+      <div class="share">
+        <span>Share:</span>
+        <a href={`https://www.facebook.com/sharer/sharer.php?u=${url}`} target="_blank" rel="noopener" aria-label="Share on Facebook">f</a>
+        <a href={`https://twitter.com/intent/tweet?url=${url}`} target="_blank" rel="noopener" aria-label="Share on X">𝕏</a>
+        <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${url}`} target="_blank" rel="noopener" aria-label="Share on LinkedIn">in</a>
+      </div>
+    </div>
+
+    <div class="bp-body">
+      <aside class="bp-side">
+        {toc.length > 0 && (
+          <div class="bp-card bp-toc">
+            <h4>Table of Contents</h4>
+            {toc.map(([id, label]) => <a href={`#${id}`}>{label}</a>)}
+          </div>
+        )}
+        <div class="bp-side-cta">
+          <h4>Check your coverage</h4>
+          <p>Most PPO plans are accepted. Free &amp; confidential.</p>
+          <a href="/admissions/verify-insurance/" class="btn btn-gold" style="width:100%;">Verify Insurance</a>
+        </div>
+        <div class="bp-card">
+          <h4>We accept insurance</h4>
+          <div class="ins-mini">{insurers.map((f) => <img src={`/images/logos/insurance/${f}.svg`} alt={f} loading="lazy" />)}</div>
+        </div>
+        <div class="bp-card">
+          <div class="rev-badge"><span class="g">G</span><div><div class="stars">★★★★★</div><a href={GBP} target="_blank" rel="noopener" style="font-size:13px;">5.0 · 8 reviews on Google</a></div></div>
+        </div>
+        <a href="/contact/" class="btn btn-outline" style="width:100%;text-align:center;">Contact Us</a>
+      </aside>
+
+      <div class="bp-main rich">
+        <slot />
+      </div>
+    </div>
+
+    <section class="bg-cream"><div class="container">
+      <div class="sec-head" style="margin-bottom:32px;"><span class="eyebrow">Keep reading</span><h2>Popular articles</h2></div>
+      <div class="postgrid">
+        {related.map((p) => { const a = getAuthor(p.author); return (
+          <a class="postcard" href={`/blog/${p.slug}/`}>
+            <img class="ph" src={p.image} alt={p.title} loading="lazy" />
+            <div class="bd">
+              <div class="cat">{p.category}</div>
+              <h3>{p.title}</h3>
+              <div class="pmeta"><img src={a.photo} alt={a.name} /><div><div class="a">{a.name}</div><div class="d">{p.date}</div></div></div>
+            </div>
+          </a>
+        ); })}
+      </div>
+    </div></section>
+  </article>
+</Layout>

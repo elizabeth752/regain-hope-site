@@ -1,0 +1,31 @@
+---
+import Icon from './Icon.astro';
+// Image-led highlight: a warm stock photo + heading + copy + a 3-point mini-diagram.
+// Replaces the facility gallery/accreditation breakers and guarantees a strong image per page.
+export interface Props {
+  bg?: 'white' | 'cream';
+  image: string;          // /images/stock/xxx.webp
+  alt: string;
+  side?: 'left' | 'right'; // which side the photo sits on
+  eyebrow: string;
+  title: string;
+  body: string;           // may include inline <b>/<i>
+  points: [string, string][]; // [icon, label]
+  cta?: { label: string; href: string };
+}
+const { bg = 'white', image, alt, side = 'left', eyebrow, title, body, points, cta } = Astro.props;
+---
+<section class={bg === 'cream' ? 'bg-cream' : ''}><div class="container">
+  <div class={`feat${side === 'right' ? ' feat--rev' : ''}`}>
+    <div class="feat-img"><img src={image} alt={alt} loading="lazy" width="640" height="480" /></div>
+    <div class="feat-body">
+      <span class="eyebrow">{eyebrow}</span>
+      <h2>{title}</h2>
+      <p set:html={body}></p>
+      <ul class="feat-points">
+        {points.map(([ic, label]) => <li><span class="ic"><Icon name={ic} /></span><span>{label}</span></li>)}
+      </ul>
+      {cta && <p style="margin:0;"><a class="btn btn-outline" href={cta.href}>{cta.label}</a></p>}
+    </div>
+  </div>
+</div></section>

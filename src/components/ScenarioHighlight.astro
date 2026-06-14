@@ -1,0 +1,40 @@
+---
+import Divider from './Divider.astro';
+import Icon from './Icon.astro';
+// Generic "vs + scenarios" flagship highlight (Eli's favorite format).
+// Reusable for any differentiator — pass the contrast + 3 scenarios.
+export interface Props {
+  bg?: 'white' | 'cream';
+  eyebrow: string;
+  title: string;
+  intro: string;
+  badTitle: string;
+  bad: string[];
+  goodTitle?: string;
+  good: string[];
+  momentLabel?: string;
+  scenarios: [string, string, string][]; // [icon, moment, text]
+}
+const {
+  bg = 'white', eyebrow, title, intro,
+  badTitle, bad, goodTitle = 'Regain Hope Detox and Recovery Center', good,
+  momentLabel = 'When it matters', scenarios,
+} = Astro.props;
+---
+<section class={bg === 'cream' ? 'bg-cream' : ''}><div class="container">
+  <Divider />
+  <div class="sec-head" style="margin-top:22px;">
+    <span class="eyebrow">{eyebrow}</span>
+    <h2>{title}</h2>
+    <p set:html={intro}></p>
+  </div>
+  <div class="vs">
+    <div class="vs-col vs-bad"><h4>{badTitle}</h4><ul>{bad.map((b) => <li>{b}</li>)}</ul></div>
+    <div class="vs-col vs-good"><h4>{goodTitle}</h4><ul>{good.map((g) => <li>{g}</li>)}</ul></div>
+  </div>
+  <div class="grid3 scenarios">
+    {scenarios.map(([ico, moment, text]) => (
+      <div class="scn"><div class="ico"><Icon name={ico} /></div><div class="moment">{momentLabel}</div><h3>{moment}</h3><p>{text}</p></div>
+    ))}
+  </div>
+</div></section>

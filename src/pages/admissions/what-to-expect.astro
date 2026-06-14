@@ -1,0 +1,82 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import ImageFeature from '../../components/ImageFeature.astro';
+
+const faqs = [
+  { q: 'What happens on the first day of rehab?', a: 'A warm welcome, a medical assessment with a physician, and — if needed — the start of medically supervised detox, in a home-like setting.' },
+  { q: 'What is detox actually like?', a: 'Closely monitored and medication-supported to ease withdrawal; typically 5–10 days depending on the substance and your health.' },
+  { q: 'Will I see a doctor?', a: 'Yes — the physician-owners provide in-person care daily.' },
+  { q: 'Can I have my phone?', a: 'There is a flexible technology policy, especially for working professionals; the team will explain the specifics.' },
+  { q: "What's the food like?", a: 'Home-cooked meals are provided.' },
+  { q: 'How long will I stay?', a: 'Detox is typically 5–10 days, with residential care after; your plan is tailored to you.' },
+  { q: 'What happens after I finish?', a: 'A continuing-care plan with trusted referrals and personal follow-up from our physicians.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'What to Expect During Detox & Treatment', reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
+---
+<Layout
+  title="What to Expect in Detox & Rehab | Regain Hope Detox and Recovery Center"
+  description="Wondering what detox and rehab are really like? Here's what to expect at Regain Hope — from your first day through your first week, in a private, physician-led home. Call 24/7."
+  schema={[pageSchema, faqSchema]}
+>
+  <Hero
+    variant="reviews"
+    eyebrow="Admissions · Serving Los Angeles · 24/7"
+    title="What to Expect During Detox & Treatment"
+    lead="Not knowing what comes next is one of the scariest parts. Here's exactly what your first day and first week look like — so you can walk in prepared, not anxious."
+    byline="Mileidys Gomez Gonzalez, MD"
+    chips={['Physician-led, in-person daily', 'Home-like setting', '24/7 medical care', 'Often same-day admission']}
+  />
+
+  <div class="trust"><div class="container">
+    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span><span>Joint Commission Accredited</span><span class="sep">|</span><span>California DHCS Licensed</span><span class="sep">|</span><span>LegitScript Certified</span><span class="sep">|</span><span>Two physicians on-site daily</span>
+  </div></div>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Before you arrive</h2>
+    <p>It starts with a phone call and a free <a href="/admissions/verify-insurance/">verification of benefits</a>, followed by a brief medical assessment so our physicians understand your history. We'll tell you <a href="/admissions/what-to-bring/">what to bring</a>, arrange travel if you're coming from out of the area, and answer every question. There's nothing you need to have "figured out" first.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>What happens on your first day</h2>
+    <p>When you arrive, you're welcomed into a home — not a hospital ward. You'll meet the team, settle into a comfortable space, and have a thorough <b>medical assessment with a physician</b> (often the same day) to build your care plan. If you need to begin detox right away, medications to ease withdrawal start under 24/7 supervision. Expect a calm, unhurried welcome and a home-cooked meal — not a clipboard and a waiting room.</p>
+  </div></section>
+
+  <ImageFeature
+    bg="white"
+    image="/images/stock/therapy-session.webp"
+    alt="A person settling in calmly during admission"
+    side="right"
+    eyebrow="A home, not a ward"
+    title="A calm, human welcome"
+    body="From the first hour, the experience is built to lower your anxiety, not add to it — a real bedroom, a warm meal, and a team that greets you by name."
+    points={[['stethoscope', 'Physician assessment, often same day'], ['heart', 'A calm, unhurried welcome'], ['home', 'A comfortable, home-like space']]}
+  />
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>What detox is like</h2>
+    <p>Medical detox typically lasts <b>5–10 days</b>, depending on the substance and your health. You'll be monitored around the clock, with the physician-owners seeing you <b>in person every day</b> to adjust medications and manage symptoms. The goal is to make withdrawal as safe and comfortable as possible so you can rest and stabilize. <a href="/programs/medical-detox/">More about medical detox →</a></p>
+  </div></section>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>What a day in treatment looks like</h2>
+    <p>Once you're stable, days find a gentle rhythm: a morning medical check-in, home-cooked meals, individual and group therapy, plus music, yoga, mindfulness, and time outdoors in the garden and courtyard. It's structured enough to support recovery and human enough to feel like life, not an institution. <a href="/programs/residential-treatment/">More about residential treatment →</a></p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>Planning for life after treatment</h2>
+    <p>From early on, your team builds a continuing-care plan — trusted referrals for IOP or sober living, MAT to protect your progress, and personal follow-up from our physicians after you leave. You won't be discharged into a void. <a href="/programs/continuing-care/">More about continuing care →</a></p>
+  </div></section>
+
+  <section><div class="container">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>What to expect — frequently asked questions</h2></div>
+    <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+  </div></section>
+
+  <section class="ctaband"><div class="container">
+    <h2>Walk in prepared, not anxious</h2>
+    <p>Have a question about what to expect? We're here 24/7 to answer it — no pressure.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
+  </div></section>
+</Layout>

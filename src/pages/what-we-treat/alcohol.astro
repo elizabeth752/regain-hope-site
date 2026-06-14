@@ -1,0 +1,162 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Reviews from '../../components/Reviews.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import ImageFeature from '../../components/ImageFeature.astro';
+import PhysicianLed from '../../components/PhysicianLed.astro';
+import InsuranceBanner from '../../components/InsuranceBanner.astro';
+
+const faqs = [
+  { q: 'Is it dangerous to detox from alcohol at home?', a: 'It can be — alcohol withdrawal can cause seizures and delirium tremens, so medically supervised detox is strongly recommended.' },
+  { q: 'How long does alcohol detox take?', a: 'Typically 5–10 days depending on your history and health; your physician sets the timeline.' },
+  { q: 'What medications help with alcohol cravings?', a: 'FDA-approved options include naltrexone (and the long-acting injection Vivitrol), acamprosate, and disulfiram.' },
+  { q: 'Can alcohol use disorder really be treated?', a: 'Yes — it is a treatable medical condition, and many people achieve lasting recovery with the right care.' },
+  { q: "What if I'm also struggling with depression or anxiety?", a: 'We treat co-occurring mental health alongside alcohol use through integrated dual-diagnosis care.' },
+  { q: 'Does insurance cover alcohol treatment?', a: 'Most PPO plans do. As an out-of-network provider, we verify your benefits for free.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'Alcohol Detox & Treatment in Los Angeles', about: { '@type': 'MedicalCondition', name: 'Alcohol Use Disorder' }, reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
+
+const continuum = [
+  ['detox', 'Medical Detox', 'Safe, medically managed alcohol withdrawal.', '/programs/medical-detox/'],
+  ['home', 'Residential Treatment', 'Live-in therapy and skill-building in a home-like setting.', '/programs/residential-treatment/'],
+  ['mat', 'Medication-Assisted Treatment', 'FDA-approved medications to reduce cravings and protect sobriety.', '/programs/medication-assisted-treatment/'],
+  ['dual', 'Dual-Diagnosis Care', 'Treating the anxiety, depression, or trauma underneath the drinking.', '/programs/dual-diagnosis-treatment/'],
+  ['heart', 'Continuing Care', 'Relapse-prevention planning, referrals, and personal follow-up.', '/programs/continuing-care/'],
+];
+const NIAAA = 'https://www.niaaa.nih.gov/alcohols-effects-health/alcohol-use-disorder';
+const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
+---
+<Layout
+  title="Alcohol Detox & Treatment in Los Angeles | Regain Hope Detox and Recovery Center"
+  description="Physician-supervised alcohol detox and treatment in the Los Angeles area. Medically managed withdrawal, MAT, and whole-person care for alcohol use disorder. PPO accepted. Call 24/7."
+  schema={[pageSchema, faqSchema]}
+>
+  <!-- HERO -->
+  <Hero
+    variant="form"
+    eyebrow="What We Treat · Serving Los Angeles · 24/7"
+    title="Alcohol Detox & Treatment in the Los Angeles Area"
+    byline="Mileidys Gomez Gonzalez, MD"
+    chips={['Physician-supervised, 24/7 medical detox', 'Owned & run by two physicians', 'MAT started before discharge', 'Care in English, Spanish & Korean']}
+  />
+
+  <!-- TRUST -->
+  <div class="trust"><div class="container">
+    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span><span>Joint Commission Accredited</span><span class="sep">|</span><span>California DHCS Licensed</span><span class="sep">|</span><span>LegitScript Certified</span><span class="sep">|</span><span>Two physicians on-site daily</span>
+  </div></div>
+
+  <!-- WHAT IS AUD (white) -->
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>What is alcohol use disorder (AUD)?</h2>
+    <p><b>Alcohol use disorder (AUD) is a medical condition characterized by an impaired ability to stop or control alcohol use despite negative consequences to health, relationships, or work</b> (National Institute on Alcohol Abuse and Alcoholism, NIAAA). It exists on a spectrum from mild to severe, and it's a treatable brain condition — not a lack of willpower or a moral failing. Millions of adults live with AUD, and recovery is absolutely possible with the right medical care.</p>
+  </div></section>
+
+  <!-- ACCREDITATIONS (cream) -->
+  <ImageFeature
+    bg="cream"
+    image="/images/stock/holistic-care.webp"
+    alt="A person outdoors, arms open, finding relief in recovery"
+    side="left"
+    eyebrow="Life after alcohol"
+    title="Recovery is more than not drinking"
+    body="Getting through withdrawal is just the start. Real recovery rebuilds the parts of life alcohol crowded out — your health, your relationships, your sense of control."
+    points={[['heart', 'Whole-person medical care'], ['users', 'Therapy & peer support'], ['activity', 'Healthy routines that last']]}
+  />
+
+  <!-- SIGNS & SYMPTOMS (white) -->
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Signs and symptoms of alcohol use disorder</h2>
+    <p>Clinicians diagnose AUD using <b>11 criteria</b> from the DSM-5. In the past year, have you:</p>
+    <ul>
+      <li>Had times when you drank <b>more, or longer, than you intended</b>?</li>
+      <li><b>Wanted to cut down or stop</b>, but couldn't?</li>
+      <li>Spent a lot of time drinking or <b>recovering from its effects</b>?</li>
+      <li>Experienced <b>strong cravings</b> to drink?</li>
+      <li>Found that drinking <b>interfered with home, work, or school</b>?</li>
+      <li>Kept drinking despite <b>relationship problems</b> it caused?</li>
+      <li><b>Given up activities</b> you cared about in order to drink?</li>
+      <li>Gotten into <b>dangerous situations</b> during or after drinking?</li>
+      <li>Continued drinking despite a <b>physical or mental health problem</b> it caused or worsened?</li>
+      <li>Needed to drink <b>more to feel the effects</b> (tolerance)?</li>
+      <li>Experienced <b>withdrawal symptoms</b> when the alcohol wore off?</li>
+    </ul>
+    <p><b>Severity is measured by how many criteria apply:</b> 2–3 = mild, 4–5 = moderate, 6 or more = severe (NIAAA / DSM-5). Even mild AUD is worth addressing early.</p>
+  </div></section>
+
+  <!-- WHY SUPERVISION (cream) -->
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>Why alcohol detox needs medical supervision</h2>
+    <p><b>Alcohol is one of the few substances whose withdrawal can be life-threatening.</b> Symptoms range from anxiety, tremors, sweating, and insomnia to, in serious cases, seizures and <b>delirium tremens (DTs)</b> — a medical emergency. This is exactly why you should never detox from heavy alcohol use alone. At Regain Hope Detox and Recovery Center, alcohol detox is <a href="/programs/medical-detox/">physician-supervised 24/7</a>, with medications to ease symptoms and prevent dangerous complications.</p>
+  </div></section>
+
+  <ImageFeature
+    bg="white"
+    image="/images/stock/wellness-lifestyle.webp"
+    alt="A person enjoying healthy, active life in recovery"
+    side="right"
+    eyebrow="Built to last"
+    title="Care that protects the months ahead"
+    body="The highest relapse risk comes after treatment ends — so we plan for it from day one, with medication and follow-up that carry your progress home."
+    points={[['cycle', 'Relapse-prevention planning'], ['mat', 'MAT to protect sobriety'], ['chat', 'Personal follow-up after discharge']]}
+  />
+
+  <!-- HOW WE TREAT — continuum cards (cream) -->
+  <section class="bg-cream"><div class="container">
+    <div class="sec-head"><span class="eyebrow">Our approach</span><h2>How we treat alcohol addiction</h2><p>Recovery is more than getting through withdrawal — it's building a life that no longer needs alcohol. Our physician-led continuum:</p></div>
+    <div class="grid3">
+      {continuum.map(([ico, t, d, href]) => (
+        <a class="pcard" href={href} style="text-decoration:none;display:block;"><div class="ico"><Icon name={ico} /></div><h3>{t}</h3><p>{d}</p><span class="more">Learn more →</span></a>
+      ))}
+    </div>
+  </div></section>
+
+  <!-- MAT FOR ALCOHOL (white) -->
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Medications that help with alcohol recovery</h2>
+    <p>NIAAA recognizes several <b>FDA-approved medications</b> for alcohol use disorder, including <b>naltrexone</b> (which reduces cravings and is available as the long-acting injection Vivitrol), <b>acamprosate</b>, and <b>disulfiram</b>. At Regain Hope Detox and Recovery Center, our physicians prescribe <a href="/programs/medication-assisted-treatment/">medication-assisted treatment</a> when appropriate — and we often start a long-acting option like Vivitrol <b>before discharge</b> to protect your sobriety.</p>
+  </div></section>
+
+  <!-- CO-OCCURRING (cream) -->
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>Alcohol and co-occurring mental health</h2>
+    <p>Alcohol use disorder frequently co-occurs with depression, anxiety, and trauma — each can fuel the other. Treating only the drinking, while ignoring what's driving it, often leads back to relapse. Our integrated <a href="/programs/dual-diagnosis-treatment/">dual-diagnosis care</a> addresses both at once.</p>
+  </div></section>
+
+  <!-- WHEN TO SEEK HELP (white) -->
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>When should you seek help for drinking?</h2>
+    <p>There's no need to "hit rock bottom" before getting help — in fact, addressing alcohol use earlier leads to better outcomes. Consider reaching out if drinking has started to affect your health, relationships, work, or sense of control, or if you've tried to cut back and couldn't. Over time, heavy alcohol use can contribute to serious health problems — including liver disease, heart and blood-pressure issues, a weakened immune system, and an increased risk of certain cancers (NIAAA) — and it can deepen anxiety and depression. The encouraging truth: the body and mind have a remarkable capacity to heal once drinking stops, and the earlier you act, the more you protect. If you're asking yourself whether your drinking is a problem, that question itself is worth a conversation — and ours is free, confidential, and judgment-free.</p>
+  </div></section>
+
+  <!-- ★ PHYSICIAN-LED (cream) -->
+  <PhysicianLed bg="cream" />
+
+  <!-- ★ CITED STAT (caoba) -->
+  <!-- NOTE: verify exact NIAAA figure + year before publish -->
+  <section class="bigstat"><div class="container">
+    <div class="num">~28.9M</div>
+    <p>By NIAAA's estimate, roughly 28.9 million people ages 12 and older in the U.S. live with alcohol use disorder in a recent year. It is one of the most common — and most treatable — conditions we see.</p>
+    <div class="src">Source: NIAAA</div>
+  </div></section>
+
+  <Reviews bg="white" />
+
+  <!-- MODULE: Insurance (cream) -->
+  <InsuranceBanner />
+
+  <!-- FAQ (white) -->
+  <section><div class="container">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Alcohol treatment — frequently asked questions</h2></div>
+    <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+    <p style="text-align:center;margin-top:26px;color:var(--muted);font-size:13px;">Clinical information on this page is informed by the <a href={NIAAA} target="_blank" rel="noopener">National Institute on Alcohol Abuse and Alcoholism (NIAAA)</a>.</p>
+  </div></section>
+
+  <!-- CTA -->
+  <section class="ctaband"><div class="container">
+    <h2>Recovery from alcohol starts with one call</h2>
+    <p>Alcohol withdrawal is safer with doctors who are actually there. One confidential call, answered 24/7, is the first step.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
+  </div></section>
+</Layout>

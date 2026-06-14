@@ -1,0 +1,42 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+const programs = [
+  ['Medical Detox', '/programs/medical-detox/', '24/7 physician-supervised, medically managed withdrawal — the safe first step.', 'detox'],
+  ['Residential Treatment', '/programs/residential-treatment/', 'Live-in care in a comfortable, home-like setting after detox.', 'home'],
+  ['Dual Diagnosis', '/programs/dual-diagnosis-treatment/', 'Addiction and co-occurring mental health, treated together.', 'dual'],
+  ['Medication-Assisted Treatment', '/programs/medication-assisted-treatment/', 'Vivitrol & FDA-approved medications to ease withdrawal and prevent relapse.', 'mat'],
+  ['Continuing Care', '/programs/continuing-care/', 'Aftercare and trusted step-down referrals — we don\'t disappear after discharge.', 'heart'],
+];
+---
+<Layout
+  title="Detox & Treatment Programs in Los Angeles | Regain Hope Detox and Recovery Center"
+  description="Physician-led levels of care in the Los Angeles area: medical detox, residential treatment, dual diagnosis, MAT, and continuing care — all in one home-like setting. Call 24/7."
+>
+  <Hero
+    variant="reviews"
+    eyebrow="Programs · Serving Los Angeles"
+    title="Our Detox &amp; Treatment Programs"
+    lead="A complete, physician-led continuum of care — from your first day of detox to lasting recovery — all in one small, home-like program."
+  />
+
+  <section><div class="container">
+    <div class="grid3">
+      {programs.map(([t, href, d, ico]) => (
+        <a class="pcard" href={href} style="text-decoration:none;display:block;">
+          <div class="ico"><Icon name={ico} /></div>
+          <h3>{t}</h3>
+          <p>{d}</p>
+          <span class="more">Learn more →</span>
+        </a>
+      ))}
+    </div>
+  </div></section>
+
+  <section class="ctaband"><div class="container">
+    <h2>Not sure which program is right?</h2>
+    <p>One free, confidential call will help you find the right starting point — no pressure, ever.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
+  </div></section>
+</Layout>

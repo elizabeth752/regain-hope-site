@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'Accreditations & Licensing — Regain Hope Detox and Recovery Center', reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
+
+const accreditations = [
+  ['joint-commission.png', 'The Joint Commission', "The Gold Seal of Approval® — the nation's leading independent standard for healthcare quality and patient safety."],
+  ['dhcs.png', 'California DHCS', 'Licensed by the California Department of Health Care Services to provide substance use disorder treatment.'],
+  ['legitscript.png', 'LegitScript Certified', 'Verified as safe, legal, and transparent — the standard trusted by Google and major ad platforms.'],
+  ['samhsa.svg', 'SAMHSA', "Care aligned with the Substance Abuse and Mental Health Services Administration's national standards."],
+  ['bbb.png', 'BBB A+ Accredited', 'Accredited by the Better Business Bureau with an A+ rating for trust and ethical practice.'],
+  ['psychology-today.png', 'Psychology Today', 'Listed and verified in the Psychology Today directory of treatment providers.'],
+];
+---
+<Layout
+  title="Accreditations & Licensing | Regain Hope Detox and Recovery Center"
+  description="Regain Hope Detox and Recovery Center is Joint Commission accredited, licensed by California DHCS, and LegitScript certified — care held to recognized national standards."
+  schema={pageSchema}
+>
+  <Hero
+    variant="reviews"
+    eyebrow="Accreditations · Burbank, CA · 24/7"
+    title="Accreditations & Licensing"
+    lead="The trust you place in a treatment program should be backed by independent oversight. Here's who holds us to that standard."
+    byline="Mileidys Gomez Gonzalez, MD"
+    chips={['Joint Commission accredited', 'Licensed by California DHCS', 'LegitScript certified', 'BBB A+ rated']}
+  />
+
+  <div class="trust"><div class="container">
+    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span><span>Joint Commission Accredited</span><span class="sep">|</span><span>California DHCS Licensed</span><span class="sep">|</span><span>LegitScript Certified</span><span class="sep">|</span><span>Physician-owned</span>
+  </div></div>
+
+  <!-- INTRO (white) -->
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Why accreditation matters</h2>
+    <p>Anyone can call themselves a treatment program. Accreditation and licensing are how you know a program actually meets recognized standards for safety, ethics, and quality of care. Regain Hope Detox and Recovery Center holds the credentials that matter most in behavioral health — and we're glad to be measured by them.</p>
+  </div></section>
+
+  <!-- ACCREDITATION CARDS (cream) -->
+  <section class="bg-cream"><div class="container">
+    <div class="sec-head"><span class="eyebrow">Accredited & Certified</span><h2>Our credentials</h2></div>
+    <div class="grid3">
+      {accreditations.map(([logo, name, desc]) => (
+        <div class="pcard" style="text-align:center;">
+          <img src={`/images/logos/${logo}`} alt={name} loading="lazy" style="height:62px;width:auto;max-width:170px;object-fit:contain;margin:0 auto 16px;" />
+          <h3>{name}</h3>
+          <p>{desc}</p>
+        </div>
+      ))}
+    </div>
+  </div></section>
+
+  <!-- WHAT IT MEANS (white) -->
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>What this means for you</h2>
+    <p>It means your care is overseen by people and bodies whose job is to keep it safe and ethical — not just by us. It means the privacy of your information is protected, that our practices are reviewed, and that the standard you're held to in detox and treatment is a recognized national one. If you ever have a question about our licensing or accreditation, just ask — we'll answer plainly.</p>
+  </div></section>
+
+  <section class="ctaband"><div class="container">
+    <h2>Care you can trust, from people who answer for it</h2>
+    <p>One confidential call, answered 24/7, is the first step. We'll verify your insurance and walk you through everything.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
+  </div></section>
+</Layout>

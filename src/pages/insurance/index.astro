@@ -1,0 +1,118 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import ImageFeature from '../../components/ImageFeature.astro';
+import Reviews from '../../components/Reviews.astro';
+
+const faqs = [
+  { q: "What's the difference between an HMO, PPO, and EPO?", a: 'A PPO lets you use providers outside your insurer\'s network (out-of-network benefits) — that\'s the plan type we can work with. An HMO or EPO generally only covers in-network providers, so they typically can\'t be used at an out-of-network facility like ours. Most people don\'t know which they have until benefits are verified — we can check for you.' },
+  { q: 'What does "out-of-network" actually mean — and is that bad?', a: "It means a provider doesn't have a contract with your insurer. It often comes with a higher deductible, but it also opens the door to smaller, specialized programs (like a physician-owned home) you can't access in-network. For many PPO plans, out-of-network detox and residential care is well covered." },
+  { q: 'What is a verification of benefits (VOB)?', a: "It's the process of contacting your insurer to confirm exactly what your plan covers — your deductible, out-of-pocket maximum, covered levels of care, and any limitations. It's free, fast, and the only way to get a real answer. Nothing is certain until your benefits are verified." },
+  { q: "Can I use my insurance if my plan doesn't list this facility as in-network?", a: 'Sometimes, yes. With a PPO, out-of-network benefits may still apply. In some cases you can request a Single Case Agreement (SCA) — where your insurer agrees to cover an out-of-network facility as if it were in-network, often supported by letters from your doctor. They\'re not guaranteed, but we can tell you whether one is worth pursuing.' },
+  { q: 'How much will I have to pay out of pocket?', a: 'It depends on your deductible and out-of-pocket maximum. Out-of-network deductibles are often higher, but how much you\'ve already met and your plan\'s reimbursement rate matter too. We\'ll walk you through the real numbers for your plan before you decide.' },
+  { q: 'What does insurance usually cover during treatment?', a: 'For covered plans, things like therapy, medical care, room and board, and visits with providers are typically included. Some optional add-on services may not be covered and would be discussed separately. We\'re transparent about what\'s covered and what isn\'t.' },
+  { q: 'Who decides how long I can stay?', a: 'Your insurer authorizes care in increments based on medical necessity, and your clinical team advocates for the time you need. Length of stay can vary by carrier and plan — we forecast a typical program length and adjust as authorizations continue.' },
+  { q: 'Can insurance stop covering treatment in the middle of my stay?', a: 'It can happen — insurers periodically re-review medical necessity. If it does, our team requests peer reviews and works to extend authorization, and we\'ll talk through options so your recovery isn\'t disrupted.' },
+  { q: 'Will my insurance work if I travel from another state for treatment?', a: 'Often yes, with a PPO — but some policies have state restrictions or other limitations. We verify this specifically before you travel so there are no surprises.' },
+  { q: 'What is an "exclusion" on my policy?', a: 'A clause that limits coverage — for example, a requirement for 24/7 nursing, a cap on residential days per year, or coverage for only substance use but not mental health. We check for these during your VOB so we can flag anything that affects your care.' },
+  { q: 'I think I have Aetna (or Cigna, etc.) — why does that matter?', a: "Plans aren't all the same. The same carrier can administer very different policies, and some are carve-outs or Medicaid versions managed by another company. That's why we always verify the actual policy rather than assume from the carrier name." },
+  { q: 'Do you take Medicaid, Medi-Cal, or Medicare?', a: "No — Regain Hope Detox and Recovery Center works with commercial/employer PPO plans. If you have Medicaid, Medi-Cal, or an HMO/EPO, we're happy to point you toward appropriate resources." },
+  { q: 'Is verifying my benefits a commitment?', a: 'No. A VOB is free, confidential, and carries zero obligation. Many people verify just to understand their options.' },
+  { q: "What if I don't have insurance?", a: "Ask about private-pay options — we'll talk through what's available and find the path that makes sense for you." },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'Using Insurance for Detox & Rehab in Los Angeles', reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
+
+const carriers = [
+  ['aetna.svg', 'Aetna', '/insurance/aetna/'],
+  ['cigna.svg', 'Cigna', '/insurance/cigna/'],
+  ['bcbs.svg', 'Blue Cross Blue Shield', '/insurance/blue-cross-blue-shield/'],
+  ['united-healthcare.svg', 'UnitedHealthcare', '/insurance/united-healthcare/'],
+  ['anthem.svg', 'Anthem', '/insurance/anthem/'],
+  ['kaiser.svg', 'Kaiser', '/insurance/kaiser/'],
+  ['humana.svg', 'Humana', '/insurance/humana/'],
+  ['health-net.svg', 'Health Net', '/insurance/health-net/'],
+  ['tricare.svg', 'TRICARE', '/insurance/tricare/'],
+];
+---
+<Layout
+  title="Insurance for Detox & Rehab in Los Angeles | Regain Hope Detox and Recovery Center"
+  description="Does insurance cover detox and rehab? Most PPO plans do. Regain Hope works with major PPO carriers as an out-of-network provider — free, fast benefits check. Call 24/7."
+  schema={[pageSchema, faqSchema]}
+>
+  <Hero
+    variant="form"
+    eyebrow="Insurance · Serving Los Angeles · 24/7"
+    title="Using Insurance for Detox & Rehab in the Los Angeles Area"
+    byline="Mileidys Gomez Gonzalez, MD"
+    chips={['Most PPO plans accepted', 'Free 5-minute benefits check', 'Out-of-network · no obligation', 'Owned & run by two physicians']}
+  />
+
+  <div class="trust"><div class="container">
+    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span><span>Joint Commission Accredited</span><span class="sep">|</span><span>California DHCS Licensed</span><span class="sep">|</span><span>LegitScript Certified</span><span class="sep">|</span><span>Most major PPO plans accepted</span>
+  </div></div>
+
+  <!-- DIRECT ANSWER (white) -->
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Does insurance cover detox and rehab?</h2>
+    <p><b>Yes — most PPO insurance plans cover medically necessary detox and residential addiction treatment.</b> Exactly how much depends on your specific plan, your deductible, and whether your provider is in- or out-of-network. Regain Hope Detox and Recovery Center is an <b>out-of-network provider</b> that works with most major PPO carriers, and the only way to know your real coverage is a quick verification of benefits — which we do for free, with no obligation.</p>
+  </div></section>
+
+  <!-- HOW OON WORKS (cream) -->
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>How insurance works at Regain Hope</h2>
+    <p>We are <b>out-of-network with all major carriers and work with PPO plans.</b> That sounds limiting, but for most people it isn't — out-of-network PPO benefits often cover detox and residential care, and out-of-network access gives you a smaller, physician-owned program you couldn't reach through a typical in-network list. We'll explain exactly what your plan covers before you commit to anything.</p>
+    <p style="color:var(--muted);font-size:14.5px;">We do not accept HMO or EPO plans (which generally have no out-of-network benefits), or Medicaid / Medi-Cal / Medicare.</p>
+  </div></section>
+
+  <!-- VERIFY IN 3 STEPS (white, flow) -->
+  <section><div class="container">
+    <div class="sec-head"><span class="eyebrow">Quick & free</span><h2>Verify your benefits in 3 steps</h2></div>
+    <div class="flow">
+      <div class="step"><div class="num">1</div><h4>Share your details</h4><p>Call or submit the form — it takes a minute.</p></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="num">2</div><h4>We run your VOB</h4><p>We confirm coverage, deductible &amp; limits — usually same day.</p></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="num">3</div><h4>Plain-English answer</h4><p>What's covered, what you'd owe, your options — no pressure.</p></div>
+    </div>
+    <p style="text-align:center;margin-top:26px;"><a href="/admissions/verify-insurance/" class="btn btn-primary">Verify Your Benefits</a></p>
+  </div></section>
+
+  <!-- CARRIERS (cream) -->
+  <section class="bg-cream"><div class="container">
+    <div class="sec-head"><span class="eyebrow">Carriers</span><h2>Insurance carriers we work with</h2></div>
+    <div class="carriers">
+      {carriers.map(([logo, name, href]) => (
+        <a class="carrier" href={href}>{logo ? <img src={`/images/logos/insurance/${logo}`} alt={`${name} accepted`} loading="lazy" /> : <span class="nm">{name}</span>}</a>
+      ))}
+    </div>
+    <p style="text-align:center;margin-top:22px;color:var(--muted);">Don't see your carrier? We work with most PPO plans — call and we'll check.</p>
+  </div></section>
+
+  <!-- IMAGE FEATURE (white) -->
+  <ImageFeature
+    bg="white"
+    image="/images/stock/admissions-assessment.webp"
+    alt="An admissions specialist explaining insurance coverage"
+    side="right"
+    eyebrow="No surprises"
+    title="We explain your coverage in plain English"
+    body="Insurance is confusing by design. Our team does the legwork — calling your insurer, confirming the details — and then tells you exactly where you stand, in language that actually makes sense."
+    points={[['clipboard', 'A free verification of benefits'], ['chat', "What's covered, in plain English"], ['heart', 'No obligation, ever']]}
+  />
+
+  <!-- Q&A BANK (cream) -->
+  <section class="bg-cream"><div class="container">
+    <div class="sec-head"><span class="eyebrow">Insurance Q&amp;A</span><h2>Insurance questions, answered</h2><p>The things people most often don't understand about using insurance for treatment.</p></div>
+    <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+  </div></section>
+
+  <Reviews bg="white" />
+
+  <!-- CTA -->
+  <section class="ctaband"><div class="container">
+    <h2>Find out what your plan covers — free</h2>
+    <p>It takes about 5 minutes and there's no obligation. Call 24/7 or verify online, and we'll explain your coverage in plain English.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
+  </div></section>
+</Layout>

@@ -1,0 +1,123 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Reviews from '../../components/Reviews.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import TeamStrip from '../../components/TeamStrip.astro';
+import PhysicianLed from '../../components/PhysicianLed.astro';
+import ImageFeature from '../../components/ImageFeature.astro';
+import InsuranceBanner from '../../components/InsuranceBanner.astro';
+
+const faqs = [
+  { q: 'What is polysubstance abuse?', a: 'Using more than one drug at the same time or over the same period — for example, alcohol with benzos, or opioids with stimulants.' },
+  { q: 'Why is mixing substances so dangerous?', a: 'It sharply raises overdose risk (especially combining depressants) and makes withdrawal more complex and risky.' },
+  { q: 'Can you detox from multiple substances at once?', a: 'Yes — under physician supervision, we coordinate a safe plan for each substance involved.' },
+  { q: 'Is medical detox necessary for polysubstance use?', a: 'Strongly recommended — multi-substance withdrawal can be dangerous and unpredictable.' },
+  { q: 'Do you use MAT?', a: 'Where appropriate for the opioid or alcohol component (e.g., naltrexone/Vivitrol).' },
+  { q: 'Does insurance cover it?', a: 'Most PPO plans do. As an out-of-network provider, we verify your benefits for free.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'Polysubstance Detox & Treatment in Los Angeles', about: { '@type': 'MedicalCondition', name: 'Polysubstance Use' }, reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
+
+const continuum = [
+  ['detox', 'Physician-Managed Detox', 'A coordinated plan that addresses each substance safely.', '/programs/medical-detox/'],
+  ['home', 'Residential Treatment', 'Therapy and skills in a home-like setting.', '/programs/residential-treatment/'],
+  ['mat', 'Medication-Assisted Treatment', 'Where appropriate for the opioid or alcohol component.', '/programs/medication-assisted-treatment/'],
+  ['dual', 'Dual-Diagnosis Care', 'Treating the mental health that often drives multi-substance use.', '/programs/dual-diagnosis-treatment/'],
+  ['heart', 'Continuing Care', 'Relapse prevention + personal follow-up.', '/programs/continuing-care/'],
+];
+const NIDA = 'https://nida.nih.gov/research-topics/polysubstance-use';
+const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
+---
+<Layout
+  title="Polysubstance Detox & Treatment in Los Angeles | Regain Hope Detox and Recovery Center"
+  description="Physician-led detox and treatment for polysubstance use (multiple drugs) in the Los Angeles area. Mixing substances raises the risks — we manage it safely. PPO accepted. Call 24/7."
+  schema={[pageSchema, faqSchema]}
+>
+  <Hero
+    variant="form"
+    eyebrow="What We Treat · Serving Los Angeles · 24/7"
+    title="Polysubstance Detox & Treatment in the Los Angeles Area"
+    byline="Mileidys Gomez Gonzalez, MD"
+    chips={['Physician-managed multi-substance detox', 'One coordinated plan, one home', 'Owned & run by two physicians', 'In-house psychiatry & medical care']}
+  />
+
+  <div class="trust"><div class="container">
+    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span><span>Joint Commission Accredited</span><span class="sep">|</span><span>California DHCS Licensed</span><span class="sep">|</span><span>LegitScript Certified</span><span class="sep">|</span><span>Two physicians on-site daily</span>
+  </div></div>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>What is polysubstance use?</h2>
+    <p><b>Polysubstance use means using more than one drug — either at the same time or over the same period</b> — such as combining alcohol with benzodiazepines, or opioids with stimulants ("speedballs"). Often it's intentional (to enhance or balance effects), but increasingly it's <b>unintentional</b>, as illicit drugs are frequently contaminated with fentanyl (NIDA/CDC). Polysubstance use is common, and it makes both overdose and withdrawal substantially more complicated and dangerous.</p>
+    <p>In fact, polysubstance use is increasingly the norm rather than the exception in addiction — and the fentanyl crisis has made it far more dangerous, because even people who intend to use only one drug may unknowingly be exposed to others. Because each substance affects the brain and body differently, the combined toll is hard to predict.</p>
+    <p>One common, deadly example: a stimulant can mask how sedated a person actually is from a depressant, leading them to take more and stop breathing. Untangling this safely requires a team that can see the whole picture at once and manage several withdrawal processes together — which is exactly how we approach it, rather than treating one drug at a time.</p>
+  </div></section>
+
+  <ImageFeature
+    bg="cream"
+    image="/images/stock/admissions-assessment.webp"
+    alt="A physician reviewing a personalized care plan with a client"
+    side="left"
+    eyebrow="One coordinated plan"
+    title="The whole picture, managed by one team"
+    body="Multiple substances mean multiple withdrawal processes — on different timelines, with different risks. Our physicians manage them together, in one place, instead of one drug at a time."
+    points={[['clipboard', 'A single, coordinated detox plan'], ['stethoscope', 'Physicians who manage it all at once'], ['brain', 'In-house psychiatry for what drives it']]}
+  />
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Signs of polysubstance use</h2>
+    <p>Signs include:</p>
+    <ul>
+      <li>Regularly combining substances</li>
+      <li>Using one drug to manage the effects or comedown of another</li>
+      <li>Escalating use across multiple substances</li>
+      <li>Unpredictable moods or physical states</li>
+      <li>Multiple withdrawal patterns when not using</li>
+    </ul>
+    <p>Many people don't think of themselves as "polysubstance" — they just know they're using a few things to get through the day.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>Why polysubstance detox requires medical supervision</h2>
+    <p>Mixing substances multiplies risk in two ways. First, <b>overdose risk rises sharply</b> — combining depressants like opioids and benzodiazepines (or either with alcohol) can suppress breathing to fatal levels. Second, <b>withdrawal becomes far more complex</b>: different substances withdraw on different timelines and in different ways, and some (alcohol, benzodiazepines) carry seizure risk. Detoxing from multiple substances at home is genuinely dangerous. <a href="/programs/medical-detox/">Medical detox</a> — with physicians who can manage several withdrawal processes at once, 24/7 — is the safe path.</p>
+  </div></section>
+
+  <TeamStrip bg="white" />
+
+  <section class="bg-cream"><div class="container">
+    <div class="sec-head"><span class="eyebrow">Our approach</span><h2>How we treat polysubstance addiction</h2></div>
+    <div class="grid3">
+      {continuum.map(([ico, t, d, href]) => (
+        <a class="pcard" href={href} style="text-decoration:none;display:block;"><div class="ico"><Icon name={ico} /></div><h3>{t}</h3><p>{d}</p><span class="more">Learn more →</span></a>
+      ))}
+    </div>
+  </div></section>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>When to seek help for polysubstance use</h2>
+    <p>If you're using more than one substance regularly — especially any combination involving alcohol, opioids, or benzodiazepines — the risk of a dangerous interaction is real and rising with fentanyl contamination. This is exactly the situation where medical supervision matters most. A free, confidential call is the safest first step.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>Polysubstance use and co-occurring mental health</h2>
+    <p>People who use multiple substances are often self-managing complex, untreated mental health — using one substance for anxiety, another for energy or sleep. Sorting this out requires integrated care that treats the whole person, not one drug at a time. That's our <a href="/programs/dual-diagnosis-treatment/">dual-diagnosis approach</a>. This is also why a one-size detox protocol falls short: the plan has to account for how each substance — and the reason behind it — interacts with the others. Our physicians and psychiatry team build that plan together.</p>
+  </div></section>
+
+  <PhysicianLed bg="white" />
+
+  <Reviews bg="cream" />
+
+  <InsuranceBanner />
+
+  <section><div class="container">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Polysubstance treatment — frequently asked questions</h2></div>
+    <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+    <p style="text-align:center;margin-top:26px;color:var(--muted);font-size:13px;">Clinical information on this page is informed by the <a href={NIDA} target="_blank" rel="noopener">National Institute on Drug Abuse (NIDA)</a> and the CDC.</p>
+  </div></section>
+
+  <section class="ctaband"><div class="container">
+    <h2>One coordinated plan for the whole picture</h2>
+    <p>Multiple substances need one team that sees all of it. One confidential call, answered 24/7, is the first step.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
+  </div></section>
+</Layout>

@@ -1,0 +1,90 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import ImageFeature from '../../components/ImageFeature.astro';
+import Reviews from '../../components/Reviews.astro';
+
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalClinic', name: 'Regain Hope Detox and Recovery Center', address: { '@type': 'PostalAddress', streetAddress: '1134 N Lima St', addressLocality: 'Burbank', addressRegion: 'CA', postalCode: '91505', addressCountry: 'US' }, telephone: '+1-818-281-2458', geo: { '@type': 'GeoCoordinates', latitude: 34.1719189, longitude: -118.3451238 }, areaServed: ['Burbank', 'Glendale', 'Pasadena', 'Sherman Oaks', 'Studio City', 'Encino', 'Toluca Lake', 'La Cañada Flintridge'] };
+
+const areas = [
+  ['detox-glendale', 'Glendale', 'About 15 minutes away via the SR-134.'],
+  ['detox-pasadena', 'Pasadena', 'A straightforward drive west for Pasadena residents.'],
+  ['detox-sherman-oaks', 'Sherman Oaks', 'Minutes over the hill in the San Fernando Valley.'],
+  ['detox-studio-city', 'Studio City', 'Just down the 101 in the Valley.'],
+  ['detox-encino', 'Encino', 'A short Valley drive to physician-led care.'],
+  ['detox-toluca-lake', 'Toluca Lake', 'Practically next door to our Burbank home.'],
+  ['detox-la-canada-flintridge', 'La Cañada Flintridge', 'A quick trip down the 2 and 134.'],
+];
+---
+<Layout
+  title="Locations & Service Areas | Regain Hope Detox and Recovery Center"
+  description="Physician-led medical detox & residential treatment in Burbank, CA — serving the greater Los Angeles area and welcoming clients from out of state, with travel assistance. Call 24/7."
+  schema={pageSchema}
+>
+  <Hero
+    variant="reviews"
+    eyebrow="Locations & Service Areas · 24/7"
+    title="Locations & Service Areas"
+    byline="Mileidys Gomez Gonzalez, MD"
+    chips={['One location in Burbank, CA', 'Serving the greater LA metro', 'Owned & run by two physicians', 'Care in English, Spanish & Korean']}
+  />
+
+  <div class="trust"><div class="container">
+    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span><span>Joint Commission Accredited</span><span class="sep">|</span><span>California DHCS Licensed</span><span class="sep">|</span><span>LegitScript Certified</span><span class="sep">|</span><span>Physician-owned</span>
+  </div></div>
+
+  <!-- INTRO (white) -->
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Physician-led detox in the heart of the Valley — open to clients from anywhere</h2>
+    <p>Regain Hope Detox and Recovery Center is a single, physician-owned home in Burbank — minutes from Glendale, the San Fernando Valley, and greater Los Angeles. We're a small, family-run program by design, so rather than running many facilities, we bring people to one calm, private home where two physicians provide care in person, every day. Close enough that family stays involved; far enough from the triggers tied to using.</p>
+  </div></section>
+
+  <!-- LOCATION + MAP (cream) -->
+  <section class="bg-cream"><div class="container"><div class="loc">
+    <div>
+      <span class="eyebrow">Our home</span>
+      <h2>Burbank, California</h2>
+      <p>Set in a quiet Burbank neighborhood with a private garden and water-feature courtyard — minutes from the studios, Hollywood Burbank Airport, and the 134 and 5 freeways.</p>
+      <p style="font-weight:600;color:var(--caoba-dark);">📍 1134 N Lima St, Burbank, CA 91505</p>
+      <p style="margin-top:14px;"><a href="/admissions/verify-insurance/" class="btn btn-outline">Verify Your Insurance →</a></p>
+    </div>
+    <div class="locmap"><iframe src="https://www.google.com/maps?q=1134%20N%20Lima%20St%2C%20Burbank%2C%20CA%2091505&output=embed" loading="lazy" title="Map to Regain Hope Detox and Recovery Center in Burbank, CA"></iframe></div>
+  </div></div></section>
+
+  <!-- SERVICE AREAS (white) -->
+  <section><div class="container">
+    <div class="sec-head"><span class="eyebrow">Service areas</span><h2>Communities close to home</h2><p>These are the areas nearest our Burbank home — but they're not a limit. Wherever you're coming from, you're welcome here.</p></div>
+    <div class="grid3">
+      {areas.map(([slug, city, blurb]) => (
+        <a class="pcard" href={`/locations/${slug}/`} style="text-decoration:none;display:block;"><div class="ico"><Icon name="pin" /></div><h3>{city}</h3><p>{blurb}</p><span class="more">Learn more →</span></a>
+      ))}
+      <a class="pcard" href="/admissions/verify-insurance/" style="text-decoration:none;display:flex;flex-direction:column;justify-content:center;background:var(--caoba-dark);">
+        <div class="ico" style="background:rgba(255,255,255,.16);color:var(--gold-soft);"><Icon name="globe" /></div>
+        <h3 style="color:#fff;">Not from around here? Perfect.</h3>
+        <p style="color:#f4eee5;">You don't have to be local. We welcome clients from across California and out of state — a private setting away from home is often what makes a fresh start stick, and we coordinate the travel.</p>
+        <span class="more" style="color:var(--gold-soft);">Begin from anywhere →</span>
+      </a>
+    </div>
+  </div></section>
+
+  <!-- IMAGE FEATURE (cream) -->
+  <ImageFeature
+    bg="cream"
+    image="/images/stock/wellness-lifestyle.webp"
+    alt="A person arriving for treatment in Southern California"
+    side="right"
+    eyebrow="Traveling for treatment?"
+    title="You're welcome here — wherever you're coming from"
+    body="Plenty of our clients come from outside Los Angeles, and some from out of state. A private setting away from home is often exactly what makes a fresh start possible — and we make getting here simple."
+    points={[['pin', 'Minutes from Hollywood Burbank Airport'], ['heart', 'Travel coordination & a smooth arrival'], ['home', 'Discreet, private, physician-led care']]}
+  />
+
+  <Reviews bg="white" />
+
+  <section class="ctaband"><div class="container">
+    <h2>Help is closer than you think</h2>
+    <p>Wherever you are in the Los Angeles area, the first step is one confidential call — answered 24/7.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
+  </div></section>
+</Layout>

@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Reviews from '../../components/Reviews.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import ImageFeature from '../../components/ImageFeature.astro';
+import ScenarioHighlight from '../../components/ScenarioHighlight.astro';
+import InsuranceBanner from '../../components/InsuranceBanner.astro';
+
+const faqs = [
+  { q: 'Is Regain Hope LGBTQ-friendly?', a: 'Yes — we provide affirming, judgment-free care and welcome LGBTQ+ clients with dignity and respect.' },
+  { q: 'Will I be treated with respect for my identity and pronouns?', a: 'Yes — respect is non-negotiable in our home.' },
+  { q: 'Do you treat the mental health that comes with it?', a: 'Yes — our physicians treat co-occurring anxiety, depression, and trauma alongside addiction.' },
+  { q: 'Is the setting private?', a: 'Yes — a small, physician-owned residence, not a large institutional facility.' },
+  { q: 'Will my insurance cover it?', a: 'Most PPO plans do. As an out-of-network provider, we verify your benefits for free.' },
+  { q: 'Where are you located?', a: 'In Burbank, serving the greater Los Angeles area.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'Affirming Detox & Rehab for the LGBTQ+ Community', reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
+
+const serves = [
+  ['heart', 'Judgment-free, affirming care', 'We welcome LGBTQ+ clients and treat everyone with dignity and respect — full stop.'],
+  ['home', 'A small, family-run home', 'No institutional crowd — a close-knit team that gets to know you, in a setting that feels safe and personal.'],
+  ['stethoscope', 'Whole-person, physician-led care', 'Two doctors on-site daily, treating addiction alongside anxiety, depression, or trauma.'],
+  ['globe', 'Care in English, Spanish & Korean', 'For those who would feel most understood in their own language.'],
+];
+const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
+---
+<Layout
+  title="LGBTQ+ Friendly Detox & Rehab | Regain Hope Detox and Recovery Center"
+  description="Affirming, judgment-free detox and rehab for LGBTQ+ individuals in the Los Angeles area. Physician-owned, private home setting, care that respects who you are. Call 24/7."
+  schema={[pageSchema, faqSchema]}
+>
+  <Hero
+    variant="form"
+    eyebrow="For the LGBTQ+ Community · Los Angeles · 24/7"
+    title="Affirming Detox & Rehab for the LGBTQ+ Community"
+    byline="Mileidys Gomez Gonzalez, MD"
+    chips={['Affirming & judgment-free', 'Private & personal', 'Owned & run by two physicians', 'All genders welcome']}
+  />
+
+  <div class="trust"><div class="container">
+    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span><span>Joint Commission Accredited</span><span class="sep">|</span><span>California DHCS Licensed</span><span class="sep">|</span><span>LegitScript Certified</span><span class="sep">|</span><span>Physician-owned</span>
+  </div></div>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Recovery is hard enough without fear of judgment</h2>
+    <p>For many LGBTQ+ people, substance use is tangled up with experiences the rest of the world doesn't always see — minority stress, discrimination, rejection, or the exhaustion of having to explain or defend who you are. And too often, the very places meant to help can feel unsafe: misgendering, assumptions, or a quiet sense that you don't quite belong. That fear is real, and it keeps people from reaching out.</p>
+    <p>You deserve a place where getting sober doesn't come with a side of judgment — where you can focus on healing instead of bracing yourself for the next moment you have to defend who you are.</p>
+  </div></section>
+
+  <ImageFeature
+    bg="cream"
+    image="/images/stock/support.webp"
+    alt="A person feeling accepted and at peace"
+    side="left"
+    eyebrow="Safe enough to be honest"
+    title="Feeling safe is part of the treatment"
+    body="Recovery asks you to be honest and vulnerable — which is nearly impossible if you don't feel safe. When no one bats an eye at who you are or who you love, your energy goes into getting well instead of self-protection."
+    points={[['heart', 'Dignity and respect, full stop'], ['home', 'A personal home, not an institution'], ['brain', 'The mental health underneath, treated too']]}
+  />
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Why an affirming environment matters</h2>
+    <p>A small, personal setting helps in a way a big facility can't: in a home where you're known by name, you're a person first, not a category. There's no crowd to read, no front desk to come out to, no sense of being an exception to the usual program. That safety isn't a nicety — it's what lets people tell the truth about their lives, which is where real recovery begins.</p>
+    <p>We're transparent about what we are: a genuinely welcoming, affirming environment — not a separate clinical LGBTQ track with its own staff. What we promise is respect that's never conditional, and care built around the whole person in front of us.</p>
+    <p>It matters, too, because for many LGBTQ+ people substance use grew out of years of carrying extra weight — the stress of stigma, the sting of rejection, the work of staying guarded in spaces that weren't built for them. A program that quietly recognizes that, instead of pretending it doesn't exist, can treat the real roots of the problem rather than just its surface. You don't have to educate anyone here, or brace for a reaction — you can simply be a person working on getting well, surrounded by people who are glad you came.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container">
+    <div class="sec-head"><span class="eyebrow">The difference</span><h2>Care that respects who you are</h2></div>
+    <div class="grid2" style="max-width:920px;margin:0 auto;">
+      {serves.map(([ico, t, d]) => (
+        <div class="pcard"><div class="ico"><Icon name={ico} /></div><h3>{t}</h3><p>{d}</p></div>
+      ))}
+    </div>
+  </div></section>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Complete care, in a safe space</h2>
+    <p><a href="/programs/medical-detox/">Medical detox</a>, <a href="/programs/residential-treatment/">residential treatment</a>, <a href="/programs/dual-diagnosis-treatment/">dual-diagnosis care</a>, and <a href="/programs/medication-assisted-treatment/">MAT</a> — all in a private home with home-cooked meals and a calm, accepting environment. The same physician-led continuum every client receives, delivered somewhere you can finally exhale.</p>
+    <p>Throughout, the tone stays the same: warm, personal, and unhurried. You'll share home-cooked meals at a common table, be checked on by the physicians who own the program, and never be treated as an exception to the rules. For a lot of clients, it's that ordinary, everyday acceptance — not a special track or a slogan — that finally makes it possible to lower their guard and stay long enough to heal.</p>
+  </div></section>
+
+  <ScenarioHighlight
+    bg="cream"
+    eyebrow="A place to simply be yourself"
+    title="Recover with your guard down"
+    intro="Healing happens faster when you're not on guard. Here you can put down the armor, focus on recovery, and be met with respect — by physicians and a team who treat you like family."
+    badTitle="Where you don't quite fit"
+    bad={['Misgendering and assumptions', "A quiet sense you don't belong", 'Care that makes you explain or defend yourself']}
+    good={['Affirming, judgment-free care', 'Respect for who you are and who you love', "A small home where you're known by name"]}
+    momentLabel="What it feels like"
+    scenarios={[
+      ['heart', 'From the first conversation', "You're met with dignity and respect — full stop."],
+      ['users', 'In group and daily life', "A close-knit team and setting where you're a person, not a category."],
+      ['brain', 'The weight underneath', 'Anxiety, depression, and trauma treated alongside addiction.'],
+    ]}
+  />
+
+  <Reviews bg="white" />
+
+  <InsuranceBanner />
+
+  <section><div class="container">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>LGBTQ+ treatment — frequently asked questions</h2></div>
+    <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+  </div></section>
+
+  <section class="ctaband"><div class="container">
+    <h2>Recover somewhere you're respected</h2>
+    <p>One confidential, judgment-free call — answered 24/7 — is the first step.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
+  </div></section>
+</Layout>

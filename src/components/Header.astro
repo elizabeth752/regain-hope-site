@@ -1,0 +1,98 @@
+---
+import Icon from './Icon.astro';
+// Sitewide header: utility bar + sticky mega-menu nav (icons next to text).
+// Each top item links to its hub; hovering reveals a panel of sub-links with icons.
+interface NavItem { label: string; href: string; items?: [string, string, string][]; }
+const nav: NavItem[] = [
+  { label: 'Programs', href: '/programs/', items: [
+    ['detox', 'Medical Detox', '/programs/medical-detox/'],
+    ['home', 'Residential Treatment', '/programs/residential-treatment/'],
+    ['dual', 'Dual Diagnosis', '/programs/dual-diagnosis-treatment/'],
+    ['mat', 'Medication-Assisted Treatment', '/programs/medication-assisted-treatment/'],
+    ['heart', 'Continuing Care', '/programs/continuing-care/'],
+  ]},
+  { label: 'What We Treat', href: '/what-we-treat/', items: [
+    ['alcohol', 'Alcohol', '/what-we-treat/alcohol/'],
+    ['opioids', 'Opioids & Fentanyl', '/what-we-treat/opioids/'],
+    ['benzodiazepines', 'Benzodiazepines', '/what-we-treat/benzodiazepines/'],
+    ['stimulants', 'Stimulants', '/what-we-treat/stimulants/'],
+    ['prescription', 'Prescription Drugs', '/what-we-treat/prescription-drugs/'],
+    ['polysubstance', 'Polysubstance', '/what-we-treat/polysubstance/'],
+  ]},
+  { label: 'Who We Help', href: '/who-we-help/', items: [
+    ['chat', 'Professionals & Executives', '/who-we-help/professionals-executives/'],
+    ['heart', 'LGBTQ+', '/who-we-help/lgbtq/'],
+    ['shieldalert', 'Veterans & First Responders', '/who-we-help/veterans-first-responders/'],
+    ['globe', 'Spanish-Speaking', '/who-we-help/spanish-speaking/'],
+    ['globe', 'Korean-Speaking', '/who-we-help/korean-speaking/'],
+  ]},
+  { label: 'Insurance', href: '/insurance/', items: [
+    ['check', 'Verify Your Insurance', '/admissions/verify-insurance/'],
+    ['shield', 'Aetna', '/insurance/aetna/'],
+    ['shield', 'Cigna', '/insurance/cigna/'],
+    ['shield', 'Blue Cross Blue Shield', '/insurance/blue-cross-blue-shield/'],
+    ['shield', 'UnitedHealthcare', '/insurance/united-healthcare/'],
+    ['shield', 'Anthem', '/insurance/anthem/'],
+    ['shield', 'Kaiser', '/insurance/kaiser/'],
+    ['shield', 'Humana', '/insurance/humana/'],
+    ['shield', 'Health Net', '/insurance/health-net/'],
+    ['shield', 'TRICARE', '/insurance/tricare/'],
+  ]},
+  { label: 'Locations', href: '/locations/', items: [
+    ['pin', 'Glendale', '/locations/detox-glendale/'],
+    ['pin', 'Pasadena', '/locations/detox-pasadena/'],
+    ['pin', 'Sherman Oaks', '/locations/detox-sherman-oaks/'],
+    ['pin', 'Studio City', '/locations/detox-studio-city/'],
+    ['pin', 'Encino', '/locations/detox-encino/'],
+    ['pin', 'Toluca Lake', '/locations/detox-toluca-lake/'],
+    ['pin', 'La Cañada Flintridge', '/locations/detox-la-canada-flintridge/'],
+  ]},
+  { label: 'Admissions', href: '/admissions/', items: [
+    ['clipboard', 'What to Expect', '/admissions/what-to-expect/'],
+    ['home', 'What to Bring', '/admissions/what-to-bring/'],
+    ['check', 'Verify Insurance', '/admissions/verify-insurance/'],
+    ['family', 'For Families', '/admissions/for-families/'],
+  ]},
+  { label: 'About', href: '/about-us/' },
+];
+---
+<div class="util"><div class="container">
+  <span>📍 Burbank, CA · Open 24/7 · English · Español · 한국어</span>
+  <span>Insurance? <a href="/admissions/verify-insurance/">Verify your PPO benefits →</a></span>
+</div></div>
+
+<header>
+  <nav class="nav">
+    <a href="/" class="brand">Regain Hope<small>Detox &amp; Recovery Center</small></a>
+    <div class="navlinks" id="navlinks">
+      {nav.map((n) => (
+        <div class="navitem">
+          <a href={n.href} class="toplink">{n.label}{n.items && <span class="caret">▾</span>}</a>
+          {n.items && (
+            <div class="mega">
+              <div class={`mega-inner${n.items.length > 5 ? ' wide' : ''}`}>
+                {n.items.map(([ico, label, href]) => (
+                  <a class="megalink" href={href}><span class="mi"><Icon name={ico} size={18} /></span>{label}</a>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+    <div class="navcta">
+      <a href="tel:+18182812458" class="btn btn-primary navphone-btn">📞 (818) 281-2458</a>
+    </div>
+    <button class="hamb" id="hamb" aria-label="Menu" aria-expanded="false">☰</button>
+  </nav>
+</header>
+
+<script>
+  const h = document.getElementById('hamb');
+  const n = document.getElementById('navlinks');
+  h?.addEventListener('click', () => {
+    const open = n?.classList.toggle('open');
+    h.setAttribute('aria-expanded', open ? 'true' : 'false');
+    h.textContent = open ? '✕' : '☰';
+  });
+</script>

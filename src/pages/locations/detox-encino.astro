@@ -1,0 +1,136 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import ImageFeature from '../../components/ImageFeature.astro';
+import InsuranceBanner from '../../components/InsuranceBanner.astro';
+import Reviews from '../../components/Reviews.astro';
+
+const faqs = [
+  {
+    "q": "Is there a medical detox center near Encino?",
+    "a": "Yes — minutes away across the Valley in Burbank."
+  },
+  {
+    "q": "How far is it from Encino?",
+    "a": "About 20 minutes east."
+  },
+  {
+    "q": "Why leave Encino for detox instead of staying home?",
+    "a": "Detoxing among your usual triggers is risky and relapse-prone; a short move to a supervised, home-like setting improves safety and focus."
+  },
+  {
+    "q": "Is treatment private?",
+    "a": "Yes — a small, family-run residence, not an institutional facility."
+  },
+  {
+    "q": "Can I stay reachable for work?",
+    "a": "Yes — a flexible technology policy supports working professionals."
+  },
+  {
+    "q": "Can my family in Encino stay involved?",
+    "a": "Yes — the close location keeps family connected, and family therapy is available on request."
+  },
+  {
+    "q": "Does it accept PPO insurance?",
+    "a": "Most PPO plans, as an out-of-network provider; benefits verified free."
+  },
+  {
+    "q": "What substances can be detoxed from?",
+    "a": "Alcohol, opioids and fentanyl, benzodiazepines, stimulants, prescription drugs, and polysubstance use."
+  },
+  {
+    "q": "Is detox done with 24/7 medical supervision?",
+    "a": "Yes — two physicians provide in-person care daily, with around-the-clock monitoring."
+  },
+  {
+    "q": "Is care available in Spanish or Korean?",
+    "a": "Yes — care is provided in English, Spanish, and Korean."
+  }
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalClinic', name: 'Regain Hope Detox and Recovery Center', address: { '@type': 'PostalAddress', streetAddress: '1134 N Lima St', addressLocality: 'Burbank', addressRegion: 'CA', postalCode: '91505', addressCountry: 'US' }, telephone: '+1-818-281-2458', geo: { '@type': 'GeoCoordinates', latitude: 34.1719189, longitude: -118.3451238 }, areaServed: "Encino, CA", reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
+const why = [["stethoscope","Two physicians, on-site daily","The owners are the doctors — and they care for you in person, every day."],["heart","Whole-person medical care","Our lead physician (internal and family medicine) watches your full health through withdrawal."],["home","A private, family-run home","\"Feels like home, not a clinic\" is the recurring theme in our 5.0-star reviews."],["mat","MAT to protect sobriety","Relapse-prevention medication like long-acting Vivitrol, started before discharge."],["globe","Bilingual, culturally-aware care","English, Spanish, and Korean, with a team that respects where you come from."]];
+const continuum = [["detox","Medical Detox","24/7 physician-supervised withdrawal management.","/programs/medical-detox/"],["home","Residential Treatment","Live-in care after detox, in a real home.","/programs/residential-treatment/"],["dual","Dual Diagnosis","Integrated care for co-occurring anxiety, depression, or trauma.","/programs/dual-diagnosis-treatment/"],["mat","Medication-Assisted Treatment","Physician-prescribed medication to ease withdrawal and prevent relapse.","/programs/medication-assisted-treatment/"],["heart","Continuing Care","Trusted local referrals plus personal physician follow-up.","/programs/continuing-care/"]];
+---
+<Layout title="Medical Detox near Encino, CA | Regain Hope Detox and Recovery Center" description="Physician-supervised medical detox for Encino, CA residents — a short drive away in Burbank. Two doctors on-site daily, MAT, private home setting. PPO accepted. Call 24/7." schema={[pageSchema, faqSchema]}>
+  <Hero variant="form" eyebrow="For Encino, CA · A Short Drive Away in Burbank · 24/7" title="Medical Detox for Encino, CA Residents" byline="Mileidys Gomez Gonzalez, MD" chips={["~20 min from Encino","Owned & run by two physicians","Flexible technology policy","PPO accepted"]} />
+
+  <div class="trust"><div class="container">
+    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span><span>Joint Commission Accredited</span><span class="sep">|</span><span>California DHCS Licensed</span><span class="sep">|</span><span>LegitScript Certified</span><span class="sep">|</span><span>Two physicians on-site daily</span>
+  </div></div>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Trusted medical detox near Encino, California</h2>
+    <p>Encino is one of the San Fernando Valley's most established affluent communities — a stretch of gracious homes south of Ventura Boulevard climbing into the hills, anchored by family neighborhoods, the shops and restaurants along Ventura, and the green expanse of Balboa Park and Lake Balboa just to the north. It's a comfortable, family-centered place, and like the rest of the Valley it quietly carries the strain of alcohol, prescription-medication, and stimulant use that can build behind a successful exterior.</p>
+    <p>For Encino residents ready to take the first step, <b>physician-led medical detox is a short drive away.</b> Regain Hope Detox and Recovery Center is located across the Valley in Burbank — about 20 minutes east of Encino — offering 24/7 doctor-supervised detox in a private, home-like setting rather than a clinical ward. You stay close to family, schools, and work while stepping just far enough from the Ventura Boulevard routines and pressures tied to using. For parents and professionals who can't simply disappear for treatment, that nearby-but-private balance is what makes getting help realistic.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>Why leaving Encino — just for a bit — works</h2>
+    <p>The hardest place to get sober is the one where the drinking or using became routine: the same home, the same social circle, the same standing plans along Ventura. Detoxing at home, surrounded by all of it, is how the first few days unravel. But for an Encino family with kids, careers, and roots, traveling far for treatment can feel impossible.</p>
+    <p>Burbank offers the middle path. It's close enough that family can stay involved and the eventual handoff to local outpatient care is smooth — but far enough that you're out of your daily triggers during the most fragile phase of withdrawal. And because Regain Hope is small and physician-owned, the personalized attention and privacy that matter to Encino residents are simply how the program runs.</p>
+  </div></section>
+
+  <section><div class="container">
+    <div class="sec-head"><span class="eyebrow">Why choose Regain Hope</span><h2>Why Encino residents choose us</h2></div>
+    <div class="grid3">
+      {why.map(([ico, t, d]) => (<div class="pcard"><div class="ico"><Icon name={ico} /></div><h3>{t}</h3><p>{d}</p></div>))}
+    </div>
+  </div></section>
+
+  <ImageFeature bg="cream" image="/images/stock/holistic-care.webp" alt="A calm reset in recovery near Encino" side="right" eyebrow="Close to home, a real reset" title="Far enough to heal, close enough to stay connected" body="A quiet Burbank home with a private garden and water-feature courtyard, about 20 minutes across the Valley from Encino — so family stays close while you focus on getting well. Out-of-state family? We coordinate travel." points={[['pin', 'A short, familiar drive from Encino'], ['heart', 'Family stays close'], ['home', 'A private, home-like setting']]} />
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>What medical detox involves</h2>
+    <p>Medical detox safely clears alcohol or drugs from your body under 24/7 medical supervision while a care team manages withdrawal. Because alcohol, benzodiazepine, and opioid withdrawal can be dangerous — and for some substances life-threatening — supervised detox is far safer than quitting alone.</p>
+    <p>At Regain Hope Detox and Recovery Center, your detox is overseen <b>in person, every day</b> by the two physicians who own the program — not a remote doctor checking in by phone. The process generally runs <b>5–10 days</b> depending on the substance and your health, and flows directly into <a href="/programs/residential-treatment/">residential treatment</a> so progress doesn't stall.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container">
+    <div class="sec-head"><span class="eyebrow">The continuum</span><h2>Detox and treatment available to Encino residents</h2></div>
+    <div class="grid3">
+      {continuum.map(([ico, t, d, href]) => (<a class="pcard" href={href} style="text-decoration:none;display:block;"><div class="ico"><Icon name={ico} /></div><h3>{t}</h3><p>{d}</p><span class="more">Learn more →</span></a>))}
+    </div>
+  </div></section>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Addictions we treat for Encino clients</h2>
+    <p>We provide detox and treatment for alcohol, opioids and fentanyl, benzodiazepines, stimulants (meth and cocaine), prescription drugs, and polysubstance use — plus co-occurring anxiety, depression, and trauma through integrated <a href="/programs/dual-diagnosis-treatment/">dual-diagnosis care</a>. See everything we treat on our <a href="/what-we-treat/">What We Treat</a> page.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container"><div class="loc">
+    <div>
+      <span class="eyebrow">Directions</span>
+      <h2>How to reach us from Encino, CA</h2>
+      <p>Regain Hope Detox and Recovery Center is at <b>1134 N Lima St, Burbank, CA 91505</b> — about <b>20 minutes east</b> across the Valley from Encino, via the US-101 to the SR-134 or the Ventura/Riverside corridor. From south of Ventura Boulevard or near Lake Balboa, it's a straightforward drive. We're near Hollywood Burbank Airport for out-of-town family, and we can help arrange transportation to start treatment.</p>
+      <p style="margin-top:14px;"><a href="/admissions/verify-insurance/" class="btn btn-outline">Verify Your Insurance →</a></p>
+    </div>
+    <div class="locmap"><iframe src="https://www.google.com/maps?q=1134%20N%20Lima%20St%2C%20Burbank%2C%20CA%2091505&output=embed" loading="lazy" title="Driving map from Encino to Regain Hope Detox and Recovery Center"></iframe></div>
+  </div></div></section>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Addiction in the Encino area — you're not alone</h2>
+    <p>Encino sits in a part of the San Fernando Valley where addiction often hides behind stability — good jobs, nice homes, busy family calendars. Across Los Angeles County, tens of thousands of people enter substance-use treatment every year, and Valley communities like Encino are no exception. Reaching out isn't a sign of failure; it's the step that changes everything. Because Regain Hope is minutes away in Burbank, Encino families can support a loved one through detox without long drives or long separations — and many clients continue with our physicians as outpatients once they step down, keeping care close to home.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>Fresh air and recovery near Encino</h2>
+    <p>Recovery at Regain Hope moves outdoors, and the Encino area's green spaces fit naturally into that. Lake Balboa and the Sepulveda Basin, the trails of Caballero Canyon, and the foothill paths above Ventura Boulevard are the kinds of settings we draw on for the walks, fresh air, and movement that steady the body and mind in early recovery. Combined with our private garden and courtyard in Burbank, clients from Encino recover in a calm, restorative environment — close to the outdoors they already know.</p>
+  </div></section>
+
+  <Reviews bg="white" />
+
+  <InsuranceBanner />
+
+  <section><div class="container">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Detox near Encino, CA — frequently asked questions</h2></div>
+    <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+  </div></section>
+
+  <section class="ctaband"><div class="container">
+    <h2>Help is a short drive from Encino</h2>
+    <p>One confidential call is all it takes. Our admissions line is open 24/7.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
+  </div></section>
+</Layout>

@@ -1,0 +1,15 @@
+---
+import Divider from './Divider.astro';
+// Breaker module: meet the two physician-owners (photos). Reinforces "they're doctors."
+export interface Props { bg?: 'white' | 'cream'; }
+const { bg = 'cream' } = Astro.props;
+---
+<section class={bg === 'cream' ? 'bg-cream' : ''}><div class="container">
+  <Divider />
+  <div class="sec-head" style="margin-top:22px;"><span class="eyebrow">Meet the team</span><h2>Care led by the two physicians who own the program</h2></div>
+  <div class="team">
+    <div class="tcard"><img class="avatar" src="/images/team/mileidys-gomez.webp" alt="Mileidys Gomez Gonzalez, MD" width="72" height="72" loading="lazy" /><div><h3>Mileidys Gomez Gonzalez, MD</h3><p>Co-founder &amp; Medical Lead · Internal &amp; family medicine. Follows up with clients personally after discharge.</p></div></div>
+    <div class="tcard"><img class="avatar" src="/images/team/carlos-yoo.webp" alt="Dr. Carlos Yoo" width="72" height="72" loading="lazy" /><div><h3>Dr. Carlos Yoo</h3><p>Co-founder &amp; physician. Leads admissions and daily care alongside Dr. Gomez.</p></div></div>
+  </div>
+  <p style="text-align:center;margin-top:22px;"><a href="/about-us/team/" class="btn btn-outline">Meet the full team →</a></p>
+</div></section>

@@ -1,0 +1,21 @@
+---
+import Divider from './Divider.astro';
+// Breaker module: a peek at the home. Pass `photos` to vary which rooms show per page.
+export interface Props { bg?: 'white' | 'cream'; photos?: [string, string][]; heading?: string; }
+const {
+  bg = 'cream',
+  heading = 'A place that feels like home',
+  photos = [
+    ['regain-05', 'Living room'], ['regain-07', 'Open-plan common area'], ['regain-09', 'Lounge with fireplace'],
+    ['regain-10', 'Kitchen island'], ['regain-12', 'Outdoor deck'], ['regain-13', 'Sunny patio'],
+  ],
+} = Astro.props;
+---
+<section class={bg === 'cream' ? 'bg-cream' : ''}><div class="container">
+  <Divider />
+  <div class="sec-head" style="margin-top:22px;"><span class="eyebrow">The home</span><h2>{heading}</h2></div>
+  <div class="gallery">
+    {photos.map(([f, alt]) => <img src={`/images/${f}.jpeg`} alt={alt} loading="lazy" width="280" height="190" />)}
+  </div>
+  <p style="text-align:center;margin-top:24px;"><a href="/about-us/facility-tour/" class="btn btn-outline">Tour the home →</a></p>
+</div></section>

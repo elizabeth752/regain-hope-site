@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Reviews from '../../components/Reviews.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import ImageFeature from '../../components/ImageFeature.astro';
+import ScenarioHighlight from '../../components/ScenarioHighlight.astro';
+import InsuranceBanner from '../../components/InsuranceBanner.astro';
+
+const faqs = [
+  { q: 'Do you offer addiction treatment in Spanish?', a: 'Yes — real care in Spanish from Spanish-speaking physicians, not just translation. (¿Ofrecen tratamiento en español? Sí.)' },
+  { q: 'Are the doctors Spanish-speaking?', a: 'Yes — our physician-owners speak Spanish.' },
+  { q: 'Can my Spanish-speaking family be involved?', a: 'Yes — we communicate with family in Spanish and offer family therapy on request.' },
+  { q: 'Do you treat mental health in Spanish too?', a: 'Yes — co-occurring anxiety, depression, and trauma are treated alongside addiction.' },
+  { q: 'Will my insurance cover it?', a: 'Most PPO plans do; we verify out-of-network benefits for free, in Spanish or English.' },
+  { q: 'Where are you located?', a: 'In Burbank, serving the greater Los Angeles area.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'Spanish-Speaking Detox & Rehab in Los Angeles', reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
+
+const serves = [
+  ['chat', 'Spanish-speaking physicians', 'Care led by physician-owners who speak Spanish — treatment in Spanish, not translated into it.'],
+  ['family', 'Culturally aware, family-run', 'A family-owned home that understands the role of family and the weight of stigma.'],
+  ['stethoscope', 'Whole-person, physician-led care', 'Two doctors on-site daily treating addiction and the anxiety, depression, or trauma underneath.'],
+  ['globe', 'Also available in Korean', 'Care is offered in English, Spanish, and Korean.'],
+];
+const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
+---
+<Layout
+  title="Spanish-Speaking Detox & Rehab | Regain Hope Detox and Recovery Center"
+  description="Detox and rehab in Spanish for the Los Angeles area — real bilingual care from Spanish-speaking physicians, not just translation. Private, physician-owned. Call 24/7."
+  schema={[pageSchema, faqSchema]}
+>
+  <Hero
+    variant="form"
+    eyebrow="Atención en Español · Los Angeles · 24/7"
+    title="Spanish-Speaking Detox & Rehab in the Los Angeles Area"
+    byline="Mileidys Gomez Gonzalez, MD"
+    chips={['Atención en español', 'Médicos hispanohablantes', 'Owned & run by two physicians', 'Couples accepted & treated together']}
+  />
+
+  <div class="trust"><div class="container">
+    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span><span>Joint Commission Accredited</span><span class="sep">|</span><span>California DHCS Licensed</span><span class="sep">|</span><span>LegitScript Certified</span><span class="sep">|</span><span>Atención en inglés y español</span>
+  </div></div>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Recovery is harder in a language that isn't yours</h2>
+    <p>Addiction treatment asks you to talk about the most painful, private parts of your life. Doing that in a second language — or through a translator who doesn't know you — puts a wall between you and the care you need. Nuance gets lost. Shame deepens. And for many Spanish-speaking families, cultural stigma around addiction makes reaching out even harder.</p>
+    <p>You shouldn't have to translate your pain to be understood. At Regain Hope Detox and Recovery Center, you can do the work of recovery in Spanish, with physicians who speak your language as their own.</p>
+    <p>For families who have spent years worrying in silence, that alone can be a relief — a place where the conversation finally happens in the language the whole family shares, without a stranger in the middle. Recovery is hard work, but it shouldn't be made harder by having to find the English words for the most painful moments of your life.</p>
+  </div></section>
+
+  <ImageFeature
+    bg="cream"
+    image="/images/stock/family-therapy.webp"
+    alt="A family supported together in recovery"
+    side="left"
+    eyebrow="Understood, not translated"
+    title="Real bilingual care changes outcomes"
+    body="There's a difference between a facility with a translation line and one where the doctor treating you actually speaks Spanish. When you're understood without an intermediary, trust forms faster and treatment works better."
+    points={[['chat', 'Doctors who speak your language'], ['family', 'Care that understands the culture'], ['stethoscope', 'Whole-person, physician-led care']]}
+  />
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Why care in your own language matters</h2>
+    <p>When you can express exactly what you feel — and be understood without an intermediary — the clinical picture is clearer and the relationship is stronger. Add a team that understands the cultural context around addiction in Latino families, where shame and silence so often delay help, and care stops feeling foreign and starts feeling like home.</p>
+    <p>This is a genuine strength, not a marketing line: our lead physician, Dr. Gomez, speaks Spanish as a native language, and care — including the conversations with your family — can happen entirely in Spanish.</p>
+    <p>It matters for the family around you, too. In many Latino households, addiction is carried quietly, weighed down by shame and the sense that struggles should stay within the family. When the people treating your loved one can speak with the family directly — in Spanish, with respect for that cultural weight — the whole family can become part of the recovery instead of a barrier to it.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container">
+    <div class="sec-head"><span class="eyebrow">The difference</span><h2>Genuine care in Spanish</h2></div>
+    <div class="grid2" style="max-width:920px;margin:0 auto;">
+      {serves.map(([ico, t, d]) => (
+        <div class="pcard"><div class="ico"><Icon name={ico} /></div><h3>{t}</h3><p>{d}</p></div>
+      ))}
+    </div>
+  </div></section>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Atención completa en español</h2>
+    <p><a href="/programs/medical-detox/">Medical detox</a>, <a href="/programs/residential-treatment/">residential treatment</a>, <a href="/programs/dual-diagnosis-treatment/">dual-diagnosis care</a>, and <a href="/programs/medication-assisted-treatment/">MAT</a> — all available with Spanish-speaking care, in a private home with home-cooked meals. The same complete, physician-led continuum, delivered in the language you think and feel in.</p>
+    <p>And because it's a small, family-run home, the experience feels familiar rather than foreign: shared meals, warm conversation, and a team that knows your name. For many Spanish-speaking clients who expected a cold, confusing system, simply being greeted and understood in their own language is the moment they realize they came to the right place.</p>
+  </div></section>
+
+  <ScenarioHighlight
+    bg="cream"
+    eyebrow="Sanar en tu propio idioma"
+    title="Heal in a language that feels like home"
+    intro="Healing is hard enough — it shouldn't be harder because of language. Here you can speak freely, be understood completely, and recover with dignity, in Spanish, in a home that treats you like family."
+    badTitle="A translator in the room"
+    bad={['Nuance lost through an intermediary', "Shame that deepens when you can't be understood", 'Care that feels foreign']}
+    good={['Treatment in Spanish, not translated into it', 'Spanish-speaking physicians who get the culture', 'A family-run home that understands stigma']}
+    momentLabel="Por qué importa"
+    scenarios={[
+      ['chat', 'When you describe your pain', "You're understood directly, in Spanish — no wall between you and care."],
+      ['family', 'When family is involved', 'We speak with your family in Spanish, with compassion for the stigma they may carry.'],
+      ['stethoscope', 'Your full health', 'Physician-led, whole-person care, in your language.'],
+    ]}
+  />
+
+  <Reviews bg="white" />
+
+  <InsuranceBanner />
+
+  <section><div class="container">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Spanish-speaking treatment — frequently asked questions</h2></div>
+    <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+  </div></section>
+
+  <section class="ctaband"><div class="container">
+    <h2>Recover in a language that feels like home</h2>
+    <p>Una llamada confidencial, 24/7. One confidential call. We'll verify your insurance and guide you in Spanish.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
+  </div></section>
+</Layout>
