@@ -38,15 +38,6 @@ const nav: NavItem[] = [
     ['shield', 'Health Net', '/insurance/health-net/'],
     ['shield', 'TRICARE', '/insurance/tricare/'],
   ]},
-  { label: 'Locations', href: '/locations/', items: [
-    ['pin', 'Glendale', '/locations/detox-glendale/'],
-    ['pin', 'Pasadena', '/locations/detox-pasadena/'],
-    ['pin', 'Sherman Oaks', '/locations/detox-sherman-oaks/'],
-    ['pin', 'Studio City', '/locations/detox-studio-city/'],
-    ['pin', 'Encino', '/locations/detox-encino/'],
-    ['pin', 'Toluca Lake', '/locations/detox-toluca-lake/'],
-    ['pin', 'La Cañada Flintridge', '/locations/detox-la-canada-flintridge/'],
-  ]},
   { label: 'Admissions', href: '/admissions/', items: [
     ['clipboard', 'What to Expect', '/admissions/what-to-expect/'],
     ['home', 'What to Bring', '/admissions/what-to-bring/'],
@@ -81,7 +72,7 @@ const nav: NavItem[] = [
       ))}
     </div>
     <div class="navcta">
-      <a href="tel:+18182812458" class="btn btn-primary navphone-btn">📞 (818) 281-2458</a>
+      <a href="tel:+18182812458" class="btn btn-primary navphone-btn"><Icon name="phone" size={17} /> (818) 281-2458</a>
     </div>
     <button class="hamb" id="hamb" aria-label="Menu" aria-expanded="false">☰</button>
   </nav>

@@ -20,10 +20,12 @@ const schema = {
 ---
 <Layout title={`${post.title} | Regain Hope Detox and Recovery Center`} description={post.excerpt} image={post.image} schema={schema}>
   <article class="blogpost">
-    <header class="bp-head">
-      <span class="pill">{post.category}</span>
-      <h1>{post.title}</h1>
-    </header>
+    <section class="bp-hero">
+      <header class="bp-head">
+        <span class="pill">{post.category}</span>
+        <h1>{post.title}</h1>
+      </header>
+    </section>
     <div class="bp-byline">
       <img src={author.photo} alt={author.name} width="54" height="54" loading="lazy" />
       <div class="who">
@@ -64,6 +66,17 @@ const schema = {
 
       <div class="bp-main rich">
         <slot />
+
+        <aside class="bp-author" aria-label="About the author">
+          <img src={author.photo} alt={author.name} width="96" height="96" loading="lazy" />
+          <div class="ba-text">
+            <span class="ba-eyebrow">About the author</span>
+            <div class="ba-name">{author.name}</div>
+            <div class="ba-role">{author.role}</div>
+            {author.bio.map((para) => <p>{para}</p>)}
+            <a href={`/blog/author/${author.slug}/`} class="ba-link">Read full bio →</a>
+          </div>
+        </aside>
       </div>
     </div>
 
