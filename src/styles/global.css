@@ -42,6 +42,7 @@ section{padding:74px 0;}
 .util{background:var(--caoba-deep);color:#f3e3d6;font-size:13px;}
 .util .container{display:flex;justify-content:space-between;align-items:center;padding:7px 24px;flex-wrap:wrap;gap:6px;}
 .util a{color:var(--gold-soft);font-weight:600;}
+@media(max-width:760px){.util .container{justify-content:center;}.util-langs,.util-verify{display:none;}}
 header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.95);backdrop-filter:blur(8px);border-bottom:1px solid #ecdfca;}
 .nav{display:flex;align-items:center;gap:28px;padding:14px 24px;max-width:var(--maxw);margin:0 auto;}
 .brand{font-family:var(--serif);font-weight:600;font-size:23px;color:var(--caoba-dark);line-height:1;}
@@ -222,12 +223,40 @@ footer a{color:#cfc3b5;display:block;padding:4px 0;} footer a:hover{color:var(--
 .hero-form button{width:100%;background:var(--gold);color:var(--caoba-deep);font-family:var(--sans);font-weight:700;font-size:16px;padding:14px;border:0;border-radius:10px;cursor:pointer;transition:.18s;}
 .hero-form button:hover{background:var(--gold-soft);}
 .hero-form .hipaa{font-size:11px;color:var(--muted);text-align:center;margin-top:8px;}
-@media(max-width:880px){.hero .container{grid-template-columns:1fr;}}
+.hero-cta-mobile{display:none;}
+@media(max-width:880px){
+  .hero .container{grid-template-columns:1fr;}
+  /* On mobile the side-by-side form is too heavy above the fold — swap it for CTAs and link to the dedicated verify-insurance form page. */
+  .hero--form .hero-form-wrap{display:none;}
+  .hero--form .hero-talk{display:none;}
+  .hero--form .hero-cta-mobile{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;}
+  .hero--form .hero-cta-mobile .btn{display:inline-flex;align-items:center;gap:8px;}
+}
 
 /* insurance logo strip (real SVG logos) */
 .ins-strip{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:20px 36px;margin:28px 0 26px;}
 .ins-strip img{height:36px;width:auto;opacity:.92;}
 .ins-strip img:hover{opacity:1;}
+
+/* ---- mobile marquee: trust strip + insurance logos (set up by JS in Layout) ---- */
+@media(max-width:760px){
+  .trust .container.mq,.ins-strip.mq{display:block;overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);}
+  .mq .mq-move{display:flex;width:max-content;animation:mq-scroll linear infinite;}
+  .mq .mq-track{display:flex;align-items:center;flex:0 0 auto;}
+  .mq .mq-track>*{flex:0 0 auto;white-space:nowrap;}
+  .trust .container.mq{padding:14px 0;}
+  .trust .container.mq .mq-move{animation-duration:28s;}
+  .trust .container.mq .mq-track{gap:0 28px;padding-right:28px;}
+  .ins-strip.mq{margin:22px 0;}
+  .ins-strip.mq .mq-move{animation-duration:24s;}
+  .ins-strip.mq .mq-track{gap:0 30px;padding-right:30px;}
+  .ins-strip.mq .mq-track img{height:30px;width:auto;}
+}
+@keyframes mq-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+/* safety: if a phone is resized to desktop after the marquee was built, restore the static layout */
+@media(min-width:761px){.mq-clone{display:none;}.mq .mq-move,.mq .mq-track{display:contents;}}
 
 /* floating Google reviews badge (fixed, bottom-left) */
 .grbadge{position:fixed;bottom:20px;left:20px;z-index:60;display:flex;align-items:center;gap:11px;background:#fff;border:1px solid #e6d9c2;border-radius:12px;padding:10px 15px;box-shadow:var(--shadow-lg);text-decoration:none;}

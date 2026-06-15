@@ -80,5 +80,30 @@ const jsonld = [org, ...(schema ? (Array.isArray(schema) ? schema : [schema]) : 
     <span class="g">G</span>
     <span class="grtxt"><span class="grstars">★★★★★</span><b>5.0</b> · 8 reviews</span>
   </a>
+
+  <!-- Mobile-only: turn the trust strip + insurance logos into continuous marquees
+       (avoids the stacked look on small screens). Desktop and reduced-motion are untouched. -->
+  <script>
+    const isMobile = window.matchMedia('(max-width:760px)').matches;
+    const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    if (isMobile && !reduce) {
+      document.querySelectorAll('.trust .container, .ins-strip').forEach((el) => {
+        if (el.dataset.mq) return;
+        el.dataset.mq = '1';
+        const track = document.createElement('div');
+        track.className = 'mq-track';
+        while (el.firstChild) track.appendChild(el.firstChild);
+        const clone = track.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        clone.classList.add('mq-clone');
+        const move = document.createElement('div');
+        move.className = 'mq-move';
+        move.appendChild(track);
+        move.appendChild(clone);
+        el.appendChild(move);
+        el.classList.add('mq');
+      });
+    }
+  </script>
 </body>
 </html>

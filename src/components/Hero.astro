@@ -38,7 +38,13 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
           {chips.map((c) => <li><span class="hp-ic"><Icon name="check" size={15} /></span>{c}</li>)}
         </ul>
       )}
-      <p style="margin-top:22px;">Prefer to talk? <a href="tel:+18182812458" class="hero-phone-link">Call 24/7 — (818) 281-2458</a></p>
+      <p class="hero-talk" style="margin-top:22px;">Prefer to talk? <a href="tel:+18182812458" class="hero-phone-link">Call 24/7 — (818) 281-2458</a></p>
+      {variant === 'form' && (
+        <div class="hero-cta-mobile">
+          <a href={cta.href} class="btn btn-gold">Check my coverage →</a>
+          <a href="tel:+18182812458" class="btn btn-ghost"><Icon name="phone" size={16} /> Call 24/7</a>
+        </div>
+      )}
     </div>
 
     {variant === 'form' ? (
