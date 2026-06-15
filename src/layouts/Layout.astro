@@ -102,6 +102,15 @@ const jsonld = [org, ...(schema ? (Array.isArray(schema) ? schema : [schema]) : 
         move.appendChild(clone);
         el.appendChild(move);
         el.classList.add('mq');
+        // The cloned half sits off-screen inside an overflow:hidden box and is only
+        // revealed by the transform, so lazy-loading never fires for it — leaving
+        // zero-width gaps in the loop. Force every logo in the marquee to load now.
+        el.querySelectorAll('img').forEach((img) => {
+          if (img.complete && img.naturalWidth) return;
+          const src = img.getAttribute('src');
+          img.removeAttribute('loading');
+          if (src) img.setAttribute('src', src);
+        });
       });
     }
   </script>
