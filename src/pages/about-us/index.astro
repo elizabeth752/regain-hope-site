@@ -1,16 +1,16 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import TeamStrip from '../../components/TeamStrip.astro';
 import Hero from '../../components/Hero.astro';
 import Icon from '../../components/Icon.astro';
 import PhysicianLed from '../../components/PhysicianLed.astro';
-import TeamStrip from '../../components/TeamStrip.astro';
 import ImageFeature from '../../components/ImageFeature.astro';
 import Reviews from '../../components/Reviews.astro';
 
 const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'About Regain Hope Detox and Recovery Center', reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
 
 const values = [
-  ['stethoscope', 'Physicians, on-site daily', 'The owners are the doctors — in person, every day, not by phone.'],
+  ['stethoscope', 'Physicians, on-site daily', 'The owners are the doctors, in person, every day, not by phone.'],
   ['heart', 'Whole-person care', 'We coordinate your full medical and mental health, not just the addiction.'],
   ['home', 'A family-run home', 'A small, private residence where you\'re known by name, not a number.'],
   ['globe', 'Care in your language', 'Treatment delivered in English, Spanish, and Korean.'],
@@ -18,14 +18,14 @@ const values = [
 ---
 <Layout
   title="About Us | Regain Hope Detox and Recovery Center"
-  description="Regain Hope Detox and Recovery Center is a physician-owned, family-run detox and residential program in Burbank, CA — two doctors who care for you in person, every day."
+  description="Regain Hope Detox and Recovery Center is a physician-owned, family-run detox and residential program in Burbank, CA, with two doctors who care for you in person, every day."
   schema={pageSchema}
 >
   <Hero
     variant="reviews"
     eyebrow="About Us · Burbank, CA · 24/7"
     title="A physician-owned home for recovery"
-    lead="Regain Hope Detox and Recovery Center isn't a corporate facility. It's a small, family-run home owned by two physicians who treat the whole person — in person, every day."
+    lead="Regain Hope Detox and Recovery Center isn't a corporate facility. It's a small, family-run home owned by two physicians who treat the whole person, in person, every day."
     byline="Mileidys Gomez Gonzalez, MD"
     chips={['Owned & run by two physicians', 'On-site, in-person care daily', 'Family-run home in Burbank', 'Care in English, Spanish & Korean']}
   />
@@ -37,8 +37,8 @@ const values = [
   <!-- OUR STORY (white) -->
   <section><div class="container rich" style="max-width:820px;">
     <h2>Who we are</h2>
-    <p>Regain Hope Detox and Recovery Center was built on a simple conviction: that people in early recovery deserve real medical care, delivered with real humanity. We are a <b>physician-owned, family-run</b> detox and residential program in Burbank, California — small by design, so that the two doctors who own the program can care for every client in person, every day.</p>
-    <p>Most detox centers run on a rotating staff with a physician who checks in remotely. We do the opposite. Our founders are husband-and-wife physicians who are present, hands-on, and personally invested in each person's recovery — which is why our reviews so often describe a place that "feels like home, not a clinic."</p>
+    <p>Regain Hope Detox and Recovery Center was built on a simple conviction: that people in early recovery deserve real medical care, delivered with real humanity. We are a <b>physician-owned, family-run</b> detox and residential program in Burbank, California, small by design, so that the two doctors who own the program can care for every client in person, every day.</p>
+    <p>Most detox centers run on a rotating staff with a physician who checks in remotely. We do the opposite. Our founders are husband-and-wife physicians who are present, hands-on, and personally invested in each person's recovery, which is why our reviews so often describe a place that "feels like home, not a clinic."</p>
   </div></section>
 
   <!-- ★ PHYSICIAN-LED (cream) -->
@@ -55,7 +55,6 @@ const values = [
   </div></section>
 
   <!-- TEAM (cream) -->
-  <TeamStrip bg="cream" />
 
   <!-- ACCREDITATIONS LINK (white, ImageFeature) -->
   <ImageFeature
@@ -65,12 +64,14 @@ const values = [
     side="right"
     eyebrow="Accredited & trusted"
     title="Care held to recognized standards"
-    body="Regain Hope is accredited and licensed by the bodies that set the bar for safe, ethical addiction treatment — so the trust you place in us is backed by independent oversight."
+    body="Regain Hope is accredited and licensed by the bodies that set the bar for safe, ethical addiction treatment, so the trust you place in us is backed by independent oversight."
     points={[['shield', 'Joint Commission accredited'], ['check', 'Licensed by California DHCS'], ['heart', 'LegitScript certified']]}
     cta={{ label: 'See our accreditations →', href: '/about-us/accreditations/' }}
   />
 
   <Reviews bg="cream" />
+
+  <TeamStrip bg="cream" />
 
   <section class="ctaband"><div class="container">
     <h2>Get to know us with one call</h2>

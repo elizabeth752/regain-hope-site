@@ -1,15 +1,22 @@
 ---
 import Divider from './Divider.astro';
-// Breaker module: meet the two physician-owners (photos). Reinforces "they're doctors."
-export interface Props { bg?: 'white' | 'cream'; }
-const { bg = 'cream' } = Astro.props;
+import { team } from '../data/blog.js';
+// Breaker module: the real clinical team (photos, names, roles). Links to each staff/author page.
+export interface Props { bg?: 'white' | 'cream'; blurb?: boolean; }
+const { bg = 'cream', blurb = true } = Astro.props;
 ---
 <section class={bg === 'cream' ? 'bg-cream' : ''}><div class="container">
   <Divider />
-  <div class="sec-head" style="margin-top:22px;"><span class="eyebrow">Meet the team</span><h2>Care led by the two physicians who own the program</h2></div>
-  <div class="team">
-    <div class="tcard"><img class="avatar" src="/images/team/mileidys-gomez.webp" alt="Mileidys Gomez Gonzalez, MD" width="72" height="72" loading="lazy" /><div><h3>Mileidys Gomez Gonzalez, MD</h3><p>Co-founder &amp; Medical Lead · Internal &amp; family medicine. Follows up with clients personally after discharge.</p></div></div>
-    <div class="tcard"><img class="avatar" src="/images/team/carlos-yoo.webp" alt="Dr. Carlos Yoo" width="72" height="72" loading="lazy" /><div><h3>Dr. Carlos Yoo</h3><p>Co-founder &amp; physician. Leads admissions and daily care alongside Dr. Gomez.</p></div></div>
+  <div class="sec-head" style="margin-top:22px;"><span class="eyebrow">Meet the team</span><h2>The people who care for you</h2><p>A small, close-knit clinical team, on-site and personally involved in your care.</p></div>
+  <div class="teamgrid">
+    {team.map((m) => (
+      <a class="tm" href={`/blog/author/${m.slug}/`}>
+        <img src={m.photo} alt={m.name} width="108" height="108" loading="lazy" />
+        <h3>{m.name}</h3>
+        <span class="role">{m.role}</span>
+        {blurb && <p>{m.short}</p>}
+      </a>
+    ))}
   </div>
-  <p style="text-align:center;margin-top:22px;"><a href="/about-us/team/" class="btn btn-outline">Meet the full team →</a></p>
+  <p style="text-align:center;margin-top:28px;"><a href="/about-us/team/" class="btn btn-outline">Meet the full team →</a></p>
 </div></section>

@@ -20,8 +20,8 @@ const {
 } = Astro.props;
 
 const reviews = [
-  { text: 'The two doctors are genuinely caring and compassionate. In past detoxes I often felt treated like a number — here they truly make you feel valued and cared for as a person.', who: 'Chris' },
-  { text: 'Dr. Gomez and Dr. Carlos are incredible. They make the house feel like home and family — and Dr. Gomez genuinely cares, following up with clients even after discharge.', who: 'Jimmy' },
+  { text: 'The two doctors are genuinely caring and compassionate. In past detoxes I often felt treated like a number. Here they truly make you feel valued and cared for as a person.', who: 'Chris' },
+  { text: 'Dr. Gomez and Dr. Carlos are incredible. They make the house feel like home and family, and Dr. Gomez genuinely cares, following up with clients even after discharge.', who: 'Jimmy' },
   { text: "They didn't make the facility feel cold or clinical. They made it feel like home. You could tell they genuinely cared about the people there.", who: 'Ashlie L.' },
 ];
 const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
@@ -29,7 +29,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 <section class={`hero hero--${variant}`}>
   <div class="container">
     <div class="hero-inner">
-      {eyebrow && <span class="eyebrow" style="color:var(--gold-soft)">{eyebrow}</span>}
+      {eyebrow && <span class="eyebrow" style="color:#fff">{eyebrow}</span>}
       <h1>{title}</h1>
       {lead && <p class="lead">{lead}</p>}
       {byline && <p class="byline">Medically reviewed by <a href={bylineHref}>{byline}</a></p>}
@@ -38,7 +38,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
           {chips.map((c) => <li><span class="hp-ic"><Icon name="check" size={15} /></span>{c}</li>)}
         </ul>
       )}
-      <p class="hero-talk" style="margin-top:22px;">Prefer to talk? <a href="tel:+18182812458" class="hero-phone-link">Call 24/7 — (818) 281-2458</a></p>
+      <p class="hero-talk" style="margin-top:22px;">Prefer to talk? <a href="tel:+18182812458" class="hero-phone-link">Call 24/7: (818) 281-2458</a></p>
       {variant === 'form' && (
         <div class="hero-cta-mobile">
           <a href={cta.href} class="btn btn-gold">Check my coverage →</a>
@@ -52,7 +52,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
         <form class="hero-form" action="/thank-you/" method="get">
           <img class="form-hipaa" src="/images/logos/hipaa.svg" alt="HIPAA compliant" width="64" height="36" loading="lazy" />
           <h3>Verify Your Insurance</h3>
-          <p class="fsub">Free &amp; confidential — most PPO plans accepted. Takes about 5 minutes.</p>
+          <p class="fsub">Free &amp; confidential, most PPO plans accepted. Takes about 5 minutes.</p>
           <div class="frow">
             <div><label for="nm">Full name</label><input id="nm" name="name" required /></div>
             <div><label for="ph">Phone</label><input id="ph" name="phone" type="tel" required /></div>
@@ -79,7 +79,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
           <article class={`hrev${i === 0 ? ' active' : ''}`}>
             <div class="stars">★★★★★</div>
             <p>“{r.text}”</p>
-            <div class="who">— {r.who}</div>
+            <div class="who">{r.who}</div>
           </article>
         ))}
         <div class="hr-foot">

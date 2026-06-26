@@ -7,20 +7,20 @@ import HomeNotClinic from '../../components/HomeNotClinic.astro';
 import InsuranceBanner from '../../components/InsuranceBanner.astro';
 
 const faqs = [
-  { q: 'Do you provide treatment in languages other than English?', a: 'Yes — full treatment is available in English, Spanish, and Korean, not just translation.' },
-  { q: 'Do you welcome LGBTQ+ clients?', a: 'Yes — we provide affirming, judgment-free care that respects who you are. All genders are welcome.' },
-  { q: 'Can couples be treated together?', a: 'Yes — we accept couples and offer couples counseling, and we welcome court-involved clients seeking a fresh start, without judgment.' },
+  { q: 'Do you provide treatment in languages other than English?', a: 'Yes, full treatment is available in English, Spanish, and Korean, not just translation.' },
+  { q: 'Do you welcome LGBTQ+ clients?', a: 'Yes, we provide affirming, judgment-free care that respects who you are. All genders are welcome.' },
+  { q: 'Can couples be treated together?', a: 'Yes, we accept couples and offer couples counseling, and we welcome court-involved clients seeking a fresh start, without judgment.' },
   { q: 'Does insurance cover treatment?', a: 'Most PPO plans do. As an out-of-network provider, we verify your benefits for free.' },
 ];
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
-const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'Who We Help — Personalized Detox & Rehab', reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'Who We Help: Personalized Detox & Rehab', reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
 
 const populations = [
   ['therapy-session', 'A professional resting during recovery', 'Professionals & Executives', 'Discreet care with a flexible technology policy so you can stay connected.', '/who-we-help/professionals-executives/'],
   ['support', 'A person feeling supported and at ease', 'LGBTQ+', 'Affirming, judgment-free treatment that respects who you are.', '/who-we-help/lgbtq/'],
   ['wellness-lifestyle', 'A person regaining strength outdoors', 'Veterans & First Responders', "Care for those who've carried heavy loads for others.", '/who-we-help/veterans-first-responders/'],
-  ['residential-day', 'A welcoming group in a bright space', 'Spanish-Speaking', 'Full treatment in Spanish — not just translation.', '/who-we-help/spanish-speaking/'],
-  ['aftercare', 'A supportive community outdoors', 'Korean-Speaking', 'Care in Korean — a rare offering in addiction treatment.', '/who-we-help/korean-speaking/'],
+  ['residential-day', 'A welcoming group in a bright space', 'Spanish-Speaking', 'Full treatment in Spanish, not just translation.', '/who-we-help/spanish-speaking/'],
+  ['aftercare', 'A supportive community outdoors', 'Korean-Speaking', 'Care in Korean, a rare offering in addiction treatment.', '/who-we-help/korean-speaking/'],
 ];
 const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 ---
@@ -33,7 +33,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
     variant="reviews"
     eyebrow="Who We Help · Serving Los Angeles · 24/7"
     title="Personalized Care for Who You Are"
-    lead="Recovery isn't one-size-fits-all. As a small, physician-owned program, we tailor care to your life, your background, and your needs — without judgment."
+    lead="Recovery isn't one-size-fits-all. As a small, physician-owned program, we tailor care to your life, your background, and your needs, without judgment."
     byline="Mileidys Gomez Gonzalez, MD"
     chips={['Physician-owned & operated', 'Couples accepted & treated together', 'Care in English, Spanish & Korean', 'Judgment-free, personalized care']}
   />
@@ -45,7 +45,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   <!-- INTRO (white) -->
   <section><div class="container rich" style="max-width:820px;">
     <h2>Care that meets you where you are</h2>
-    <p>Big treatment centers treat everyone the same. A small, family-run home can do what they can't — adapt to the person in front of us. Whether you're a professional who can't fully unplug, someone who needs an affirming and judgment-free space, a veteran or first responder, or someone who'd feel most understood in Spanish or Korean, our physicians and team build care around you.</p>
+    <p>Big treatment centers treat everyone the same. A small, family-run home can do what they can't: adapt to the person in front of us. Whether you're a professional who can't fully unplug, someone who needs an affirming and judgment-free space, a veteran or first responder, or someone who'd feel most understood in Spanish or Korean, our physicians and team build care around you.</p>
   </div></section>
 
   <!-- CHILD-CARDS — populations (cream) -->
@@ -59,7 +59,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
         </a>
       ))}
     </div>
-    <p style="text-align:center;margin-top:24px;color:var(--muted);">We also welcome couples and court-involved clients seeking a fresh start — without judgment.</p>
+    <p style="text-align:center;margin-top:24px;color:var(--muted);">We also welcome couples and court-involved clients seeking a fresh start, without judgment.</p>
   </div></section>
 
   <!-- WHY BOUTIQUE — ImageFeature (white) -->
@@ -70,7 +70,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
     side="right"
     eyebrow="Why personalization matters"
     title="A boutique program can do what big centers can't"
-    body="When you're known by name — when the doctors who own the program see you in person every day — care can flex to your real life instead of a template. That's the difference a small, physician-owned home makes."
+    body="When you're known by name, when the doctors who own the program see you in person every day, care can flex to your real life instead of a template. That's the difference a small, physician-owned home makes."
     points={[['stethoscope', 'Two physicians, in person, daily'], ['heart', 'Treated like a person, not a number'], ['globe', 'Care in English, Spanish & Korean']]}
   />
 
@@ -84,14 +84,14 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 
   <!-- FAQ (white) -->
   <section><div class="container">
-    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Personalized care — frequently asked questions</h2></div>
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Personalized care: frequently asked questions</h2></div>
     <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
   </div></section>
 
   <!-- CTA -->
   <section class="ctaband"><div class="container">
     <h2>Find care that fits your life</h2>
-    <p>One free, confidential call — answered 24/7 — will help you find care built around who you are.</p>
+    <p>One free, confidential call, answered 24/7, will help you find care built around who you are.</p>
     <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
   </div></section>
 </Layout>

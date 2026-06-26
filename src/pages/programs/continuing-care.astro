@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import TeamStrip from '../../components/TeamStrip.astro';
 import Reviews from '../../components/Reviews.astro';
 import Hero from '../../components/Hero.astro';
 import Icon from '../../components/Icon.astro';
@@ -9,10 +10,10 @@ import InsuranceBanner from '../../components/InsuranceBanner.astro';
 
 const faqs = [
   { q: 'What happens after rehab?', a: 'After detox and residential treatment, most clients step down into IOP or sober living and follow a continuing-care plan with ongoing check-ins.' },
-  { q: 'When does aftercare planning start?', a: 'On day one — your plan is built throughout treatment, not at the last minute.' },
-  { q: 'Do you follow up after I leave?', a: 'Yes — our physicians personally check in by phone in the weeks and months after discharge, and continue care for clients who stay in the area.' },
+  { q: 'When does aftercare planning start?', a: 'On day one, your plan is built throughout treatment, not at the last minute.' },
+  { q: 'Do you follow up after I leave?', a: 'Yes, our physicians personally check in by phone in the weeks and months after discharge, and continue care for clients who stay in the area.' },
   { q: 'Do you offer IOP or sober living?', a: 'We refer clients to a small network of trusted local partners for IOP and sober living, and many continue as our outpatient clients afterward.' },
-  { q: 'Why is continuing care important?', a: 'Relapse risk is highest in the months after treatment — ongoing support is one of the strongest predictors of lasting recovery.' },
+  { q: 'Why is continuing care important?', a: 'Relapse risk is highest in the months after treatment, ongoing support is one of the strongest predictors of lasting recovery.' },
   { q: 'Does insurance cover aftercare?', a: 'Coverage varies by plan. As an out-of-network provider, we verify your PPO benefits for free.' },
 ];
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
@@ -34,7 +35,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 ---
 <Layout
   title="Aftercare & Continuing Care | Regain Hope Detox and Recovery Center"
-  description="Aftercare and continuing care for the Los Angeles area — personal physician follow-up, trusted IOP & sober living referrals, alumni support, and a plan built from day one. Call 24/7."
+  description="Aftercare and continuing care for the Los Angeles area: personal physician follow-up, trusted IOP & sober living referrals, alumni support, and a plan built from day one. Call 24/7."
   schema={[pageSchema, faqSchema]}
 >
   <!-- HERO -->
@@ -54,8 +55,8 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   <!-- WHAT IS (white) -->
   <section><div class="container rich" style="max-width:820px;">
     <h2>What is continuing care (aftercare)?</h2>
-    <p><b>Continuing care — often called aftercare — is the ongoing support that keeps recovery on track after you finish detox and residential treatment.</b> It includes a personalized step-down plan, ongoing check-ins, medication support, family involvement, and connection to a recovery community. The weeks and months after treatment are when relapse risk is highest, so a strong continuing-care plan is one of the best predictors of lasting sobriety.</p>
-    <p>At Regain Hope Detox and Recovery Center, that plan begins on day one — and the doctors who treated you stay involved well after you go home.</p>
+    <p><b>Continuing care, often called aftercare, is the ongoing support that keeps recovery on track after you finish detox and residential treatment.</b> It includes a personalized step-down plan, ongoing check-ins, medication support, family involvement, and connection to a recovery community. The weeks and months after treatment are when relapse risk is highest, so a strong continuing-care plan is one of the best predictors of lasting sobriety.</p>
+    <p>At Regain Hope Detox and Recovery Center, that plan begins on day one, and the doctors who treated you stay involved well after you go home.</p>
   </div></section>
 
   <ImageFeature
@@ -65,14 +66,14 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
     side="left"
     eyebrow="Once part of the family"
     title="A community that remembers you"
-    body="Recovery is easier together. Our alumni stay connected long after discharge — when they're in town, we get together. You're never a case number here."
+    body="Recovery is easier together. Our alumni stay connected long after discharge. When they're in town, we get together. You're never a case number here."
     points={[['users', 'Alumni get-togethers'], ['chat', 'Ongoing personal follow-up'], ['heart', 'A team that stays in your corner']]}
   />
 
   <!-- PLANNING DAY ONE (white) -->
   <section><div class="container rich" style="max-width:820px;">
     <h2>Your aftercare plan starts on day one</h2>
-    <p>We don't wait until discharge to think about what's next. From your first days in treatment, your care team builds a continuing-care plan around your life — where you're going, who's supporting you, what your work and family look like, and what level of ongoing care will protect your progress.</p>
+    <p>We don't wait until discharge to think about what's next. From your first days in treatment, your care team builds a continuing-care plan around your life, where you're going, who's supporting you, what your work and family look like, and what level of ongoing care will protect your progress.</p>
   </div></section>
 
   <!-- ★ THE DIFFERENTIATOR — we don't disappear (scenario highlight) -->
@@ -80,13 +81,13 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
     bg="cream"
     eyebrow="The difference"
     title="Care that follows you home"
-    intro="Most programs hand you a discharge folder and a goodbye. We do it differently — <b>our physicians personally follow up after you leave.</b> <i>“Dr. Gomez genuinely cares and follows up with her clients even after discharge.” — Jimmy, Google review</i>"
+    intro="Most programs hand you a discharge folder and a goodbye. We do it differently. <b>Our physicians personally follow up after you leave.</b> <i>“Dr. Gomez genuinely cares and follows up with her clients even after discharge.” Jimmy, Google review</i>"
     badTitle="Most programs"
     bad={['A discharge folder and a handshake', 'No one who knows your story after you leave', 'You’re on your own for the riskiest months']}
     good={['Personal phone check-ins from your care team', 'Ongoing physician & psychiatry follow-up locally', 'A coordinated handoff if you’re out of state']}
     momentLabel="After you leave"
     scenarios={[
-      ['chat', 'Week one home', 'A check-in call from the team that just treated you — not silence.'],
+      ['chat', 'Week one home', 'A check-in call from the team that just treated you, not silence.'],
       ['heart', 'A hard night, month three', 'Someone who knows you, and your plan, is a phone call away.'],
       ['globe', 'Moving out of state', 'We help coordinate a smooth handoff to trusted local care.'],
     ]}
@@ -109,7 +110,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
     side="right"
     eyebrow="The relationships don't reset"
     title="Support that continues after you leave"
-    body="Many clients stay on as Dr. Gomez's outpatient clients — so the people who treated you keep walking with you, rather than handing you off and saying goodbye."
+    body="Many clients stay on as Dr. Gomez's outpatient clients, so the people who treated you keep walking with you, rather than handing you off and saying goodbye."
     points={[['stethoscope', 'Continued physician follow-up'], ['mat', 'Ongoing MAT support'], ['globe', 'Out-of-state care coordination']]}
   />
 
@@ -135,7 +136,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
       <div>
         <span class="eyebrow">Alumni &amp; community</span>
         <h2 style="margin:8px 0 16px;">Once part of the family, always part of the family</h2>
-        <p>Recovery is easier together. Our alumni stay connected — when they're in town, we get together. The small, family-run nature of Regain Hope Detox and Recovery Center means you're not a case number after discharge; you're part of a community that remembers you.</p>
+        <p>Recovery is easier together. Our alumni stay connected. When they're in town, we get together. The small, family-run nature of Regain Hope Detox and Recovery Center means you're not a case number after discharge; you're part of a community that remembers you.</p>
         <p style="margin-top:14px;color:var(--muted);font-size:14px;">Alumni connection is informal get-togethers and ongoing personal follow-up.</p>
       </div>
     </div>
@@ -153,8 +154,10 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   </div></section>
 
   <!-- CTA -->
+  <TeamStrip bg="cream" />
+
   <section class="ctaband"><div class="container">
-    <h2>Recovery is a journey — you won't walk it alone</h2>
+    <h2>Recovery is a journey, you won't walk it alone</h2>
     <p>From your first day to long after you leave, Regain Hope Detox and Recovery Center stays in your corner. One confidential call, answered 24/7, starts the plan.</p>
     <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
   </div></section>

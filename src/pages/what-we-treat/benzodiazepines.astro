@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import TeamStrip from '../../components/TeamStrip.astro';
 import Reviews from '../../components/Reviews.astro';
 import Hero from '../../components/Hero.astro';
 import Icon from '../../components/Icon.astro';
@@ -8,7 +9,7 @@ import HomeNotClinic from '../../components/HomeNotClinic.astro';
 import InsuranceBanner from '../../components/InsuranceBanner.astro';
 
 const faqs = [
-  { q: 'Is it dangerous to quit benzos cold turkey?', a: 'Yes — benzodiazepine withdrawal can cause seizures and other serious symptoms. Always taper under medical supervision.' },
+  { q: 'Is it dangerous to quit benzos cold turkey?', a: 'Yes, benzodiazepine withdrawal can cause seizures and other serious symptoms. Always taper under medical supervision.' },
   { q: 'How long does benzo detox take?', a: 'Benzo tapers are often longer and more gradual than other detoxes; timing depends on the dose and medication, and your physician sets the plan.' },
   { q: 'Which benzodiazepines do you treat?', a: 'Xanax, Valium, Klonopin, Ativan, and others.' },
   { q: 'Is there a medication to treat benzo addiction?', a: "There's no FDA-approved MAT specific to benzodiazepines; treatment centers on a safe, physician-managed taper plus supportive care." },
@@ -29,7 +30,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 ---
 <Layout
   title="Benzodiazepine Detox in Los Angeles | Regain Hope Detox and Recovery Center"
-  description="Physician-supervised benzodiazepine (Xanax, Valium, Klonopin) detox in the Los Angeles area. Benzo withdrawal can be dangerous — we taper safely. PPO accepted. Call 24/7."
+  description="Physician-supervised benzodiazepine (Xanax, Valium, Klonopin) detox in the Los Angeles area. Benzo withdrawal can be dangerous; we taper safely. PPO accepted. Call 24/7."
   schema={[pageSchema, faqSchema]}
 >
   <Hero
@@ -45,10 +46,10 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   </div></div>
 
   <section><div class="container rich" style="max-width:820px;">
-    <h2>What are benzodiazepines — and benzodiazepine use disorder?</h2>
-    <p><b>Benzodiazepines ("benzos") are a class of sedative medications</b> prescribed for anxiety, panic, and insomnia — including alprazolam (<b>Xanax</b>), diazepam (<b>Valium</b>), clonazepam (<b>Klonopin</b>), and lorazepam (<b>Ativan</b>). They're effective short-term, but the body builds dependence quickly, and <b>benzodiazepine use disorder</b> develops when someone can't stop despite harm, needs more for the same effect, or experiences withdrawal between doses (NIDA). Because dependence can form even with a legitimate prescription, many people are surprised to find themselves struggling.</p>
-    <p>What makes benzodiazepine dependence so common is how quietly it forms. The medication works exactly as intended at first — calming anxiety or restoring sleep — but the brain adapts within weeks, so the same dose does less, and stopping brings the original symptoms back even stronger. Many people end up taking benzos not to feel good, but simply to feel normal.</p>
-    <p>Over time, regular use can cloud memory and concentration, deepen anxiety and depression, and make daily functioning hinge on the next dose. The encouraging part: with a properly managed taper, the nervous system gradually rebalances and many of these effects ease — which is exactly why a safe, physician-led approach matters so much, rather than enduring the rebound symptoms that drive people back to the medication.</p>
+    <h2>What are benzodiazepines, and benzodiazepine use disorder?</h2>
+    <p><b>Benzodiazepines ("benzos") are a class of sedative medications</b> prescribed for anxiety, panic, and insomnia, including alprazolam (<b>Xanax</b>), diazepam (<b>Valium</b>), clonazepam (<b>Klonopin</b>), and lorazepam (<b>Ativan</b>). They're effective short-term, but the body builds dependence quickly, and <b>benzodiazepine use disorder</b> develops when someone can't stop despite harm, needs more for the same effect, or experiences withdrawal between doses (NIDA). Because dependence can form even with a legitimate prescription, many people are surprised to find themselves struggling.</p>
+    <p>What makes benzodiazepine dependence so common is how quietly it forms. The medication works exactly as intended at first, calming anxiety or restoring sleep, but the brain adapts within weeks, so the same dose does less, and stopping brings the original symptoms back even stronger. Many people end up taking benzos not to feel good, but simply to feel normal.</p>
+    <p>Over time, regular use can cloud memory and concentration, deepen anxiety and depression, and make daily functioning hinge on the next dose. The encouraging part: with a properly managed taper, the nervous system gradually rebalances and many of these effects ease, which is exactly why a safe, physician-led approach matters so much, rather than enduring the rebound symptoms that drive people back to the medication.</p>
   </div></section>
 
   <ImageFeature
@@ -58,7 +59,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
     side="left"
     eyebrow="A calmer way off"
     title="Tapering safely, supported every step"
-    body="Coming off benzos is a marathon, not a sprint — and it's far easier when a physician sets the pace and someone is watching over you the whole way."
+    body="Coming off benzos is a marathon, not a sprint, and it's far easier when a physician sets the pace and someone is watching over you the whole way."
     points={[['stethoscope', 'Physician-managed taper'], ['leaf', 'Calm, home-like setting'], ['brain', 'Tools for the underlying anxiety']]}
   />
 
@@ -77,7 +78,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 
   <section class="bg-cream"><div class="container rich" style="max-width:820px;">
     <h2>Why benzodiazepine detox must be medically supervised</h2>
-    <p><b>This is critical: benzodiazepine withdrawal can be life-threatening.</b> Stopping suddenly after regular use can cause <b>seizures, severe panic, hallucinations, and dangerous changes in heart rate and blood pressure</b>. Benzos should <b>never</b> be stopped cold turkey. The safe approach is a <b>gradual, physician-managed taper</b> with 24/7 monitoring — exactly what <a href="/programs/medical-detox/">medical detox</a> provides. At Regain Hope Detox and Recovery Center, our physicians design and oversee the taper in person, day by day.</p>
+    <p><b>This is critical: benzodiazepine withdrawal can be life-threatening.</b> Stopping suddenly after regular use can cause <b>seizures, severe panic, hallucinations, and dangerous changes in heart rate and blood pressure</b>. Benzos should <b>never</b> be stopped cold turkey. The safe approach is a <b>gradual, physician-managed taper</b> with 24/7 monitoring, exactly what <a href="/programs/medical-detox/">medical detox</a> provides. At Regain Hope Detox and Recovery Center, our physicians design and oversee the taper in person, day by day.</p>
   </div></section>
 
   <ImageFeature
@@ -87,7 +88,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
     side="right"
     eyebrow="Beyond the medication"
     title="Addressing what the benzos were for"
-    body="Most benzo use begins with anxiety, panic, or insomnia. We help you find safer, lasting ways to manage it — so you no longer need the medication just to feel normal."
+    body="Most benzo use begins with anxiety, panic, or insomnia. We help you find safer, lasting ways to manage it, so you no longer need the medication just to feel normal."
     points={[['brain', 'Dual-diagnosis care for anxiety'], ['chat', 'Therapy & coping skills'], ['leaf', 'Mindfulness & better sleep']]}
   />
 
@@ -103,12 +104,12 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 
   <section><div class="container rich" style="max-width:820px;">
     <h2>When to seek help for benzodiazepine use</h2>
-    <p>If you've been taking benzos regularly and feel you can't stop — or feel worse when you try — that's exactly the situation medical detox is built for. Don't attempt to quit on your own. The longer high-dose use continues, the harder (and riskier) the taper, so reaching out sooner is both safer and easier.</p>
+    <p>If you've been taking benzos regularly and feel you can't stop, or feel worse when you try, that's exactly the situation medical detox is built for. Don't attempt to quit on your own. The longer high-dose use continues, the harder (and riskier) the taper, so reaching out sooner is both safer and easier.</p>
   </div></section>
 
   <section class="bg-cream"><div class="container rich" style="max-width:820px;">
     <h2>Benzodiazepines and co-occurring mental health</h2>
-    <p>Benzos are usually prescribed for <b>anxiety, panic, or insomnia</b> — so dependence almost always sits on top of an underlying mental health condition. Treating only the dependence, without addressing the anxiety driving it, sets people up to relapse. Our <a href="/programs/dual-diagnosis-treatment/">dual-diagnosis care</a> treats both, and helps you find safer, lasting ways to manage anxiety. Many people discover that, once they're off the medication and the rebound has settled, their anxiety is far more manageable than they feared — especially with therapy, coping skills, and real support in place.</p>
+    <p>Benzos are usually prescribed for <b>anxiety, panic, or insomnia</b>, so dependence almost always sits on top of an underlying mental health condition. Treating only the dependence, without addressing the anxiety driving it, sets people up to relapse. Our <a href="/programs/dual-diagnosis-treatment/">dual-diagnosis care</a> treats both, and helps you find safer, lasting ways to manage anxiety. Many people discover that, once they're off the medication and the rebound has settled, their anxiety is far more manageable than they feared, especially with therapy, coping skills, and real support in place.</p>
   </div></section>
 
   <HomeNotClinic bg="cream" />
@@ -118,10 +119,12 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   <InsuranceBanner />
 
   <section><div class="container">
-    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Benzodiazepine treatment — frequently asked questions</h2></div>
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Benzodiazepine treatment: frequently asked questions</h2></div>
     <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
     <p style="text-align:center;margin-top:26px;color:var(--muted);font-size:13px;">Clinical information on this page is informed by the <a href={NIDA} target="_blank" rel="noopener">National Institute on Drug Abuse (NIDA)</a>.</p>
   </div></section>
+
+  <TeamStrip bg="cream" />
 
   <section class="ctaband"><div class="container">
     <h2>Get off benzodiazepines safely</h2>

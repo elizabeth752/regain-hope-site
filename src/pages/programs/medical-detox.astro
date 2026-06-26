@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import TeamStrip from '../../components/TeamStrip.astro';
 import Hero from '../../components/Hero.astro';
 import ReviewsStrip from '../../components/ReviewsStrip.astro';
 import ImageFeature from '../../components/ImageFeature.astro';
@@ -7,9 +8,9 @@ import InsuranceBanner from '../../components/InsuranceBanner.astro';
 import Icon from '../../components/Icon.astro';
 
 const faqs = [
-  { q: 'Is medical detox safe?', a: 'Yes — with 24/7 physician supervision, detox is far safer and more comfortable than quitting alone, especially for alcohol, opioids, and benzodiazepines.' },
+  { q: 'Is medical detox safe?', a: 'Yes, with 24/7 physician supervision, detox is far safer and more comfortable than quitting alone, especially for alcohol, opioids, and benzodiazepines.' },
   { q: 'How long does detox last?', a: 'Typically 5–10 days, depending on the substance and your health; your doctor sets the timeline.' },
-  { q: 'Will medication be used to help with withdrawal?', a: 'Yes — FDA-approved medications ease symptoms and cravings, and medication-assisted treatment can be started before discharge.' },
+  { q: 'Will medication be used to help with withdrawal?', a: 'Yes, FDA-approved medications ease symptoms and cravings, and medication-assisted treatment can be started before discharge.' },
   { q: 'What happens after detox?', a: 'You step into residential treatment, then a continuing-care plan with referrals for IOP or sober living.' },
   { q: 'Do you accept insurance?', a: 'As an out-of-network provider, we verify most PPO benefits for free before you commit.' },
 ];
@@ -18,7 +19,7 @@ const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage'
 ---
 <Layout
   title="Medical Detox in Los Angeles | Regain Hope Detox and Recovery Center"
-  description="Physician-supervised medical detox in the Los Angeles area. Two doctors on-site daily, MAT to ease withdrawal, and a private home-like setting. We verify PPO benefits — call 24/7."
+  description="Physician-supervised medical detox in the Los Angeles area. Two doctors on-site daily, MAT to ease withdrawal, and a private home-like setting. We verify PPO benefits; call 24/7."
   schema={[pageSchema, faqSchema]}
 >
   <!-- HERO (money page → consistent regain-03 bg + insurance form) -->
@@ -26,7 +27,7 @@ const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage'
     variant="form"
     eyebrow="Programs · Serving Los Angeles · 24/7"
     title="Medically Supervised Detox in the Los Angeles Area"
-    lead="Detox is safest with doctors who are actually there. At Regain Hope Detox and Recovery Center, two physicians supervise your withdrawal in person — easing symptoms with proven medications in a private, home-like setting."
+    lead="Detox is safest with doctors who are actually there. At Regain Hope Detox and Recovery Center, two physicians supervise your withdrawal in person, easing symptoms with proven medications in a private, home-like setting."
     byline="Mileidys Gomez Gonzalez, MD"
   />
 
@@ -37,8 +38,8 @@ const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage'
   <!-- TEXT: What is detox -->
   <section><div class="container rich" style="max-width:820px;">
     <h2>What is medical detox?</h2>
-    <p><b>Medical detox is the process of safely clearing drugs or alcohol from your body under 24/7 medical supervision, while a care team manages withdrawal symptoms with medication and monitoring.</b> It's the critical first step of treatment — stabilizing you physically so the real work of recovery can begin. Because withdrawal from alcohol, opioids, and benzodiazepines can be dangerous, detox should never be done alone.</p>
-    <p>At Regain Hope Detox and Recovery Center, detox isn't handed off to a rotating staff with a doctor checking in by phone. <b>Our physicians are here, in person, every day</b> — assessing you, adjusting medications, and managing any medical issues as they arise.</p>
+    <p><b>Medical detox is the process of safely clearing drugs or alcohol from your body under 24/7 medical supervision, while a care team manages withdrawal symptoms with medication and monitoring.</b> It's the critical first step of treatment, stabilizing you physically so the real work of recovery can begin. Because withdrawal from alcohol, opioids, and benzodiazepines can be dangerous, detox should never be done alone.</p>
+    <p>At Regain Hope Detox and Recovery Center, detox isn't handed off to a rotating staff with a doctor checking in by phone. <b>Our physicians are here, in person, every day</b>, assessing you, adjusting medications, and managing any medical issues as they arise.</p>
   </div></section>
 
   <!-- MODULE: Reviews -->
@@ -47,12 +48,12 @@ const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage'
   <!-- TEXT: Why supervision -->
   <section><div class="container rich" style="max-width:820px;">
     <h2>Why detoxing with medical supervision matters</h2>
-    <p>Quitting "cold turkey" isn't just uncomfortable — for some substances it's genuinely risky. Alcohol and benzodiazepine withdrawal can cause seizures; opioid withdrawal is severe enough that most people relapse just to make it stop. Medical detox removes that danger and that suffering.</p>
+    <p>Quitting "cold turkey" isn't just uncomfortable. For some substances it's genuinely risky. Alcohol and benzodiazepine withdrawal can cause seizures; opioid withdrawal is severe enough that most people relapse just to make it stop. Medical detox removes that danger and that suffering.</p>
     <ul>
-      <li><b>Safety</b> — continuous monitoring for dangerous withdrawal symptoms.</li>
-      <li><b>Comfort</b> — medications that genuinely ease nausea, anxiety, insomnia, and cravings.</li>
-      <li><b>A full medical picture</b> — our lead physician is trained in internal &amp; family medicine, so existing health conditions are watched and coordinated.</li>
-      <li><b>A real plan</b> — detox flows straight into treatment, so you're not discharged into the same situation you came from.</li>
+      <li><b>Safety</b>: continuous monitoring for dangerous withdrawal symptoms.</li>
+      <li><b>Comfort</b>: medications that genuinely ease nausea, anxiety, insomnia, and cravings.</li>
+      <li><b>A full medical picture</b>: our lead physician is trained in internal &amp; family medicine, so existing health conditions are watched and coordinated.</li>
+      <li><b>A real plan</b>: detox flows straight into treatment, so you're not discharged into the same situation you came from.</li>
     </ul>
   </div></section>
 
@@ -69,7 +70,7 @@ const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage'
       <div class="tl"><div class="dot"></div><div class="d">Days 3–7</div><p>Symptoms ease as you stabilize</p></div>
       <div class="tl"><div class="dot"></div><div class="d">Day 5–10</div><p>Transition into residential treatment</p></div>
     </div>
-    <p>Throughout, the doctors see you in person daily, and home-cooked meals, rest, and comfort support your recovery. We use <a href="/programs/medication-assisted-treatment/">medication-assisted treatment</a> — including Vivitrol — to ease withdrawal and protect your sobriety, then step you into <a href="/programs/residential-treatment/">residential treatment</a>.</p>
+    <p>Throughout, the doctors see you in person daily, and home-cooked meals, rest, and comfort support your recovery. We use <a href="/programs/medication-assisted-treatment/">medication-assisted treatment</a>, including Vivitrol, to ease withdrawal and protect your sobriety, then step you into <a href="/programs/residential-treatment/">residential treatment</a>.</p>
   </div></section>
 
   <!-- IMAGE FEATURE (stock) -->
@@ -107,9 +108,11 @@ const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage'
   </div></section>
 
   <!-- CTA -->
+  <TeamStrip bg="cream" />
+
   <section class="ctaband"><div class="container">
     <h2>Detox can start today</h2>
-    <p>The hardest part is the first call — and it's free, confidential, and answered 24/7 by people who care.</p>
+    <p>The hardest part is the first call, and it's free, confidential, and answered 24/7 by people who care.</p>
     <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
   </div></section>
 </Layout>

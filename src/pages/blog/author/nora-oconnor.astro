@@ -1,13 +1,13 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import { authors, posts } from '../../../data/blog.js';
-const author = authors.carlos;
-const mine = posts.filter((p) => p.author === 'carlos');
-const schema = { '@context': 'https://schema.org', '@type': 'Physician', name: author.name, jobTitle: author.role, worksFor: { '@type': 'MedicalClinic', name: 'Regain Hope Detox and Recovery Center' } };
+const author = authors.nora;
+const mine = posts.filter((p) => p.author === 'nora');
+const schema = { '@context': 'https://schema.org', '@type': 'Person', name: author.name, jobTitle: author.role, worksFor: { '@type': 'MedicalClinic', name: 'Regain Hope Detox and Recovery Center' } };
 ---
 <Layout title={`${author.name} | Regain Hope Detox and Recovery Center`} description={author.short} schema={schema}>
   <section class="minihero"><div class="container">
-    <span class="eyebrow">Author</span>
+    <span class="eyebrow">Our Team</span>
     <h1>{author.name}</h1>
     <p>{author.role}</p>
   </div></section>
@@ -22,6 +22,7 @@ const schema = { '@context': 'https://schema.org', '@type': 'Physician', name: a
     </div>
   </div></section>
 
+  {mine.length > 0 && (
   <section class="bg-cream"><div class="container">
     <div class="sec-head" style="margin-bottom:32px;"><span class="eyebrow">Articles</span><h2>Written by {author.name}</h2></div>
     <div class="postgrid">
@@ -33,9 +34,10 @@ const schema = { '@context': 'https://schema.org', '@type': 'Physician', name: a
       ))}
     </div>
   </div></section>
+  )}
 
   <section class="ctaband"><div class="container">
-    <h2>Care from the doctors who wrote this</h2>
+    <h2>Care from the team behind Regain Hope</h2>
     <p>One confidential call, answered 24/7. We'll verify your insurance and walk you through every step.</p>
     <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
   </div></section>
