@@ -5,7 +5,7 @@ import PhysicianLed from '../../components/PhysicianLed.astro';
 import Reviews from '../../components/Reviews.astro';
 import { team } from '../../data/blog.js';
 
-const teamSchema = team.map((m) => ({ '@context': 'https://schema.org', '@type': m.slug === 'dr-mileidys-gomez' ? 'Physician' : 'Person', name: m.name, jobTitle: m.role, worksFor: { '@type': 'MedicalClinic', name: 'Regain Hope Detox and Recovery Center' } }));
+const teamSchema = team.map((m) => ({ '@context': 'https://schema.org', '@type': 'Person', name: m.name, jobTitle: m.role, worksFor: { '@type': 'MedicalClinic', name: 'Regain Hope Detox and Recovery Center' } }));
 const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'Meet the Team, Regain Hope Detox and Recovery Center', reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
 ---
 <Layout

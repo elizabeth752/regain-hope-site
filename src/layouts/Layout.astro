@@ -35,7 +35,7 @@ const org = {
   geo: { '@type': 'GeoCoordinates', latitude: 34.1719189, longitude: -118.3451238 },
   medicalSpecialty: 'Addiction',
   aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '8' },
-  availableLanguage: ['English', 'Spanish', 'Korean'],
+  knowsLanguage: ['English', 'Spanish', 'Korean'],
 };
 
 const jsonld = [org, ...(schema ? (Array.isArray(schema) ? schema : [schema]) : [])];
