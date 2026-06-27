@@ -1,4 +1,11 @@
+# Regain Hope Detox and Recovery Center
+# https://www.regainhopedetox.com
+
 User-agent: *
 Allow: /
+Disallow: /thank-you/
+
+# Search and AI crawlers (Googlebot, Bingbot, GPTBot, ClaudeBot, PerplexityBot,
+# Google-Extended, etc.) are welcome to crawl and cite our content under the rules above.
 
 Sitemap: https://www.regainhopedetox.com/sitemap-index.xml
