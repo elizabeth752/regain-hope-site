@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    { "source": "/about", "destination": "/about-us/", "permanent": true },
+    { "source": "/why-us", "destination": "/about-us/", "permanent": true },
+    { "source": "/services", "destination": "/programs/", "permanent": true },
+    { "source": "/services-7", "destination": "/programs/", "permanent": true },
+    { "source": "/contact-9", "destination": "/contact/", "permanent": true },
+    { "source": "/insurance-verification", "destination": "/admissions/verify-insurance/", "permanent": true },
+    { "source": "/sms-terms-and-conditions", "destination": "/sms-terms/", "permanent": true },
+    { "source": "/privacy-notice-for-california-residents", "destination": "/your-privacy-choices/", "permanent": true },
+    { "source": "/cookie-policy", "destination": "/privacy/", "permanent": true },
+    { "source": "/consumer-health-data-privacy-policy", "destination": "/privacy/", "permanent": true },
+    { "source": "/gallery", "destination": "/", "permanent": true },
+    { "source": "/sitemap.xml", "destination": "/sitemap-index.xml", "permanent": true }
+  ]
+}
