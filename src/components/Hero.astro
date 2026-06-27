@@ -99,7 +99,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   // Set FORM_ENDPOINT to a Formspree URL or a Google Apps Script web-app URL and
   // each submission (name + phone) is POSTed there, then the user lands on /thank-you/.
   // While it's empty, the form keeps its default behavior (GET -> /thank-you/), so nothing breaks.
-  const FORM_ENDPOINT = '';
+  const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx4tL7gvSbIURBwgOtGZypT7BGmD0ardwQpzt7KGUqpXCJtKlM3qk6HRY7-xCMISIqC/exec';
   document.querySelectorAll('form.hero-form').forEach((f) => {
     f.addEventListener('submit', async (e) => {
       if (!FORM_ENDPOINT) return;
