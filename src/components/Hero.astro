@@ -52,24 +52,14 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
         <form class="hero-form" action="/thank-you/" method="get">
           <img class="form-hipaa" src="/images/logos/hipaa.svg" alt="HIPAA compliant" width="64" height="36" loading="lazy" />
           <h3>Verify Your Insurance</h3>
-          <p class="fsub">Free &amp; confidential, most PPO plans accepted. Takes about 5 minutes.</p>
+          <p class="fsub">Free and confidential. Leave your name and number and we'll call you right back to check your coverage, most PPO plans accepted.</p>
           <div class="frow">
             <div><label for="nm">Full name</label><input id="nm" name="name" required /></div>
             <div><label for="ph">Phone</label><input id="ph" name="phone" type="tel" required /></div>
           </div>
-          <div class="frow">
-            <div><label for="pid">Member / Policy ID</label><input id="pid" name="policy_id" /></div>
-            <div>
-              <label for="ins">Insurance carrier</label>
-              <select id="ins" name="insurance">
-                <option>Aetna</option><option>Anthem</option><option>Blue Cross Blue Shield</option><option>Cigna</option>
-                <option>UnitedHealthcare / UMR</option><option>HighMark</option><option>GEHA</option><option>TRICARE / TriWest</option><option>Other</option>
-              </select>
-            </div>
-          </div>
           <label class="optin"><input type="checkbox" required style="width:auto;margin:2px 0 0;" /> <span>I agree to receive calls/texts from Regain Hope Detox and Recovery Center about treatment. Msg &amp; data rates may apply. Reply STOP to opt out. Consent is not a condition of treatment.</span></label>
-          <button type="submit">Check My Coverage</button>
-          <p class="hipaa">🔒 Your information is private &amp; HIPAA-protected.</p>
+          <button type="submit">Request My Callback</button>
+          <p class="hipaa">🔒 Your information is private and confidential.</p>
         </form>
       </div>
     ) : (
@@ -103,5 +93,23 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
       i = (i + 1) % items.length;
       items[i].classList.add('active');
     }, 5000);
+  });
+
+  // Lead capture (interim, until CallTrackingMetrics is connected).
+  // Set FORM_ENDPOINT to a Formspree URL or a Google Apps Script web-app URL and
+  // each submission (name + phone) is POSTed there, then the user lands on /thank-you/.
+  // While it's empty, the form keeps its default behavior (GET -> /thank-you/), so nothing breaks.
+  const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx4tL7gvSbIURBwgOtGZypT7BGmD0ardwQpzt7KGUqpXCJtKlM3qk6HRY7-xCMISIqC/exec';
+  document.querySelectorAll('form.hero-form').forEach((f) => {
+    f.addEventListener('submit', async (e) => {
+      if (!FORM_ENDPOINT) return;
+      e.preventDefault();
+      const btn = f.querySelector('button[type="submit"]');
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+      try {
+        await fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(f) });
+      } catch (_) {}
+      window.location.href = '/thank-you/';
+    });
   });
 </script>
