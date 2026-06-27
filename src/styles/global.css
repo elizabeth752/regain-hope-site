@@ -223,6 +223,11 @@ footer{background:#0c0c0e;color:#cfc3b5;font-size:14.5px;padding:54px 0 26px;}
 .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:34px;}
 footer h4{color:#fff;font-family:var(--sans);font-size:14px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;}
 footer a{color:#cfc3b5;display:block;padding:4px 0;} footer a:hover{color:var(--gold-soft);}
+/* social icons */
+.social{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
+.social a{width:36px;height:36px;padding:0;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.07);color:#cfc3b5;transition:.18s;}
+.social a:hover{background:var(--caoba);color:#fff;transform:translateY(-2px);}
+.social svg{display:block;}
 .crisis{background:var(--caoba-soft);color:var(--ink);border-radius:10px;padding:14px 16px;margin-top:8px;font-size:13.5px;}
 .crisis b{color:var(--caoba);}
 .fbrand{font-family:var(--serif);font-size:22px;color:#fff;margin-bottom:8px;}
