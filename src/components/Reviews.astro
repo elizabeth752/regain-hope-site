@@ -4,16 +4,16 @@
 export interface Props { bg?: 'white' | 'cream'; }
 const { bg = 'white' } = Astro.props;
 const reviews = [
-  { name: 'Chris', initial: 'C', text: 'The two doctors are genuinely caring and compassionate. In past detoxes I often felt treated like a number — here they truly make you feel valued and cared for as a person.' },
-  { name: 'Jimmy', initial: 'J', text: 'Dr. Gomez and Dr. Carlos are incredible. They make the house feel like home and family, and Dr. Gomez genuinely cares — she follows up with her clients even after discharge.' },
-  { name: 'Ashlie L.', initial: 'A', text: "My experience at this rehab truly changed my life. They didn't make the facility feel cold or clinical — they made it feel like home, and you could tell they genuinely cared about the people there." },
+  { name: 'Chris', initial: 'C', text: 'The two doctors are genuinely caring and compassionate. In past detoxes I often felt treated like a number, but here they truly make you feel valued and cared for as a person.' },
+  { name: 'Jimmy', initial: 'J', text: 'Dr. Gomez and Dr. Carlos are incredible. They make the house feel like home and family, and Dr. Gomez genuinely cares. She follows up with her clients even after discharge.' },
+  { name: 'Ashlie L.', initial: 'A', text: "My experience at this rehab truly changed my life. They didn't make the facility feel cold or clinical. They made it feel like home, and you could tell they genuinely cared about the people there." },
   { name: 'Mike J.', initial: 'M', text: "The best rehabilitation center I've ever been to. They treat you with respect and do anything they can to keep their clients from relapsing." },
   { name: 'Aaron J.', initial: 'A', text: "Their commitment to helping people is only surpassed by their skill and knowledge. I can't recommend Regain Hope Detox and Recovery Center highly enough." },
 ];
 const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 ---
 <section class={bg === 'cream' ? 'bg-cream' : ''}><div class="container">
-  <div class="sec-head"><span class="eyebrow">Reviews</span><h2>Rated 5.0 on Google</h2><p><span style="color:var(--gold);letter-spacing:2px;">★★★★★</span>&nbsp;&nbsp;5.0 · 8 reviews</p></div>
+  <div class="sec-head"><span class="eyebrow">Reviews</span><h2>Rated 5.0 on Google</h2><p><span style="color:var(--star);letter-spacing:2px;">★★★★★</span>&nbsp;&nbsp;5.0 · 8 reviews</p></div>
   <div class="revwall">
     {reviews.map((r) => (
       <figure class="rev">

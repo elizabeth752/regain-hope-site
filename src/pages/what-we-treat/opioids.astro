@@ -1,19 +1,19 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import TeamStrip from '../../components/TeamStrip.astro';
 import Reviews from '../../components/Reviews.astro';
 import Hero from '../../components/Hero.astro';
 import Icon from '../../components/Icon.astro';
-import TeamStrip from '../../components/TeamStrip.astro';
 import PhysicianLed from '../../components/PhysicianLed.astro';
 import ImageFeature from '../../components/ImageFeature.astro';
 import InsuranceBanner from '../../components/InsuranceBanner.astro';
 
 const faqs = [
-  { q: 'Is opioid withdrawal dangerous?', a: "It's rarely fatal on its own but intensely uncomfortable, and overdose risk spikes after a relapse — medical detox is far safer and more humane." },
+  { q: 'Is opioid withdrawal dangerous?', a: "It's rarely fatal on its own but intensely uncomfortable, and overdose risk spikes after a relapse. Medical detox is far safer and more humane." },
   { q: 'How long does opioid detox take?', a: 'Often around 5–10 days depending on the opioid and your history; your physician sets the plan.' },
-  { q: 'Do you use methadone?', a: "No — Regain Hope Detox and Recovery Center isn't a methadone clinic. We lead with naltrexone/Vivitrol within physician-led detox and residential care." },
+  { q: 'Do you use methadone?', a: "No, Regain Hope Detox and Recovery Center isn't a methadone clinic. We lead with naltrexone/Vivitrol within physician-led detox and residential care." },
   { q: 'What is Vivitrol?', a: 'A monthly, non-narcotic naltrexone injection that blocks opioid effects and reduces cravings.' },
-  { q: 'Do you treat fentanyl addiction?', a: 'Yes — fentanyl is an opioid; we provide medically supervised detox and treatment for it.' },
+  { q: 'Do you treat fentanyl addiction?', a: 'Yes, fentanyl is an opioid; we provide medically supervised detox and treatment for it.' },
   { q: 'Does insurance cover opioid treatment?', a: 'Most PPO plans do. As an out-of-network provider, we verify your benefits for free.' },
 ];
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
@@ -48,8 +48,8 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 
   <section><div class="container rich" style="max-width:820px;">
     <h2>What is opioid use disorder?</h2>
-    <p><b>Opioid use disorder (OUD) is a chronic, treatable medical condition involving the compulsive use of opioids despite harmful consequences</b> (National Institute on Drug Abuse, NIDA). Opioids include prescription painkillers (such as oxycodone, hydrocodone, and morphine), heroin, and — increasingly — <b>fentanyl</b>, a synthetic opioid up to 50 times stronger than heroin that now drives the majority of overdose deaths in the U.S. OUD changes brain chemistry in ways that make stopping extraordinarily hard without help — which is why it's treated as a medical condition, not a choice.</p>
-    <p>Left untreated, opioid use disorder carries a serious risk of overdose — especially in the fentanyl era, when the potency of the illicit supply is unpredictable from one use to the next. But it is also one of the most treatable substance use disorders: with medically supervised detox, FDA-approved medication, and genuine support, most people can stabilize and rebuild. The earlier treatment begins, the more options — and the more life — you protect.</p>
+    <p><b>Opioid use disorder (OUD) is a chronic, treatable medical condition involving the compulsive use of opioids despite harmful consequences</b> (National Institute on Drug Abuse, NIDA). Opioids include prescription painkillers (such as oxycodone, hydrocodone, and morphine), heroin, and, increasingly, <b>fentanyl</b>, a synthetic opioid up to 50 times stronger than heroin that now drives the majority of overdose deaths in the U.S. OUD changes brain chemistry in ways that make stopping extraordinarily hard without help, which is why it's treated as a medical condition, not a choice.</p>
+    <p>Left untreated, opioid use disorder carries a serious risk of overdose, especially in the fentanyl era, when the potency of the illicit supply is unpredictable from one use to the next. But it is also one of the most treatable substance use disorders: with medically supervised detox, FDA-approved medication, and genuine support, most people can stabilize and rebuild. The earlier treatment begins, the more options, and the more life, you protect.</p>
   </div></section>
 
   <ImageFeature
@@ -59,7 +59,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
     side="left"
     eyebrow="There is a way through"
     title="Opioid recovery, made survivable"
-    body="Opioid withdrawal is brutal enough to make people give up. With physicians on-site and medication to ease it, we make the hardest days bearable — and the next chapter possible."
+    body="Opioid withdrawal is brutal enough to make people give up. With physicians on-site and medication to ease it, we make the hardest days bearable, and the next chapter possible."
     points={[['stethoscope', '24/7 physician supervision'], ['mat', 'Vivitrol to protect against relapse'], ['heart', 'Compassion, never judgment']]}
   />
 
@@ -80,10 +80,9 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 
   <section class="bg-cream"><div class="container rich" style="max-width:820px;">
     <h2>Why opioid detox needs medical supervision</h2>
-    <p>Opioid withdrawal is rarely life-threatening on its own — but it is <b>intensely painful</b> (muscle aches, nausea, vomiting, diarrhea, chills, insomnia, severe cravings), and that misery is exactly why most people relapse trying to detox alone. The greater danger is <b>overdose after a relapse</b>, because tolerance drops quickly during withdrawal. <a href="/programs/medical-detox/">Medical detox</a> makes the process far more comfortable and dramatically safer, with physicians on-site 24/7 and medication to ease symptoms.</p>
+    <p>Opioid withdrawal is rarely life-threatening on its own, but it is <b>intensely painful</b> (muscle aches, nausea, vomiting, diarrhea, chills, insomnia, severe cravings), and that misery is exactly why most people relapse trying to detox alone. The greater danger is <b>overdose after a relapse</b>, because tolerance drops quickly during withdrawal. <a href="/programs/medical-detox/">Medical detox</a> makes the process far more comfortable and dramatically safer, with physicians on-site 24/7 and medication to ease symptoms.</p>
   </div></section>
 
-  <TeamStrip bg="white" />
 
   <section class="bg-cream"><div class="container">
     <div class="sec-head"><span class="eyebrow">Our approach</span><h2>How we treat opioid addiction</h2></div>
@@ -96,7 +95,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 
   <section><div class="container rich" style="max-width:820px;">
     <h2>MAT for opioid use disorder</h2>
-    <p>NIDA recognizes FDA-approved medications for OUD — <b>buprenorphine, methadone, and naltrexone</b> — as effective, evidence-based care. At Regain Hope Detox and Recovery Center, our physicians lead with <b>naltrexone, including the long-acting injection Vivitrol</b>, which is non-narcotic and blocks the effects of opioids; we often start it <b>before discharge</b> to protect against relapse. We are <b>not a methadone clinic</b> — we provide <a href="/programs/medication-assisted-treatment/">medication-assisted treatment</a> within physician-led detox and residential care.</p>
+    <p>NIDA recognizes FDA-approved medications for OUD, <b>buprenorphine, methadone, and naltrexone</b>, as effective, evidence-based care. At Regain Hope Detox and Recovery Center, our physicians lead with <b>naltrexone, including the long-acting injection Vivitrol</b>, which is non-narcotic and blocks the effects of opioids; we often start it <b>before discharge</b> to protect against relapse. We are <b>not a methadone clinic</b>. We provide <a href="/programs/medication-assisted-treatment/">medication-assisted treatment</a> within physician-led detox and residential care.</p>
   </div></section>
 
   <section class="bg-cream"><div class="container rich" style="max-width:820px;">
@@ -106,7 +105,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 
   <section><div class="container rich" style="max-width:820px;">
     <h2>When to seek help for opioid use</h2>
-    <p>With fentanyl in nearly the entire illicit opioid supply, the risk of a fatal overdose has never been higher — and there's no safe amount of time to wait. If you or someone you love is using opioids (prescription or illicit), can't stop despite wanting to, or is experiencing withdrawal between uses, reach out now. Treatment works, and the first call is free and confidential. <b>If someone is overdosing, call 911 and use naloxone (Narcan) if available.</b></p>
+    <p>With fentanyl in nearly the entire illicit opioid supply, the risk of a fatal overdose has never been higher, and there's no safe amount of time to wait. If you or someone you love is using opioids (prescription or illicit), can't stop despite wanting to, or is experiencing withdrawal between uses, reach out now. Treatment works, and the first call is free and confidential. <b>If someone is overdosing, call 911 and use naloxone (Narcan) if available.</b></p>
   </div></section>
 
   <PhysicianLed bg="cream" />
@@ -116,10 +115,12 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   <InsuranceBanner />
 
   <section><div class="container">
-    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Opioid treatment — frequently asked questions</h2></div>
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Opioid treatment, frequently asked questions</h2></div>
     <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
     <p style="text-align:center;margin-top:26px;color:var(--muted);font-size:13px;">Clinical information on this page is informed by the <a href={NIDA} target="_blank" rel="noopener">National Institute on Drug Abuse (NIDA)</a>.</p>
   </div></section>
+
+  <TeamStrip bg="cream" />
 
   <section class="ctaband"><div class="container">
     <h2>Recovery from opioids starts with one call</h2>

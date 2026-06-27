@@ -4,6 +4,7 @@ import Reviews from '../components/Reviews.astro';
 import Hero from '../components/Hero.astro';
 import Divider from '../components/Divider.astro';
 import PhysicianLed from '../components/PhysicianLed.astro';
+import TeamStrip from '../components/TeamStrip.astro';
 import Icon from '../components/Icon.astro';
 
 const faqs = [
@@ -11,8 +12,8 @@ const faqs = [
   { q: 'Is detox done with medical supervision?', a: 'Yes. Detox here is physician-supervised 24/7, with doctors on-site in person daily to keep withdrawal as safe and comfortable as possible.' },
   { q: 'Does insurance cover detox?', a: 'Most PPO plans do. As an out-of-network provider, we verify your benefits for free before you commit to anything.' },
   { q: 'What happens after detox?', a: 'You step into residential treatment and, when ready, a continuing-care plan with trusted referrals for IOP or sober living.' },
-  { q: 'Do you offer care in Spanish or Korean?', a: 'Yes — services are available in English, Spanish, and Korean.' },
-  { q: 'Can I keep working during treatment?', a: 'Yes — we offer a flexible technology policy for working professionals.' },
+  { q: 'Do you offer care in Spanish or Korean?', a: 'Yes, services are available in English, Spanish, and Korean.' },
+  { q: 'Can I keep working during treatment?', a: 'Yes, we offer a flexible technology policy for working professionals.' },
 ];
 const faqSchema = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
@@ -33,7 +34,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 ---
 <Layout
   title="Medical Detox & Residential Treatment in Burbank, CA | Regain Hope Detox and Recovery Center"
-  description="Physician-owned medical detox & residential treatment in Burbank, CA. Daily in-person doctor care, whole-person medicine, boutique setting. We verify your PPO benefits — call 24/7."
+  description="Physician-owned medical detox & residential treatment in Burbank, CA. Daily in-person doctor care, whole-person medicine, boutique setting. We verify your PPO benefits. Call 24/7."
   schema={faqSchema}
 >
   <!-- HERO (exterior photo · copy left · verify form right) -->
@@ -41,7 +42,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
     variant="form"
     eyebrow="Burbank, California · Available 24/7"
     title="Physician-Led Medical Detox in Burbank, California"
-    chips={['Owned & run by two on-site physicians', 'Couples accepted & treated together', 'Stay connected — flexible device & technology policy', 'Care in English, Spanish & Korean']}
+    chips={['Owned & run by two on-site physicians', 'Couples accepted & treated together', 'Stay connected, flexible device & technology policy', 'Care in English, Spanish & Korean']}
   />
 
   <!-- TRUST STRIP -->
@@ -56,7 +57,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   <!-- INSURANCE (moved up — replaces the soft "Why Regain" stat band) -->
   <section id="insurance"><div class="container">
     <Divider />
-    <div class="sec-head" style="margin-top:16px;"><span class="eyebrow">Insurance</span><h2>Your insurance may cover treatment</h2><p>Most PPO plans cover medical detox and residential treatment. As an out-of-network provider, we verify your benefits free in about 5 minutes — no obligation.</p></div>
+    <div class="sec-head" style="margin-top:16px;"><span class="eyebrow">Insurance</span><h2>Your insurance may cover treatment</h2><p>Most PPO plans cover medical detox and residential treatment. As an out-of-network provider, we verify your benefits free in about 5 minutes, no obligation.</p></div>
     <div class="ins-strip">
       {insurers.map(([f, alt]) => <img src={`/images/logos/insurance/${f}.svg`} alt={`${alt} insurance accepted`} loading="lazy" />)}
     </div>
@@ -90,12 +91,12 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
       <div class="pcard"><div class="ico"><Icon name="dual" /></div><h3>Dual Diagnosis</h3><p>Addiction and co-occurring mental health, treated together.</p><a class="more" href="/programs/dual-diagnosis-treatment/">Learn more →</a></div>
       <div class="pcard"><div class="ico"><Icon name="mat" /></div><h3>Medication-Assisted Treatment</h3><p>Vivitrol &amp; other tools to ease withdrawal and prevent relapse.</p><a class="more" href="/programs/medication-assisted-treatment/">Learn more →</a></div>
       <div class="pcard"><div class="ico"><Icon name="heart" /></div><h3>Continuing Care</h3><p>Aftercare and trusted step-down referrals (IOP, sober living).</p><a class="more" href="/programs/continuing-care/">Learn more →</a></div>
-      <div class="pcard" style="background:var(--caoba-dark);color:#fff;"><h3 style="color:#fff;">Not sure where to start?</h3><p style="color:#f4eee5;">A free, confidential call will help you figure out the right first step.</p><a class="more" style="color:var(--gold-soft);" href="tel:+18182812458">Call 24/7 →</a></div>
+      <div class="pcard accent"><h3>Not sure where to start?</h3><p>A free, confidential call will help you figure out the right first step.</p><a class="more" href="tel:+18182812458">Call 24/7 →</a></div>
     </div>
     <Divider />
     <h3 style="text-align:center;margin:32px 0 22px;">Your path to recovery</h3>
     <div class="flow">
-      <div class="step"><div class="num">1</div><h4>Medical Detox</h4><p>Safely stabilize — about 5–10 days.</p></div>
+      <div class="step"><div class="num">1</div><h4>Medical Detox</h4><p>Safely stabilize, about 5–10 days.</p></div>
       <div class="arrow">→</div>
       <div class="step"><div class="num">2</div><h4>Residential</h4><p>Live-in therapy &amp; recovery skills.</p></div>
       <div class="arrow">→</div>
@@ -130,7 +131,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
       </div>
       <div class="imgcard">
         <img class="ph" src="/images/stock/residential-day.webp" alt="A welcoming group in a bright, supportive setting" loading="lazy" width="600" height="375" />
-        <div class="bd"><h3>Spanish &amp; Korean Speakers</h3><p>Real bilingual care — full treatment in English, Spanish, and Korean.</p><a class="more" href="/who-we-help/spanish-speaking/">Learn more →</a></div>
+        <div class="bd"><h3>Spanish &amp; Korean Speakers</h3><p>Real bilingual care, full treatment in English, Spanish, and Korean.</p><a class="more" href="/who-we-help/spanish-speaking/">Learn more →</a></div>
       </div>
     </div>
   </div></section>
@@ -139,9 +140,9 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   <section><div class="container">
     <div class="highlight">
       <div class="txt">
-        <span class="eyebrow" style="color:var(--gold-soft)">The setting</span>
+        <span class="eyebrow" style="color:var(--gold-deep)">The setting</span>
         <h2>Recovery in the heart of Southern California</h2>
-        <p>Set in a quiet Burbank neighborhood with a private garden, water-feature courtyard, and sunny outdoor lounges, Regain Hope Detox and Recovery Center blends structured care with room to breathe — including hillside walks toward the Hollywood sign.</p>
+        <p>Set in a quiet Burbank neighborhood with a private garden, water-feature courtyard, and sunny outdoor lounges, Regain Hope Detox and Recovery Center blends structured care with room to breathe, including hillside walks toward the Hollywood sign.</p>
         <div class="row">Private garden &amp; courtyard · Outdoor lounges · Hillside hikes · On-site fitness</div>
       </div>
       <div class="img" role="img" aria-label="Outdoor courtyard with water feature" style="background-image:url('/images/regain-14.jpeg')"></div>
@@ -161,8 +162,8 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   <section><div class="container"><div class="loc">
     <div>
       <span class="eyebrow">Location</span>
-      <h2>Detox and recovery in Burbank — close to home, far from the chaos</h2>
-      <p>Regain Hope Detox and Recovery Center is in Burbank, California — minutes from Glendale, the San Fernando Valley, and greater Los Angeles. Close enough to stay connected to family, private enough to truly step away. Out-of-state? We help arrange travel.</p>
+      <h2>Detox and recovery in Burbank, close to home, far from the chaos</h2>
+      <p>Regain Hope Detox and Recovery Center is in Burbank, California, minutes from Glendale, the San Fernando Valley, and greater Los Angeles. Close enough to stay connected to family, private enough to truly step away. Out-of-state? We help arrange travel.</p>
       <p style="font-weight:600;color:var(--caoba-dark);">📍 1134 N Lima St, Burbank, CA 91505</p>
       <div class="areas">{areas.map((a) => <span class="pill">{a}</span>)}</div>
     </div>
@@ -172,14 +173,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   <Reviews bg="cream" />
 
   <!-- TEAM -->
-  <section id="team"><div class="container">
-    <div class="sec-head"><span class="eyebrow">Meet the team</span><h2>Care led by physicians who own this program</h2><p>And a team that treats you like family.</p></div>
-    <div class="team">
-      <div class="tcard"><img class="avatar" src="/images/team/mileidys-gomez.webp" alt="Mileidys Gomez Gonzalez, MD" width="72" height="72" loading="lazy" /><div><h3>Mileidys Gomez Gonzalez, MD</h3><p>Co-founder &amp; Medical Lead · Internal &amp; family medicine. Follows up with clients personally after discharge.</p></div></div>
-      <div class="tcard"><img class="avatar" src="/images/team/carlos-yoo.webp" alt="Dr. Carlos Yoo" width="72" height="72" loading="lazy" /><div><h3>Dr. Carlos Yoo</h3><p>Co-founder &amp; physician. Leads admissions and daily care alongside Dr. Gomez.</p></div></div>
-    </div>
-    <p style="text-align:center;margin-top:24px;color:var(--muted);font-size:14px;">A close-knit, largely family team — care available in English, Spanish, and Korean.</p>
-  </div></section>
+  <TeamStrip bg="white" />
 
   <!-- FAQ -->
   <section class="bg-cream"><div class="container">
@@ -192,7 +186,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   <!-- CTA BAND (single CTA) -->
   <section class="ctaband"><div class="container">
     <h2>You can start today</h2>
-    <p>One phone call is all it takes to find out what's possible. Our admissions line is open 24/7 — confidential, judgment-free, and answered by people who care.</p>
+    <p>One phone call is all it takes to find out what's possible. Our admissions line is open 24/7, confidential, judgment-free, and answered by people who care.</p>
     <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
   </div></section>
 </Layout>

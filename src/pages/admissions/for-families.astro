@@ -4,13 +4,13 @@ import Hero from '../../components/Hero.astro';
 import ImageFeature from '../../components/ImageFeature.astro';
 
 const faqs = [
-  { q: 'How do I get a loved one into rehab?', a: 'Call us 24/7 — we verify their insurance, complete a medical assessment, and admit, often the same day.' },
-  { q: "What if they're not ready?", a: 'Call anyway — we can coach you on the conversation and have a plan ready for when they say yes.' },
-  { q: 'Can our family be involved in treatment?', a: 'Yes — family therapy is available on request, and the home-like setting keeps you close.' },
+  { q: 'How do I get a loved one into rehab?', a: 'Call us 24/7, we verify their insurance, complete a medical assessment, and admit, often the same day.' },
+  { q: "What if they're not ready?", a: 'Call anyway, we can coach you on the conversation and have a plan ready for when they say yes.' },
+  { q: 'Can our family be involved in treatment?', a: 'Yes, family therapy is available on request, and the home-like setting keeps you close.' },
   { q: 'Will we get updates during their stay?', a: 'We keep families appropriately informed, within privacy rules, and our physicians follow up after discharge.' },
-  { q: 'Do you offer support in Spanish or Korean?', a: 'Yes — care and family communication are available in English, Spanish, and Korean.' },
+  { q: 'Do you offer support in Spanish or Korean?', a: 'Yes, care and family communication are available in English, Spanish, and Korean.' },
   { q: 'How do we pay for it?', a: 'Most PPO plans cover treatment; we verify benefits for free.' },
-  { q: 'What if they leave early or relapse?', a: "Recovery isn't always linear — we'll talk through options and continuing care if it happens." },
+  { q: 'What if they leave early or relapse?', a: "Recovery isn't always linear, we'll talk through options and continuing care if it happens." },
 ];
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'Helping Someone You Love Get Into Treatment', reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
@@ -24,7 +24,7 @@ const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage'
     variant="reviews"
     eyebrow="For Families · Serving Los Angeles · 24/7"
     title="Helping Someone You Love Get Into Treatment"
-    lead="Watching addiction take hold of someone you love is its own kind of pain. You don't have to navigate it alone — we'll help you take the next step."
+    lead="Watching addiction take hold of someone you love is its own kind of pain. You don't have to navigate it alone. We'll help you take the next step."
     byline="Mileidys Gomez Gonzalez, MD"
     chips={['Family involvement welcomed', 'Bilingual support (EN · ES · 한국어)', 'Owned & run by two physicians', 'Free, confidential guidance']}
   />
@@ -35,17 +35,17 @@ const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage'
 
   <section><div class="container rich" style="max-width:820px;">
     <h2>When someone you love is struggling</h2>
-    <p>If you're here, you've probably spent a long time worrying — noticing the changes, having the hard conversations, feeling helpless. That exhaustion is real, and so is the love behind it. The good news: families play a powerful role in recovery, and the first step is often easier than it feels. A single phone call can turn months of worry into a plan.</p>
+    <p>If you're here, you've probably spent a long time worrying, noticing the changes, having the hard conversations, feeling helpless. That exhaustion is real, and so is the love behind it. The good news: families play a powerful role in recovery, and the first step is often easier than it feels. A single phone call can turn months of worry into a plan.</p>
   </div></section>
 
   <section class="bg-cream"><div class="container rich" style="max-width:820px;">
     <h2>How to start the conversation</h2>
     <ul>
-      <li><b>Choose a calm, sober moment</b> — not the middle of a crisis or an argument.</li>
-      <li><b>Lead with love, not blame</b> — "I'm worried about you because I love you," not "you need to fix this."</li>
-      <li><b>Be specific and gentle</b> — name what you've seen, without lectures.</li>
-      <li><b>Have a next step ready</b> — knowing that treatment is available, covered, and close by makes "yes" easier.</li>
-      <li><b>Call us first if you want</b> — we can coach you through the conversation before you have it.</li>
+      <li><b>Choose a calm, sober moment</b>, not the middle of a crisis or an argument.</li>
+      <li><b>Lead with love, not blame</b>: "I'm worried about you because I love you," not "you need to fix this."</li>
+      <li><b>Be specific and gentle</b>: name what you've seen, without lectures.</li>
+      <li><b>Have a next step ready</b>: knowing that treatment is available, covered, and close by makes "yes" easier.</li>
+      <li><b>Call us first if you want</b>: we can coach you through the conversation before you have it.</li>
     </ul>
   </div></section>
 
@@ -64,7 +64,7 @@ const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage'
 
   <section class="bg-cream"><div class="container rich" style="max-width:820px;">
     <h2>Your role doesn't end at the door</h2>
-    <p>Regain Hope Detox and Recovery Center is a small, family-run home — which means families stay close, not shut out. We offer <b>family therapy on request</b>, keep loved ones appropriately informed, and our physicians personally <b>follow up after discharge</b>. Because the setting is intimate and minutes from Glendale, Burbank, and the Valley, visiting and staying connected is easy. Care is available in <b>English, Spanish, and Korean</b>, so the whole family can be part of it.</p>
+    <p>Regain Hope Detox and Recovery Center is a small, family-run home, which means families stay close, not shut out. We offer <b>family therapy on request</b>, keep loved ones appropriately informed, and our physicians personally <b>follow up after discharge</b>. Because the setting is intimate and minutes from Glendale, Burbank, and the Valley, visiting and staying connected is easy. Care is available in <b>English, Spanish, and Korean</b>, so the whole family can be part of it.</p>
   </div></section>
 
   <ImageFeature
@@ -74,18 +74,18 @@ const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage'
     side="right"
     eyebrow="For you, too"
     title="Take care of yourself, too"
-    body="Supporting someone through addiction is draining. Part of helping them is caring for yourself — setting boundaries, leaning on support, and remembering that their recovery is ultimately theirs to walk. We'll guide you on both sides of that."
+    body="Supporting someone through addiction is draining. Part of helping them is caring for yourself: setting boundaries, leaning on support, and remembering that their recovery is ultimately theirs to walk. We'll guide you on both sides of that."
     points={[['heart', 'Compassionate guidance for families'], ['family', 'Family therapy on request'], ['chat', 'We can coach the first conversation']]}
   />
 
   <section class="bg-cream"><div class="container">
-    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>For families — frequently asked questions</h2></div>
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>For families, frequently asked questions</h2></div>
     <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
   </div></section>
 
   <section class="ctaband"><div class="container">
     <h2>Turn worry into a plan</h2>
-    <p>One confidential call — 24/7 — and we'll help you take the next step for someone you love.</p>
+    <p>One confidential call, 24/7, and we'll help you take the next step for someone you love.</p>
     <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Their Insurance</a></div>
   </div></section>
 </Layout>

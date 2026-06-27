@@ -3,25 +3,23 @@ import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
 import PhysicianLed from '../../components/PhysicianLed.astro';
 import Reviews from '../../components/Reviews.astro';
+import { team } from '../../data/blog.js';
 
-const team = [
-  { '@context': 'https://schema.org', '@type': 'Physician', name: 'Mileidys Gomez Gonzalez, MD', jobTitle: 'Co-founder & Medical Lead', worksFor: { '@type': 'MedicalClinic', name: 'Regain Hope Detox and Recovery Center' } },
-  { '@context': 'https://schema.org', '@type': 'Physician', name: 'Dr. Carlos Yoo', jobTitle: 'Co-founder & Physician', worksFor: { '@type': 'MedicalClinic', name: 'Regain Hope Detox and Recovery Center' } },
-];
-const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'Meet the Team — Regain Hope Detox and Recovery Center', reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
+const teamSchema = team.map((m) => ({ '@context': 'https://schema.org', '@type': m.slug === 'dr-mileidys-gomez' ? 'Physician' : 'Person', name: m.name, jobTitle: m.role, worksFor: { '@type': 'MedicalClinic', name: 'Regain Hope Detox and Recovery Center' } }));
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'Meet the Team, Regain Hope Detox and Recovery Center', reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
 ---
 <Layout
-  title="Meet Our Physicians | Regain Hope Detox and Recovery Center"
-  description="Meet the two physicians who own and run Regain Hope Detox and Recovery Center in Burbank, CA — on-site, in person, every day, with care in English, Spanish, and Korean."
-  schema={[pageSchema, ...team]}
+  title="Meet Our Team | Regain Hope Detox and Recovery Center"
+  description="Meet the physician-led clinical team at Regain Hope Detox and Recovery Center in Burbank, CA, on-site, in person, and personally involved in your care."
+  schema={[pageSchema, ...teamSchema]}
 >
   <Hero
     variant="reviews"
     eyebrow="Meet the Team · Burbank, CA · 24/7"
-    title="Care led by the two physicians who own the program"
-    lead="At Regain Hope, the people who own the program are the doctors who care for you — present, in person, every day."
+    title="Meet the team behind Regain Hope"
+    lead="Physician-owned and physician-led, with a close-knit clinical team who cares for you in person, every day."
     byline="Mileidys Gomez Gonzalez, MD"
-    chips={['Two physician-owners, on-site daily', 'Whole-person, in-person care', 'English · Español · 한국어', 'A close-knit, family team']}
+    chips={['Physician-owned, on-site daily', 'Whole-person, in-person care', 'English · Español · 한국어', 'A close-knit, family team']}
   />
 
   <div class="trust"><div class="container">
@@ -30,50 +28,37 @@ const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage'
 
   <!-- INTRO (white) -->
   <section><div class="container rich" style="max-width:820px;">
-    <h2>The doctors are the owners — and they're here every day</h2>
-    <p>Regain Hope Detox and Recovery Center is owned and run by two physicians, a husband-and-wife team who built the program around a belief that recovery deserves real medical care delivered with genuine warmth. Unlike larger facilities where a physician checks in remotely, our doctors are <b>on-site, in person, every day</b> — and a small, largely family team surrounds them.</p>
+    <h2>The doctors are the owners, and they're here every day</h2>
+    <p>Regain Hope Detox and Recovery Center is owned and run by two physicians who built the program around a belief that recovery deserves real medical care delivered with genuine warmth. Unlike larger facilities where a physician checks in remotely, our doctors are <b>on-site, in person, every day</b>, and a small, close-knit clinical team surrounds them.</p>
   </div></section>
 
-  <!-- DR. GOMEZ (cream) -->
-  <section class="bg-cream"><div class="container">
-    <div class="profile">
-      <div class="pic"><img src="/images/team/mileidys-gomez.webp" alt="Mileidys Gomez Gonzalez, MD, Co-founder and Medical Lead" width="400" height="400" loading="lazy" /></div>
-      <div>
-        <h2>Mileidys Gomez Gonzalez, MD</h2>
-        <div class="role">Co-founder &amp; Medical Lead</div>
-        <p>Dr. Gomez leads all clinical and medical care at Regain Hope. Trained in <b>internal and family medicine</b>, she brings a whole-person perspective to detox — watching over each client's full health, not just their withdrawal, and coordinating the medical issues that addiction so often leaves behind.</p>
-        <p>What clients remember most is how personally she cares. She sees clients in person every day, and — as her Google reviews note again and again — she follows up with them herself, even after they've gone home. A native Spanish speaker, she makes care accessible to families who'd feel most understood in their own language.</p>
-        <div class="langs"><span>English</span><span>Español</span></div>
+  <!-- PROFILES (alternating white / cream) -->
+  {team.map((m, i) => (
+    <section class={i % 2 === 1 ? 'bg-cream' : ''}><div class="container">
+      <div class="profile">
+        <div class="pic"><img src={m.photo} alt={`${m.name}, ${m.role}`} width="400" height="400" loading="lazy" /></div>
+        <div>
+          <h2>{m.name}</h2>
+          <div class="role">{m.role}</div>
+          <div class="rich" style="margin-top:10px;">{m.bio.map((para) => <p>{para}</p>)}</div>
+          <div class="langs">{m.langs.map((l) => <span>{l}</span>)}</div>
+        </div>
       </div>
-    </div>
-  </div></section>
-
-  <!-- DR. CARLOS (white) -->
-  <section><div class="container">
-    <div class="profile">
-      <div class="pic"><img src="/images/team/carlos-yoo.webp" alt="Dr. Carlos Yoo, Co-founder and Physician" width="400" height="400" loading="lazy" /></div>
-      <div>
-        <h2>Dr. Carlos Yoo</h2>
-        <div class="role">Co-founder &amp; Physician</div>
-        <p>Dr. Carlos co-founded Regain Hope alongside Dr. Gomez and is deeply involved in daily care and admissions. A physician himself, he helped build the program from the ground up and is often the first person families speak with when they reach out for help.</p>
-        <p>He brings a steady, reassuring presence to a frightening moment, and — as a Korean speaker — he extends genuine, in-language care to Los Angeles's Korean community, a rare offering in addiction treatment.</p>
-        <div class="langs"><span>English</span><span>한국어</span></div>
-      </div>
-    </div>
-  </div></section>
+    </div></section>
+  ))}
 
   <!-- ★ PHYSICIAN-LED (cream) -->
   <PhysicianLed bg="cream" />
 
   <section><div class="container rich" style="max-width:820px;text-align:center;">
-    <p style="color:var(--muted);">A close-knit, largely family team — with care available in English, Spanish, and Korean, and a culture that treats every client like one of their own.</p>
+    <p style="color:var(--muted);">A close-knit, largely family team, with care available in English, Spanish, and Korean, and a culture that treats every client like one of their own.</p>
   </div></section>
 
   <Reviews bg="cream" />
 
   <section class="ctaband"><div class="container">
     <h2>Meet the people who'll care for you</h2>
-    <p>The first call is with our team — confidential, judgment-free, and answered 24/7.</p>
+    <p>The first call is with our team, confidential, judgment-free, and answered 24/7.</p>
     <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
   </div></section>
 </Layout>

@@ -7,7 +7,7 @@ import Reviews from '../../components/Reviews.astro';
 const faqs = [
   {
     "q": "Does TRICARE cover detox and rehab?",
-    "a": "Yes — TRICARE covers medically necessary detox and residential addiction treatment for eligible members; how it applies depends on your plan."
+    "a": "Yes, TRICARE covers medically necessary detox and residential addiction treatment for eligible members; how it applies depends on your plan."
   },
   {
     "q": "Which TRICARE plan works best here?",
@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     "q": "Does TRICARE cover mental health and PTSD?",
-    "a": "Yes — TRICARE covers mental health care, including service-related trauma and PTSD treated alongside addiction."
+    "a": "Yes, TRICARE covers mental health care, including service-related trauma and PTSD treated alongside addiction."
   },
   {
     "q": "How do I check my TRICARE benefits?",
@@ -31,7 +31,7 @@ const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage'
 ---
 <Layout
   title="TRICARE Coverage for Detox & Rehab | Regain Hope Detox and Recovery Center"
-  description="Does TRICARE cover detox and rehab in California? Regain Hope works with TRICARE out-of-network benefits — free, fast verification. Call 24/7."
+  description="Does TRICARE cover detox and rehab in California? Regain Hope works with TRICARE out-of-network benefits, free, fast verification. Call 24/7."
   schema={[pageSchema, faqSchema]}
 >
   <Hero
@@ -48,17 +48,17 @@ const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage'
 
   <section><div class="container rich" style="max-width:820px;">
     <h2>What is TRICARE?</h2>
-    <p>TRICARE is the health care program for U.S. uniformed service members, retirees, and their families. It includes several plan types — most notably <b>TRICARE Prime</b> (an HMO-style plan that uses assigned/network providers) and <b>TRICARE Select</b> (a fee-for-service plan that allows TRICARE-authorized non-network providers). In the <b>West Region</b>, TRICARE is administered by <b>TriWest</b>. TRICARE covers mental health and substance use treatment.</p>
+    <p>TRICARE is the health care program for U.S. uniformed service members, retirees, and their families. It includes several plan types, most notably <b>TRICARE Prime</b> (an HMO-style plan that uses assigned/network providers) and <b>TRICARE Select</b> (a fee-for-service plan that allows TRICARE-authorized non-network providers). In the <b>West Region</b>, TRICARE is administered by <b>TriWest</b>. TRICARE covers mental health and substance use treatment.</p>
   </div></section>
 
   <section class="bg-cream"><div class="container rich" style="max-width:820px;">
     <h2>Does TRICARE cover detox and rehab?</h2>
-    <p><b>Yes — TRICARE covers medically necessary detox and residential addiction treatment</b> for eligible members. How it applies depends on your plan: <b>TRICARE Select</b> offers the most flexibility to use a TRICARE-authorized provider, while <b>TRICARE Prime</b> typically requires referrals and authorization. We verify your specific TRICARE benefits for free and explain the path for your plan.</p>
+    <p><b>Yes, TRICARE covers medically necessary detox and residential addiction treatment</b> for eligible members. How it applies depends on your plan: <b>TRICARE Select</b> offers the most flexibility to use a TRICARE-authorized provider, while <b>TRICARE Prime</b> typically requires referrals and authorization. We verify your specific TRICARE benefits for free and explain the path for your plan.</p>
   </div></section>
 
   <section><div class="container rich" style="max-width:820px;">
     <h2>Does TRICARE cover mental health and dual diagnosis treatment?</h2>
-    <p>Yes — TRICARE covers mental health care, including service-related trauma and PTSD treated alongside addiction. See our <a href="/programs/dual-diagnosis-treatment/">dual-diagnosis care</a>.</p>
+    <p>Yes, TRICARE covers mental health care, including service-related trauma and PTSD treated alongside addiction. See our <a href="/programs/dual-diagnosis-treatment/">dual-diagnosis care</a>.</p>
   </div></section>
 
   <section class="bg-cream"><div class="container rich" style="max-width:820px;">
@@ -69,11 +69,11 @@ const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage'
   <section><div class="container">
     <div class="sec-head"><span class="eyebrow">Quick & free</span><h2>Check your TRICARE coverage in minutes</h2></div>
     <div class="flow">
-      <div class="step"><div class="num">1</div><h4>Share your TRICARE details</h4><p>Call or submit the form — it takes a minute.</p></div>
+      <div class="step"><div class="num">1</div><h4>Share your TRICARE details</h4><p>Call or submit the form, it takes a minute.</p></div>
       <div class="arrow">→</div>
       <div class="step"><div class="num">2</div><h4>We verify your benefits</h4><p>A free verification of benefits, usually same day.</p></div>
       <div class="arrow">→</div>
-      <div class="step"><div class="num">3</div><h4>Plain-English answer</h4><p>Exactly what your plan covers — no pressure.</p></div>
+      <div class="step"><div class="num">3</div><h4>Plain-English answer</h4><p>Exactly what your plan covers, no pressure.</p></div>
     </div>
     <p style="text-align:center;margin-top:26px;"><a href="/admissions/verify-insurance/" class="btn btn-primary">Verify Your TRICARE Benefits</a></p>
   </div></section>
@@ -85,12 +85,12 @@ const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage'
     side="left"
     eyebrow="We do the legwork"
     title="Your TRICARE benefits, verified for free"
-    body="You don't have to decode your policy alone. We call TRICARE, confirm what your plan covers, and explain it plainly — so the only thing you have to focus on is getting well."
+    body="You don't have to decode your policy alone. We call TRICARE, confirm what your plan covers, and explain it plainly, so the only thing you have to focus on is getting well."
     points={[['clipboard', 'Free verification of benefits'], ['stethoscope', 'Physician-led, whole-person care'], ['heart', 'No obligation, ever']]}
   />
 
   <section><div class="container">
-    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>TRICARE coverage — frequently asked questions</h2></div>
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>TRICARE coverage, frequently asked questions</h2></div>
     <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
     <p style="text-align:center;margin-top:22px;color:var(--muted);">See all the carriers we work with on our <a href="/insurance/">insurance page</a>.</p>
   </div></section>
@@ -98,7 +98,7 @@ const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage'
   <Reviews bg="cream" />
 
   <section class="ctaband"><div class="container">
-    <h2>Find out what your TRICARE plan covers — free</h2>
+    <h2>Find out what your TRICARE plan covers, free</h2>
     <p>A quick, confidential benefits check tells you exactly where you stand. Call 24/7 or verify online.</p>
     <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your TRICARE Benefits</a></div>
   </div></section>

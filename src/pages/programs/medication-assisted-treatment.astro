@@ -1,19 +1,19 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import TeamStrip from '../../components/TeamStrip.astro';
 import Reviews from '../../components/Reviews.astro';
 import Hero from '../../components/Hero.astro';
 import Icon from '../../components/Icon.astro';
-import TeamStrip from '../../components/TeamStrip.astro';
 import ScenarioHighlight from '../../components/ScenarioHighlight.astro';
 import ImageFeature from '../../components/ImageFeature.astro';
 import InsuranceBanner from '../../components/InsuranceBanner.astro';
 
 const faqs = [
-  { q: 'Is MAT just trading one drug for another?', a: 'No — our lead medications (naltrexone/Vivitrol) are non-narcotic and non-addictive; they block cravings without producing a high or creating dependence.' },
+  { q: 'Is MAT just trading one drug for another?', a: 'No, our lead medications (naltrexone/Vivitrol) are non-narcotic and non-addictive; they block cravings without producing a high or creating dependence.' },
   { q: 'What medications are used in MAT?', a: 'FDA-approved options including Vivitrol (extended-release naltrexone) and oral naltrexone, prescribed and monitored by a physician.' },
   { q: 'What does MAT treat?', a: 'Primarily alcohol and opioid use disorders, often alongside co-occurring mental health conditions.' },
-  { q: 'How long does MAT last?', a: 'It varies — your physician sets the plan. Long-acting options like monthly Vivitrol can keep protecting you after you step down.' },
-  { q: 'Is MAT supervised by a doctor?', a: 'Yes — MAT here is prescribed and administered by the physicians who own the program, as part of detox and residential care.' },
+  { q: 'How long does MAT last?', a: 'It varies, your physician sets the plan. Long-acting options like monthly Vivitrol can keep protecting you after you step down.' },
+  { q: 'Is MAT supervised by a doctor?', a: 'Yes, MAT here is prescribed and administered by the physicians who own the program, as part of detox and residential care.' },
   { q: 'Does insurance cover MAT?', a: 'Most PPO plans do. As an out-of-network provider, we verify your benefits for free before you commit.' },
 ];
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
@@ -30,7 +30,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 ---
 <Layout
   title="Medication-Assisted Treatment (MAT) | Regain Hope Detox and Recovery Center"
-  description="Physician-led medication-assisted treatment (MAT) in the Los Angeles area — Vivitrol & FDA-approved medications to ease withdrawal and prevent relapse, started before discharge. PPO accepted."
+  description="Physician-led medication-assisted treatment (MAT) in the Los Angeles area, Vivitrol & FDA-approved medications to ease withdrawal and prevent relapse, started before discharge. PPO accepted."
   schema={[pageSchema, faqSchema]}
 >
   <!-- HERO (money page → consistent bg + insurance form, short) -->
@@ -50,7 +50,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   <!-- WHAT IS (clinical) -->
   <section><div class="container rich" style="max-width:820px;">
     <h2>What is medication-assisted treatment?</h2>
-    <p><b>Medication-assisted treatment (MAT) is the use of FDA-approved medications, combined with counseling and therapy, to treat alcohol and opioid use disorders.</b> The medications ease withdrawal, reduce cravings, and help prevent relapse — so you can focus on recovery instead of fighting your body.</p>
+    <p><b>Medication-assisted treatment (MAT) is the use of FDA-approved medications, combined with counseling and therapy, to treat alcohol and opioid use disorders.</b> The medications ease withdrawal, reduce cravings, and help prevent relapse, so you can focus on recovery instead of fighting your body.</p>
     <p>At Regain Hope Detox and Recovery Center, MAT isn't a standalone clinic visit. It's prescribed and administered by the physicians who own and run the program, as part of your detox and residential care.</p>
   </div></section>
 
@@ -62,7 +62,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
     side="left"
     eyebrow="Life, reclaimed"
     title="Medication that lets you focus on living"
-    body="When cravings are quieted, recovery stops being a daily battle with your own body — and you get the room to rebuild work, relationships, and routine."
+    body="When cravings are quieted, recovery stops being a daily battle with your own body, and you get the room to rebuild work, relationships, and routine."
     points={[['mat', 'Non-narcotic, non-addictive options'], ['cycle', 'Long-acting relapse protection'], ['stethoscope', 'Prescribed & monitored by physicians']]}
   />
 
@@ -80,31 +80,30 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   <section class="bg-cream"><div class="container">
     <div class="sec-head"><span class="eyebrow">The medications</span><h2>Medications used in MAT</h2></div>
     <div class="grid3" style="max-width:980px;margin:0 auto;">
-      <div class="pcard"><div class="ico"><Icon name="mat" /></div><h3>Vivitrol® (naltrexone)</h3><p>Our lead option for alcohol and opioid use — a once-monthly, non-narcotic injection that blocks cravings without creating dependence.</p></div>
+      <div class="pcard"><div class="ico"><Icon name="mat" /></div><h3>Vivitrol® (naltrexone)</h3><p>Our lead option for alcohol and opioid use, a once-monthly, non-narcotic injection that blocks cravings without creating dependence.</p></div>
       <div class="pcard"><div class="ico"><Icon name="prescription" /></div><h3>Oral naltrexone</h3><p>A daily, non-narcotic alternative for craving and relapse protection.</p></div>
       <div class="pcard"><div class="ico"><Icon name="stethoscope" /></div><h3>Other FDA-approved medications</h3><p>Additional options prescribed when clinically appropriate, always under physician supervision.</p></div>
     </div>
-    <p style="text-align:center;margin-top:24px;color:var(--muted);font-size:14.5px;max-width:720px;margin-left:auto;margin-right:auto;">Regain Hope Detox and Recovery Center is <b>not</b> a methadone clinic or opioid treatment program — there is no methadone maintenance. MAT here is physician-administered within detox and residential care.</p>
+    <p style="text-align:center;margin-top:24px;color:var(--muted);font-size:14.5px;max-width:720px;margin-left:auto;margin-right:auto;">Regain Hope Detox and Recovery Center is <b>not</b> a methadone clinic or opioid treatment program. There is no methadone maintenance. MAT here is physician-administered within detox and residential care.</p>
   </div></section>
 
   <!-- ★ STARTED BEFORE YOU LEAVE (scenario highlight) -->
   <ScenarioHighlight
     eyebrow="The differentiator"
     title="Relapse protection that starts before discharge"
-    intro="Pills are easy to forget once you're home. We start your long-acting medication — like a monthly Vivitrol injection — <b>before you leave our care</b>, so your protection doesn't depend on a daily decision."
+    intro="Pills are easy to forget once you're home. We start your long-acting medication, like a monthly Vivitrol injection, <b>before you leave our care</b>, so your protection doesn't depend on a daily decision."
     badTitle="The usual handoff"
     bad={['A prescription to fill on your own', 'A daily pill that’s easy to skip or forget', 'Protection that lapses the moment motivation dips']}
     good={['A long-acting injection started before discharge', 'Weeks of craving protection, automatically', 'A plan built so sobriety doesn’t hinge on willpower']}
     momentLabel="Why it matters"
     scenarios={[
-      ['mat', 'The day you leave', 'Your monthly injection is already working — there’s no gap between care and home.'],
-      ['cycle', 'Two weeks home, a craving hits', 'The medication is still quietly blocking it — no pill to have remembered.'],
+      ['mat', 'The day you leave', 'Your monthly injection is already working, there’s no gap between care and home.'],
+      ['cycle', 'Two weeks home, a craving hits', 'The medication is still quietly blocking it, no pill to have remembered.'],
       ['stethoscope', 'A missed appointment', 'Because it’s long-acting, one off day doesn’t undo your protection.'],
     ]}
   />
 
   <!-- MODULE: Team (breaker variety — meet the physicians) -->
-  <TeamStrip />
 
   <!-- BENEFITS -->
   <section><div class="container">
@@ -119,12 +118,12 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   <!-- ★ MYTH-BUST (AEO) -->
   <section class="bg-cream"><div class="container rich" style="max-width:820px;">
     <h2>Is MAT just replacing one drug with another?</h2>
-    <p><b>No — not the way we practice it.</b> Our lead medications are naltrexone-based (including Vivitrol), which are <b>non-narcotic and non-addictive.</b> They don't produce a high or create dependence — they simply block cravings and the effects of alcohol and opioids so your brain can heal. MAT is evidence-based medicine, not a moral compromise.</p>
+    <p><b>No, not the way we practice it.</b> Our lead medications are naltrexone-based (including Vivitrol), which are <b>non-narcotic and non-addictive.</b> They don't produce a high or create dependence, they simply block cravings and the effects of alcohol and opioids so your brain can heal. MAT is evidence-based medicine, not a moral compromise.</p>
   </div></section>
 
   <!-- OUR APPROACH (continuum flow) -->
   <section><div class="container">
-    <div class="sec-head"><span class="eyebrow">Our approach</span><h2>How MAT fits into your care</h2><p>MAT is one part of a complete, physician-led program — it protects the progress you make at every other step.</p></div>
+    <div class="sec-head"><span class="eyebrow">Our approach</span><h2>How MAT fits into your care</h2><p>MAT is one part of a complete, physician-led program, it protects the progress you make at every other step.</p></div>
     <div class="flow">
       <div class="step"><div class="num">1</div><h4>Medical Detox</h4><p>Stabilize safely with 24/7 supervision.</p></div>
       <div class="arrow">→</div>
@@ -149,6 +148,8 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   </div></section>
 
   <!-- CTA -->
+  <TeamStrip bg="cream" />
+
   <section class="ctaband"><div class="container">
     <h2>Give your recovery every advantage</h2>
     <p>MAT can make the difference between getting sober and staying sober. One confidential call, answered 24/7, is the first step.</p>

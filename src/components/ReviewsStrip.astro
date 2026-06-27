@@ -1,8 +1,8 @@
 ---
 // Compact reviews module — reusable between text sections on detail pages
 const reviews = [
-  { t: 'The two doctors are genuinely caring and compassionate. In past detoxes I often felt treated like a number — here they truly make you feel valued.', w: 'Chris' },
-  { t: 'Dr. Gomez and Dr. Carlos are incredible. They make the house feel like home and family — and Dr. Gomez follows up even after discharge.', w: 'Jimmy' },
+  { t: 'The two doctors are genuinely caring and compassionate. In past detoxes I often felt treated like a number. Here they truly make you feel valued.', w: 'Chris' },
+  { t: 'Dr. Gomez and Dr. Carlos are incredible. They make the house feel like home and family, and Dr. Gomez follows up even after discharge.', w: 'Jimmy' },
   { t: 'They didn\'t make the facility feel cold or clinical. They made it feel like home.', w: 'Ashlie L.' },
 ];
 const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
@@ -11,7 +11,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   <div class="sec-head"><span class="eyebrow">Reviews</span><h2>Rated 5.0 on Google</h2></div>
   <div class="reviews">
     {reviews.map((r) => (
-      <div class="review"><div class="stars">★★★★★</div><p>"{r.t}"</p><div class="who">— {r.w}</div></div>
+      <div class="review"><div class="stars">★★★★★</div><p>"{r.t}"</p><div class="who">{r.w}</div></div>
     ))}
   </div>
   <div class="reviews-cta"><a href={GBP} target="_blank" rel="noopener" class="btn btn-outline">See all reviews on Google →</a></div>
