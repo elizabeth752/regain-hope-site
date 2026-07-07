@@ -2,27 +2,27 @@
 @import "./fonts.css";
 
 /* ===================================================================
-   Regain Hope — Design tokens (lilac + wordmark teal + cream)  [brand v4]
+   Regain Hope — Design tokens (lilac + eggplant + cream)  [brand v5]
    Brand purple = #C3A9C3 (the lotus). It's light, so it's the SOFT WASH —
      section fills, chips, pills, tints, hovers — always with dark text.
-   Wordmark teal (#2E5A66) does the high-contrast work: titles, buttons,
+   Dark aubergine/eggplant does the high-contrast work: titles, buttons,
      links, the dark bands, and the photo-hero overlay (white text).
-   Token names kept from the terracotta era so the whole site re-skins here.
-   --caoba-deep/dark/caoba = teal scale (contrast);  -soft/-tint = lilac (wash).
+   Token names kept from earlier eras so the whole site re-skins here.
+   --caoba-deep/dark/caoba = eggplant scale (contrast); -soft/-tint = lilac (wash).
    =================================================================== */
 :root{
   /* Dark bands — deep mauve/plum (the lotus pink's dark sibling); white text */
   --caoba-deep:#3F2C3F; --caoba-dark:#5A3F5A;
-  /* Blue — a true navy (not the greenish teal); titles, buttons, links accent */
-  --caoba:#28477A; --blue-deep:#1B3257; --navy:#22416E;
+  /* Eggplant — dark aubergine (client-requested); titles, buttons, links accent */
+  --caoba:#3E1E3E; --blue-deep:#2A1430; --navy:#341A38;
   /* Surfaces — light lilac tint (cards/strips/panels); black text reads cleanly */
   --caoba-soft:#E6D6E6; --caoba-tint:#E6D6E6;
-  /* Small labels (eyebrows, markers) = mauve; arrows = teal (kept); pops on navy = light lilac */
+  /* Small labels (eyebrows, markers) = mauve; arrows = eggplant (kept); pops on navy = light lilac */
   --gold-deep:#6B496B; --gold:#3C7E8E; --gold-soft:#D6C2DA;
   /* Rating stars — always yellow */
   --star:#F6B500;
-  /* Titles / headings — navy */
-  --title:#22416E;
+  /* Titles / headings — dark aubergine/eggplant */
+  --title:#3B1A3F;
   /* Explicit brand purple alias */
   --lilac:#C3A9C3;
   --cream:#F7EFDD; --paper:#FBF6EC; --ink:#19211F; --muted:#55585A; --white:#fff;
