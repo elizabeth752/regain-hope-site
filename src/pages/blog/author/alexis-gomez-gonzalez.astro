@@ -1,0 +1,44 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { authors, posts } from '../../../data/blog.js';
+const author = authors.alexis;
+const mine = posts.filter((p) => p.author === 'alexis');
+const schema = { '@context': 'https://schema.org', '@type': 'Person', name: author.name, jobTitle: author.role, worksFor: { '@type': 'Organization', name: 'Regain Hope Detox and Recovery Center' } };
+---
+<Layout title={`${author.name} | Regain Hope Detox and Recovery Center`} description={author.short} schema={schema}>
+  <section class="minihero"><div class="container">
+    <span class="eyebrow">Our Team</span>
+    <h1>{author.name}</h1>
+    <p>{author.role}</p>
+  </div></section>
+
+  <section><div class="container">
+    <div class="profile">
+      <div class="pic"><img src={author.photo} alt={author.name} width="400" height="400" loading="lazy" /></div>
+      <div class="rich">
+        {author.bio.map((para) => <p>{para}</p>)}
+        <p><a href="/about-us/team/">Meet the full team →</a></p>
+      </div>
+    </div>
+  </div></section>
+
+  {mine.length > 0 && (
+  <section class="bg-cream"><div class="container">
+    <div class="sec-head" style="margin-bottom:32px;"><span class="eyebrow">Articles</span><h2>Written by {author.name}</h2></div>
+    <div class="postgrid">
+      {mine.map((p) => (
+        <a class="postcard" href={`/blog/${p.slug}/`}>
+          <img class="ph" src={p.image} alt={p.title} loading="lazy" />
+          <div class="bd"><div class="cat">{p.category}</div><h3>{p.title}</h3><div class="pmeta"><img src={author.photo} alt={author.name} /><div><div class="a">{author.name}</div><div class="d">{p.date}</div></div></div></div>
+        </a>
+      ))}
+    </div>
+  </div></section>
+  )}
+
+  <section class="ctaband"><div class="container">
+    <h2>Care from the team behind Regain Hope</h2>
+    <p>One confidential call, answered 24/7. We'll verify your insurance and walk you through every step.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
+  </div></section>
+</Layout>

@@ -13,6 +13,19 @@ export const authors = {
       'At Regain Hope, Dr. Gomez remains personally involved in patient care every day, overseeing detoxification, medication management, stabilization, and individualized recovery planning. She believes recovery is not one size fits all, focusing on evidence-based treatment, including Medication-Assisted Treatment when appropriate, while helping patients restore their health, rebuild relationships, and create a strong foundation for lasting recovery.',
     ],
   },
+  alexis: {
+    slug: 'alexis-gomez-gonzalez',
+    name: 'Alexis Gomez Gonzalez, MD, MSN, FNP-BC, PMHNP-BC',
+    role: 'Psychiatric Mental Health Nurse Practitioner & Family Nurse Practitioner',
+    photo: '/images/team/alexis-gomez.jpg',
+    langs: ['English', 'Español'],
+    short: 'Board-certified Psychiatric Mental Health Nurse Practitioner and Family Nurse Practitioner with over two decades of experience in psychiatry, addiction medicine, and primary care, caring for the mind and body together.',
+    bio: [
+      'Alexis Gomez Gonzalez is a board-certified Psychiatric Mental Health Nurse Practitioner and Family Nurse Practitioner with over two decades of experience in psychiatry, addiction medicine, and primary care. He earned his medical degree from the University of Havana School of Medical Sciences before pursuing advanced nursing practice in the United States.',
+      'He provides psychiatric evaluation, medication management, and care for adults and older adults, including those with co-occurring mental health and substance use disorders. As a Family Nurse Practitioner, he also treats acute and chronic medical conditions, letting him address the mind and body together.',
+      'Alexis is committed to holistic, evidence-based, patient-centered care, and to walking with each person toward lasting recovery and well-being.',
+    ],
+  },
   nora: {
     slug: 'nora-oconnor',
     name: "Nora A. O'Connor, LCSW",
@@ -42,7 +55,7 @@ export const authors = {
 };
 
 // Ordered list for team displays (about page, homepage, money pages).
-export const team = ['gomez', 'nora', 'jack'].map((k) => authors[k]);
+export const team = ['gomez', 'alexis', 'nora', 'jack'].map((k) => authors[k]);
 
 export const posts = [
   {
