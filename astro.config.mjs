@@ -13,5 +13,16 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  integrations: [sitemap()]
+  integrations: [
+    sitemap({
+      // Keep noindex / robots-disallowed utility pages out of the sitemap
+      filter: (page) =>
+        ![
+          '/thank-you/',
+          '/privacy/',
+          '/terms-of-use/',
+          '/your-privacy-choices/',
+        ].some((path) => page.endsWith(path)),
+    }),
+  ],
 });

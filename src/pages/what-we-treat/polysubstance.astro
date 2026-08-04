@@ -26,7 +26,8 @@ const continuum = [
   ['dual', 'Dual-Diagnosis Care', 'Treating the mental health that often drives multi-substance use.', '/programs/dual-diagnosis-treatment/'],
   ['heart', 'Continuing Care', 'Relapse prevention + personal follow-up.', '/programs/continuing-care/'],
 ];
-const NIDA = 'https://nida.nih.gov/research-topics/polysubstance-use';
+const NIDA = 'https://nida.nih.gov/research-topics/drugs-a-to-z';
+const CDC = 'https://www.cdc.gov/overdose-prevention/';
 const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 ---
 <Layout
@@ -111,7 +112,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   <section><div class="container">
     <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Polysubstance treatment, frequently asked questions</h2></div>
     <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
-    <p style="text-align:center;margin-top:26px;color:var(--muted);font-size:13px;">Clinical information on this page is informed by the <a href={NIDA} target="_blank" rel="noopener">National Institute on Drug Abuse (NIDA)</a> and the CDC.</p>
+    <p style="text-align:center;margin-top:26px;color:var(--muted);font-size:13px;">Clinical information on this page is informed by the <a href={NIDA} target="_blank" rel="noopener">National Institute on Drug Abuse (NIDA)</a> and the <a href={CDC} target="_blank" rel="noopener">CDC</a>.</p>
   </div></section>
 
   <TeamStrip bg="cream" />

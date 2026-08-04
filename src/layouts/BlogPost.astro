@@ -6,7 +6,7 @@ const { slug, toc = [] } = Astro.props;
 const post = getPost(slug);
 const author = getAuthor(post.author);
 const related = otherPosts(slug, 3);
-const SITE = 'https://regainhopedetox.com';
+const SITE = 'https://www.regainhopedetox.com';
 const url = `${SITE}/blog/${slug}/`;
 const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 const insurers = ['aetna', 'cigna', 'bcbs', 'united-healthcare', 'anthem', 'tricare'];
