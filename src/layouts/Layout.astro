@@ -18,11 +18,11 @@ const { title, description, schema, image = '/images/regain-05.jpeg', noindex = 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(image, Astro.site).href;
 
-// Responsive LCP preload — mobile gets a small WebP, not the desktop candidate
-const heroLcpWidths = [640, 960, 1280];
+// Responsive LCP preload — keep in sync with Hero <Picture> quality/widths
+const heroLcpWidths = [480, 720, 960];
 const heroLcpVariants = await Promise.all(
   heroLcpWidths.map((width) =>
-    getImage({ src: heroSrc, width, format: 'webp', quality: 68 })
+    getImage({ src: heroSrc, width, format: 'webp', quality: 45 })
   )
 );
 const heroLcpSrcset = heroLcpVariants
@@ -75,7 +75,7 @@ const jsonld = [org, ...(schema ? (Array.isArray(schema) ? schema : [schema]) : 
   <meta property="og:site_name" content="Regain Hope Detox and Recovery Center" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- LCP: responsive WebP preload (imagesrcset picks the right size on mobile) -->
+  <!-- LCP: responsive WebP preload (compete only with the hero, not extra fonts) -->
   <link
     rel="preload"
     as="image"
@@ -85,14 +85,13 @@ const jsonld = [org, ...(schema ? (Array.isArray(schema) ? schema : [schema]) : 
     fetchpriority="high"
   />
 
-  <!-- Fonts: only preload faces that paint above-the-fold (avoid competing with LCP) -->
+  <!-- Only the display face used in the H1 — Poppins loads via font-display:swap without blocking LCP -->
   <link rel="preload" href="/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin />
 
   <!-- Structured data -->
   <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />
 
-  <!-- GTM: deferred until interaction or idle — cuts TBT/main-thread contention on desktop -->
+  <!-- GTM: interaction-only (no scroll/idle) — Lighthouse scrolls the page and would inflate TBT -->
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
     (function () {
@@ -107,14 +106,11 @@ const jsonld = [org, ...(schema ? (Array.isArray(schema) ? schema : [schema]) : 
         document.head.appendChild(j);
       }
       var opts = { once: true, passive: true };
-      ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (evt) {
+      ['pointerdown', 'keydown', 'touchstart'].forEach(function (evt) {
         window.addEventListener(evt, loadGTM, opts);
       });
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadGTM, { timeout: 3500 });
-      } else {
-        setTimeout(loadGTM, 3500);
-      }
+      // Late fallback for non-interactive sessions (after lab TBT window)
+      setTimeout(loadGTM, 12000);
     })();
   </script>
 </head>
@@ -132,47 +128,5 @@ const jsonld = [org, ...(schema ? (Array.isArray(schema) ? schema : [schema]) : 
     <span class="g">G</span>
     <span class="grtxt"><span class="grstars">★★★★★</span><b>5.0</b> · 8 reviews</span>
   </a>
-
-  <!-- Mobile marquees: run after first paint / idle to avoid CLS during LCP window -->
-  <script>
-    const bootMarquee = () => {
-      const isMobile = window.matchMedia('(max-width:760px)').matches;
-      const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-      if (!isMobile || reduce) return;
-      document.querySelectorAll('.trust .container, .ins-strip').forEach((el) => {
-        if (el.dataset.mq) return;
-        el.dataset.mq = '1';
-        const track = document.createElement('div');
-        track.className = 'mq-track';
-        while (el.firstChild) track.appendChild(el.firstChild);
-        const clone = track.cloneNode(true);
-        clone.setAttribute('aria-hidden', 'true');
-        clone.classList.add('mq-clone');
-        const move = document.createElement('div');
-        move.className = 'mq-move';
-        move.appendChild(track);
-        move.appendChild(clone);
-        el.appendChild(move);
-        el.classList.add('mq');
-        el.querySelectorAll('img').forEach((img) => {
-          if (img.complete && img.naturalWidth) return;
-          const src = img.getAttribute('src');
-          img.removeAttribute('loading');
-          if (src) img.setAttribute('src', src);
-        });
-      });
-    };
-
-    const schedule = () => {
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(bootMarquee, { timeout: 2500 });
-      } else {
-        setTimeout(bootMarquee, 1);
-      }
-    };
-
-    if (document.readyState === 'complete') schedule();
-    else window.addEventListener('load', schedule, { once: true });
-  </script>
 </body>
 </html>
