@@ -1,17 +1,19 @@
 ---
+import { Picture } from 'astro:assets';
 import Icon from './Icon.astro';
-// Sitewide hero. One consistent background (regain-03, set in global.css .hero).
-//   variant="form"    → money pages (programs / substances): insurance verify form on the right
+import heroImg from '../assets/hero-regain-03.jpg';
+// Sitewide hero. LCP media is a real <picture> (AVIF/WebP), not a CSS background.
+//   variant="form"    → money pages: insurance verify form on the right
 //   variant="reviews" → everything else: rotating 5-star review spotlight on the right
 export interface Props {
   eyebrow?: string;
   title: string;
   lead?: string;
-  byline?: string;        // e.g. medically-reviewed line (programs/substance pages)
+  byline?: string;
   bylineHref?: string;
-  chips?: string[];       // small trust chips under the lead
+  chips?: string[];
   variant?: 'form' | 'reviews';
-  cta?: { label: string; href: string }; // shown on reviews variant (form variant has its own button)
+  cta?: { label: string; href: string };
 }
 const {
   eyebrow, title, lead, byline, bylineHref = '/about-us/team/',
@@ -27,6 +29,24 @@ const reviews = [
 const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 ---
 <section class={`hero hero--${variant}`}>
+  {/* LCP element: eager + fetchpriority high. Decorative for a11y (copy is in the H1). */}
+  <Picture
+    src={heroImg}
+    formats={['avif', 'webp']}
+    widths={[640, 960, 1280, 1600, 1920]}
+    sizes="100vw"
+    width={1920}
+    height={1280}
+    quality={68}
+    alt=""
+    role="presentation"
+    class="hero-media"
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
+  />
+  <div class="hero-scrim" aria-hidden="true"></div>
+
   <div class="container">
     <div class="hero-inner">
       {eyebrow && <span class="eyebrow" style="color:#fff">{eyebrow}</span>}
@@ -50,7 +70,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
     {variant === 'form' ? (
       <div class="hero-form-wrap">
         <form class="hero-form" action="/thank-you/" method="get">
-          <img class="form-hipaa" src="/images/logos/hipaa.svg" alt="HIPAA compliant" width="64" height="36" loading="lazy" />
+          <img class="form-hipaa" src="/images/logos/hipaa.svg" alt="HIPAA compliant" width="64" height="36" loading="lazy" decoding="async" />
           <h3>Verify Your Insurance</h3>
           <p class="fsub">Free and confidential. Leave your name and number and we'll call you right back to check your coverage, most PPO plans accepted.</p>
           <div class="frow">
@@ -84,13 +104,15 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
     ) : (
       <div class="hero-rev" data-rotate>
         <div class="hr-badge"><span class="stars">★★★★★</span> 5.0 on Google · 8 reviews</div>
-        {reviews.map((r, i) => (
-          <article class={`hrev${i === 0 ? ' active' : ''}`}>
-            <div class="stars">★★★★★</div>
-            <p>“{r.text}”</p>
-            <div class="who">{r.who}</div>
-          </article>
-        ))}
+        <div class="hr-stage">
+          {reviews.map((r, i) => (
+            <article class={`hrev${i === 0 ? ' active' : ''}`}>
+              <div class="stars">★★★★★</div>
+              <p>“{r.text}”</p>
+              <div class="who">{r.who}</div>
+            </article>
+          ))}
+        </div>
         <div class="hr-foot">
           <a class="btn btn-gold" href={cta.href}>{cta.label}</a>
           <a class="hr-all" href={GBP} target="_blank" rel="noopener">See all reviews →</a>
@@ -100,8 +122,8 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   </div>
 </section>
 
+{/* Review rotation only — form handler is deferred and only needed when a form exists */}
 <script>
-  // Rotate the spotlighted review every 5s; respect reduced-motion.
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('[data-rotate]').forEach((box) => {
     const items = Array.from(box.querySelectorAll('.hrev'));
@@ -113,42 +135,44 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
       items[i].classList.add('active');
     }, 5000);
   });
-
-  // Lead capture -> CallTrackingMetrics FormReactor.
-  // CTM requires E.164 phone format (+1XXXXXXXXXX) or it silently rejects the
-  // submission with HTTP 200 + {"status":"error"} — normalize US numbers here.
-  const toE164 = (raw) => {
-    const digits = (raw || '').replace(/\D/g, '');
-    if (!digits) return '';
-    if (digits.length === 10) return `+1${digits}`;
-    if (digits.length === 11 && digits.startsWith('1')) return `+${digits}`;
-    return `+${digits}`;
-  };
-  const CTM_ENDPOINT = 'https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141AC639211173E58475D0660EB20088394670F652744EB4BC49?key=OgofjOvTedVijHwtgjMQu44Vyo9u0oNYSjhMBx3pDhvxT87A';
-  document.querySelectorAll('form.hero-form').forEach((f) => {
-    f.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = f.querySelector('button[type="submit"]');
-      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
-
-      const data = new FormData(f);
-      const params = new URLSearchParams();
-      params.set('name', data.get('name') || '');
-      params.set('phone_number', toE164(data.get('phone')));
-      params.set('custom_fields[insurance_carrier]', data.get('insurance_carrier') || '');
-      params.set('custom_fields[member__policy_id]', data.get('policy_id') || '');
-
-      const qs = new URLSearchParams(window.location.search);
-      const attribution = { gclid: 'gclid', campaign_id: 'utm_campaign', adgroup_id: 'utm_content', creative_id: 'utm_term', form_id: 'utm_source' };
-      Object.entries(attribution).forEach(([ctmKey, param]) => {
-        const v = qs.get(param);
-        if (v) params.set(`paid_attribution[${ctmKey}]`, v);
-      });
-
-      try {
-        await fetch(CTM_ENDPOINT, { method: 'POST', body: params });
-      } catch (_) {}
-      window.location.href = '/thank-you/';
-    });
-  });
 </script>
+
+{variant === 'form' && (
+  <script>
+    // Lead capture -> CallTrackingMetrics FormReactor (only on form heroes).
+    const toE164 = (raw) => {
+      const digits = (raw || '').replace(/\D/g, '');
+      if (!digits) return '';
+      if (digits.length === 10) return `+1${digits}`;
+      if (digits.length === 11 && digits.startsWith('1')) return `+${digits}`;
+      return `+${digits}`;
+    };
+    const CTM_ENDPOINT = 'https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141AC639211173E58475D0660EB20088394670F652744EB4BC49?key=OgofjOvTedVijHwtgjMQu44Vyo9u0oNYSjhMBx3pDhvxT87A';
+    document.querySelectorAll('form.hero-form').forEach((f) => {
+      f.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = f.querySelector('button[type="submit"]');
+        if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+        const data = new FormData(f);
+        const params = new URLSearchParams();
+        params.set('name', data.get('name') || '');
+        params.set('phone_number', toE164(data.get('phone')));
+        params.set('custom_fields[insurance_carrier]', data.get('insurance_carrier') || '');
+        params.set('custom_fields[member__policy_id]', data.get('policy_id') || '');
+
+        const qs = new URLSearchParams(window.location.search);
+        const attribution = { gclid: 'gclid', campaign_id: 'utm_campaign', adgroup_id: 'utm_content', creative_id: 'utm_term', form_id: 'utm_source' };
+        Object.entries(attribution).forEach(([ctmKey, param]) => {
+          const v = qs.get(param);
+          if (v) params.set(`paid_attribution[${ctmKey}]`, v);
+        });
+
+        try {
+          await fetch(CTM_ENDPOINT, { method: 'POST', body: params });
+        } catch (_) {}
+        window.location.href = '/thank-you/';
+      });
+    });
+  </script>
+)}
