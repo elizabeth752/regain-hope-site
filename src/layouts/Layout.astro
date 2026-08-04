@@ -2,6 +2,8 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { getImage } from 'astro:assets';
+import heroSrc from '../assets/hero-regain-03.jpg';
 
 export interface Props {
   title: string;
@@ -15,6 +17,17 @@ const { title, description, schema, image = '/images/regain-05.jpeg', noindex = 
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(image, Astro.site).href;
+
+// Responsive LCP preload — mobile gets a small WebP, not the desktop candidate
+const heroLcpWidths = [640, 960, 1280];
+const heroLcpVariants = await Promise.all(
+  heroLcpWidths.map((width) =>
+    getImage({ src: heroSrc, width, format: 'webp', quality: 68 })
+  )
+);
+const heroLcpSrcset = heroLcpVariants
+  .map((img, i) => `${img.src} ${heroLcpWidths[i]}w`)
+  .join(', ');
 
 // Sitewide Organization / Local business schema — rendered on every page
 const org = {
@@ -45,13 +58,6 @@ const jsonld = [org, ...(schema ? (Array.isArray(schema) ? schema : [schema]) : 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Google Tag Manager -->
-  <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NRM7J7XP');</script>
-  <!-- End Google Tag Manager -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <title>{title}</title>
@@ -69,16 +75,48 @@ const jsonld = [org, ...(schema ? (Array.isArray(schema) ? schema : [schema]) : 
   <meta property="og:site_name" content="Regain Hope Detox and Recovery Center" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Preload the hero (LCP) background so it isn't discovered late behind the CSS -->
-  <link rel="preload" as="image" href="/images/regain-03.jpeg" />
+  <!-- LCP: responsive WebP preload (imagesrcset picks the right size on mobile) -->
+  <link
+    rel="preload"
+    as="image"
+    type="image/webp"
+    imagesrcset={heroLcpSrcset}
+    imagesizes="100vw"
+    fetchpriority="high"
+  />
 
-  <!-- Self-hosted fonts: preload the critical weights (font preload needs crossorigin even same-origin) -->
+  <!-- Fonts: only preload faces that paint above-the-fold (avoid competing with LCP) -->
   <link rel="preload" href="/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin />
 
   <!-- Structured data -->
   <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />
+
+  <!-- GTM: deferred until interaction or idle — cuts TBT/main-thread contention on desktop -->
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    (function () {
+      var loaded = false;
+      function loadGTM() {
+        if (loaded) return;
+        loaded = true;
+        window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var j = document.createElement('script');
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-NRM7J7XP';
+        document.head.appendChild(j);
+      }
+      var opts = { once: true, passive: true };
+      ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (evt) {
+        window.addEventListener(evt, loadGTM, opts);
+      });
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGTM, { timeout: 3500 });
+      } else {
+        setTimeout(loadGTM, 3500);
+      }
+    })();
+  </script>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -95,12 +133,12 @@ const jsonld = [org, ...(schema ? (Array.isArray(schema) ? schema : [schema]) : 
     <span class="grtxt"><span class="grstars">★★★★★</span><b>5.0</b> · 8 reviews</span>
   </a>
 
-  <!-- Mobile-only: turn the trust strip + insurance logos into continuous marquees
-       (avoids the stacked look on small screens). Desktop and reduced-motion are untouched. -->
+  <!-- Mobile marquees: run after first paint / idle to avoid CLS during LCP window -->
   <script>
-    const isMobile = window.matchMedia('(max-width:760px)').matches;
-    const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-    if (isMobile && !reduce) {
+    const bootMarquee = () => {
+      const isMobile = window.matchMedia('(max-width:760px)').matches;
+      const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+      if (!isMobile || reduce) return;
       document.querySelectorAll('.trust .container, .ins-strip').forEach((el) => {
         if (el.dataset.mq) return;
         el.dataset.mq = '1';
@@ -116,9 +154,6 @@ const jsonld = [org, ...(schema ? (Array.isArray(schema) ? schema : [schema]) : 
         move.appendChild(clone);
         el.appendChild(move);
         el.classList.add('mq');
-        // The cloned half sits off-screen inside an overflow:hidden box and is only
-        // revealed by the transform, so lazy-loading never fires for it — leaving
-        // zero-width gaps in the loop. Force every logo in the marquee to load now.
         el.querySelectorAll('img').forEach((img) => {
           if (img.complete && img.naturalWidth) return;
           const src = img.getAttribute('src');
@@ -126,7 +161,18 @@ const jsonld = [org, ...(schema ? (Array.isArray(schema) ? schema : [schema]) : 
           if (src) img.setAttribute('src', src);
         });
       });
-    }
+    };
+
+    const schedule = () => {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(bootMarquee, { timeout: 2500 });
+      } else {
+        setTimeout(bootMarquee, 1);
+      }
+    };
+
+    if (document.readyState === 'complete') schedule();
+    else window.addEventListener('load', schedule, { once: true });
   </script>
 </body>
 </html>

@@ -1,13 +1,58 @@
 /* Self-hosted brand fonts (latin subset) — removes the render-blocking external
-   Google Fonts request. Fraunces is a single variable file across the weight range. */
+   Google Fonts request. Fraunces is a single variable file across the weight range.
+   size-adjust / metric overrides reduce CLS from FOUT when font-display:swap swaps in. */
 @font-face{
   font-family:'Fraunces';
   font-style:normal;
   font-weight:300 700;
   font-display:swap;
+  size-adjust:100%;
+  ascent-override:90%;
+  descent-override:22%;
+  line-gap-override:0%;
   src:url('/fonts/fraunces-var.woff2') format('woff2');
 }
-@font-face{font-family:'Poppins';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/poppins-400.woff2') format('woff2');}
-@font-face{font-family:'Poppins';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/poppins-500.woff2') format('woff2');}
-@font-face{font-family:'Poppins';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/poppins-600.woff2') format('woff2');}
-@font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/poppins-700.woff2') format('woff2');}
+@font-face{
+  font-family:'Poppins';
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+  size-adjust:98%;
+  ascent-override:95%;
+  descent-override:25%;
+  line-gap-override:0%;
+  src:url('/fonts/poppins-400.woff2') format('woff2');
+}
+@font-face{
+  font-family:'Poppins';
+  font-style:normal;
+  font-weight:500;
+  font-display:swap;
+  size-adjust:98%;
+  ascent-override:95%;
+  descent-override:25%;
+  line-gap-override:0%;
+  src:url('/fonts/poppins-500.woff2') format('woff2');
+}
+@font-face{
+  font-family:'Poppins';
+  font-style:normal;
+  font-weight:600;
+  font-display:swap;
+  size-adjust:98%;
+  ascent-override:95%;
+  descent-override:25%;
+  line-gap-override:0%;
+  src:url('/fonts/poppins-600.woff2') format('woff2');
+}
+@font-face{
+  font-family:'Poppins';
+  font-style:normal;
+  font-weight:700;
+  font-display:swap;
+  size-adjust:98%;
+  ascent-override:95%;
+  descent-override:25%;
+  line-gap-override:0%;
+  src:url('/fonts/poppins-700.woff2') format('woff2');
+}
