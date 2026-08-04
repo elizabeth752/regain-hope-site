@@ -59,6 +59,15 @@ export const team = ['gomez', 'alexis', 'nora', 'jack'].map((k) => authors[k]);
 
 export const posts = [
   {
+    slug: 'chronic-alcoholism-signs-and-treatment',
+    title: 'Chronic Alcoholism: What Is It, What Are Signs, and How Is It Treated?',
+    category: 'Alcohol',
+    author: 'gomez',
+    date: 'July 28, 2026',
+    image: '/images/stock/therapy-session.webp',
+    excerpt: 'Chronic alcoholism is a common way of referring to Alcohol Use Disorder. Here\'s how to recognize the signs, what it does to the brain, and how treatment can help.',
+  },
+  {
     slug: 'how-long-does-alcohol-detox-take',
     title: 'How Long Does Alcohol Detox Take? A Day-by-Day Timeline',
     category: 'Alcohol',
