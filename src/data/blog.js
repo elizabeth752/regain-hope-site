@@ -59,13 +59,31 @@ export const team = ['gomez', 'alexis', 'nora', 'jack'].map((k) => authors[k]);
 
 export const posts = [
   {
-    slug: 'chronic-alcoholism-signs-and-treatment',
-    title: 'Chronic Alcoholism: What Is It, What Are Signs, and How Is It Treated?',
+    slug: 'how-to-stop-anxiety-after-drinking-alcohol',
+    title: 'How To Stop Anxiety After Drinking Alcohol',
     category: 'Alcohol',
     author: 'gomez',
-    date: 'July 28, 2026',
-    image: '/images/stock/therapy-session.webp',
-    excerpt: 'Chronic alcoholism is a common way of referring to Alcohol Use Disorder. Here\'s how to recognize the signs, what it does to the brain, and how treatment can help.',
+    date: 'August 5, 2026',
+    image: '/images/stock/anxiety-after-drinking.png',
+    excerpt: 'Hangxiety is common after drinking because alcohol disrupts brain chemistry. Here\'s why it happens, what worsens it, and how treatment can help.',
+  },
+  {
+    slug: 'does-naltrexone-help-with-alcohol-withdrawal',
+    title: 'Does Naltrexone Help With Alcohol Withdrawal?',
+    category: 'Alcohol',
+    author: 'gomez',
+    date: 'August 5, 2026',
+    image: '/images/stock/naltrexone-alcohol-withdrawal.png',
+    excerpt: 'Naltrexone does not treat alcohol withdrawal symptoms, but it can reduce cravings after detox. Here\'s how it works and when it fits into recovery.',
+  },
+  {
+    slug: 'alcohol-blackout-what-is-it-and-why-does-it-happen',
+    title: 'Alcohol Blackout: What Is It and Why Does It Happen?',
+    category: 'Alcohol',
+    author: 'gomez',
+    date: 'August 5, 2026',
+    image: '/images/stock/alcohol-blackout.png',
+    excerpt: 'Alcohol blackouts happen when drinking temporarily blocks memory consolidation in the brain. Here\'s what they mean, who is at risk, and when to seek help.',
   },
   {
     slug: 'how-long-does-alcohol-detox-take',
@@ -73,7 +91,7 @@ export const posts = [
     category: 'Alcohol',
     author: 'gomez',
     date: 'June 12, 2026',
-    image: '/images/stock/therapy-session.webp',
+    image: '/images/stock/residential-care.webp',
     excerpt: 'Most alcohol detox lasts about 5 to 10 days, but the timeline depends on your history. Here\'s what each phase actually feels like, and why supervision matters.',
   },
   {

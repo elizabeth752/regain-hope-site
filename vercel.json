@@ -11,6 +11,8 @@
     { "source": "/cookie-policy", "destination": "/privacy/", "permanent": true },
     { "source": "/consumer-health-data-privacy-policy", "destination": "/privacy/", "permanent": true },
     { "source": "/gallery", "destination": "/", "permanent": true },
-    { "source": "/sitemap.xml", "destination": "/sitemap-index.xml", "permanent": true }
+    { "source": "/sitemap.xml", "destination": "/sitemap-index.xml", "permanent": true },
+    { "source": "/blog/chronic-alcoholism-signs-and-treatment", "destination": "/blog/alcohol-blackout-what-is-it-and-why-does-it-happen/", "permanent": true },
+    { "source": "/blog/chronic-alcoholism-signs-and-treatment/", "destination": "/blog/alcohol-blackout-what-is-it-and-why-does-it-happen/", "permanent": true }
   ]
 }
