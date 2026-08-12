@@ -84,6 +84,7 @@ export const posts = [
     date: 'July 14, 2026',
     image: '/images/stock/alcohol-blackout.png',
     excerpt: 'Alcohol blackouts happen when drinking temporarily blocks memory consolidation in the brain. Here\'s what they mean, who is at risk, and when to seek help.',
+    draft: true,
   },
   {
     slug: 'how-long-does-alcohol-detox-take',
@@ -115,5 +116,7 @@ export const posts = [
 ];
 
 export const getAuthor = (key) => authors[key];
+export const publishedPosts = posts.filter((p) => !p.draft);
 export const getPost = (slug) => posts.find((p) => p.slug === slug);
-export const otherPosts = (slug, n = 3) => posts.filter((p) => p.slug !== slug).slice(0, n);
+export const otherPosts = (slug, n = 3) =>
+  publishedPosts.filter((p) => p.slug !== slug).slice(0, n);

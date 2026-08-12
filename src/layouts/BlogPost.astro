@@ -18,7 +18,7 @@ const schema = {
   mainEntityOfPage: url,
 };
 ---
-<Layout title={`${post.title} | Regain Hope Detox and Recovery Center`} description={post.excerpt} image={post.image} schema={schema}>
+<Layout title={`${post.title} | Regain Hope Detox and Recovery Center`} description={post.excerpt} image={post.image} schema={schema} noindex={!!post.draft}>
   <article class="blogpost">
     <section class="bp-hero">
       <header class="bp-head">

@@ -1,8 +1,8 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import { authors, posts } from '../../../data/blog.js';
+import { authors, publishedPosts } from '../../../data/blog.js';
 const author = authors.gomez;
-const mine = posts.filter((p) => p.author === 'gomez');
+const mine = publishedPosts.filter((p) => p.author === 'gomez');
 const schema = { '@context': 'https://schema.org', '@type': 'Person', name: author.name, jobTitle: author.role, worksFor: { '@type': 'Organization', name: 'Regain Hope Detox and Recovery Center' } };
 ---
 <Layout title={`${author.name} | Regain Hope Detox and Recovery Center`} description={author.short} schema={schema}>
