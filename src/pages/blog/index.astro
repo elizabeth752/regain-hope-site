@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { posts, getAuthor } from '../../data/blog.js';
-const featured = posts[0];
+import { publishedPosts, getAuthor } from '../../data/blog.js';
+const featured = publishedPosts[0];
 const fa = getAuthor(featured.author);
 const pageSchema = { '@context': 'https://schema.org', '@type': 'Blog', name: 'Regain Hope Detox and Recovery Center Blog', publisher: { '@type': 'Organization', name: 'Regain Hope Detox and Recovery Center' } };
 ---
@@ -31,7 +31,7 @@ const pageSchema = { '@context': 'https://schema.org', '@type': 'Blog', name: 'R
   <section class="bg-cream"><div class="container">
     <div class="sec-head" style="margin-bottom:34px;"><span class="eyebrow">All articles</span><h2>Latest from our physicians</h2></div>
     <div class="postgrid">
-      {posts.map((p) => { const a = getAuthor(p.author); return (
+      {publishedPosts.map((p) => { const a = getAuthor(p.author); return (
         <a class="postcard" href={`/blog/${p.slug}/`}>
           <img class="ph" src={p.image} alt={p.title} loading="lazy" />
           <div class="bd">
