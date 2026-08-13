@@ -266,14 +266,10 @@ footer a{color:#cfc3b5;display:block;padding:4px 0;} footer a:hover{color:var(--
 .hero-form button{width:100%;background:var(--caoba);color:#fff;font-family:var(--sans);font-weight:700;font-size:16px;padding:14px;border:0;border-radius:10px;cursor:pointer;transition:.18s;}
 .hero-form button:hover{background:var(--blue-deep);}
 .hero-form .hipaa{font-size:11px;color:var(--muted);text-align:center;margin-top:8px;}
-.hero-cta-mobile{display:none;}
 @media(max-width:880px){
-  .hero .container{grid-template-columns:1fr;}
-  /* On mobile the side-by-side form is too heavy above the fold — swap it for CTAs and link to the dedicated verify-insurance form page. */
-  .hero--form .hero-form-wrap{display:none;}
-  .hero--form .hero-talk{display:none;}
-  .hero--form .hero-cta-mobile{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;}
-  .hero--form .hero-cta-mobile .btn{display:inline-flex;align-items:center;gap:8px;}
+  .hero .container{grid-template-columns:1fr;gap:28px;padding-top:40px;padding-bottom:40px;}
+  .hero-form .frow{grid-template-columns:1fr;}
+  .hero-form{padding:22px 18px;}
 }
 
 /* insurance logo strip (real SVG logos) */
