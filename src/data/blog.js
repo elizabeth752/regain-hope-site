@@ -59,6 +59,15 @@ export const team = ['gomez', 'alexis', 'nora', 'jack'].map((k) => authors[k]);
 
 export const posts = [
   {
+    slug: 'dab-drug-what-is-it-and-is-it-dangerous',
+    title: 'Dab Drug: What Is It and Is It Dangerous?',
+    category: 'Cannabis',
+    author: 'gomez',
+    date: 'August 4, 2026',
+    image: '/images/blog/dabbing-danger-high-potency.png',
+    excerpt: 'Dabs are cannabis concentrates with THC as high as 60–90%. Here\'s what dabbing is, the health risks, and when treatment can help.',
+  },
+  {
     slug: 'how-to-stop-anxiety-after-drinking-alcohol',
     title: 'How To Stop Anxiety After Drinking Alcohol',
     category: 'Alcohol',
@@ -84,7 +93,6 @@ export const posts = [
     date: 'July 14, 2026',
     image: '/images/stock/alcohol-blackout.png',
     excerpt: 'Alcohol blackouts happen when drinking temporarily blocks memory consolidation in the brain. Here\'s what they mean, who is at risk, and when to seek help.',
-    draft: true,
   },
   {
     slug: 'how-long-does-alcohol-detox-take',
