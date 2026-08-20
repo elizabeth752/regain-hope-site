@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:w="urn:schemas-microsoft-com:office:word"
+ xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="utf-8">
+<meta name="ProgId" content="Word.Document">
+<title>Guía: levantar el sitio en local y crear un blog — Regain Hope Detox</title>
+<style>
+  body { font-family: Calibri, Arial, sans-serif; font-size: 11pt; color: #222; line-height: 1.45; }
+  h1 { font-size: 20pt; color: #1a1a1a; border-bottom: 1.5pt solid #333; padding-bottom: 6pt; margin-top: 0; }
+  h2 { font-size: 14pt; color: #1a1a1a; margin-top: 22pt; border-bottom: 0.75pt solid #ccc; padding-bottom: 4pt; }
+  h3 { font-size: 12pt; color: #333; margin-top: 16pt; }
+  h4 { font-size: 11pt; color: #333; margin-top: 12pt; }
+  p { margin: 6pt 0; }
+  ul, ol { margin: 6pt 0 6pt 18pt; }
+  li { margin: 3pt 0; }
+  table { border-collapse: collapse; width: 100%; margin: 10pt 0 14pt; }
+  th, td { border: 1pt solid #999; padding: 5pt 8pt; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; font-weight: bold; }
+  code { font-family: Consolas, "Courier New", monospace; font-size: 9.5pt; background: #f5f5f5; padding: 0 2pt; }
+  pre { background: #f5f5f5; border: 1pt solid #ddd; padding: 10pt; font-family: Consolas, "Courier New", monospace; font-size: 9pt; white-space: pre-wrap; }
+  hr { border: none; border-top: 1pt solid #ccc; margin: 16pt 0; }
+</style>
+</head>
+<body>
+
+<h1>Guía: levantar el sitio en local y crear un blog</h1>
+<p>Documentación para quien se encargue de publicar artículos en el blog de <b>Regain Hope Detox</b>.</p>
+<p>El sitio está hecho con <a href="https://astro.build/">Astro</a>. No hay panel de administración: cada blog es un archivo de código más una entrada de datos.</p>
+
+<hr/>
+
+<h2>Parte 1 — Levantar el sitio en local</h2>
+
+<h3>Requisitos</h3>
+<ol>
+  <li>
+    <b>Node.js</b> versión <b>22.12.0 o superior</b><br/>
+    Comprueba la versión en una terminal:
+    <pre><code>node -v</code></pre>
+    Si no lo tienes, descárgalo desde <a href="https://nodejs.org/">nodejs.org</a> (LTS reciente).
+  </li>
+  <li>Acceso al repositorio del proyecto (GitHub / carpeta del proyecto).</li>
+  <li>Un editor de código (recomendado: <a href="https://cursor.com/">Cursor</a> o <a href="https://code.visualstudio.com/">VS Code</a>).</li>
+</ol>
+
+<h3>Pasos</h3>
+<ol>
+  <li>
+    Abre una terminal en la carpeta del proyecto. Ejemplo en Windows (Laragon):
+    <pre><code>cd c:\laragon\www\regain-hope-site</code></pre>
+  </li>
+  <li>
+    Instala las dependencias (solo la primera vez, o cuando cambie <code>package.json</code>):
+    <pre><code>npm install</code></pre>
+  </li>
+  <li>
+    Arranca el servidor de desarrollo:
+    <pre><code>npm run dev</code></pre>
+  </li>
+  <li>
+    Abre el navegador en:<br/>
+    <b>http://localhost:4321/</b>
+  </li>
+  <li>
+    Para ver un blog concreto:<br/>
+    <code>http://localhost:4321/blog/NOMBRE-DEL-SLUG/</code><br/><br/>
+    Ejemplo:<br/>
+    <code>http://localhost:4321/blog/dab-drug-what-is-it-and-is-it-dangerous/</code>
+  </li>
+</ol>
+
+<h3>Otros comandos útiles</h3>
+<table>
+  <tr><th>Comando</th><th>Qué hace</th></tr>
+  <tr><td><code>npm run dev</code></td><td>Servidor local con recarga automática</td></tr>
+  <tr><td><code>npm run build</code></td><td>Genera el sitio listo para producción en <code>dist/</code></td></tr>
+  <tr><td><code>npm run preview</code></td><td>Previsualiza el build de producción en local</td></tr>
+</table>
+<p>Para detener el servidor: <b>Ctrl + C</b> en la terminal.</p>
+
+<hr/>
+
+<h2>Parte 2 — Crear un blog nuevo</h2>
+<p>Cada artículo nuevo toca <b>3 lugares</b> (y opcionalmente un 4.º):</p>
+<table>
+  <tr><th>#</th><th>Qué</th><th>Dónde</th></tr>
+  <tr><td>1</td><td>Imágenes</td><td><code>public/images/blog/</code></td></tr>
+  <tr><td>2</td><td>Metadatos (título, fecha, autor, etc.)</td><td><code>src/data/blog.js</code></td></tr>
+  <tr><td>3</td><td>Contenido del artículo</td><td><code>src/pages/blog/{slug}.astro</code></td></tr>
+  <tr><td>4</td><td>(Recomendado) Listado para IA / llms</td><td><code>public/llms.txt</code></td></tr>
+</table>
+
+<h3>Paso 1 — Preparar el slug</h3>
+<p>El <b>slug</b> es la URL del artículo. Usa solo minúsculas, números y guiones.</p>
+<p>Ejemplos:</p>
+<ul>
+  <li>Título: <i>Dab Drug: What Is It and Is It Dangerous?</i></li>
+  <li>Slug: <code>dab-drug-what-is-it-and-is-it-dangerous</code></li>
+  <li>URL final: <code>/blog/dab-drug-what-is-it-and-is-it-dangerous/</code></li>
+</ul>
+<p>El nombre del archivo <code>.astro</code> <b>debe coincidir</b> con el slug:</p>
+<p><code>src/pages/blog/dab-drug-what-is-it-and-is-it-dangerous.astro</code></p>
+
+<h3>Paso 2 — Subir las imágenes</h3>
+<ol>
+  <li>Coloca las imágenes en: <code>public/images/blog/</code></li>
+  <li>
+    Usa nombres descriptivos en minúsculas con guiones, por ejemplo:
+    <ul>
+      <li><code>dabbing-danger-high-potency.png</code></li>
+      <li><code>dabbing-risks-and-recovery.png</code></li>
+    </ul>
+  </li>
+  <li>
+    En el código se referencian así (ruta desde <code>public/</code>):<br/>
+    <code>/images/blog/nombre-del-archivo.png</code>
+  </li>
+</ol>
+<p><b>Notas:</b></p>
+<ul>
+  <li>La imagen principal del listado del blog (hero / tarjeta) va en los metadatos (<code>image</code> en <code>blog.js</code>).</li>
+  <li>Las infografías dentro del artículo se ponen en el <code>.astro</code> con la clase <code>bp-infographic</code>.</li>
+  <li>Preferible PNG o WebP; incluye un <code>alt</code> descriptivo en cada imagen.</li>
+</ul>
+
+<h3>Paso 3 — Registrar el artículo en <code>src/data/blog.js</code></h3>
+<p>Abre <code>src/data/blog.js</code> y añade un objeto <b>al inicio</b> del array <code>posts</code> (el primero = el más reciente).</p>
+<p>Plantilla:</p>
+<pre><code>{
+  slug: 'mi-nuevo-articulo',
+  title: 'Título del Artículo',
+  category: 'Alcohol', // Alcohol | Cannabis | Benzodiazepines | Dual Diagnosis | etc.
+  author: 'gomez',     // ver claves abajo
+  date: 'August 17, 2026',
+  image: '/images/blog/mi-imagen-principal.png',
+  excerpt: 'Resumen corto de 1–2 frases para listados y SEO.',
+},</code></pre>
+
+<h4>Autores disponibles</h4>
+<p>Usa la <b>clave</b> (<code>gomez</code>, <code>alexis</code>, etc.), no el nombre completo:</p>
+<table>
+  <tr><th>Clave</th><th>Autor</th></tr>
+  <tr><td><code>gomez</code></td><td>Mileidys Gomez Gonzalez, MD</td></tr>
+  <tr><td><code>alexis</code></td><td>Alexis Gomez Gonzalez, MD, MSN, FNP-BC, PMHNP-BC</td></tr>
+  <tr><td><code>nora</code></td><td>Nora A. O'Connor, LCSW</td></tr>
+  <tr><td><code>jack</code></td><td>Jack Gould, CADC</td></tr>
+</table>
+
+<h4>Borrador (opcional)</h4>
+<p>Si aún no quieres que aparezca en el listado público del blog:</p>
+<pre><code>draft: true,</code></pre>
+<ul>
+  <li>Con <code>draft: true</code>: no sale en el índice del blog ni en el sitemap; la página lleva <code>noindex</code>.</li>
+  <li>Quítalo (o pon <code>draft: false</code>) cuando esté listo para publicar.</li>
+</ul>
+
+<h3>Paso 4 — Crear el archivo del artículo</h3>
+<ol>
+  <li>
+    Copia un artículo existente como plantilla, por ejemplo:<br/>
+    <code>src/pages/blog/dab-drug-what-is-it-and-is-it-dangerous.astro</code>
+  </li>
+  <li>
+    Renómbralo / guárdalo como:<br/>
+    <code>src/pages/blog/TU-SLUG.astro</code>
+  </li>
+  <li>Estructura mínima:</li>
+</ol>
+<pre><code>---
+import BlogPost from '../../layouts/BlogPost.astro';
+const toc = [
+  ['seccion-1', 'Título corto en el índice'],
+  ['seccion-2', 'Otra sección'],
+  ['begin', 'Regain your health at Regain Hope'],
+];
+---
+&lt;BlogPost slug="TU-SLUG" toc={toc}&gt;
+  &lt;p&gt;Párrafo introductorio…&lt;/p&gt;
+
+  &lt;figure class="bp-infographic"&gt;
+    &lt;img
+      src="/images/blog/mi-infografia.png"
+      alt="Descripción de la imagen"
+      width="1600"
+      height="900"
+      loading="lazy"
+    /&gt;
+  &lt;/figure&gt;
+
+  &lt;h2 id="seccion-1"&gt;Título de la sección&lt;/h2&gt;
+  &lt;p&gt;Contenido…&lt;/p&gt;
+
+  &lt;div class="bp-cta"&gt;
+    &lt;div&gt;
+      &lt;h3&gt;Concerned about alcohol use?&lt;/h3&gt;
+      &lt;p&gt;Two physicians on-site daily. We verify your insurance for free.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;a href="/admissions/verify-insurance/" class="btn btn-primary"&gt;Verify Your Insurance&lt;/a&gt;
+  &lt;/div&gt;
+
+  &lt;h2 id="seccion-2"&gt;Otra sección&lt;/h2&gt;
+  &lt;p&gt;Contenido…&lt;/p&gt;
+
+  &lt;h2 id="begin"&gt;Regain Your Health at Regain Hope Detox, Burbank, California&lt;/h2&gt;
+  &lt;p&gt;Cierre con llamada a admisión / programas…&lt;/p&gt;
+
+  &lt;p&gt;&lt;i&gt;This article is intended for educational purposes only and should not replace personalized medical advice. If you believe you or someone else is experiencing a medical emergency, call 911 immediately.&lt;/i&gt;&lt;/p&gt;
+
+  &lt;div class="bp-sources"&gt;
+    &lt;h2 id="sources"&gt;Sources&lt;/h2&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Fuente 1…&lt;/li&gt;
+      &lt;li&gt;Fuente 2…&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/div&gt;
+&lt;/BlogPost&gt;</code></pre>
+
+<h4>Reglas importantes del contenido</h4>
+<ul>
+  <li>El <code>slug</code> del <code>&lt;BlogPost&gt;</code> <b>debe ser idéntico</b> al de <code>blog.js</code> y al nombre del archivo.</li>
+  <li>Cada entrada del <code>toc</code> es <code>[id, etiqueta]</code>. El <code>id</code> debe coincidir con el <code>id</code> del <code>&lt;h2&gt;</code> correspondiente.</li>
+  <li>Usa HTML normal dentro del slot: <code>&lt;p&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;figure&gt;</code>, etc.</li>
+  <li>Bloque CTA a mitad de artículo: clase <code>bp-cta</code> (copia de un post existente y adapta el texto).</li>
+  <li>Infografías: clase <code>bp-infographic</code>.</li>
+  <li>Fuentes al final: clase <code>bp-sources</code>.</li>
+  <li>Incluye el disclaimer médico y una sección de cierre hacia Regain Hope (contacto / programas).</li>
+</ul>
+
+<h3>Paso 5 — Actualizar <code>public/llms.txt</code> (recomendado)</h3>
+<p>En la sección <code>## Blog</code>, añade el enlace del artículo nuevo <b>arriba</b> de la lista (después de la línea del índice del blog):</p>
+<pre><code>- [Título del Artículo](https://www.regainhopedetox.com/blog/TU-SLUG/)</code></pre>
+
+<h3>Paso 6 — Revisar en local</h3>
+<ol>
+  <li>
+    Con <code>npm run dev</code> corriendo, abre:<br/>
+    <code>http://localhost:4321/blog/TU-SLUG/</code>
+  </li>
+  <li>
+    Comprueba también el listado:<br/>
+    <code>http://localhost:4321/blog/</code>
+  </li>
+  <li>
+    Verifica:
+    <ul>
+      <li>Título, categoría, fecha y autor correctos</li>
+      <li>Imágenes que cargan</li>
+      <li>Tabla de contenidos (enlaces del TOC)</li>
+      <li>CTA y enlaces internos</li>
+      <li>Que no falte el disclaimer ni las sources</li>
+    </ul>
+  </li>
+</ol>
+
+<h3>Paso 7 — Publicar</h3>
+<p>Cuando el contenido esté listo:</p>
+<ol>
+  <li>Quita <code>draft: true</code> si lo usaste.</li>
+  <li>
+    Haz commit de estos archivos (como mínimo):
+    <ul>
+      <li><code>src/data/blog.js</code></li>
+      <li><code>src/pages/blog/TU-SLUG.astro</code></li>
+      <li>imágenes en <code>public/images/blog/</code></li>
+      <li><code>public/llms.txt</code> (si lo actualizaste)</li>
+    </ul>
+  </li>
+  <li>Sube los cambios al repositorio (push) según el flujo del equipo. El deploy a producción depende de cómo esté conectado el hosting (p. ej. Vercel).</li>
+</ol>
+
+<hr/>
+
+<h2>Checklist rápido — nuevo blog</h2>
+<ul>
+  <li>☐ Imágenes en <code>public/images/blog/</code></li>
+  <li>☐ Entrada nueva al <b>inicio</b> de <code>posts</code> en <code>src/data/blog.js</code></li>
+  <li>☐ Archivo <code>src/pages/blog/{slug}.astro</code> con el mismo <code>slug</code></li>
+  <li>☐ TOC alineado con los <code>id</code> de los <code>&lt;h2&gt;</code></li>
+  <li>☐ Disclaimer + sources + CTA</li>
+  <li>☐ Entrada en <code>public/llms.txt</code></li>
+  <li>☐ Revisado en <code>http://localhost:4321/blog/{slug}/</code></li>
+  <li>☐ Sin <code>draft: true</code> (si ya se publica)</li>
+  <li>☐ Commit y push</li>
+</ul>
+
+<hr/>
+
+<h2>Dónde mirar ejemplos</h2>
+<table>
+  <tr><th>Necesitas…</th><th>Abre…</th></tr>
+  <tr><td>Metadatos de posts</td><td><code>src/data/blog.js</code></td></tr>
+  <tr><td>Artículo completo con TOC, CTA e infografías</td><td><code>src/pages/blog/dab-drug-what-is-it-and-is-it-dangerous.astro</code></td></tr>
+  <tr><td>Otro artículo con FAQs</td><td><code>src/pages/blog/alcohol-blackout-what-is-it-and-why-does-it-happen.astro</code></td></tr>
+  <tr><td>Layout (no hace falta editarlo para un post normal)</td><td><code>src/layouts/BlogPost.astro</code></td></tr>
+</table>
+
+<hr/>
+
+<h2>Problemas frecuentes</h2>
+<table>
+  <tr><th>Problema</th><th>Solución</th></tr>
+  <tr><td><code>node</code> no se reconoce</td><td>Instala Node.js y reinicia la terminal</td></tr>
+  <tr><td>Error de versión de Node</td><td>Necesitas ≥ 22.12.0</td></tr>
+  <tr><td>El post no aparece en <code>/blog/</code></td><td>Revisa que esté en <code>posts</code> y que no tenga <code>draft: true</code></td></tr>
+  <tr><td>Página 404 del artículo</td><td>El slug del archivo, de <code>blog.js</code> y de <code>&lt;BlogPost&gt;</code> deben coincidir</td></tr>
+  <tr><td>Imagen rota</td><td>La ruta debe empezar por <code>/images/...</code> y el archivo debe existir en <code>public/</code></td></tr>
+  <tr><td>TOC no salta a la sección</td><td>El <code>id</code> del <code>toc</code> y el <code>id</code> del <code>&lt;h2&gt;</code> deben ser iguales</td></tr>
+  <tr><td>Cambios no se ven</td><td>Guarda el archivo; si hace falta, reinicia <code>npm run dev</code></td></tr>
+</table>
+
+</body>
+</html>

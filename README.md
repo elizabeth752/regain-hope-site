@@ -1,43 +1,39 @@
-# Astro Starter Kit: Minimal
+# Regain Hope Detox — sitio web
 
-```sh
-npm create astro@latest -- --template minimal
+Sitio de marketing estático con [Astro](https://astro.build/) para [regainhopedetox.com](https://www.regainhopedetox.com/). El HTML se sirve desde Vercel; el único endpoint de servidor es `/api/lead/` (proxy a CallTrackingMetrics FormReactor).
+
+## Documentación
+
+- **[Guía: levantar el sitio en local y crear un blog](docs/GUIA-LOCAL-Y-BLOG.doc)** — desarrollo local y artículos nuevos.
+- **[Auditoría de seguridad e infraestructura](docs/SECURITY-INFRASTRUCTURE-AUDIT.doc)** — hallazgos de agosto 2026 y el plan de endurecimiento.
+
+## Comandos
+
+```bash
+npm install
+npm run dev      # http://localhost:4321/
+npm run build
+npm run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Requisito: **Node.js ≥ 22.12.0**.
 
-## 🚀 Project Structure
+## Variables de entorno (obligatorias para el formulario)
 
-Inside of your Astro project, you'll see the following folders and files:
+Copia `.env.example` a `.env` en local. En Vercel, añade las mismas claves como **server / Production** (y Preview si hace falta). **Nunca** uses el prefijo `PUBLIC_`.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+| Variable | Uso |
+| --- | --- |
+| `CTM_FORMREACTOR_ENDPOINT` | URL del FormReactor **sin** `?key=` |
+| `CTM_FORMREACTOR_KEY` | Clave del reactor (solo servidor) |
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Si esa clave llegó a aparecer en git o en el HTML público, **rótala en CTM** antes de producción.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Checklist Vercel (ops)
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- [ ] Deployment Protection en previews
+- [ ] Variables de entorno solo server-side, no expuestas al cliente
+- [ ] Alertas de Spend Management
+- [ ] Dominio de producción + redirect `www`
+- [ ] Acceso de colaboradores revisado
+- [ ] Confirmar BAA con CTM (y CRM aguas abajo) si se sigue recogiendo Policy ID

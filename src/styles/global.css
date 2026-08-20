@@ -392,6 +392,9 @@ footer a{color:#cfc3b5;display:block;padding:4px 0;} footer a:hover{color:var(--
 .hero-form{position:relative;}
 .hero-form h3{padding-right:78px;}
 .form-hipaa{position:absolute;top:20px;right:22px;height:34px;width:auto;opacity:.92;}
+.hero-form .optional{font-weight:500;font-size:12px;color:var(--muted);text-transform:none;letter-spacing:0;}
+.hero-form .form-error{margin:10px 0 0;font-size:14px;color:#8a1f1f;font-weight:600;}
+.hero-form .hp{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;}
 
 /* ---- Accreditations logo band (pairs with dividers) ---- */
 .accred{text-align:center;}

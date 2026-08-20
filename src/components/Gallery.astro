@@ -1,0 +1,38 @@
+---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+const modules = import.meta.glob<{ default: ImageMetadata }>(
+  '../../public/images/regain-*.jpeg',
+  { eager: true }
+);
+
+export interface Props { photos: [string, string][]; }
+const { photos } = Astro.props;
+
+function srcFor(id: string) {
+  const match = Object.entries(modules).find(([path]) => path.endsWith(`/${id}.jpeg`));
+  return match?.[1].default;
+}
+---
+<div class="gallery">
+  {photos.map(([id, alt]) => {
+    const src = srcFor(id);
+    return src ? (
+      <Picture
+        src={src}
+        formats={['avif', 'webp']}
+        widths={[280, 420, 560]}
+        sizes="(max-width: 880px) 50vw, 25vw"
+        width={280}
+        height={190}
+        quality={55}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+      />
+    ) : (
+      <img src={`/images/${id}.jpeg`} alt={alt} loading="lazy" width="280" height="190" />
+    );
+  })}
+</div>

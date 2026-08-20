@@ -1,0 +1,280 @@
+﻿<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:w="urn:schemas-microsoft-com:office:word"
+ xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="utf-8">
+<meta name="ProgId" content="Word.Document">
+<title>Security &amp; Infrastructure Audit — Regain Hope Detox</title>
+<style>
+  body { font-family: Calibri, Arial, sans-serif; font-size: 11pt; color: #222; line-height: 1.45; }
+  h1 { font-size: 20pt; color: #1a1a1a; border-bottom: 1.5pt solid #333; padding-bottom: 6pt; margin-top: 0; }
+  h2 { font-size: 14pt; color: #1a1a1a; margin-top: 22pt; border-bottom: 0.75pt solid #ccc; padding-bottom: 4pt; }
+  h3 { font-size: 12pt; color: #333; margin-top: 16pt; }
+  p { margin: 6pt 0; }
+  ul, ol { margin: 6pt 0 6pt 18pt; }
+  li { margin: 3pt 0; }
+  table { border-collapse: collapse; width: 100%; margin: 10pt 0 14pt; }
+  th, td { border: 1pt solid #999; padding: 5pt 8pt; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; font-weight: bold; }
+  code { font-family: Consolas, "Courier New", monospace; font-size: 9.5pt; background: #f5f5f5; padding: 0 2pt; }
+  pre { background: #f5f5f5; border: 1pt solid #ddd; padding: 10pt; font-family: Consolas, "Courier New", monospace; font-size: 9pt; white-space: pre-wrap; }
+  hr { border: none; border-top: 1pt solid #ccc; margin: 16pt 0; }
+</style>
+</head>
+<body>
+<h1>Security &amp; Infrastructure Audit — Regain Hope Detox</h1>
+<table>
+<tr><th></th><th></th></tr>
+<tr><td><b>Site</b></td><td>https://www.regainhopedetox.com</td></tr>
+<tr><td><b>Repo</b></td><td><code>regain-hope-site</code></td></tr>
+<tr><td><b>Stack</b></td><td>Astro 6.4.6 · Tailwind CSS 4.3.1 · Vercel (static)</td></tr>
+<tr><td><b>Date</b></td><td>August 5, 2026</td></tr>
+<tr><td><b>Scope</b></td><td>AI-generated code security, API exposure, data handling / HIPAA, HTTPS &amp; headers, architecture, Core Web Vitals, dependencies</td></tr>
+</table>
+<hr/>
+<h2>Executive summary</h2>
+<p>The site is a well-built static marketing site. Astro is used correctly — almost no client JavaScript, no React/Vue hydration, solid LCP work, and a small server attack surface. Official PageSpeed Insights scores confirm strong performance (Mobile 97 / Desktop 100).</p>
+<p>The issues that matter are not PageSpeed. They are:</p>
+<ol>
+<li>A CallTrackingMetrics FormReactor endpoint and key shipped in client-side JavaScript</li>
+<li>An insurance-verification form that collects sensitive fields (including Policy / Member ID), with a <code>method="get"</code> fallback and no anti-abuse controls</li>
+<li>Missing HTTP security headers beyond HSTS</li>
+<li>HIPAA / 42 C.F.R. Part 2 considerations around lead capture and third parties (CTM, GTM)</li>
+</ol>
+<table>
+<tr><th>Area</th><th>Rating</th></tr>
+<tr><td>Security</td><td>B−</td></tr>
+<tr><td>Maintainability</td><td>B+</td></tr>
+<tr><td>Performance architecture</td><td>A−</td></tr>
+<tr><td>Astro best practices</td><td>A</td></tr>
+<tr><td>Vercel configuration</td><td>C+</td></tr>
+<tr><td>Technical debt</td><td>B</td></tr>
+</table>
+<hr/>
+<h2>Architecture</h2>
+<pre><code>Browser
+  └─ Static HTML/CSS/JS (Vercel CDN)
+       ├─ Layout.astro — GTM (loads on interaction or after 12s)
+       ├─ Hero.astro — insurance form → client POST to CTM FormReactor
+       ├─ Header.astro — mobile nav script
+       └─ Assets — /_astro/*, /images/*, /fonts/*</code></pre>
+<p><b>What's working well</b></p>
+<ul>
+<li>Fully static build; no app server or database</li>
+<li>Three production dependencies: <code>astro</code>, <code>@astrojs/sitemap</code>, <code>tailwindcss</code></li>
+<li>Client JS limited to menu, review rotation, form submit, and GTM loader</li>
+<li>No <code>client:*</code> directives and no React/Vue</li>
+</ul>
+<p><b>Gaps</b></p>
+<ul>
+<li><code>README.md</code> is still the Astro starter template</li>
+<li>No server/API routes — the CTM POST currently leaves the browser</li>
+</ul>
+<hr/>
+<h2>Critical findings</h2>
+<h3>C1. CTM FormReactor key exposed in the client</h3>
+<p><b>Where:</b> <code>src/components/Hero.astro</code>  </p>
+<p><b>Evidence:</b> Built HTML in <code>dist/</code> includes the FormReactor URL with <code>key=…</code></p>
+<p>Anyone can reuse that endpoint to spam leads or pollute paid attribution. FormReactor is meant for web forms, but keeping the key in source and in production HTML makes rotation and audit harder than it should be.</p>
+<p><b>Fix</b></p>
+<ol>
+<li>Rotate the FormReactor key in CTM</li>
+<li>Add a Vercel serverless route (e.g. <code>/api/lead</code>) that validates, rate-limits, and forwards to CTM using a server-only env var</li>
+<li>Keep secrets out of git (Vercel env + local <code>.env</code>; already gitignored)</li>
+<li>Add honeypot + rate limiting; optionally Turnstile/hCaptcha</li>
+</ol>
+<h3>C2. Form fallback uses <code>method="get"</code></h3>
+<p><b>Where:</b> <code>&lt;form class="hero-form" action="/thank-you/" method="get"&gt;</code></p>
+<p>If JavaScript fails or is blocked, name, phone, carrier, and policy ID land in the <code>/thank-you/</code> query string — and then in CDN logs, analytics, history, and referrers.</p>
+<p><b>Fix:</b> Use <code>method="post"</code> through a serverless handler, or disable native submit without JS. Never put Policy ID in a URL. Show a real error if the submit fails.</p>
+<h3>C3. Security headers missing (except HSTS)</h3>
+<p>Production response headers:</p>
+<table>
+<tr><th>Header</th><th>Status</th></tr>
+<tr><td><code>Strict-Transport-Security</code></td><td>Present (<code>max-age=63072000</code>)</td></tr>
+<tr><td><code>X-Frame-Options</code></td><td>Missing</td></tr>
+<tr><td><code>X-Content-Type-Options</code></td><td>Missing</td></tr>
+<tr><td><code>Referrer-Policy</code></td><td>Missing</td></tr>
+<tr><td><code>Permissions-Policy</code></td><td>Missing</td></tr>
+<tr><td><code>Content-Security-Policy</code></td><td>Missing</td></tr>
+<tr><td><code>Access-Control-Allow-Origin</code></td><td><code>*</code> (unnecessary for static HTML)</td></tr>
+</table>
+<p><code>vercel.json</code> currently only defines redirects. Recommended baseline:</p>
+<pre><code>{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
+        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" }
+      ]
+    }
+  ]
+}</code></pre>
+<p>Roll out CSP in report-only first (GTM, Maps, CTM), then enforce.</p>
+<hr/>
+<h2>High priority</h2>
+<h3>H1. Insurance lead data and HIPAA</h3>
+<p>The form appears on ~35 pages (<code>variant="form"</code>) and collects:</p>
+<ul>
+<li>Full name  </li>
+<li>Phone  </li>
+<li>Insurance carrier  </li>
+<li>Policy / Member ID  </li>
+<li>SMS / call consent  </li>
+</ul>
+<p><code>/privacy/</code> covers HIPAA and 42 C.F.R. Part 2 for clinical practice. For this marketing site specifically:</p>
+<table>
+<tr><th>Question</th><th>Assessment</th></tr>
+<tr><td>Is Policy ID sensitive / PHI-adjacent?</td><td>Treat as high sensitivity; collect only if necessary</td></tr>
+<tr><td>BAA with CTM (and any CRM downstream)?</td><td>Confirm and document</td></tr>
+<tr><td>Can GTM receive PII?</td><td>Audit the container; do not send Policy ID to analytics</td></tr>
+<tr><td>"HIPAA compliant" badge on the form</td><td>Marketing site ≠ clinical HIPAA environment — wording should be careful</td></tr>
+<tr><td>Submit failures</td><td>Silent <code>catch</code> always redirects to thank-you</td></tr>
+</table>
+<p><b>Recommendations</b></p>
+<ol>
+<li>Prefer name + phone + carrier only; verify Policy ID by phone</li>
+<li>If Policy ID stays on the form: server-side proxy, BAAs, minimal retention, real error handling</li>
+<li>Align UI claims with legal/ops reality</li>
+</ol>
+<h3>H2. Dependency advisories (<code>npm audit</code>)</h3>
+<table>
+<tr><th>Package</th><th>Severity</th><th>Notes</th></tr>
+<tr><td><code>astro</code></td><td>High</td><td>XSS advisories around View Transitions / related paths — limited impact here (no View Transitions / hydrated islands), still worth updating</td></tr>
+<tr><td><code>js-yaml</code></td><td>High</td><td>DoS via merge keys</td></tr>
+<tr><td><code>postcss</code></td><td>High</td><td>Source map path traversal</td></tr>
+<tr><td><code>sharp</code></td><td>High</td><td>libvips CVEs</td></tr>
+<tr><td><code>svgo</code></td><td>High</td><td>Incomplete script stripping</td></tr>
+<tr><td><code>esbuild</code></td><td>Low (dev)</td><td>Dev-server file read on Windows</td></tr>
+</table>
+<p>Run <code>npm audit fix</code> for non-breaking patches; schedule a controlled Astro upgrade and re-test build/preview.</p>
+<h3>H3. No form abuse protection</h3>
+<p>No CAPTCHA, honeypot, or first-party rate limit. Combined with C1, the FormReactor endpoint is easy to spam.</p>
+<h3>H4. Vercel dashboard checks (manual)</h3>
+<p>Confirm in the Vercel project:</p>
+<ul>
+<li>☐ Preview Deployment Protection  </li>
+<li>☐ Env var scopes (server / Production vs Preview)  </li>
+<li>☐ Spend Management alerts  </li>
+<li>☐ Production domains and www redirects  </li>
+<li>☐ Collaborator access  </li>
+<li>☐ Build logs / retention  </li>
+</ul>
+<hr/>
+<h2>Medium priority</h2>
+<p><b>M1. Gallery JPEGs</b> — Lighthouse flagged ~99 KiB savings. Hero uses AVIF/WebP correctly; gallery still serves static JPEGs from <code>/public</code>. Move them through <code>astro:assets</code> or pre-generate responsive WebP/AVIF.</p>
+<p><b>M2. <code>set:html</code></b> — Used in a few components with author-controlled content only. Low XSS risk today; do not pass unsanitized user/CMS HTML through it.</p>
+<p><b>M3. Third parties</b></p>
+<table>
+<tr><th>Integration</th><th>Role</th><th>Note</th></tr>
+<tr><td>GTM (<code>GTM-NRM7J7XP</code>)</td><td>Analytics</td><td>Deferred load is good for TBT; audit injected tags</td></tr>
+<tr><td>Google Maps iframe</td><td>Contact / home</td><td>Factor into CSP</td></tr>
+<tr><td>CTM FormReactor</td><td>Leads</td><td>See C1 / H1</td></tr>
+<tr><td>Google reviews link</td><td>UX</td><td>Low risk</td></tr>
+</table>
+<p><b>M4. Accessibility</b> — Heading order and a label/name mismatch showed up in Lighthouse. Not security blockers. PageSpeed Accessibility scores: Mobile 98 / Desktop 99.</p>
+<p><b>M5. <code>Access-Control-Allow-Origin: *</code></b> — Remove if configurable; it adds nothing for static HTML.</p>
+<hr/>
+<h2>What's already in good shape</h2>
+<ul>
+<li>Responsive LCP preload + high <code>fetchpriority</code> on the hero  </li>
+<li>GTM kept off the critical path  </li>
+<li>Self-hosted fonts with selective preload  </li>
+<li>Canonical, Open Graph, Organization/MedicalClinic JSON-LD  </li>
+<li>Legacy URL redirects in <code>vercel.json</code>  </li>
+<li><code>.env</code> files gitignored  </li>
+<li>HIPAA / Part 2 privacy notice published (<code>noindex</code>)  </li>
+<li>Valid HTTPS (Let's Encrypt via Vercel) with HSTS  </li>
+<li>PageSpeed: Best Practices 100, SEO 100 (mobile and desktop)  </li>
+</ul>
+<hr/>
+<h2>Brief checklist coverage</h2>
+<table>
+<tr><th>Area</th><th>Result</th></tr>
+<tr><td>Secrets / credentials</td><td>CTM FormReactor key in client; no <code>.env</code> secrets in repo</td></tr>
+<tr><td>Frontend security</td><td>Low XSS risk; form issues as above</td></tr>
+<tr><td>Dependencies</td><td>Small tree; advisories listed in H2</td></tr>
+<tr><td>Astro architecture</td><td>Strong — islands preserved, minimal JS</td></tr>
+<tr><td>Code quality</td><td>Clear components; silent form errors; starter README</td></tr>
+<tr><td>Security headers</td><td>HSTS only — see C3</td></tr>
+<tr><td>Vercel hardening</td><td>Partial — see H4</td></tr>
+<tr><td>Forms &amp; integrations</td><td>CTM + GTM + Maps — see C1, H1, H3</td></tr>
+</table>
+<hr/>
+<h2>Core Web Vitals</h2>
+<p><b>Source:</b> Google PageSpeed Insights, August 5, 2026 (Lighthouse 13.4.1). Homepage: <code>https://www.regainhopedetox.com/</code>. No field (CrUX) data available yet — lab only.</p>
+<h3>Category scores</h3>
+<table>
+<tr><th>Category</th><th>Mobile</th><th>Desktop</th></tr>
+<tr><td>Performance</td><td><b>97</b></td><td><b>100</b></td></tr>
+<tr><td>Accessibility</td><td><b>98</b></td><td><b>99</b></td></tr>
+<tr><td>Best Practices</td><td><b>100</b></td><td><b>100</b></td></tr>
+<tr><td>SEO</td><td><b>100</b></td><td><b>100</b></td></tr>
+</table>
+<h3>Mobile (lab)</h3>
+<table>
+<tr><th>Metric</th><th>Value</th></tr>
+<tr><td>FCP</td><td>1.2 s</td></tr>
+<tr><td>LCP</td><td>2.4 s</td></tr>
+<tr><td>Speed Index</td><td>2.4 s</td></tr>
+<tr><td>TBT</td><td>0 ms</td></tr>
+<tr><td>CLS</td><td>0</td></tr>
+</table>
+<p>Emulated Moto G Power · Slow 4G throttling.</p>
+<h3>Desktop (lab)</h3>
+<table>
+<tr><th>Metric</th><th>Value</th></tr>
+<tr><td>FCP</td><td>0.3 s</td></tr>
+<tr><td>LCP</td><td>0.5 s</td></tr>
+<tr><td>Speed Index</td><td>0.5 s</td></tr>
+<tr><td>TBT</td><td>0 ms</td></tr>
+<tr><td>CLS</td><td>0</td></tr>
+</table>
+<h3>Bottlenecks / follow-ups</h3>
+<ol>
+<li>Gallery JPEGs can still be tightened (~99 KiB potential savings in earlier lab checks)  </li>
+<li>Deferred GTM can still affect INP after interaction — keep it deferred  </li>
+<li>Maps iframes — keep <code>loading="lazy"</code>  </li>
+<li>Pull field CWV from Search Console once CrUX data appears  </li>
+</ol>
+<p><b>Target:</b> keep field LCP p75 under 2.5 s; homepage stays in the green on PSI.</p>
+<hr/>
+<h2>HTTPS / TLS</h2>
+<table>
+<tr><th>Control</th><th>Status</th></tr>
+<tr><td>HTTPS</td><td>Enforced by Vercel</td></tr>
+<tr><td>Certificate</td><td>Let's Encrypt, <code>www.regainhopedetox.com</code></td></tr>
+<tr><td>Expiry observed</td><td>~Sep 24, 2026 (auto-renew expected)</td></tr>
+<tr><td>HSTS</td><td><code>max-age=63072000</code></td></tr>
+<tr><td>Mixed content</td><td>None detected</td></tr>
+</table>
+<hr/>
+<h2>Action plan</h2>
+<table>
+<tr><th>Priority</th><th>Action</th><th>Owner</th></tr>
+<tr><td>P0</td><td>Rotate CTM key; move submit to Vercel serverless</td><td>Eng + CTM ops</td></tr>
+<tr><td>P0</td><td>Remove <code>method="get"</code> / keep PII out of query strings</td><td>Eng</td></tr>
+<tr><td>P0</td><td>Add security headers in <code>vercel.json</code></td><td>Eng</td></tr>
+<tr><td>P1</td><td>Revisit form fields (Policy ID) + confirm CTM BAA</td><td>Legal + Eng</td></tr>
+<tr><td>P1</td><td>Anti-spam + real submit error handling</td><td>Eng</td></tr>
+<tr><td>P1</td><td><code>npm audit fix</code> + Astro upgrade plan</td><td>Eng</td></tr>
+<tr><td>P1</td><td>Vercel dashboard hardening checklist</td><td>Ops</td></tr>
+<tr><td>P2</td><td>Optimize gallery images</td><td>Eng</td></tr>
+<tr><td>P2</td><td>CSP report-only → enforce</td><td>Eng</td></tr>
+<tr><td>P2</td><td>Replace starter README with real project docs</td><td>Eng</td></tr>
+<tr><td>P2</td><td>Capture field CWV (CrUX / Search Console)</td><td>Eng</td></tr>
+<tr><td>P3</td><td>Accessibility heading/label fixes</td><td>Eng</td></tr>
+</table>
+<hr/>
+<h2>Conclusion</h2>
+<p>Performance and Astro architecture are in excellent shape (PSI Mobile 97 / Desktop 100). What's blocking a clean "production-ready / template for other AI sites" sign-off is security engineering: client-side lead credentials, insurance-data handling, and Vercel header hardening.</p>
+<p>Closing P0 and P1 is enough to treat this stack as the baseline for similar Hopewell AI client sites.</p>
+<hr/>
+<p><i>Secrets are redacted in this report. Rotate any FormReactor key that has appeared in the repo or public HTML.</i></p>
+</body>
+</html>
