@@ -63,13 +63,16 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 
     {variant === 'form' ? (
       <div class="hero-form-wrap">
-        <form class="hero-form" action="/thank-you/" method="get">
-          <img class="form-hipaa" src="/images/logos/hipaa.svg" alt="HIPAA compliant" width="64" height="36" loading="lazy" decoding="async" />
+        <form class="hero-form" action="/api/lead/" method="post">
+          <img class="form-hipaa" src="/images/logos/hipaa.svg" alt="" width="64" height="36" loading="lazy" decoding="async" />
           <h3>Verify Your Insurance</h3>
-          <p class="fsub">Free and confidential. Leave your name and number and we'll call you right back to check your coverage, most PPO plans accepted.</p>
+          <p class="fsub">Free and confidential. Leave your name and number and we'll call you right back to check your coverage. Most PPO plans accepted. Policy ID is optional — we can collect it by phone.</p>
+          <div class="hp" aria-hidden="true">
+            <input name="company_website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
           <div class="frow">
-            <div><label for="nm">Full name</label><input id="nm" name="name" required /></div>
-            <div><label for="ph">Phone</label><input id="ph" name="phone" type="tel" required /></div>
+            <div><label for="nm">Full name</label><input id="nm" name="name" autocomplete="name" required /></div>
+            <div><label for="ph">Phone</label><input id="ph" name="phone" type="tel" autocomplete="tel" required /></div>
           </div>
           <div class="frow">
             <div>
@@ -88,11 +91,15 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
                 <option>Other</option>
               </select>
             </div>
-            <div><label for="pid">Policy / Member ID</label><input id="pid" name="policy_id" required /></div>
+            <div>
+              <label for="pid">Policy / Member ID <span class="optional">(optional)</span></label>
+              <input id="pid" name="policy_id" autocomplete="off" inputmode="text" maxlength="40" />
+            </div>
           </div>
-          <label class="optin"><input type="checkbox" required style="width:auto;margin:2px 0 0;" /> <span>I agree to receive calls/texts from Regain Hope Detox and Recovery Center about treatment. Msg &amp; data rates may apply. Reply STOP to opt out. Consent is not a condition of treatment.</span></label>
+          <label class="optin"><input type="checkbox" name="sms_consent" value="1" required style="width:auto;margin:2px 0 0;" /> <span>I agree to receive calls/texts from Regain Hope Detox and Recovery Center about treatment. Msg &amp; data rates may apply. Reply STOP to opt out. Consent is not a condition of treatment.</span></label>
+          <p class="form-error" hidden role="alert"></p>
           <button type="submit">Request My Callback</button>
-          <p class="hipaa">🔒 Your information is private and confidential.</p>
+          <p class="hipaa">Your information is private and confidential. We do not send policy IDs to advertising tools.</p>
         </form>
       </div>
     ) : (
@@ -133,39 +140,51 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 
 {variant === 'form' && (
   <script>
-    // Lead capture -> CallTrackingMetrics FormReactor (only on form heroes).
-    const toE164 = (raw) => {
-      const digits = (raw || '').replace(/\D/g, '');
-      if (!digits) return '';
-      if (digits.length === 10) return `+1${digits}`;
-      if (digits.length === 11 && digits.startsWith('1')) return `+${digits}`;
-      return `+${digits}`;
-    };
-    const CTM_ENDPOINT = 'https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141AC639211173E58475D0660EB20088394670F652744EB4BC49?key=OgofjOvTedVijHwtgjMQu44Vyo9u0oNYSjhMBx3pDhvxT87A';
+    // Lead capture via first-party /api/lead/ (CTM credentials stay on the server).
     document.querySelectorAll('form.hero-form').forEach((f) => {
       f.addEventListener('submit', async (e) => {
         e.preventDefault();
         const btn = f.querySelector('button[type="submit"]');
+        const errEl = f.querySelector('.form-error');
+        const showError = (msg) => {
+          if (errEl) { errEl.hidden = false; errEl.textContent = msg; }
+          if (btn) { btn.disabled = false; btn.textContent = 'Request My Callback'; }
+        };
+        if (errEl) { errEl.hidden = true; errEl.textContent = ''; }
         if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
 
         const data = new FormData(f);
-        const params = new URLSearchParams();
-        params.set('name', data.get('name') || '');
-        params.set('phone_number', toE164(data.get('phone')));
-        params.set('custom_fields[insurance_carrier]', data.get('insurance_carrier') || '');
-        params.set('custom_fields[member__policy_id]', data.get('policy_id') || '');
-
         const qs = new URLSearchParams(window.location.search);
-        const attribution = { gclid: 'gclid', campaign_id: 'utm_campaign', adgroup_id: 'utm_content', creative_id: 'utm_term', form_id: 'utm_source' };
-        Object.entries(attribution).forEach(([ctmKey, param]) => {
+        const attribution = {};
+        const map = { gclid: 'gclid', campaign_id: 'utm_campaign', adgroup_id: 'utm_content', creative_id: 'utm_term', form_id: 'utm_source' };
+        Object.entries(map).forEach(([ctmKey, param]) => {
           const v = qs.get(param);
-          if (v) params.set(`paid_attribution[${ctmKey}]`, v);
+          if (v) attribution[ctmKey] = v;
         });
 
         try {
-          await fetch(CTM_ENDPOINT, { method: 'POST', body: params });
-        } catch (_) {}
-        window.location.href = '/thank-you/';
+          const res = await fetch('/api/lead/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify({
+              name: data.get('name') || '',
+              phone: data.get('phone') || '',
+              insurance_carrier: data.get('insurance_carrier') || '',
+              policy_id: data.get('policy_id') || '',
+              company_website: data.get('company_website') || '',
+              consent: data.get('sms_consent') === '1',
+              attribution,
+            }),
+          });
+          const payload = await res.json().catch(() => ({}));
+          if (!res.ok || !payload.ok) {
+            showError(payload.error || 'We could not send your request. Please call (818) 264-4388.');
+            return;
+          }
+          window.location.href = '/thank-you/';
+        } catch (_) {
+          showError('We could not send your request. Check your connection or call (818) 264-4388.');
+        }
       });
     });
   </script>

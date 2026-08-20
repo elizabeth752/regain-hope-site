@@ -6,6 +6,7 @@ import Divider from '../components/Divider.astro';
 import PhysicianLed from '../components/PhysicianLed.astro';
 import TeamStrip from '../components/TeamStrip.astro';
 import Icon from '../components/Icon.astro';
+import Gallery from '../components/Gallery.astro';
 
 const faqs = [
   { q: 'How long does medical detox take?', a: 'Most detox programs last 5–10 days depending on the substance and your medical history; your doctor sets the timeline.' },
@@ -153,9 +154,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   <section class="bg-cream"><div class="container">
     <Divider />
     <div class="sec-head" style="margin-top:16px;"><span class="eyebrow">The home</span><h2>A place that feels like home</h2><p>Comfortable bedrooms, a renovated chef's kitchen, and private outdoor spaces.</p></div>
-    <div class="gallery">
-      {gallery.map(([f, alt]) => <img src={`/images/${f}.jpeg`} alt={alt} loading="lazy" width="280" height="190" />)}
-    </div>
+    <Gallery photos={gallery} />
   </div></section>
 
   <!-- LOCATION -->

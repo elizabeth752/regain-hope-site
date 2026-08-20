@@ -7,6 +7,7 @@ import Icon from '../../components/Icon.astro';
 import HomeNotClinic from '../../components/HomeNotClinic.astro';
 import ImageFeature from '../../components/ImageFeature.astro';
 import InsuranceBanner from '../../components/InsuranceBanner.astro';
+import Gallery from '../../components/Gallery.astro';
 
 const faqs = [
   { q: 'How long does residential addiction treatment last?', a: 'Typically around 2–4 weeks after detox, set to your needs, and often followed by step-down care to protect your progress.' },
@@ -200,9 +201,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   <!-- GALLERY -->
   <section class="bg-cream"><div class="container">
     <div class="sec-head"><span class="eyebrow">The home</span><h2>A residence designed for recovery</h2><p>Comfortable bedrooms, a renovated chef's kitchen, sunny common areas, and private outdoor lounges.</p></div>
-    <div class="gallery">
-      {gallery.map(([f, alt]) => <img src={`/images/${f}.jpeg`} alt={alt} loading="lazy" width="280" height="190" />)}
-    </div>
+    <Gallery photos={gallery} />
   </div></section>
 
   <Reviews bg="white" />
