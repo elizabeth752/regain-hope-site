@@ -78,12 +78,12 @@ export const posts = [
   },
   {
     slug: 'does-naltrexone-help-with-alcohol-withdrawal',
-    title: 'Does Naltrexone Help With Alcohol Withdrawal?',
+    title: 'Naltrexone for Alcohol Use Disorder: What to Know',
     category: 'Alcohol',
     author: 'gomez',
-    date: 'July 21, 2026',
+    date: 'August 28, 2026',
     image: '/images/stock/naltrexone-alcohol-withdrawal.png',
-    excerpt: 'Naltrexone does not treat alcohol withdrawal symptoms, but it can reduce cravings after detox. Here\'s how it works and when it fits into recovery.',
+    excerpt: 'Naltrexone won\'t treat acute alcohol withdrawal, but you don\'t have to finish detox first to start it. How it works, safety essentials, and how well it works.',
   },
   {
     slug: 'alcohol-blackout-what-is-it-and-why-does-it-happen',
