@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getImage } from 'astro:assets';
 import heroSrc from '../assets/hero-regain-03.jpg';
+import { googleUrl, googleRating, googleReviewCount } from '../data/reviews.js';
 
 export interface Props {
   title: string;
@@ -47,7 +48,7 @@ const org = {
   },
   geo: { '@type': 'GeoCoordinates', latitude: 34.1719189, longitude: -118.3451238 },
   medicalSpecialty: 'Addiction',
-  aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '8' },
+  aggregateRating: { '@type': 'AggregateRating', ratingValue: googleRating, reviewCount: String(googleReviewCount) },
   knowsLanguage: ['English', 'Spanish', 'Korean'],
 };
 
@@ -124,9 +125,9 @@ const jsonld = [org, ...(schema ? (Array.isArray(schema) ? schema : [schema]) : 
   </main>
   <Footer />
   <!-- Floating Google reviews badge (sitewide, bottom-left) -->
-  <a class="grbadge" href="https://maps.app.goo.gl/S3YvacbqJG8mVm457" target="_blank" rel="noopener" aria-label="Rated 5.0 on Google from 8 reviews">
+  <a class="grbadge" href={googleUrl} target="_blank" rel="noopener" aria-label={`Rated ${googleRating} on Google from ${googleReviewCount} reviews`}>
     <span class="g">G</span>
-    <span class="grtxt"><span class="grstars">★★★★★</span><b>5.0</b> · 8 reviews</span>
+    <span class="grtxt"><span class="grstars">★★★★★</span><b>{googleRating}</b> · {googleReviewCount} reviews</span>
   </a>
 </body>
 </html>

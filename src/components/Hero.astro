@@ -2,6 +2,7 @@
 import { Picture } from 'astro:assets';
 import Icon from './Icon.astro';
 import heroImg from '../assets/hero-regain-03.jpg';
+import { featuredReviews as reviews, googleUrl as GBP, googleRating, googleReviewCount } from '../data/reviews.js';
 // Sitewide hero. LCP media is a real <picture> (AVIF/WebP), not a CSS background.
 //   variant="form"    → money pages: insurance verify form on the right
 //   variant="reviews" → everything else: rotating 5-star review spotlight on the right
@@ -21,12 +22,6 @@ const {
   cta = { label: 'Verify Your Insurance', href: '/admissions/verify-insurance/' },
 } = Astro.props;
 
-const reviews = [
-  { text: 'The two doctors are genuinely caring and compassionate. In past detoxes I often felt treated like a number. Here they truly make you feel valued and cared for as a person.', who: 'Chris' },
-  { text: 'Dr. Gomez and Dr. Carlos are incredible. They make the house feel like home and family, and Dr. Gomez genuinely cares, following up with clients even after discharge.', who: 'Jimmy' },
-  { text: "They didn't make the facility feel cold or clinical. They made it feel like home. You could tell they genuinely cared about the people there.", who: 'Ashlie L.' },
-];
-const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 ---
 <section class={`hero hero--${variant}`}>
   {/* LCP element: eager + fetchpriority high. Decorative for a11y (copy is in the H1). */}
@@ -104,13 +99,13 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
       </div>
     ) : (
       <div class="hero-rev" data-rotate>
-        <div class="hr-badge"><span class="stars">★★★★★</span> 5.0 on Google · 8 reviews</div>
+        <div class="hr-badge"><span class="stars">★★★★★</span> {googleRating} on Google · {googleReviewCount} reviews</div>
         <div class="hr-stage">
           {reviews.map((r, i) => (
             <article class={`hrev${i === 0 ? ' active' : ''}`}>
               <div class="stars">★★★★★</div>
-              <p>“{r.text}”</p>
-              <div class="who">{r.who}</div>
+              <p>“{r.short}”</p>
+              <div class="who">{r.name}</div>
             </article>
           ))}
         </div>
