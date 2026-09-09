@@ -1,6 +1,7 @@
 ---
 import Layout from './Layout.astro';
 import { getPost, getAuthor, otherPosts } from '../data/blog.js';
+import { googleUrl as GBP, googleRating, googleReviewCount } from '../data/reviews.js';
 export interface Props { slug: string; toc?: [string, string][]; }
 const { slug, toc = [] } = Astro.props;
 const post = getPost(slug);
@@ -8,7 +9,6 @@ const author = getAuthor(post.author);
 const related = otherPosts(slug, 3);
 const SITE = 'https://www.regainhopedetox.com';
 const url = `${SITE}/blog/${slug}/`;
-const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 const insurers = ['aetna', 'cigna', 'bcbs', 'united-healthcare', 'anthem', 'tricare'];
 const schema = {
   '@context': 'https://schema.org', '@type': 'BlogPosting',
@@ -59,7 +59,7 @@ const schema = {
           <div class="ins-mini">{insurers.map((f) => <img src={`/images/logos/insurance/${f}.svg`} alt={f} loading="lazy" />)}</div>
         </div>
         <div class="bp-card">
-          <div class="rev-badge"><span class="g">G</span><div><div class="stars">★★★★★</div><a href={GBP} target="_blank" rel="noopener" style="font-size:13px;">5.0 · 8 reviews on Google</a></div></div>
+          <div class="rev-badge"><span class="g">G</span><div><div class="stars">★★★★★</div><a href={GBP} target="_blank" rel="noopener" style="font-size:13px;">{googleRating} · {googleReviewCount} reviews on Google</a></div></div>
         </div>
         <a href="/contact/" class="btn btn-outline" style="width:100%;text-align:center;">Contact Us</a>
       </aside>
