@@ -493,21 +493,22 @@ footer a{color:#cfc3b5;display:block;padding:4px 0;} footer a:hover{color:var(--
 .facc img{height:60px;width:auto;max-width:150px;object-fit:contain;}
 @media(max-width:600px){.facc .container{gap:26px;}.facc img{height:46px;max-width:110px;}}
 
-/* ---- Reviews wall (masonry — full reviews, no ragged white space) ---- */
-.revwall{column-count:3;column-gap:22px;max-width:1060px;margin:0 auto;}
-@media(max-width:880px){.revwall{column-count:2;}}
-@media(max-width:560px){.revwall{column-count:1;}}
-.revwall .rev{break-inside:avoid;-webkit-column-break-inside:avoid;background:#fff;border:1px solid #ece3cf;border-radius:var(--radius);padding:24px 24px 22px;margin:0 0 22px;box-shadow:var(--shadow);}
+/* ---- Reviews wall (even 3-column grid) ---- */
+.revwall{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1060px;margin:0 auto;align-items:stretch;}
+@media(max-width:880px){.revwall{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.revwall{grid-template-columns:1fr;}}
+.revwall .rev{display:flex;flex-direction:column;background:#fff;border:1px solid #ece3cf;border-radius:var(--radius);padding:24px 24px 22px;margin:0;box-shadow:var(--shadow);min-height:0;}
 .revwall .rev .stars{color:var(--star);letter-spacing:2px;font-size:15px;margin-bottom:12px;}
-.revwall .rev blockquote{margin:0 0 16px;font-size:15px;line-height:1.65;color:var(--ink);}
-.revwall .rev .who{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:600;color:var(--caoba-dark);font-size:14.5px;}
+.revwall .rev blockquote{margin:0 0 16px;font-size:15px;line-height:1.65;color:var(--ink);flex:1;}
+.revwall .rev .who{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:600;color:var(--caoba-dark);font-size:14.5px;margin-top:auto;}
 .revwall .rev .ava{width:38px;height:38px;border-radius:50%;background:var(--caoba);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:16px;flex:none;}
 .revwall .rev .nm small{display:block;font-family:var(--sans);font-weight:400;font-size:12px;color:var(--muted);margin-top:1px;}
-.revwall .rev-cta{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px;background:linear-gradient(180deg,var(--cream),var(--paper));border:1px solid #ece3cf;padding:34px 24px;text-decoration:none;transition:.18s;}
+.revwall .rev-cta{grid-column:1/-1;display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:center;text-align:center;gap:10px 18px;background:linear-gradient(180deg,var(--cream),var(--paper));border:1px solid #ece3cf;padding:22px 24px;text-decoration:none;transition:.18s;}
 .revwall .rev-cta:hover{border-color:var(--lilac);box-shadow:var(--shadow-lg);transform:translateY(-2px);}
-.revwall .rev-cta .rc-g{width:46px;height:46px;border-radius:50%;background:var(--caoba);color:#fff;font-family:var(--serif);font-weight:700;font-size:22px;display:flex;align-items:center;justify-content:center;}
+.revwall .rev-cta .rc-g{width:40px;height:40px;border-radius:50%;background:var(--caoba);color:#fff;font-family:var(--serif);font-weight:700;font-size:20px;display:flex;align-items:center;justify-content:center;}
+.revwall .rev-cta .stars{margin-bottom:0;}
 .revwall .rev-cta .rc-score{font-family:var(--serif);font-weight:700;color:var(--caoba-dark);font-size:16px;}
-.revwall .rev-cta .rc-link{font-weight:600;color:var(--caoba);font-size:14.5px;margin-top:4px;}
+.revwall .rev-cta .rc-link{font-weight:600;color:var(--caoba);font-size:14.5px;}
 .revwall .rev-cta:hover .rc-link{color:var(--caoba-dark);}
 
 /* ---- Carrier link grid (insurance hub) ---- */

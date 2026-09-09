@@ -13,7 +13,7 @@ export const reviews = [
     name: 'B. Greer',
     initial: 'B',
     posted: '4 weeks ago',
-    text: 'The doctors and staff are truly amazing. Dr. Gomez is selfless, compassionate, brilliant, and the perfect person to help you. The facility is immaculate, and overall it is a safe, comfortable and nurturing environment for healing.',
+    text: 'The doctors and staff are truly amazing. Dr. Gomez is selfless, compassionate, and brilliant. The facility is a safe, comfortable and nurturing environment for healing.',
     short: 'Dr. Gomez is selfless, compassionate, brilliant, and the perfect person to help you. The facility is a safe, comfortable and nurturing environment for healing.',
   },
   {
@@ -34,7 +34,7 @@ export const reviews = [
     name: 'Linda A.',
     initial: 'L',
     posted: 'a month ago',
-    text: "From the day I arrived until my graduation 40 days later, every moment was filled with love and care that felt like family. Dr. Gomez and Dr. Yoo are outstanding doctors with the biggest hearts, and they visited often, even on their days off. I've been home nearly three weeks and I'm still clean, with real hope for the future.",
+    text: "Every moment was filled with love and care that felt like family. Dr. Gomez and Dr. Yoo are outstanding doctors with the biggest hearts. I've been home nearly three weeks and I'm still clean, with real hope for the future.",
     short: "Every moment was filled with love and care that felt like family. I've been home nearly three weeks and I'm still clean, with real hope for the future.",
   },
   {
@@ -48,7 +48,7 @@ export const reviews = [
     name: 'Rashon R.',
     initial: 'R',
     posted: 'a month ago',
-    text: "Regain Hope saved my life in ways I never imagined. They went above and beyond to make my detox as comfortable as possible, and the groups taught me relapse prevention skills I'm applying in my life today. I learned I'm not just a number, I'm family, and they treated me as such.",
+    text: "Regain Hope saved my life in ways I never imagined. I learned I'm not just a number, I'm family, and they treated me as such.",
     short: "Regain Hope saved my life in ways I never imagined. I learned I'm not just a number, I'm family, and they treated me as such.",
   },
   {
@@ -62,14 +62,14 @@ export const reviews = [
     name: 'Chris M.',
     initial: 'C',
     posted: '3 months ago',
-    text: 'Regain Hope completely changed my expectations of what treatment could be like. The two doctors are genuinely caring and compassionate, and always go above and beyond. In past detoxes I often felt treated like a number, but here they truly make you feel valued and cared for as a person.',
+    text: 'The two doctors are genuinely caring and compassionate, and always go above and beyond. In past detoxes I often felt treated like a number, but here they truly make you feel valued.',
     short: 'The two doctors are genuinely caring and compassionate. In past detoxes I often felt treated like a number. Here they truly make you feel valued.',
   },
   {
     name: 'Ashlie L.',
     initial: 'A',
     posted: '3 months ago',
-    text: "My experience at this rehab truly changed my life. Dr. Gomez treated me with genuine compassion and respect from the beginning. She listened, encouraged me, and helped me believe I was capable of getting better even when I doubted myself. They didn't make the facility feel cold or clinical. They made it feel like home.",
+    text: "My experience at this rehab truly changed my life. They didn't make the facility feel cold or clinical. They made it feel like home, and you could tell they genuinely cared.",
     short: "They didn't make the facility feel cold or clinical. They made it feel like home, and you could tell they genuinely cared about the people there.",
   },
   {

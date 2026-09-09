@@ -1,15 +1,15 @@
 ---
-// Reviews wall — full review text, all reviews, masonry columns so variable-length
-// cards pack tightly with no ragged white space. Copy lives in src/data/reviews.js.
+// Reviews wall — even 3-column grid. Copy lives in src/data/reviews.js.
 import { reviews, googleUrl as GBP, googleRating, googleReviewCount } from '../data/reviews.js';
 export interface Props { bg?: 'white' | 'cream'; }
 const { bg = 'white' } = Astro.props;
 const score = `${googleRating} · ${googleReviewCount} reviews`;
+const wallReviews = reviews.slice(0, 9);
 ---
 <section class={bg === 'cream' ? 'bg-cream' : ''}><div class="container">
   <div class="sec-head"><span class="eyebrow">Reviews</span><h2>Rated {googleRating} on Google</h2><p><span style="color:var(--star);letter-spacing:2px;">★★★★★</span>&nbsp;&nbsp;{score}</p></div>
   <div class="revwall">
-    {reviews.map((r) => (
+    {wallReviews.map((r) => (
       <figure class="rev">
         <div class="stars">★★★★★</div>
         <blockquote>“{r.text}”</blockquote>
