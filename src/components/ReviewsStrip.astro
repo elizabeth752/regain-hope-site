@@ -6,7 +6,7 @@ import { featuredReviews, googleUrl as GBP, googleRating } from '../data/reviews
   <div class="sec-head"><span class="eyebrow">Reviews</span><h2>Rated {googleRating} on Google</h2></div>
   <div class="reviews">
     {featuredReviews.map((r) => (
-      <div class="review"><div class="stars">★★★★★</div><p>"{r.short}"</p><div class="who">{r.name}</div></div>
+      <div class="review"><div class="stars">★★★★★</div><p>"{r.text}"</p><div class="who">{r.name}</div></div>
     ))}
   </div>
   <div class="reviews-cta"><a href={GBP} target="_blank" rel="noopener" class="btn btn-outline">See all reviews on Google →</a></div>
