@@ -104,7 +104,7 @@ const {
           {reviews.map((r, i) => (
             <article class={`hrev${i === 0 ? ' active' : ''}`}>
               <div class="stars">★★★★★</div>
-              <p>“{r.short}”</p>
+              <p>“{r.text}”</p>
               <div class="who">{r.name}</div>
             </article>
           ))}
