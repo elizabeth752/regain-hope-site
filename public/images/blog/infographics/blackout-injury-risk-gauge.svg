@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" width="900" height="460" role="img" aria-labelledby="title desc">
+  <title id="title">Repeated blackouts and injury risk</title>
+  <desc id="desc">People who have had six or more blackouts are more than 2.5 times as likely to experience an alcohol-related injury.</desc>
+
+  <text x="450" y="42" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#6B496B">INJURY RISK</text>
+  <text x="450" y="76" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="27" font-weight="700" fill="#3B1A3F">Blackouts raise the odds of injury</text>
+
+  <!-- gauge bands -->
+  <path d="M260,300 A190,190 0 0,1 355,135.5 L390,196.1 A120,120 0 0,0 330,300 Z" fill="#E6D6E6" />
+  <path d="M355,135.5 A190,190 0 0,1 545,135.5 L510,196.1 A120,120 0 0,0 390,196.1 Z" fill="#D6C2DA" />
+  <path d="M545,135.5 A190,190 0 0,1 640,300 L570,300 A120,120 0 0,0 510,196.1 Z" fill="#3F2C3F" />
+
+  <!-- tick labels -->
+  <text x="235" y="308" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="14" fill="#55585A">0&#215;</text>
+  <text x="342" y="108" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="14" fill="#55585A">1&#215;</text>
+  <text x="558" y="108" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="14" fill="#F7EFDD">2&#215;</text>
+  <text x="665" y="308" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="14" fill="#55585A">3&#215;</text>
+
+  <!-- needle at 2.5x -->
+  <line x1="450" y1="300" x2="580" y2="225" stroke="#5A3F5A" stroke-width="9" stroke-linecap="round" />
+  <circle cx="450" cy="300" r="17" fill="#5A3F5A" />
+  <circle cx="450" cy="300" r="6" fill="#FBF6EC" />
+
+  <text x="450" y="356" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="34" font-weight="700" fill="#3E1E3E">2.5&#215; or more</text>
+  <text x="450" y="384" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="15" font-weight="600" fill="#19211F">likely to have an alcohol-related injury</text>
+  <text x="450" y="408" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13.5" fill="#55585A">among people with six or more lifetime blackouts</text>
+</svg>

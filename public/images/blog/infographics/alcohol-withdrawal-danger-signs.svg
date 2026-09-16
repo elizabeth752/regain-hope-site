@@ -1,0 +1,52 @@
+<svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" font-family="'Poppins', system-ui, sans-serif">
+  <rect width="900" height="420" rx="18" fill="#FBF6EC"/>
+
+  <text x="40" y="34" font-size="13" font-weight="700" letter-spacing="1.5" fill="#6B496B">WHEN WITHDRAWAL BECOMES A MEDICAL EMERGENCY</text>
+
+  <!-- zone dividers -->
+  <line x1="320" y1="55" x2="320" y2="255" stroke="#C3A9C3" stroke-width="1" stroke-dasharray="3 5"/>
+  <line x1="560" y1="55" x2="560" y2="255" stroke="#C3A9C3" stroke-width="1" stroke-dasharray="3 5"/>
+
+  <!-- zone A: common symptoms (calm-ish trace) -->
+  <polyline points="60,160 100,160 115,148 130,160 170,160 185,170 200,160 240,160 255,150 270,160 310,160 320,160"
+            fill="none" stroke="#5A3F5A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- zone B: can escalate to seizures (one sharp spike) -->
+  <polyline points="320,160 355,160 370,90 385,160 420,160 435,190 450,160 490,160 505,120 520,160 560,160"
+            fill="none" stroke="#5A3F5A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- zone C: delirium tremens (dark emergency panel with rapid erratic trace) -->
+  <rect x="560" y="55" width="300" height="200" rx="10" fill="#341A38"/>
+  <text x="710" y="80" font-size="15" font-weight="700" fill="#F7EFDD" text-anchor="middle">DELIRIUM TREMENS (DTs)</text>
+  <text x="710" y="97" font-size="11" fill="#C3A9C3" text-anchor="middle">A medical emergency</text>
+
+  <polyline points="575,150 588,150 596,120 604,175 612,150 622,118 630,150 640,178 648,150 658,120 666,150 676,177 684,150 694,118 702,150 712,178 720,150 730,120 738,150 748,177 756,150 766,118 774,150 784,178 792,150 802,120 810,150 820,148 828,150 845,150"
+            fill="none" stroke="#D6C2DA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="580" y="205" font-size="11.5" fill="#F7EFDD">&#8226; Confusion</text>
+  <text x="580" y="222" font-size="11.5" fill="#F7EFDD">&#8226; Racing heart</text>
+  <text x="580" y="239" font-size="11.5" fill="#F7EFDD">&#8226; Blood pressure changes</text>
+
+  <!-- zone bottom captions -->
+  <text x="190" y="280" font-size="12.5" font-weight="600" fill="#3B1A3F" text-anchor="middle">Common withdrawal symptoms</text>
+  <text x="440" y="280" font-size="12.5" font-weight="600" fill="#3B1A3F" text-anchor="middle">Can escalate to seizures</text>
+
+  <line x1="40" y1="305" x2="860" y2="305" stroke="#E6D6E6" stroke-width="1.5"/>
+
+  <text x="450" y="332" font-size="13" font-weight="700" letter-spacing="0.5" fill="#6B496B" text-anchor="middle">MOST AT RISK</text>
+
+  <!-- risk card 1 -->
+  <rect x="60" y="350" width="360" height="58" rx="12" fill="#fff" stroke="#E6D6E6" stroke-width="1.5"/>
+  <circle cx="98" cy="379" r="16" fill="#E6D6E6"/>
+  <path d="M91,371 h14 l-2,16 h-10 z" fill="none" stroke="#5A3F5A" stroke-width="2" stroke-linejoin="round"/>
+  <text x="128" y="375" font-size="13" font-weight="700" fill="#3B1A3F">Heavy, daily drinking</text>
+  <text x="128" y="392" font-size="11" fill="#55585A">Higher volume, higher risk</text>
+
+  <!-- risk card 2 -->
+  <rect x="480" y="350" width="360" height="58" rx="12" fill="#fff" stroke="#E6D6E6" stroke-width="1.5"/>
+  <circle cx="518" cy="379" r="16" fill="#E6D6E6"/>
+  <circle cx="518" cy="379" r="9" fill="none" stroke="#5A3F5A" stroke-width="2"/>
+  <path d="M518,373 v6 l5,3" fill="none" stroke="#5A3F5A" stroke-width="2" stroke-linecap="round"/>
+  <text x="548" y="375" font-size="13" font-weight="700" fill="#3B1A3F">Prior withdrawal history</text>
+  <text x="548" y="392" font-size="11" fill="#55585A">Been through it before</text>
+</svg>

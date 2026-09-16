@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 520" width="680" height="520" role="img" aria-labelledby="dl-title dl-desc">
+  <title id="dl-title">The addiction and mental health feedback loop</title>
+  <desc id="dl-desc">Painful symptoms lead to using for short-term relief, which lets substances deepen those symptoms over time, which increases the urge to use, which deepens the symptoms further, continuing the loop.</desc>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#5A3F5A"/>
+    </marker>
+  </defs>
+
+  <text x="340" y="30" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5" fill="#6B496B">WHY THE TWO FEED EACH OTHER</text>
+
+  <!-- connecting arrows forming a square loop -->
+  <path d="M300,110 L380,110" fill="none" stroke="#5A3F5A" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <path d="M510,160 L510,360" fill="none" stroke="#5A3F5A" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <path d="M380,410 L300,410" fill="none" stroke="#5A3F5A" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <path d="M170,360 L170,160" fill="none" stroke="#5A3F5A" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+  <!-- center label -->
+  <circle cx="340" cy="260" r="76" fill="#E6D6E6"/>
+  <text x="340" y="252" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="20" font-weight="700" fill="#3F2C3F">THE LOOP</text>
+  <text x="340" y="274" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="11.5" fill="#55585A">Willpower alone</text>
+  <text x="340" y="290" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="11.5" fill="#55585A">rarely breaks it</text>
+
+  <!-- Node A: top-left -->
+  <rect x="40" y="60" width="260" height="100" rx="16" fill="#FFFFFF" stroke="#E6D6E6" stroke-width="2"/>
+  <text x="170" y="98" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13.5" font-weight="700" fill="#3F2C3F">Painful symptoms</text>
+  <text x="170" y="118" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">anxiety, trauma,</text>
+  <text x="170" y="136" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">or depression</text>
+
+  <!-- Node B: top-right -->
+  <rect x="380" y="60" width="260" height="100" rx="16" fill="#FFFFFF" stroke="#E6D6E6" stroke-width="2"/>
+  <text x="510" y="98" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13.5" font-weight="700" fill="#3F2C3F">Use for relief</text>
+  <text x="510" y="118" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">works in the</text>
+  <text x="510" y="136" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">short term</text>
+
+  <!-- Node C: bottom-right -->
+  <rect x="380" y="360" width="260" height="100" rx="16" fill="#FFFFFF" stroke="#E6D6E6" stroke-width="2"/>
+  <text x="510" y="398" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13.5" font-weight="700" fill="#3F2C3F">Symptoms deepen</text>
+  <text x="510" y="418" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">substances worsen</text>
+  <text x="510" y="436" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">them over time</text>
+
+  <!-- Node D: bottom-left -->
+  <rect x="40" y="360" width="260" height="100" rx="16" fill="#FFFFFF" stroke="#E6D6E6" stroke-width="2"/>
+  <text x="170" y="398" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13.5" font-weight="700" fill="#3F2C3F">Urge to use grows</text>
+  <text x="170" y="418" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">and deepens the</text>
+  <text x="170" y="436" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">symptoms further</text>
+</svg>

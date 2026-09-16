@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 340" width="580" height="340" role="img" aria-labelledby="ssTitle">
+  <title id="ssTitle">Waiting longer to get help makes tapering harder and riskier</title>
+  <rect x="2" y="2" width="576" height="336" rx="16" fill="#FBF6EC" stroke="#E6D6E6" stroke-width="2"/>
+
+  <!-- axes -->
+  <line x1="60" y1="280" x2="60" y2="50" stroke="#55585A" stroke-width="2"/>
+  <polygon points="60,44 55,54 65,54" fill="#55585A"/>
+  <line x1="60" y1="280" x2="540" y2="280" stroke="#55585A" stroke-width="2"/>
+  <polygon points="546,280 536,275 536,285" fill="#55585A"/>
+
+  <text x="300" y="308" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">Time high-dose use continues</text>
+  <text x="-165" y="24" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A" transform="rotate(-90)">Difficulty &amp; risk of tapering</text>
+
+  <!-- rising risk curve -->
+  <path d="M100,260 C220,255 280,210 360,180 C420,160 460,120 500,90"
+        fill="none" stroke="#5A3F5A" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- point: sooner -->
+  <circle cx="140" cy="253" r="6" fill="#3C7E8E"/>
+  <line x1="140" y1="253" x2="140" y2="216" stroke="#3C7E8E" stroke-width="1.5"/>
+  <rect x="75" y="168" width="130" height="48" rx="8" fill="#FBF6EC" stroke="#3C7E8E" stroke-width="1.5"/>
+  <text x="140" y="187" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#2E6B78">Reach out sooner</text>
+  <text x="140" y="204" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="11" fill="#19211F">Easier, lower risk</text>
+
+  <!-- point: later -->
+  <circle cx="460" cy="112" r="6" fill="#3F2C3F"/>
+  <line x1="460" y1="112" x2="460" y2="80" stroke="#3F2C3F" stroke-width="1.5"/>
+  <rect x="390" y="30" width="150" height="48" rx="8" fill="#FBF6EC" stroke="#3F2C3F" stroke-width="1.5"/>
+  <text x="465" y="49" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#3F2C3F">Continued high-dose use</text>
+  <text x="465" y="66" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="11" fill="#19211F">Harder, higher risk</text>
+</svg>

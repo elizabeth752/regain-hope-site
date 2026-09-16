@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="900" height="480" role="img" aria-labelledby="title desc">
+  <title id="title">Effective alcohol treatment has two distinct parts</title>
+  <desc id="desc">Step one is medically supervised management of withdrawal, such as benzodiazepines. Step two is reducing cravings and supporting long-term recovery with medications such as naltrexone, acamprosate, or disulfiram plus therapies like CBT. Care spans detox, residential, outpatient, and aftercare.</desc>
+
+  <text x="450" y="38" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#6B496B">TREATMENT</text>
+  <text x="450" y="72" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="27" font-weight="700" fill="#3B1A3F">Two parts, working together</text>
+
+  <!-- card 1: withdrawal -->
+  <rect x="60" y="96" width="370" height="278" rx="18" fill="#FBF6EC" stroke="#E6D6E6" stroke-width="2" />
+  <text x="245" y="132" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#6B496B">STEP 1</text>
+  <text x="245" y="158" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="19" font-weight="700" fill="#3E1E3E">Managing Withdrawal</text>
+
+  <path d="M245,178 L275,195 L275,228 Q275,248 245,258 Q215,248 215,228 L215,195 Z" fill="none" stroke="#5A3F5A" stroke-width="5" stroke-linejoin="round" />
+  <polyline points="220,222 232,222 239,202 249,240 256,212 268,222" fill="none" stroke="#3C7E8E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+
+  <text x="245" y="292" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="15" font-weight="600" fill="#19211F">Medically supervised</text>
+  <text x="245" y="315" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13.5" fill="#55585A">e.g., benzodiazepines</text>
+
+  <!-- arrow -->
+  <polygon points="436,220 458,235 436,250" fill="#5A3F5A" />
+
+  <!-- card 2: cravings / recovery -->
+  <rect x="470" y="96" width="370" height="278" rx="18" fill="#FBF6EC" stroke="#E6D6E6" stroke-width="2" />
+  <text x="655" y="132" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#6B496B">STEP 2</text>
+  <text x="655" y="156" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="19" font-weight="700" fill="#3E1E3E">Reducing Cravings &amp;</text>
+  <text x="655" y="178" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="19" font-weight="700" fill="#3E1E3E">Supporting Recovery</text>
+
+  <polyline points="622,252 642,234 655,240 682,198" fill="none" stroke="#3C7E8E" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="682" cy="198" r="6" fill="#3C7E8E" />
+
+  <text x="655" y="292" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="15" font-weight="600" fill="#19211F">Naltrexone &#183; Acamprosate &#183; Disulfiram</text>
+  <text x="655" y="315" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13.5" fill="#55585A">plus therapies such as CBT</text>
+
+  <!-- continuum of care footer -->
+  <text x="450" y="404" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#6B496B">CONTINUUM OF CARE</text>
+  <line x1="150" y1="430" x2="810" y2="430" stroke="#C3A9C3" stroke-width="3" />
+  <circle cx="150" cy="430" r="8" fill="#5A3F5A" />
+  <circle cx="370" cy="430" r="8" fill="#5A3F5A" />
+  <circle cx="590" cy="430" r="8" fill="#5A3F5A" />
+  <circle cx="810" cy="430" r="8" fill="#5A3F5A" />
+  <text x="150" y="456" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13" fill="#19211F">Detox</text>
+  <text x="370" y="456" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13" fill="#19211F">Residential</text>
+  <text x="590" y="456" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13" fill="#19211F">Outpatient</text>
+  <text x="810" y="456" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13" fill="#19211F">Aftercare</text>
+</svg>

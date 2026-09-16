@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" width="600" height="420" role="img" aria-labelledby="ov-title ov-desc">
+  <title id="ov-title">Alcohol use disorder and anxiety or mood disorders overlap</title>
+  <desc id="ov-desc">20 to 40 percent of people with a mental health disorder also have alcohol use disorder. Among people with AUD, about 80 percent report periods of sadness, 1 in 3 experience severe depression, and at least 40 percent report intense panic attacks.</desc>
+
+  <text x="20" y="26" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" font-weight="700" letter-spacing="1.5" fill="#6B496B">ALCOHOL &amp; MENTAL HEALTH</text>
+
+  <circle cx="230" cy="175" r="108" fill="#3F2C3F" opacity="0.55"/>
+  <circle cx="345" cy="175" r="108" fill="#3C7E8E" opacity="0.55"/>
+
+  <text x="165" y="115" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="19" font-weight="700" fill="#FBF6EC">AUD</text>
+  <text x="410" y="108" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="15.5" font-weight="700" fill="#FBF6EC"><tspan x="410" dy="0">Anxiety &amp;</tspan><tspan x="410" dy="19">Mood Disorders</tspan></text>
+
+  <text x="288" y="180" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="30" font-weight="700" fill="#FBF6EC">20–40%</text>
+  <text x="288" y="202" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12" fill="#FBF6EC">have both</text>
+
+  <text x="300" y="300" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12" fill="#55585A">among people with alcohol use disorder (AUD)</text>
+
+  <g font-family="'Poppins', system-ui, sans-serif">
+    <rect x="18" y="322" width="176" height="76" rx="14" fill="#FBF6EC" stroke="#E6D6E6"/>
+    <text x="106" y="352" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="24" font-weight="700" fill="#3F2C3F">80%</text>
+    <text x="106" y="374" text-anchor="middle" font-size="11.5" fill="#55585A"><tspan x="106" dy="0">report periods</tspan><tspan x="106" dy="14">of sadness</tspan></text>
+
+    <rect x="212" y="322" width="176" height="76" rx="14" fill="#FBF6EC" stroke="#E6D6E6"/>
+    <text x="300" y="352" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="24" font-weight="700" fill="#3F2C3F">1 in 3</text>
+    <text x="300" y="374" text-anchor="middle" font-size="11.5" fill="#55585A"><tspan x="300" dy="0">experience severe</tspan><tspan x="300" dy="14">depression</tspan></text>
+
+    <rect x="406" y="322" width="176" height="76" rx="14" fill="#FBF6EC" stroke="#E6D6E6"/>
+    <text x="494" y="352" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="24" font-weight="700" fill="#3F2C3F">40%+</text>
+    <text x="494" y="374" text-anchor="middle" font-size="11.5" fill="#55585A"><tspan x="494" dy="0">report intense</tspan><tspan x="494" dy="14">panic attacks</tspan></text>
+  </g>
+</svg>

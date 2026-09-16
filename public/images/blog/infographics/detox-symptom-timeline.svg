@@ -1,0 +1,51 @@
+<svg viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg" font-family="'Poppins', system-ui, sans-serif">
+  <rect width="900" height="380" rx="18" fill="#FBF6EC"/>
+
+  <text x="40" y="36" font-size="13" font-weight="700" letter-spacing="1.5" fill="#6B496B">SYMPTOM INTENSITY DURING DETOX</text>
+
+  <!-- zone background bands -->
+  <rect x="60" y="58" width="200" height="235" fill="#E6D6E6" opacity="0.28"/>
+  <rect x="260" y="58" width="200" height="235" fill="#D6C2DA" opacity="0.55"/>
+  <rect x="460" y="58" width="200" height="235" fill="#E6D6E6" opacity="0.28"/>
+  <rect x="660" y="58" width="200" height="235" fill="#E6D6E6" opacity="0.14"/>
+
+  <!-- baseline -->
+  <line x1="60" y1="210" x2="860" y2="210" stroke="#C3A9C3" stroke-width="1" stroke-dasharray="3 5"/>
+
+  <!-- zone dividers -->
+  <line x1="260" y1="58" x2="260" y2="293" stroke="#C3A9C3" stroke-width="1"/>
+  <line x1="460" y1="58" x2="460" y2="293" stroke="#C3A9C3" stroke-width="1"/>
+  <line x1="660" y1="58" x2="660" y2="293" stroke="#C3A9C3" stroke-width="1"/>
+
+  <!-- intensity wave: rises through onset, peaks days 1-3, eases days 3-5, flattens days 5-10 -->
+  <path d="M60,210 C93,185 127,185 160,210 C193,245 227,245 260,210 C293,155 327,155 360,210 C393,260 427,260 460,210 C493,175 527,175 560,210 C593,232 627,232 660,210 C693,198 727,198 760,210 C793,216 827,216 860,210"
+        fill="none" stroke="#5A3F5A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- start marker -->
+  <circle cx="60" cy="210" r="6" fill="#FBF6EC" stroke="#3F2C3F" stroke-width="3"/>
+  <text x="60" y="244" font-size="11" fill="#55585A" text-anchor="middle">Detox begins</text>
+
+  <!-- peak marker -->
+  <circle cx="327" cy="155" r="5" fill="#3F2C3F"/>
+  <text x="327" y="139" font-size="11" font-weight="700" fill="#3F2C3F" text-anchor="middle">Peak</text>
+
+  <!-- end marker -->
+  <circle cx="860" cy="210" r="6" fill="#FBF6EC" stroke="#3C7E8E" stroke-width="3"/>
+
+  <!-- zone labels -->
+  <g text-anchor="middle">
+    <text x="160" y="317" font-size="15" font-weight="700" fill="#3B1A3F">6&#8211;12 HRS</text>
+    <text x="160" y="335" font-size="11.5" fill="#55585A">First symptoms</text>
+
+    <text x="360" y="317" font-size="15" font-weight="700" fill="#3B1A3F">DAYS 1&#8211;3</text>
+    <text x="360" y="335" font-size="11.5" fill="#55585A">Symptoms peak</text>
+
+    <text x="560" y="317" font-size="15" font-weight="700" fill="#3B1A3F">DAYS 3&#8211;5</text>
+    <text x="560" y="335" font-size="11.5" fill="#55585A">Worst begins to ease</text>
+
+    <text x="760" y="317" font-size="15" font-weight="700" fill="#3B1A3F">DAYS 5&#8211;10</text>
+    <text x="760" y="335" font-size="11.5" fill="#55585A">Stabilize</text>
+  </g>
+
+  <text x="860" y="358" font-size="11.5" font-weight="600" fill="#3C7E8E" text-anchor="end">&#8594; Residential treatment</text>
+</svg>

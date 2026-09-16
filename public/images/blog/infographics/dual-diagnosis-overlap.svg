@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 380" width="700" height="380" role="img" aria-labelledby="dd-title dd-desc">
+  <title id="dd-title">Substance use disorder and mental health condition overlapping</title>
+  <desc id="dd-desc">Roughly half of people with a mental health disorder will also experience a substance use disorder at some point, and vice versa. Common pairings: depression with alcohol, anxiety with stimulants, PTSD with opioids.</desc>
+
+  <text x="350" y="34" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5" fill="#6B496B">TWO CONDITIONS, ONE PERSON</text>
+
+  <!-- overlapping circles -->
+  <circle cx="288" cy="180" r="122" fill="#3C7E8E" fill-opacity="0.55"/>
+  <circle cx="412" cy="180" r="122" fill="#5A3F5A" fill-opacity="0.55"/>
+
+  <text x="200" y="90" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="14.5" font-weight="700" fill="#3F2C3F">SUBSTANCE</text>
+  <text x="200" y="108" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="14.5" font-weight="700" fill="#3F2C3F">USE DISORDER</text>
+
+  <text x="500" y="90" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="14.5" font-weight="700" fill="#FFFFFF">MENTAL HEALTH</text>
+  <text x="500" y="108" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="14.5" font-weight="700" fill="#FFFFFF">CONDITION</text>
+
+  <text x="350" y="172" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="40" font-weight="700" fill="#FFFFFF">~50%</text>
+  <text x="350" y="196" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#FFFFFF">DUAL DIAGNOSIS</text>
+
+  <!-- example pairing chips -->
+  <g font-family="'Poppins', system-ui, sans-serif" font-size="13" font-weight="600" fill="#3F2C3F">
+    <rect x="70" y="322" width="176" height="36" rx="18" fill="#FBF6EC" stroke="#E6D6E6" stroke-width="1.5"/>
+    <text x="158" y="345" text-anchor="middle">Depression + Alcohol</text>
+
+    <rect x="262" y="322" width="176" height="36" rx="18" fill="#FBF6EC" stroke="#E6D6E6" stroke-width="1.5"/>
+    <text x="350" y="345" text-anchor="middle">Anxiety + Stimulants</text>
+
+    <rect x="454" y="322" width="176" height="36" rx="18" fill="#FBF6EC" stroke="#E6D6E6" stroke-width="1.5"/>
+    <text x="542" y="345" text-anchor="middle">PTSD + Opioids</text>
+  </g>
+</svg>

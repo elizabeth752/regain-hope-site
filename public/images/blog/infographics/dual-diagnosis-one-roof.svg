@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" width="700" height="400" role="img" aria-labelledby="dr-title dr-desc">
+  <title id="dr-title">Medical care, psychiatry, and therapy under one coordinated team</title>
+  <desc id="dr-desc">Regain Hope's integrated treatment brings physician-led medical detox, psychiatry, and therapy together under one roof so addiction, the mental health condition beneath it, and physical health are all treated at once.</desc>
+
+  <!-- roof -->
+  <polygon points="350,26 108,150 592,150" fill="#3F2C3F"/>
+  <text x="350" y="110" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="1" fill="#FFFFFF">ONE ROOF, ONE TEAM</text>
+
+  <!-- beam -->
+  <rect x="100" y="150" width="500" height="14" rx="7" fill="#5A3F5A"/>
+
+  <!-- pillars -->
+  <rect x="175" y="164" width="50" height="140" rx="12" fill="#3C7E8E"/>
+  <rect x="325" y="164" width="50" height="140" rx="12" fill="#5A3F5A"/>
+  <rect x="475" y="164" width="50" height="140" rx="12" fill="#6B496B"/>
+
+  <!-- base -->
+  <rect x="90" y="304" width="520" height="16" rx="8" fill="#3F2C3F"/>
+
+  <!-- pillar labels -->
+  <g font-family="'Poppins', system-ui, sans-serif" font-size="14" font-weight="700" fill="#3F2C3F" text-anchor="middle">
+    <text x="200" y="345">Medical Care</text>
+    <text x="200" y="363" font-size="12.5" font-weight="400" fill="#55585A">detox &amp; physical health</text>
+
+    <text x="350" y="345">Psychiatry</text>
+    <text x="350" y="363" font-size="12.5" font-weight="400" fill="#55585A">the condition beneath it</text>
+
+    <text x="500" y="345">Therapy</text>
+    <text x="500" y="363" font-size="12.5" font-weight="400" fill="#55585A">the addiction itself</text>
+  </g>
+</svg>
