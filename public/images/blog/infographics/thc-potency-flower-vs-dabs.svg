@@ -1,0 +1,37 @@
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="tpTitle tpDesc">
+  <title id="tpTitle">THC potency: cannabis flower vs. dabs</title>
+  <desc id="tpDesc">Cannabis flower contains roughly 16 to 24 percent THC. Dabs, a concentrated marijuana extract, range from about 60 percent to over 90 percent THC.</desc>
+  <defs>
+    <path id="drip" d="M12 2C12 2 5 10.5 5 15a7 7 0 0 0 14 0c0-4.5-7-13-7-13z"/>
+    <clipPath id="clipFlower"><use href="#drip" transform="translate(218,218) scale(11)"/></clipPath>
+    <clipPath id="clipDabs"><use href="#drip" transform="translate(658,108) scale(16)"/></clipPath>
+  </defs>
+
+  <text x="600" y="50" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="30" font-weight="700" fill="#3B1A3F">THC Potency: Flower vs. Dabs</text>
+  <text x="600" y="80" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="16" fill="#55585A">Concentration of THC by product type</text>
+
+  <line x1="150" y1="460" x2="1050" y2="460" stroke="#E6D6E6" stroke-width="3"/>
+
+  <!-- Flower drip -->
+  <use href="#drip" transform="translate(218,218) scale(11)" fill="#E6D6E6"/>
+  <g clip-path="url(#clipFlower)">
+    <rect x="250" y="416" width="200" height="70" fill="#5A3F5A"/>
+  </g>
+  <use href="#drip" transform="translate(218,218) scale(11)" fill="none" stroke="#3F2C3F" stroke-width="3" vector-effect="non-scaling-stroke"/>
+  <text x="350" y="443" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="26" font-weight="700" fill="#ffffff">16&#8211;24%</text>
+
+  <!-- Dabs drip -->
+  <use href="#drip" transform="translate(658,108) scale(16)" fill="#D6C2DA"/>
+  <g clip-path="url(#clipDabs)">
+    <rect x="700" y="204" width="300" height="290" fill="#3C7E8E"/>
+  </g>
+  <use href="#drip" transform="translate(658,108) scale(16)" fill="none" stroke="#341A38" stroke-width="3" vector-effect="non-scaling-stroke"/>
+  <text x="850" y="310" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="30" font-weight="700" fill="#ffffff">60&#8211;90%+</text>
+
+  <!-- Labels -->
+  <text x="350" y="504" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="21" font-weight="600" fill="#3B1A3F">Cannabis Flower</text>
+  <text x="350" y="528" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="14" fill="#55585A">typical THC range</text>
+
+  <text x="850" y="504" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="21" font-weight="600" fill="#3B1A3F">Dabs (Concentrate)</text>
+  <text x="850" y="528" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="14" fill="#55585A">butane hash oil &amp; similar extracts</text>
+</svg>

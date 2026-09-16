@@ -1,0 +1,38 @@
+<svg viewBox="0 0 1200 680" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="feTitle feDesc">
+  <title id="feTitle">Fast-onset effects reported after dabbing</title>
+  <desc id="feDesc">People report anxiety, dizziness, rapid heart rate, blackouts, and nausea soon after inhaling dab vapor.</desc>
+
+  <text x="600" y="50" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="30" font-weight="700" fill="#3B1A3F">Fast-Onset Effects of Dabbing</text>
+  <text x="600" y="80" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="16" fill="#55585A">Commonly reported soon after inhaling</text>
+
+  <!-- connecting spokes -->
+  <line x1="600" y1="390" x2="600" y2="160" stroke="#5A3F5A" stroke-width="3"/>
+  <line x1="600" y1="390" x2="818.7" y2="318.9" stroke="#5A3F5A" stroke-width="3"/>
+  <line x1="600" y1="390" x2="735.2" y2="576.1" stroke="#5A3F5A" stroke-width="3"/>
+  <line x1="600" y1="390" x2="464.8" y2="576.1" stroke="#5A3F5A" stroke-width="3"/>
+  <line x1="600" y1="390" x2="381.3" y2="318.9" stroke="#5A3F5A" stroke-width="3"/>
+
+  <!-- center hub -->
+  <circle cx="600" cy="390" r="85" fill="#3F2C3F"/>
+  <path d="M600,338 L607,357 L626,360 L607,363 L600,382 L593,363 L574,360 L593,357 Z" fill="#D6C2DA"/>
+  <text x="600" y="410" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="23" font-weight="700" fill="#ffffff" letter-spacing="0.5">FAST</text>
+  <text x="600" y="436" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="23" font-weight="700" fill="#ffffff" letter-spacing="0.5">ONSET</text>
+
+  <!-- chips -->
+  <g font-family="'Poppins', system-ui, sans-serif" font-size="22" font-weight="600" fill="#19211F">
+    <rect x="490" y="128" width="220" height="64" rx="32" fill="#E6D6E6" stroke="#5A3F5A" stroke-width="1.5"/>
+    <text x="600" y="168" text-anchor="middle">Anxiety</text>
+
+    <rect x="708.7" y="286.9" width="220" height="64" rx="32" fill="#D6C2DA" stroke="#5A3F5A" stroke-width="1.5"/>
+    <text x="818.7" y="326.9" text-anchor="middle">Rapid Heart Rate</text>
+
+    <rect x="625.2" y="544.1" width="220" height="64" rx="32" fill="#E6D6E6" stroke="#5A3F5A" stroke-width="1.5"/>
+    <text x="735.2" y="584.1" text-anchor="middle">Nausea</text>
+
+    <rect x="354.8" y="544.1" width="220" height="64" rx="32" fill="#D6C2DA" stroke="#5A3F5A" stroke-width="1.5"/>
+    <text x="464.8" y="584.1" text-anchor="middle">Blackouts</text>
+
+    <rect x="271.3" y="286.9" width="220" height="64" rx="32" fill="#E6D6E6" stroke="#5A3F5A" stroke-width="1.5"/>
+    <text x="381.3" y="326.9" text-anchor="middle">Dizziness</text>
+  </g>
+</svg>

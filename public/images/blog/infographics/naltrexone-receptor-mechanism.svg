@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" width="760" height="340" role="img" aria-labelledby="rm-title rm-desc">
+  <title id="rm-title">How naltrexone blocks alcohol's reward pathway</title>
+  <desc id="rm-desc">Normally, alcohol triggers endorphins that bind opioid receptors and produce reward. Naltrexone occupies those same receptors, blocking the reward and dampening cravings.</desc>
+
+  <defs>
+    <marker id="arrowLilac" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#C3A9C3"/>
+    </marker>
+  </defs>
+
+  <!-- Row A: Normally -->
+  <rect x="8" y="10" width="98" height="30" rx="15" fill="#E6D6E6"/>
+  <text x="57" y="30" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#3F2C3F">NORMALLY</text>
+
+  <!-- alcohol glass -->
+  <path d="M60,60 L100,60 L92,108 L68,108 Z" fill="#FFFFFF" stroke="#3F2C3F" stroke-width="2.5"/>
+  <path d="M68.5,92 L91.5,92 L88,108 L72,108 Z" fill="#3C7E8E"/>
+  <text x="80" y="130" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">Alcohol</text>
+
+  <line x1="115" y1="85" x2="200" y2="85" stroke="#C3A9C3" stroke-width="3" marker-end="url(#arrowLilac)"/>
+
+  <!-- endorphins -->
+  <circle cx="245" cy="75" r="8" fill="#3C7E8E"/>
+  <circle cx="265" cy="90" r="8" fill="#3C7E8E"/>
+  <circle cx="245" cy="100" r="8" fill="#3C7E8E"/>
+  <text x="255" y="130" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">Endorphins</text>
+
+  <line x1="285" y1="85" x2="360" y2="85" stroke="#C3A9C3" stroke-width="3" marker-end="url(#arrowLilac)"/>
+
+  <!-- receptor docked (open) -->
+  <circle cx="410" cy="85" r="30" fill="#FFFFFF" stroke="#3F2C3F" stroke-width="2.5"/>
+  <circle cx="410" cy="85" r="12" fill="#3C7E8E"/>
+  <text x="410" y="130" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">Receptor</text>
+
+  <line x1="450" y1="85" x2="525" y2="85" stroke="#C3A9C3" stroke-width="3" marker-end="url(#arrowLilac)"/>
+
+  <!-- reward burst, bright -->
+  <g transform="translate(590,85)">
+    <polygon points="0,-34 8,-10 32,-14 12,2 22,26 0,12 -22,26 -12,2 -32,-14 -8,-10" fill="#6B496B"/>
+  </g>
+  <text x="590" y="130" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#3F2C3F">Reward</text>
+
+  <!-- divider -->
+  <line x1="8" y1="168" x2="752" y2="168" stroke="#E6D6E6" stroke-width="1.5"/>
+
+  <!-- Row B: With naltrexone -->
+  <rect x="8" y="180" width="150" height="30" rx="15" fill="#3F2C3F"/>
+  <text x="83" y="200" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#FFFFFF">WITH NALTREXONE</text>
+
+  <!-- alcohol glass -->
+  <path d="M60,225 L100,225 L92,273 L68,273 Z" fill="#FFFFFF" stroke="#3F2C3F" stroke-width="2.5"/>
+  <path d="M68.5,257 L91.5,257 L88,273 L72,273 Z" fill="#3C7E8E"/>
+  <text x="80" y="295" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">Alcohol</text>
+
+  <line x1="115" y1="250" x2="200" y2="250" stroke="#C3A9C3" stroke-width="3" marker-end="url(#arrowLilac)"/>
+
+  <!-- endorphins, unable to dock -->
+  <circle cx="245" cy="240" r="8" fill="#D6C2DA"/>
+  <circle cx="265" cy="255" r="8" fill="#D6C2DA"/>
+  <circle cx="245" cy="265" r="8" fill="#D6C2DA"/>
+  <text x="255" y="295" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">Endorphins</text>
+
+  <line x1="285" y1="250" x2="360" y2="250" stroke="#C3A9C3" stroke-width="3" marker-end="url(#arrowLilac)"/>
+
+  <!-- receptor occupied by naltrexone, blocked -->
+  <circle cx="410" cy="250" r="30" fill="#FFFFFF" stroke="#3F2C3F" stroke-width="2.5"/>
+  <circle cx="410" cy="250" r="12" fill="#3F2C3F"/>
+  <circle cx="410" cy="250" r="30" fill="none" stroke="#3F2C3F" stroke-width="3.5"/>
+  <line x1="391" y1="231" x2="429" y2="269" stroke="#3F2C3F" stroke-width="3.5"/>
+  <text x="410" y="295" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">Receptor blocked</text>
+
+  <line x1="450" y1="250" x2="525" y2="250" stroke="#C3A9C3" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowLilac)"/>
+
+  <!-- reward burst, dampened -->
+  <g transform="translate(590,250)">
+    <polygon points="0,-20 5,-6 19,-8 7,1 13,15 0,7 -13,15 -7,1 -19,-8 -5,-6" fill="#D6C2DA"/>
+  </g>
+  <text x="590" y="295" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">Reward dampened</text>
+</svg>

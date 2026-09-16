@@ -326,6 +326,12 @@ footer a{color:#cfc3b5;display:block;padding:4px 0;} footer a:hover{color:var(--
 .rich ol li::marker{color:var(--gold-deep);font-weight:700;}
 .rich p:last-child,.rich ul:last-child,.rich ol:last-child{margin-bottom:0;}
 
+/* in-article infographics — one small, section-adjacent SVG at a time,
+   never a full-width poster; see docs on blog infographic standard */
+.bp-infographic{margin:22px 0;padding:20px;background:var(--paper);border:1px solid var(--caoba-soft);border-radius:var(--radius);box-shadow:var(--shadow);}
+.bp-infographic img,.bp-infographic svg{display:block;width:100%;height:auto;}
+.bp-infographic figcaption{margin-top:12px;font-size:13.5px;color:var(--muted);text-align:center;}
+
 /* insurance banner module (mid-page conversion) */
 .insbanner{background:var(--caoba-soft);border-radius:18px;padding:34px 40px;display:flex;align-items:center;gap:30px;flex-wrap:wrap;justify-content:space-between;box-shadow:var(--shadow-lg);}
 .insbanner .t{color:var(--ink);max-width:560px;}

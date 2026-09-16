@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" width="560" height="300" role="img" aria-labelledby="hp-title hp-desc">
+  <title id="hp-title">22% of social drinkers experience hangxiety</title>
+  <desc id="hp-desc">Among people who drink socially and do not meet criteria for alcohol use disorder, 22 percent experience anxiety symptoms after drinking.</desc>
+
+  <g transform="translate(160,150)">
+    <circle r="94" fill="none" stroke="#E6D6E6" stroke-width="28"/>
+    <circle r="94" transform="rotate(-90)" fill="none" stroke="#3C7E8E" stroke-width="28" stroke-linecap="round" stroke-dasharray="130 461"/>
+    <text x="0" y="-4" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-weight="700" font-size="54" fill="#3F2C3F">22%</text>
+    <text x="0" y="30" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13.5" fill="#55585A">of social drinkers</text>
+  </g>
+
+  <text x="330" y="90" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" font-weight="700" letter-spacing="1.5" fill="#6B496B">HANGXIETY</text>
+  <text x="330" y="122" font-family="'Poppins', system-ui, sans-serif" font-size="17.5" font-weight="600" fill="#19211F">
+    <tspan x="330" dy="0">report anxiety symptoms</tspan>
+    <tspan x="330" dy="24">the day after drinking —</tspan>
+  </text>
+  <text x="330" y="182" font-family="'Poppins', system-ui, sans-serif" font-size="14" fill="#55585A">
+    <tspan x="330" dy="0">even without a diagnosed</tspan>
+    <tspan x="330" dy="20">alcohol use disorder</tspan>
+  </text>
+</svg>

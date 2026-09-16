@@ -1,0 +1,45 @@
+<svg viewBox="0 0 1200 580" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="wtTitle wtDesc">
+  <title id="wtTitle">Cannabis withdrawal timeline</title>
+  <desc id="wtDesc">Withdrawal symptoms typically begin 1 to 2 days after stopping cannabis, peak within roughly days 2 through 6, then gradually taper off over several weeks.</desc>
+
+  <text x="600" y="50" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="30" font-weight="700" fill="#3B1A3F">Cannabis Withdrawal Timeline</text>
+  <text x="600" y="80" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="16" fill="#55585A">Typical course of symptoms after stopping</text>
+
+  <!-- peak window shading -->
+  <rect x="200" y="120" width="200" height="320" fill="#E6D6E6" opacity="0.55"/>
+
+  <!-- area under curve -->
+  <path d="M100,440 C160,440 200,220 300,150 C420,230 520,320 650,370 C800,420 950,435 1100,440 Z" fill="#E6D6E6" fill-opacity="0.55" stroke="none"/>
+
+  <!-- axis -->
+  <line x1="100" y1="440" x2="1100" y2="440" stroke="#C3A9C3" stroke-width="2"/>
+
+  <!-- curve -->
+  <path d="M100,440 C160,440 200,220 300,150 C420,230 520,320 650,370 C800,420 950,435 1100,440" fill="none" stroke="#3C7E8E" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- dashed peak-window boundaries -->
+  <line x1="200" y1="120" x2="200" y2="440" stroke="#5A3F5A" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
+  <line x1="400" y1="120" x2="400" y2="440" stroke="#5A3F5A" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
+
+  <!-- markers -->
+  <circle cx="150" cy="380" r="7" fill="#3F2C3F"/>
+  <circle cx="300" cy="150" r="8" fill="#3C7E8E" stroke="#ffffff" stroke-width="2"/>
+  <circle cx="800" cy="405" r="7" fill="#3F2C3F"/>
+
+  <!-- leader lines -->
+  <line x1="150" y1="380" x2="150" y2="500" stroke="#5A3F5A" stroke-width="1.5" stroke-dasharray="3,4"/>
+  <line x1="300" y1="150" x2="300" y2="500" stroke="#5A3F5A" stroke-width="1.5" stroke-dasharray="3,4"/>
+  <line x1="800" y1="405" x2="800" y2="500" stroke="#5A3F5A" stroke-width="1.5" stroke-dasharray="3,4"/>
+
+  <!-- labels -->
+  <g font-family="'Poppins', system-ui, sans-serif" text-anchor="middle">
+    <text x="150" y="522" font-size="17" font-weight="700" fill="#3B1A3F">Day 1&#8211;2</text>
+    <text x="150" y="544" font-size="13" fill="#55585A">Symptoms begin</text>
+
+    <text x="300" y="522" font-size="17" font-weight="700" fill="#3B1A3F">Day 2&#8211;6</text>
+    <text x="300" y="544" font-size="13" fill="#55585A">Peak intensity</text>
+
+    <text x="800" y="522" font-size="17" font-weight="700" fill="#3B1A3F">Several Weeks</text>
+    <text x="800" y="544" font-size="13" fill="#55585A">Gradual tapering</text>
+  </g>
+</svg>
