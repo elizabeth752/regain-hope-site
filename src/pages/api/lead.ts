@@ -26,6 +26,8 @@ type LeadBody = {
   phone: string;
   insurance_carrier: string;
   policy_id: string;
+  date_of_birth: string;
+  visitor_sid: string;
   company_website: string;
   consent: boolean;
   attribution: Record<string, string>;
@@ -99,6 +101,8 @@ async function readBody(request: Request): Promise<LeadBody> {
       phone: typeof raw.phone === 'string' ? raw.phone.trim() : '',
       insurance_carrier: typeof raw.insurance_carrier === 'string' ? raw.insurance_carrier.trim() : '',
       policy_id: typeof raw.policy_id === 'string' ? raw.policy_id.trim() : '',
+      date_of_birth: typeof raw.date_of_birth === 'string' ? raw.date_of_birth.trim() : '',
+      visitor_sid: typeof raw.visitor_sid === 'string' ? raw.visitor_sid.trim() : '',
       company_website: typeof raw.company_website === 'string' ? raw.company_website.trim() : '',
       consent: raw.consent === true || raw.consent === 'true' || raw.consent === 'on' || raw.consent === '1',
       attribution,
@@ -117,10 +121,31 @@ async function readBody(request: Request): Promise<LeadBody> {
     phone: asString(form.get('phone')),
     insurance_carrier: asString(form.get('insurance_carrier')),
     policy_id: asString(form.get('policy_id')),
+    date_of_birth: asString(form.get('date_of_birth')),
+    visitor_sid: asString(form.get('visitor_sid')),
     company_website: asString(form.get('company_website')),
     consent: consentRaw === 'on' || consentRaw === '1' || consentRaw === 'true',
     attribution,
   };
+}
+
+// <input type="date"> submits YYYY-MM-DD. CTM gets MM/DD/YYYY, the way
+// admissions reads a date of birth. Returns '' for anything that is not a
+// real calendar date between 1900 and today.
+function dobForCtm(raw: string): string {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(raw);
+  if (!m) return '';
+  const [, y, mo, d] = m;
+  const date = new Date(Date.UTC(Number(y), Number(mo) - 1, Number(d)));
+  if (date.getUTCFullYear() !== Number(y) || date.getUTCMonth() !== Number(mo) - 1 || date.getUTCDate() !== Number(d)) return '';
+  if (Number(y) < 1900 || date.getTime() > Date.now()) return '';
+  return `${mo}/${d}/${y}`;
+}
+
+// CTM session ids are short alphanumeric tokens. Anything else is dropped
+// rather than forwarded.
+function cleanSid(raw: string): string {
+  return /^[A-Za-z0-9_-]{1,100}$/.test(raw) ? raw : '';
 }
 
 function validate(body: LeadBody): string | null {
@@ -131,6 +156,7 @@ function validate(body: LeadBody): string | null {
   if (body.policy_id && (body.policy_id.length > 40 || /[^A-Za-z0-9\-_]/.test(body.policy_id))) {
     return 'Policy ID can only include letters, numbers, hyphens, and underscores.';
   }
+  if (body.date_of_birth && !dobForCtm(body.date_of_birth)) return 'Please enter a valid date of birth.';
   if (!body.consent) return 'Consent is required to request a callback.';
   return null;
 }
@@ -177,6 +203,12 @@ export const POST: APIRoute = async ({ request }) => {
   params.set('phone_number', toE164(body.phone));
   params.set('custom_fields[insurance_carrier]', body.insurance_carrier);
   if (body.policy_id) params.set('custom_fields[member__policy_id]', body.policy_id);
+  const dob = dobForCtm(body.date_of_birth);
+  if (dob) params.set('custom_fields[date_of_birth]', dob);
+  // Ties the lead to the visitor's CTM session, so CTM reports the real
+  // source. Without it the post comes from Vercel and files as a referral.
+  const sid = cleanSid(body.visitor_sid);
+  if (sid) params.set('visitor_sid', sid);
   for (const [ctmKey, value] of Object.entries(body.attribution)) {
     params.set(`paid_attribution[${ctmKey}]`, value);
   }
