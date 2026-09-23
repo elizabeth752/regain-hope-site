@@ -61,7 +61,7 @@ const {
         <form class="hero-form" action="/api/lead/" method="post">
           <img class="form-hipaa" src="/images/logos/hipaa.svg" alt="" width="64" height="36" loading="lazy" decoding="async" />
           <h3>Verify Your Insurance</h3>
-          <p class="fsub">Free and confidential. Leave your name and number and we'll call you right back to check your coverage. Most PPO plans accepted. Policy ID is optional — we can collect it by phone.</p>
+          <p class="fsub">Free and confidential. Leave your name and number and we'll call you right back to check your coverage. Most PPO plans accepted. Date of birth and policy ID are optional, and we can collect them by phone.</p>
           <div class="hp" aria-hidden="true">
             <input name="company_website" type="text" tabindex="-1" autocomplete="off" />
           </div>
@@ -70,6 +70,7 @@ const {
             <div><label for="ph">Phone</label><input id="ph" name="phone" type="tel" autocomplete="tel" required /></div>
           </div>
           <div class="frow">
+            <div><label for="dob">Date of birth <span class="optional">(optional)</span></label><input id="dob" name="date_of_birth" type="date" autocomplete="bday" min="1900-01-01" /></div>
             <div>
               <label for="ic">Insurance carrier</label>
               <select id="ic" name="insurance_carrier" required>
@@ -86,15 +87,18 @@ const {
                 <option>Other</option>
               </select>
             </div>
-            <div>
-              <label for="pid">Policy / Member ID <span class="optional">(optional)</span></label>
-              <input id="pid" name="policy_id" autocomplete="off" inputmode="text" maxlength="40" />
-            </div>
           </div>
+          <div>
+            <label for="pid">Policy / Member ID <span class="optional">(optional)</span></label>
+            <input id="pid" name="policy_id" autocomplete="off" inputmode="text" maxlength="40" />
+          </div>
+          {/* CTM's visitor session id, filled at submit. Without it CTM files every
+              lead as a referral from our own server instead of the real source. */}
+          <input type="hidden" name="visitor_sid" value="" data-visitor-sid />
           <label class="optin"><input type="checkbox" name="sms_consent" value="1" required style="width:auto;margin:2px 0 0;" /> <span>I agree to receive calls/texts from Regain Hope Detox and Recovery Center about treatment. Msg &amp; data rates may apply. Reply STOP to opt out. Consent is not a condition of treatment.</span></label>
           <p class="form-error" hidden role="alert"></p>
           <button type="submit">Request My Callback</button>
-          <p class="hipaa">Your information is private and confidential. We do not send policy IDs to advertising tools.</p>
+          <p class="hipaa">Your information is private and confidential. We do not send policy IDs or dates of birth to advertising tools.</p>
         </form>
       </div>
     ) : (
@@ -157,6 +161,13 @@ const {
           if (v) attribution[ctmKey] = v;
         });
 
+        // CTM's session id. Read at submit, not at page load: GTM (and CTM's
+        // script with it) only loads on first interaction. Cookie is the
+        // fallback when the script is blocked or still loading.
+        const ctm = (window as any).__ctm;
+        const cookieSid = document.cookie.match(/(?:^|;\s*)__ctmid=([^;]+)/);
+        const visitorSid = ctm?.config?.sid ? String(ctm.config.sid) : cookieSid ? decodeURIComponent(cookieSid[1]) : '';
+
         try {
           const res = await fetch('/api/lead/', {
             method: 'POST',
@@ -166,6 +177,8 @@ const {
               phone: data.get('phone') || '',
               insurance_carrier: data.get('insurance_carrier') || '',
               policy_id: data.get('policy_id') || '',
+              date_of_birth: data.get('date_of_birth') || '',
+              visitor_sid: visitorSid,
               company_website: data.get('company_website') || '',
               consent: data.get('sms_consent') === '1',
               attribution,
