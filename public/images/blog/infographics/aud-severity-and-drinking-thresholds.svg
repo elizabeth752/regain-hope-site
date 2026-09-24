@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400" role="img" aria-labelledby="aud-title aud-desc">
   <title id="aud-title">AUD severity by DSM-5 criteria met, and NIAAA heavy drinking thresholds</title>
-  <desc id="aud-desc">Meeting 2 or more of 11 DSM-5 criteria within 12 months establishes an alcohol use disorder diagnosis: 2 to 3 criteria is mild, 4 to 5 is moderate, 6 or more is severe. NIAAA defines heavy drinking as more than 4 drinks a day or 14 a week for men, and more than 3 a day or 7 a week for women.</desc>
+  <desc id="aud-desc">Meeting 2 or more of 11 DSM-5 criteria within 12 months establishes an alcohol use disorder diagnosis: 2 to 3 criteria is mild, 4 to 5 is moderate, 6 or more is severe. Criteria include craving, loss of control, tolerance, and withdrawal. NIAAA defines heavy drinking as more than 4 drinks a day or 14 a week for men, and more than 3 a day or 7 a week for women.</desc>
 
   <rect width="900" height="400" rx="18" fill="#FBF6EC"/>
 
@@ -33,6 +33,18 @@
     <line x1="102" y1="-14" x2="102" y2="46" stroke="#C77B2B" stroke-width="2.5" stroke-dasharray="4 4"/>
     <text x="102" y="-20" font-family="'Poppins', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#C77B2B" text-anchor="middle">Diagnosis threshold</text>
   </g>
+
+  <!-- DSM-5 criteria examples: fills the space below the scale -->
+  <text x="40" y="206" font-family="'Poppins', system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="1" fill="#3B1A3F">DSM-5 CRITERIA INCLUDE</text>
+  <g font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#1E4650">
+    <rect x="40" y="222" width="105" height="34" rx="17" fill="#EAF3F4"/><text x="60" y="243">Craving</text>
+    <rect x="160" y="222" width="160" height="34" rx="17" fill="#EAF3F4"/><text x="180" y="243">Loss of control</text>
+    <rect x="40" y="266" width="120" height="34" rx="17" fill="#EAF3F4"/><text x="60" y="287">Tolerance</text>
+    <rect x="175" y="266" width="125" height="34" rx="17" fill="#EAF3F4"/><text x="195" y="287">Withdrawal</text>
+  </g>
+  <text x="40" y="326" font-family="'Poppins', system-ui, sans-serif" font-size="11" fill="#55585A">Severity is defined by these behaviors</text>
+  <text x="40" y="342" font-family="'Poppins', system-ui, sans-serif" font-size="11" fill="#55585A">and their consequences&#8212;not simply</text>
+  <text x="40" y="358" font-family="'Poppins', system-ui, sans-serif" font-size="11" fill="#55585A">by how much or how often someone drinks.</text>
 
   <!-- divider -->
   <line x1="600" y1="82" x2="600" y2="360" stroke="#E6D6E6" stroke-width="1.5" stroke-dasharray="3 5"/>
