@@ -1,0 +1,149 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TeamStrip from '../../components/TeamStrip.astro';
+import Reviews from '../../components/Reviews.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import PhysicianLed from '../../components/PhysicianLed.astro';
+import ImageFeature from '../../components/ImageFeature.astro';
+import InsuranceBanner from '../../components/InsuranceBanner.astro';
+
+// Content from the client's kratom doc (2026-09-23), with three corrections:
+//   - The doc called Regain "in-network". It is out-of-network (PPO), as the
+//     insurance pages state, so this page uses that wording.
+//   - The doc led MAT with buprenorphine and methadone. The site says Regain
+//     leads with naltrexone and is not a methadone clinic, and NIDA says there
+//     are no approved medications for kratom yet. Medication stays general.
+//   - No physician byline or reviewedBy: every other substance page carries
+//     Dr. Gomez Gonzalez's, but that is a claim she reviewed this page. Add
+//     both once she has.
+const faqs = [
+  { q: 'What is kratom?', a: 'Kratom is a tree, Mitragyna speciosa, native to Southeast Asia, and the products made from its leaves. In the U.S. it is sold as dried leaves, powder, capsules, or extract, marketed for pain, mood, and energy. Its active compounds act on the brain\'s opioid receptors, so regular use can lead to dependence and addiction. It is not approved by the FDA for any medical use.' },
+  { q: 'Is kratom addictive?', a: 'It can be. The FDA has documented cases of kratom use disorder that meet the standard criteria for addiction, including tolerance, using more than intended, and withdrawal when stopping.' },
+  { q: 'What are kratom withdrawal symptoms?', a: 'Commonly reported symptoms include muscle and joint aches, sweating, chills, runny nose, nausea or diarrhea, trouble sleeping, restlessness, irritability, anxiety, and low mood. Withdrawal is usually mild to moderate, and tends to be harder after heavier, more frequent use.' },
+  { q: 'What does treatment for kratom addiction involve?', a: 'Medical detox to get through withdrawal safely, with physicians on-site and medication for comfort when needed, followed by residential treatment with therapy such as CBT and DBT.' },
+  { q: 'Does insurance cover kratom addiction treatment?', a: 'Most PPO plans do. As an out-of-network provider, we verify your benefits for free.' },
+  { q: 'Do you offer kratom treatment in Spanish or Korean?', a: 'Yes. Our physicians speak English, Spanish, and Korean, and are on-site at our Burbank center every day.' },
+  { q: 'Where is Regain Hope Detox located?', a: 'At 1134 N Lima St, Burbank, CA 91505, serving Burbank and the greater Los Angeles area.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'Kratom Addiction Treatment & Detox in Los Angeles', about: { '@type': 'MedicalCondition', name: 'Kratom Use Disorder' } };
+
+const continuum = [
+  ['detox', 'Medical Detox', 'Kratom withdrawal managed 24/7 by physicians.', '/programs/medical-detox/'],
+  ['home', 'Residential Treatment', 'Therapy and skills in a home-like setting.', '/programs/residential-treatment/'],
+  ['mat', 'Medication-Assisted Treatment', 'Medication for cravings and withdrawal when appropriate.', '/programs/medication-assisted-treatment/'],
+  ['dual', 'Dual-Diagnosis Care', 'Treating co-occurring depression, anxiety, or trauma.', '/programs/dual-diagnosis-treatment/'],
+  ['heart', 'Continuing Care', 'Relapse-prevention planning + personal follow-up.', '/programs/continuing-care/'],
+];
+const NIDA = 'https://nida.nih.gov/research-topics/kratom';
+const FDA = 'https://www.fda.gov/news-events/public-health-focus/fda-and-kratom';
+---
+<Layout
+  title="Kratom Addiction Treatment & Detox in Los Angeles | Regain Hope Detox and Recovery Center"
+  description="Physician-supervised kratom detox and addiction treatment in Burbank, serving the Los Angeles area. Medically managed withdrawal, CBT and DBT, and residential care. PPO accepted. Call 24/7."
+  schema={[pageSchema, faqSchema]}
+>
+  <Hero
+    variant="form"
+    eyebrow="What We Treat · Burbank, Los Angeles Area · 24/7"
+    title="Kratom Addiction Treatment & Detox in the Los Angeles Area"
+    lead="If you or someone you care about is struggling with kratom, we can help. Our Burbank team supports withdrawal, stabilization, and recovery, and it can start with a phone call."
+    chips={['Physician-supervised, 24/7 kratom detox', 'Owned & run by two physicians', 'Couples accepted & treated together', 'Care in English, Spanish & Korean']}
+  />
+
+  <div class="trust"><div class="container">
+    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span><span>Joint Commission Accredited</span><span class="sep">|</span><span>California DHCS Licensed</span><span class="sep">|</span><span>LegitScript Certified</span><span class="sep">|</span><span>Two physicians on-site daily</span>
+  </div></div>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>What is kratom?</h2>
+    <p><b>Kratom comes from <i>Mitragyna speciosa</i>, a tree native to Southeast Asia</b> (National Institute on Drug Abuse, NIDA). In the U.S. it is sold as a supplement marketed for pain relief, better mood, and more energy, and some people use it to self-treat opioid withdrawal. It is sold online and in gas stations, smoke shops, and vape shops, and taken as raw or dried leaves, powder, tea, capsules, or concentrated extract.</p>
+    <p>Kratom is <b>not approved by the FDA for any medical use</b>, and it is not lawfully marketed as a dietary supplement. Its main active compounds, <b>mitragynine and 7-hydroxymitragynine (7-OH)</b>, act on the brain's opioid receptors. That is why regular use can lead to tolerance, dependence, and addiction, and why stopping suddenly can bring on withdrawal.</p>
+  </div></section>
+
+  <ImageFeature
+    bg="cream"
+    image="/images/stock/support.webp"
+    alt="A person feeling supported and at peace in recovery"
+    side="left"
+    eyebrow="Kratom recovery in Burbank"
+    title="Kratom addiction can be treated"
+    body="Kratom is easy to buy and easy to underestimate, which can make it hard to admit it has taken hold. People recover from it and go on to live full lives, and a medically supervised start makes that far more likely."
+    points={[['stethoscope', '24/7 physician supervision'], ['meal', 'Home-cooked meals, shared together'], ['heart', 'Compassion, never judgment']]}
+  />
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Signs of kratom addiction</h2>
+    <p>Kratom addiction can be hard to recognize, because the substance is widely available and loosely regulated. Signs that use has become a problem include:</p>
+    <ul>
+      <li>Strong cravings for kratom</li>
+      <li>Needing more kratom to get the same effect (tolerance)</li>
+      <li>Using higher doses, or using more often, than intended</li>
+      <li>Spending more time, money, and effort getting and using kratom</li>
+      <li>Feeling irritable, anxious, or restless between doses</li>
+      <li>Continuing to use despite negative consequences</li>
+      <li>Using kratom to prevent or relieve withdrawal</li>
+    </ul>
+  </div></section>
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>Kratom withdrawal symptoms</h2>
+    <p>When someone who uses kratom regularly cuts back or stops, withdrawal can set in. Commonly reported symptoms include <b>sweating, chills and hot flashes, muscle and joint aches, watery eyes and a runny nose, nausea or diarrhea, trouble sleeping, restlessness, irritability, anxiety, and low mood</b>.</p>
+    <p>NIDA describes kratom withdrawal as usually <b>mild to moderate</b>, though it tends to be harder after heavier and more frequent use. Kratom is also often used alongside other substances, including opioids, and combining them can be dangerous. That is why a full assessment matters, and why <a href="/programs/medical-detox/">medical detox</a> with physicians on-site is the safest place to stop.</p>
+  </div></section>
+
+  <section><div class="container">
+    <div class="sec-head"><span class="eyebrow">Our approach</span><h2>How we treat kratom addiction</h2></div>
+    <div class="grid3">
+      {continuum.map(([ico, t, d, href]) => (
+        <a class="pcard" href={href} style="text-decoration:none;display:block;"><div class="ico"><Icon name={ico} /></div><h3>{t}</h3><p>{d}</p><span class="more">Learn more →</span></a>
+      ))}
+    </div>
+  </div></section>
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>Kratom detox and residential treatment in Burbank</h2>
+    <p><b>Medical detox is the first step.</b> Our team supervises kratom detox 24/7 at our Burbank center, in a home-like setting, and provides medication to ease withdrawal and improve comfort when needed. After detox, we build a care plan with each patient, including the option to move straight into residential treatment.</p>
+    <p><b>Residential treatment follows detox.</b> You stay at our center while receiving individual and group therapy, medical support, and life skills coaching, with the focus on understanding and managing your triggers for lasting recovery. Families and support networks are welcome to visit.</p>
+    <p>Our programs are intentionally small. We are a family-run team with two physicians on-site every day, meals are cooked in-house and shared together, and the week includes yoga, hikes, and mindfulness.</p>
+    <div class="hero-cta"><a href="/programs/medical-detox/" class="btn btn-gold">Start Medical Detox</a></div>
+  </div></section>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Therapy for kratom addiction: CBT and DBT</h2>
+    <p><b>Cognitive Behavioral Therapy (CBT)</b> helps you identify and reframe the thoughts and behaviors that fuel kratom use, recognize your personal triggers, and build practical coping skills that help prevent relapse.</p>
+    <p><b>Dialectical Behavior Therapy (DBT)</b> builds distress tolerance, emotional regulation, and mindfulness skills to reduce impulsive behavior, along with communication skills that strengthen your support network.</p>
+    <p>Both work on the underlying drivers of addiction, not only the substance. Many people who use kratom are also living with anxiety, depression, chronic pain, or trauma, and our <a href="/programs/dual-diagnosis-treatment/">dual-diagnosis care</a> treats these together.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>Medication-assisted treatment for kratom withdrawal and cravings</h2>
+    <p>Because kratom acts on the brain's opioid receptors, the medications used for opioid use disorder can help some people manage kratom withdrawal and cravings. There is <b>no FDA-approved medication specifically for kratom</b> yet, and no kratom-specific treatment guideline, so medication here is a clinical judgment rather than a standard protocol. Our physicians decide whether <a href="/programs/medication-assisted-treatment/">medication-assisted treatment</a> is right for you, and tailor it to your needs.</p>
+  </div></section>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Kratom treatment for couples and in Spanish and Korean</h2>
+    <p>Addiction can affect anyone. Whether you are seeking care for yourself, for someone you love, or as a couple, we can accommodate you, and couples can be treated together. Our physicians speak <b>English, Spanish, and Korean</b> fluently. Learn more about care for <a href="/who-we-help/spanish-speaking/">Spanish-speaking</a> and <a href="/who-we-help/korean-speaking/">Korean-speaking</a> patients.</p>
+  </div></section>
+
+  <PhysicianLed bg="cream" />
+
+  <Reviews bg="white" />
+
+  <InsuranceBanner />
+
+  <section><div class="container">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Kratom addiction treatment, frequently asked questions</h2></div>
+    <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+    <p style="text-align:center;margin-top:26px;color:var(--muted);font-size:13px;">Clinical information on this page is informed by the <a href={NIDA} target="_blank" rel="noopener">National Institute on Drug Abuse (NIDA)</a> and the <a href={FDA} target="_blank" rel="noopener">U.S. Food and Drug Administration (FDA)</a>.</p>
+  </div></section>
+
+  <TeamStrip bg="cream" />
+
+  <section class="ctaband"><div class="container">
+    <h2>Call us to start kratom detox in Burbank</h2>
+    <p>Kratom addiction can be quiet and devastating, but it can be overcome. One confidential call, answered 24/7, is the first step, and we are here when you are ready.</p>
+    <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
+  </div></section>
+</Layout>
