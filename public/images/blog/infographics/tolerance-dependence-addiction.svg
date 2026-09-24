@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320" role="img" aria-labelledby="tda-title tda-desc">
+  <title id="tda-title">Tolerance, dependence, and addiction are not the same</title>
+  <desc id="tda-desc">Tolerance means needing a higher dose for the same effect. Dependence means withdrawal occurs when the drug is stopped. Both are expected and resolve within days to weeks. Addiction is different: craving, loss of control, and compulsive use despite harm, developing in only a minority of people and requiring treatment.</desc>
+
+  <rect width="760" height="320" rx="18" fill="#FBF6EC"/>
+
+  <!-- step 1: tolerance -->
+  <rect x="35" y="50" width="200" height="190" rx="14" fill="#fff" stroke="#E6D6E6" stroke-width="1.5"/>
+  <circle cx="135" cy="90" r="20" fill="#EAF3F4"/>
+  <path d="M126,94 l7,7 l14,-18" fill="none" stroke="#3C7E8E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="135" y="132" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="15" font-weight="700" fill="#3B1A3F">Tolerance</text>
+  <text x="135" y="156" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12" fill="#55585A">
+    <tspan x="135" dy="0">A higher dose is needed</tspan>
+    <tspan x="135" dy="16">for the same effect</tspan>
+  </text>
+  <rect x="65" y="200" width="140" height="24" rx="12" fill="#EAF3F4"/>
+  <text x="135" y="216" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#3C7E8E">RESOLVES IN DAYS&#8211;WEEKS</text>
+
+  <path d="M240,145 h35" fill="none" stroke="#C3A9C3" stroke-width="2.5"/>
+  <path d="M268,138 l10,7 l-10,7" fill="none" stroke="#C3A9C3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- step 2: dependence -->
+  <rect x="280" y="50" width="200" height="190" rx="14" fill="#fff" stroke="#E6D6E6" stroke-width="1.5"/>
+  <circle cx="380" cy="90" r="20" fill="#EAF3F4"/>
+  <path d="M372,82 v9 l6,6" fill="none" stroke="#3C7E8E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="380" cy="90" r="9" fill="none" stroke="#3C7E8E" stroke-width="3"/>
+  <text x="380" y="132" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="15" font-weight="700" fill="#3B1A3F">Dependence</text>
+  <text x="380" y="156" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12" fill="#55585A">
+    <tspan x="380" dy="0">Stopping suddenly</tspan>
+    <tspan x="380" dy="16">triggers withdrawal</tspan>
+  </text>
+  <rect x="310" y="200" width="140" height="24" rx="12" fill="#EAF3F4"/>
+  <text x="380" y="216" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#3C7E8E">RESOLVES IN DAYS&#8211;WEEKS</text>
+
+  <path d="M485,145 h35" fill="none" stroke="#C3A9C3" stroke-width="2.5"/>
+  <path d="M513,138 l10,7 l-10,7" fill="none" stroke="#C3A9C3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- step 3: addiction (emphasis) -->
+  <rect x="525" y="50" width="200" height="190" rx="14" fill="#341A38"/>
+  <circle cx="625" cy="90" r="20" fill="#4A2A4E"/>
+  <path d="M614,96 q11,-16 22,0" fill="none" stroke="#F7EFDD" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="625" cy="88" r="2.4" fill="#F7EFDD"/>
+  <text x="625" y="132" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="15" font-weight="700" fill="#F7EFDD">Addiction</text>
+  <text x="625" y="156" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12" fill="#D6C2DA">
+    <tspan x="625" dy="0">Craving and compulsive</tspan>
+    <tspan x="625" dy="16">use despite harm</tspan>
+  </text>
+  <rect x="555" y="200" width="140" height="24" rx="12" fill="#4A2A4E"/>
+  <text x="625" y="216" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#F7EFDD">DEVELOPS IN A MINORITY</text>
+
+  <text x="380" y="285" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12" fill="#55585A">Tolerance and dependence are expected physical responses. Addiction is different, and treatable.</text>
+</svg>

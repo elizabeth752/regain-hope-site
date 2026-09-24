@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" width="760" height="300" role="img" aria-labelledby="mm-title mm-desc">
+  <title id="mm-title">Misused most often vs. highest addiction risk</title>
+  <desc id="mm-desc">Opioids misused most often (hydrocodone, oxycodone, codeine, tramadol) are not the same drugs that carry the highest rate of opioid use disorder among people who misuse them (hydromorphone, fentanyl, methadone).</desc>
+
+  <rect width="760" height="300" rx="18" fill="#FBF6EC"/>
+
+  <!-- left column -->
+  <text x="60" y="42" font-family="'Poppins', system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="0.5" fill="#3C7E8E">MISUSED MOST OFTEN</text>
+  <line x1="60" y1="52" x2="330" y2="52" stroke="#BFDAE0" stroke-width="2"/>
+
+  <g font-family="'Poppins', system-ui, sans-serif" font-size="14" fill="#3B1A3F">
+    <circle cx="72" cy="80" r="12" fill="#EAF3F4"/><text x="72" y="85" text-anchor="middle" font-size="12" font-weight="700" fill="#3C7E8E">1</text>
+    <text x="94" y="85">Hydrocodone</text>
+    <rect x="94" y="93" width="220" height="6" rx="3" fill="#BFDAE0"/>
+
+    <circle cx="72" cy="128" r="12" fill="#EAF3F4"/><text x="72" y="133" text-anchor="middle" font-size="12" font-weight="700" fill="#3C7E8E">2</text>
+    <text x="94" y="133">Oxycodone</text>
+    <rect x="94" y="141" width="165" height="6" rx="3" fill="#8FC2CC"/>
+
+    <circle cx="72" cy="176" r="12" fill="#EAF3F4"/><text x="72" y="181" text-anchor="middle" font-size="12" font-weight="700" fill="#3C7E8E">3</text>
+    <text x="94" y="181">Codeine</text>
+    <rect x="94" y="189" width="125" height="6" rx="3" fill="#5FA3AF"/>
+
+    <circle cx="72" cy="224" r="12" fill="#EAF3F4"/><text x="72" y="229" text-anchor="middle" font-size="12" font-weight="700" fill="#3C7E8E">4</text>
+    <text x="94" y="229">Tramadol</text>
+    <rect x="94" y="237" width="75" height="6" rx="3" fill="#3C7E8E"/>
+  </g>
+  <text x="60" y="270" font-family="'Poppins', system-ui, sans-serif" font-size="11" fill="#55585A">by estimated number of people misusing, 2019</text>
+
+  <line x1="392" y1="30" x2="392" y2="270" stroke="#E6D6E6" stroke-width="1.5" stroke-dasharray="3 5"/>
+  <circle cx="392" cy="150" r="17" fill="#F1E6EF"/>
+  <text x="392" y="156" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="16" fill="#6B496B">&#8800;</text>
+
+  <!-- right column -->
+  <text x="424" y="42" font-family="'Poppins', system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="0.5" fill="#6B496B">HIGHEST ADDICTION RISK PER MISUSE</text>
+  <line x1="424" y1="52" x2="700" y2="52" stroke="#D6C2DA" stroke-width="2"/>
+
+  <g font-family="'Poppins', system-ui, sans-serif" font-size="14" fill="#3B1A3F">
+    <circle cx="436" cy="90" r="12" fill="#F1E6EF"/><path d="M431,90 l4,4 l6,-8" fill="none" stroke="#6B496B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="458" y="95">Hydromorphone (Dilaudid)</text>
+
+    <circle cx="436" cy="138" r="12" fill="#F1E6EF"/><path d="M431,138 l4,4 l6,-8" fill="none" stroke="#6B496B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="458" y="143">Fentanyl</text>
+
+    <circle cx="436" cy="186" r="12" fill="#F1E6EF"/><path d="M431,186 l4,4 l6,-8" fill="none" stroke="#6B496B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="458" y="191">Methadone</text>
+  </g>
+  <text x="424" y="270" font-family="'Poppins', system-ui, sans-serif" font-size="11" fill="#55585A">among people who misuse them, regardless of volume</text>
+</svg>

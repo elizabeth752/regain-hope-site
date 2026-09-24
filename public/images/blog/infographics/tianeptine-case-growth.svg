@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" width="760" height="300" role="img" aria-labelledby="tcg-title tcg-desc">
+  <title id="tcg-title">Tianeptine poison control cases are climbing fast</title>
+  <desc id="tcg-desc">U.S. poison control center cases involving tianeptine rose from 11 total between 2000 and 2013, to 151 in 2020, to 391 in 2023.</desc>
+
+  <rect width="760" height="300" rx="18" fill="#FBF6EC"/>
+  <text x="40" y="38" font-family="'Poppins', system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5" fill="#6B496B">U.S. POISON CONTROL CASES INVOLVING TIANEPTINE</text>
+
+  <line x1="60" y1="245" x2="700" y2="245" stroke="#E6D6E6" stroke-width="1.5"/>
+
+  <!-- bar 1: 11 cases (2000-2013) -->
+  <rect x="120" y="238" width="110" height="7" rx="3.5" fill="#BFDAE0"/>
+  <text x="175" y="222" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="22" font-weight="700" fill="#3B1A3F">11</text>
+  <text x="175" y="270" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12" fill="#55585A">2000&#8211;2013</text>
+
+  <!-- bar 2: 151 cases (2020) -->
+  <rect x="325" y="151" width="110" height="94" rx="3.5" fill="#7BB3BE"/>
+  <text x="380" y="135" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="22" font-weight="700" fill="#3B1A3F">151</text>
+  <text x="380" y="270" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12" fill="#55585A">2020</text>
+
+  <!-- bar 3: 391 cases (2023) -->
+  <rect x="530" y="55" width="110" height="190" rx="3.5" fill="#3C7E8E"/>
+  <text x="585" y="39" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="26" font-weight="700" fill="#3B1A3F">391</text>
+  <text x="585" y="270" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12" fill="#55585A">2023</text>
+
+  <text x="700" y="288" text-anchor="end" font-family="'Poppins', system-ui, sans-serif" font-size="11.5" fill="#55585A">cases reported to U.S. poison centers</text>
+</svg>
