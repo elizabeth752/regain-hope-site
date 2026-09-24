@@ -59,6 +59,15 @@ export const team = ['gomez', 'alexis', 'nora', 'jack'].map((k) => authors[k]);
 
 export const posts = [
   {
+    slug: 'what-is-a-high-functioning-alcoholic',
+    title: 'What Is a High Functioning Alcoholic?',
+    category: 'Alcohol',
+    author: 'gomez',
+    date: 'September 23, 2026',
+    image: '/images/blog/high-functioning-alcoholic.svg',
+    excerpt: 'A high functioning alcoholic goes to work, meets responsibilities, and seems fine socially, while drinking heavily and often unable to stop or cut back. Here\'s how to recognize the signs, the unique risks, and how treatment helps.',
+  },
+  {
     slug: 'signs-of-pain-medication-addiction-what-to-know',
     title: 'Signs of Pain Medication Addiction: What to Know',
     category: 'Opioids',
