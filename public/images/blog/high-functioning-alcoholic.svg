@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="hfa-title">
+  <title id="hfa-title">A duck gliding calmly on the surface while paddling hard beneath the water, representing a high functioning alcoholic</title>
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FBF6EC"/>
+      <stop offset="1" stop-color="#F1E6EF"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg2)"/>
+
+  <!-- soft decorative circles -->
+  <circle cx="1030" cy="130" r="160" fill="#E6D6E6" opacity="0.55"/>
+  <circle cx="1120" cy="480" r="210" fill="#D6C2DA" opacity="0.35"/>
+  <circle cx="120" cy="520" r="130" fill="#BFDAE0" opacity="0.5"/>
+
+  <!-- water -->
+  <rect x="0" y="360" width="1200" height="270" fill="#BFDAE0" opacity="0.32"/>
+  <path d="M0,360 C60,348 120,372 180,360 C240,348 300,372 360,360 C420,348 480,372 540,360 C600,348 660,372 720,360 C780,348 840,372 900,360 C960,348 1020,372 1080,360 C1120,354 1160,364 1200,360"
+        fill="none" stroke="#3C7E8E" stroke-width="3"/>
+
+  <!-- duck, larger, centered -->
+  <g transform="translate(600,300)">
+    <ellipse cx="0" cy="86" rx="120" ry="12" fill="none" stroke="#3C7E8E" stroke-width="2" opacity="0.4"/>
+    <ellipse cx="0" cy="86" rx="160" ry="15" fill="none" stroke="#3C7E8E" stroke-width="2" opacity="0.25"/>
+
+    <ellipse cx="0" cy="30" rx="78" ry="50" fill="#3B1A3F"/>
+    <circle cx="-64" cy="-14" r="34" fill="#3B1A3F"/>
+    <path d="M-96,-10 L-136,2 L-96,16 Z" fill="#C77B2B"/>
+    <circle cx="-72" cy="-20" r="4.4" fill="#FBF6EC"/>
+    <path d="M-8,4 C18,4 44,22 36,52 C16,56 -6,46 -18,26 Z" fill="#5A3F5A"/>
+
+    <g stroke="#3C7E8E" stroke-width="10" stroke-linecap="round" opacity="0.9">
+      <path d="M-24,78 C-52,110 -58,144 -40,178" fill="none"/>
+      <path d="M22,78 C50,116 34,152 60,184" fill="none"/>
+    </g>
+    <path d="M-52,170 c-18,7 -32,3 -38,-10 c14,-4 28,-4 38,10 Z" fill="#3C7E8E" opacity="0.85"/>
+    <path d="M52,178 c18,7 32,0 36,-14 c-14,-6 -28,-3 -36,14 Z" fill="#3C7E8E" opacity="0.85"/>
+  </g>
+</svg>

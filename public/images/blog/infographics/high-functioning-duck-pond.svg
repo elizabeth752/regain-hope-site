@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="760" height="380" role="img" aria-labelledby="duck-title duck-desc">
+  <title id="duck-title">What people see versus what's really happening with a high functioning alcoholic</title>
+  <desc id="duck-desc">Above the waterline: goes to work, meets responsibilities, seems fine socially. Below the waterline: drinking heavily, can't stop or cut back, hiding the struggle. Like a duck gliding calmly on the surface while paddling hard underneath.</desc>
+
+  <rect width="760" height="380" rx="18" fill="#FBF6EC"/>
+
+  <!-- water fill below the line -->
+  <rect x="0" y="196" width="760" height="184" fill="#BFDAE0" opacity="0.32"/>
+
+  <!-- waterline -->
+  <path d="M0,196 C40,188 80,204 120,196 C160,188 200,204 240,196 C280,188 320,204 360,196 C400,188 440,204 480,196 C520,188 560,204 600,196 C640,188 680,204 720,196 L760,196"
+        fill="none" stroke="#3C7E8E" stroke-width="2.5"/>
+
+  <!-- section labels -->
+  <text x="40" y="34" font-family="'Poppins', system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="1" fill="#6B496B">WHAT PEOPLE SEE</text>
+  <text x="40" y="228" font-family="'Poppins', system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="1" fill="#3C7E8E">WHAT'S REALLY HAPPENING</text>
+
+  <!-- duck: body floats on the line, legs paddle below -->
+  <g transform="translate(600,150)">
+    <!-- ripples on the surface -->
+    <ellipse cx="0" cy="48" rx="70" ry="7" fill="none" stroke="#3C7E8E" stroke-width="1.5" opacity="0.4"/>
+    <ellipse cx="0" cy="48" rx="95" ry="9" fill="none" stroke="#3C7E8E" stroke-width="1.5" opacity="0.25"/>
+    <!-- body -->
+    <ellipse cx="0" cy="20" rx="46" ry="30" fill="#3B1A3F"/>
+    <!-- head -->
+    <circle cx="-38" cy="-6" r="20" fill="#3B1A3F"/>
+    <!-- beak -->
+    <path d="M-56,-4 L-78,2 L-56,10 Z" fill="#C77B2B"/>
+    <!-- eye -->
+    <circle cx="-42" cy="-10" r="2.6" fill="#FBF6EC"/>
+    <!-- wing detail -->
+    <path d="M-6,4 C10,4 26,14 22,32 C10,34 -4,28 -10,16 Z" fill="#5A3F5A"/>
+    <!-- legs paddling hard beneath the surface -->
+    <g stroke="#3C7E8E" stroke-width="6" stroke-linecap="round" opacity="0.9">
+      <path d="M-14,46 C-30,64 -34,84 -24,104" fill="none"/>
+      <path d="M12,46 C28,68 20,90 34,108" fill="none"/>
+    </g>
+    <path d="M-30,100 c-10,4 -18,2 -22,-6 c8,-2 16,-2 22,6 Z" fill="#3C7E8E" opacity="0.85"/>
+    <path d="M30,104 c10,4 18,0 20,-8 c-8,-4 -16,-2 -20,8 Z" fill="#3C7E8E" opacity="0.85"/>
+    <!-- motion lines -->
+    <path d="M-46,70 C-50,74 -50,80 -46,84" fill="none" stroke="#3C7E8E" stroke-width="2" opacity="0.5"/>
+    <path d="M50,74 C54,78 54,84 50,88" fill="none" stroke="#3C7E8E" stroke-width="2" opacity="0.5"/>
+  </g>
+
+  <!-- chips: what people see -->
+  <g font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#3B1A3F">
+    <rect x="40" y="50" width="150" height="34" rx="17" fill="#F1E6EF"/><text x="60" y="71">Goes to work or school</text>
+    <rect x="40" y="94" width="230" height="34" rx="17" fill="#F1E6EF"/><text x="60" y="115">Meets daily responsibilities</text>
+    <rect x="40" y="138" width="190" height="34" rx="17" fill="#F1E6EF"/><text x="60" y="159">Seems fine socially</text>
+  </g>
+
+  <!-- chips: what's really happening -->
+  <g font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#1E4650">
+    <rect x="40" y="244" width="190" height="34" rx="17" fill="#EAF3F4"/><text x="60" y="265">Drinking heavily, often daily</text>
+    <rect x="40" y="288" width="220" height="34" rx="17" fill="#EAF3F4"/><text x="60" y="309">Can't stop or cut back</text>
+    <rect x="40" y="332" width="180" height="34" rx="17" fill="#EAF3F4"/><text x="60" y="353">Hiding the struggle</text>
+  </g>
+</svg>
