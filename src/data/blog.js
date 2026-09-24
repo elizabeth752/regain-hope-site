@@ -59,6 +59,24 @@ export const team = ['gomez', 'alexis', 'nora', 'jack'].map((k) => authors[k]);
 
 export const posts = [
   {
+    slug: 'signs-of-pain-medication-addiction-what-to-know',
+    title: 'Signs of Pain Medication Addiction: What to Know',
+    category: 'Opioids',
+    author: 'gomez',
+    date: 'September 23, 2026',
+    image: '/images/blog/signs-of-pain-medication-addiction.svg',
+    excerpt: 'Pain medication addiction often starts with a legitimate prescription and can hide in plain sight. Here\'s why opioids are addictive, the physical and behavioral signs to watch for, and how treatment helps.',
+  },
+  {
+    slug: 'gas-station-heroin-what-is-it-and-is-it-dangerous',
+    title: 'Gas Station Heroin: What Is It and Is It Dangerous?',
+    category: 'Opioids',
+    author: 'gomez',
+    date: 'September 23, 2026',
+    image: '/images/blog/gas-station-heroin-tianeptine-warning.svg',
+    excerpt: 'Gas station heroin is the street name for tianeptine, a highly addictive, opioid-like drug sold at gas stations, online, and in convenience stores. Here\'s what it is, its dangers, and how treatment helps.',
+  },
+  {
     slug: 'dab-drug-what-is-it-and-is-it-dangerous',
     title: 'Dab Drug: What Is It and Is It Dangerous?',
     category: 'Cannabis',
