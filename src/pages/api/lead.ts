@@ -199,7 +199,7 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   const params = new URLSearchParams();
-  params.set('name', body.name);
+  params.set('caller_name', body.name);
   params.set('phone_number', toE164(body.phone));
   params.set('custom_fields[insurance_carrier]', body.insurance_carrier);
   if (body.policy_id) params.set('custom_fields[member__policy_id]', body.policy_id);
