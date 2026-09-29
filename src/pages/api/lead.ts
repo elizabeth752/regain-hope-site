@@ -228,6 +228,15 @@ export const POST: APIRoute = async ({ request }) => {
         ? json(502, { ok: false, error: 'We could not send your request. Please call (818) 264-4388 or try again.' })
         : new Response('We could not send your request. Please call (818) 264-4388.', { status: 502 });
     }
+    // CTM answers a rejected lead with HTTP 200 and {"status":"error"}, so
+    // an OK response proves nothing. Only that explicit error counts as a failure.
+    const res = (await ctm.json().catch(() => null)) as { status?: string; text?: string } | null;
+    if (res?.status === 'error') {
+      console.error('CTM FormReactor rejected the lead:', res.text ?? '');
+      return asJson
+        ? json(502, { ok: false, error: 'We could not send your request. Please call (818) 264-4388 or try again.' })
+        : new Response('We could not send your request. Please call (818) 264-4388.', { status: 502 });
+    }
   } catch {
     console.error('CTM FormReactor request failed');
     return asJson
