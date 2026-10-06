@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080" role="img" aria-labelledby="soc-title">
+  <title id="soc-title">Does Ozempic help with alcohol cravings? Social media card for Regain Hope Detox and Recovery Center</title>
+  <defs>
+    <linearGradient id="bgSoc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FBF6EC"/>
+      <stop offset="1" stop-color="#F1E6EF"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1080" height="1080" fill="url(#bgSoc)"/>
+
+  <!-- soft decorative circles -->
+  <circle cx="960" cy="110" r="190" fill="#E6D6E6" opacity="0.5"/>
+  <circle cx="60" cy="980" r="190" fill="#BFDAE0" opacity="0.4"/>
+  <circle cx="1010" cy="950" r="130" fill="#D6C2DA" opacity="0.3"/>
+
+  <!-- eyebrow pill -->
+  <rect x="90" y="96" width="210" height="44" rx="22" fill="#3F2C3F"/>
+  <text x="195" y="124" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="16" font-weight="700" letter-spacing="1.5" fill="#FFFFFF">ALCOHOL &amp; MEDS</text>
+
+  <!-- headline -->
+  <text x="90" y="232" font-family="'Fraunces', Georgia, serif" font-size="58" font-weight="700" fill="#3B1A3F">Does Ozempic</text>
+  <text x="90" y="300" font-family="'Fraunces', Georgia, serif" font-size="58" font-weight="700" fill="#3B1A3F">Help With Alcohol</text>
+  <text x="90" y="368" font-family="'Fraunces', Georgia, serif" font-size="58" font-weight="700" fill="#3B1A3F">Cravings?</text>
+
+  <!-- illustration: pen + fading glass, centered -->
+  <g transform="translate(330,560) rotate(-18)">
+    <rect x="-30" y="-150" width="60" height="236" rx="19" fill="#FFFFFF" stroke="#3B1A3F" stroke-width="4"/>
+    <rect x="-30" y="-150" width="60" height="55" rx="19" fill="#3B1A3F"/>
+    <rect x="-16" y="-118" width="32" height="19" rx="5" fill="#FBF6EC"/>
+    <rect x="-19" y="-32" width="38" height="44" rx="7" fill="#EAF3F4" stroke="#3C7E8E" stroke-width="2.5"/>
+    <text x="0" y="0" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="20" font-weight="700" fill="#2E6B78">0.5</text>
+    <rect x="-11" y="76" width="22" height="10" fill="#3B1A3F"/>
+    <path d="M-8,86 L8,86 L3,108 L-3,108 Z" fill="#C7B6C7"/>
+  </g>
+
+  <path d="M430,500 C490,525 530,558 555,600" fill="none" stroke="#C3A9C3" stroke-width="5" stroke-linecap="round" stroke-dasharray="2,15"/>
+  <polygon points="555,600 537,586 566,580" fill="#C3A9C3"/>
+
+  <g transform="translate(660,470)">
+    <path d="M-66,-60 L66,-60 L41,88 L-41,88 Z" fill="#FFFFFF" stroke="#3B1A3F" stroke-width="4"/>
+    <path d="M-49,15 L49,15 L41,88 L-41,88 Z" fill="#3C7E8E" opacity="0.55"/>
+  </g>
+  <g transform="translate(790,540) scale(0.5)" opacity="0.4">
+    <path d="M-66,-60 L66,-60 L41,88 L-41,88 Z" fill="#FFFFFF" stroke="#3B1A3F" stroke-width="5.5"/>
+    <path d="M-22,52 L22,52 L18,88 L-18,88 Z" fill="#D6C2DA"/>
+  </g>
+
+  <!-- subtext card -->
+  <rect x="90" y="760" width="900" height="130" rx="18" fill="#FFFFFF" opacity="0.72" stroke="#E6D6E6" stroke-width="2"/>
+  <text x="120" y="812" font-family="'Poppins', system-ui, sans-serif" font-size="27" font-weight="600" fill="#19211F">It can lower cravings for alcohol —</text>
+  <text x="120" y="852" font-family="'Poppins', system-ui, sans-serif" font-size="27" font-weight="600" fill="#19211F">but it's not a substitute for treatment.</text>
+
+  <!-- footer / brand -->
+  <text x="90" y="970" font-family="'Fraunces', Georgia, serif" font-size="30" font-weight="700" fill="#3F2C3F">Regain Hope Detox</text>
+  <text x="90" y="1004" font-family="'Poppins', system-ui, sans-serif" font-size="18" fill="#55585A">Burbank, CA · regainhopedetox.com</text>
+</svg>

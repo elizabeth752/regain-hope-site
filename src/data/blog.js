@@ -59,6 +59,15 @@ export const team = ['gomez', 'alexis', 'nora', 'jack'].map((k) => authors[k]);
 
 export const posts = [
   {
+    slug: 'does-ozempic-help-with-alcohol-cravings',
+    title: 'Does Ozempic Help With Alcohol Cravings?',
+    category: 'Alcohol',
+    author: 'gomez',
+    date: 'October 6, 2026',
+    image: '/images/blog/ozempic-alcohol-cravings.svg',
+    excerpt: 'Ozempic can help lower cravings for alcohol, but it should not replace structured medical treatment for alcohol use disorder. Here\'s how it works, and why treatment still matters.',
+  },
+  {
     slug: 'what-is-a-high-functioning-alcoholic',
     title: 'What Is a High Functioning Alcoholic?',
     category: 'Alcohol',

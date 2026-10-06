@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="oac-title">
+  <title id="oac-title">An Ozempic injector pen beside a glass of alcohol fading and shrinking, representing reduced cravings</title>
+  <defs>
+    <linearGradient id="bgOac" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FBF6EC"/>
+      <stop offset="1" stop-color="#F1E6EF"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bgOac)"/>
+
+  <!-- soft decorative circles -->
+  <circle cx="1060" cy="120" r="170" fill="#E6D6E6" opacity="0.55"/>
+  <circle cx="1140" cy="500" r="200" fill="#BFDAE0" opacity="0.4"/>
+  <circle cx="110" cy="500" r="140" fill="#D6C2DA" opacity="0.35"/>
+
+  <!-- faint molecule motif, upper left -->
+  <g opacity="0.35" stroke="#3C7E8E" stroke-width="3">
+    <line x1="150" y1="150" x2="200" y2="110"/>
+    <line x1="200" y1="110" x2="260" y2="130"/>
+    <line x1="200" y1="110" x2="190" y2="60"/>
+    <circle cx="150" cy="150" r="7" fill="#3C7E8E" stroke="none"/>
+    <circle cx="200" cy="110" r="7" fill="#3C7E8E" stroke="none"/>
+    <circle cx="260" cy="130" r="7" fill="#3C7E8E" stroke="none"/>
+    <circle cx="190" cy="60" r="7" fill="#3C7E8E" stroke="none"/>
+  </g>
+
+  <!-- injector pen, left of center -->
+  <g transform="translate(430,315) rotate(-18)">
+    <rect x="-38" y="-190" width="76" height="300" rx="24" fill="#FFFFFF" stroke="#3B1A3F" stroke-width="5"/>
+    <rect x="-38" y="-190" width="76" height="70" rx="24" fill="#3B1A3F"/>
+    <rect x="-20" y="-150" width="40" height="24" rx="6" fill="#FBF6EC"/>
+    <rect x="-24" y="-40" width="48" height="56" rx="8" fill="#EAF3F4" stroke="#3C7E8E" stroke-width="3"/>
+    <text x="0" y="0" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="26" font-weight="700" fill="#2E6B78">0.5</text>
+    <rect x="-14" y="98" width="28" height="12" fill="#3B1A3F"/>
+    <path d="M-10,110 L10,110 L4,138 L-4,138 Z" fill="#C7B6C7"/>
+  </g>
+
+  <!-- downward trend arrow -->
+  <path d="M580,300 C650,330 700,370 730,420" fill="none" stroke="#C3A9C3" stroke-width="5" stroke-linecap="round" stroke-dasharray="2,16"/>
+  <polygon points="730,420 710,404 742,398" fill="#C3A9C3"/>
+
+  <!-- alcohol glass, fading/shrinking, right of center -->
+  <g transform="translate(830,260)">
+    <path d="M-90,-80 L90,-80 L55,118 L-55,118 Z" fill="#FFFFFF" stroke="#3B1A3F" stroke-width="5" opacity="0.9"/>
+    <path d="M-66,20 L66,20 L55,118 L-55,118 Z" fill="#3C7E8E" opacity="0.5"/>
+  </g>
+  <g transform="translate(1000,340) scale(0.55)" opacity="0.4">
+    <path d="M-90,-80 L90,-80 L55,118 L-55,118 Z" fill="#FFFFFF" stroke="#3B1A3F" stroke-width="7"/>
+    <path d="M-30,70 L30,70 L24,118 L-24,118 Z" fill="#D6C2DA"/>
+  </g>
+</svg>
