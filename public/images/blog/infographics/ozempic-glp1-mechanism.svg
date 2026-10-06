@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 466" width="760" height="466" role="img" aria-labelledby="gm-title gm-desc">
+  <title id="gm-title">How semaglutide dampens reward for both food and alcohol</title>
+  <desc id="gm-desc">Normally, food and alcohol trigger a dopamine reward signal in the brain that drives cravings to repeat the behavior. Semaglutide, the GLP-1 hormone Ozempic mimics, dampens that same reward signal, which is why it can lower cravings for both food and alcohol.</desc>
+
+  <defs>
+    <marker id="gmArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#C3A9C3"/>
+    </marker>
+    <g id="brainOutline">
+      <path d="M0,31 Q-8,6 15,0 Q25,-12 45,-4 Q68,-12 78,8 Q96,12 92,34 Q100,48 86,60 Q84,76 64,78 Q50,90 34,78 Q14,80 8,62 Q-12,56 0,31 Z"/>
+    </g>
+  </defs>
+
+  <!-- Row A: Normally -->
+  <rect x="8" y="10" width="98" height="30" rx="15" fill="#E6D6E6"/>
+  <text x="57" y="30" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#3F2C3F">NORMALLY</text>
+
+  <!-- food plate -->
+  <circle cx="80" cy="80" r="22" fill="#FFFFFF" stroke="#3F2C3F" stroke-width="2.5"/>
+  <circle cx="80" cy="80" r="13" fill="none" stroke="#3F2C3F" stroke-width="2"/>
+  <text x="80" y="122" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">Food</text>
+
+  <!-- alcohol glass -->
+  <path d="M60,138 L100,138 L92,186 L68,186 Z" fill="#FFFFFF" stroke="#3F2C3F" stroke-width="2.5"/>
+  <path d="M68.5,170 L91.5,170 L88,186 L72,186 Z" fill="#3C7E8E"/>
+  <text x="80" y="204" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">Alcohol</text>
+
+  <line x1="118" y1="80" x2="190" y2="120" stroke="#C3A9C3" stroke-width="3" marker-end="url(#gmArrow)"/>
+  <line x1="118" y1="162" x2="190" y2="122" stroke="#C3A9C3" stroke-width="3" marker-end="url(#gmArrow)"/>
+
+  <!-- brain, bright fill -->
+  <use href="#brainOutline" x="258" y="80" fill="#FFFFFF" stroke="#3F2C3F" stroke-width="2.5"/>
+  <text x="300" y="204" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">Brain reward center</text>
+
+  <line x1="368" y1="125" x2="430" y2="125" stroke="#C3A9C3" stroke-width="3" marker-end="url(#gmArrow)"/>
+
+  <!-- reward burst, bright -->
+  <g transform="translate(490,125)">
+    <polygon points="0,-34 8,-10 32,-14 12,2 22,26 0,12 -22,26 -12,2 -32,-14 -8,-10" fill="#6B496B"/>
+  </g>
+  <text x="490" y="178" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#3F2C3F">Reward signal</text>
+  <text x="490" y="196" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12" fill="#55585A">drives cravings to repeat</text>
+
+  <!-- divider -->
+  <line x1="8" y1="230" x2="752" y2="230" stroke="#E6D6E6" stroke-width="1.5"/>
+
+  <!-- Row B: With semaglutide -->
+  <rect x="8" y="242" width="190" height="30" rx="15" fill="#3F2C3F"/>
+  <text x="103" y="262" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#FFFFFF">WITH SEMAGLUTIDE</text>
+
+  <!-- food plate, muted -->
+  <circle cx="80" cy="326" r="22" fill="#FFFFFF" stroke="#D6C2DA" stroke-width="2.5"/>
+  <circle cx="80" cy="326" r="13" fill="none" stroke="#D6C2DA" stroke-width="2"/>
+  <text x="80" y="368" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">Food</text>
+
+  <!-- alcohol glass, muted -->
+  <path d="M60,384 L100,384 L92,432 L68,432 Z" fill="#FFFFFF" stroke="#D6C2DA" stroke-width="2.5"/>
+  <path d="M68.5,416 L91.5,416 L88,432 L72,432 Z" fill="#D6C2DA"/>
+  <text x="80" y="450" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">Alcohol</text>
+
+  <line x1="118" y1="326" x2="190" y2="366" stroke="#C3A9C3" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#gmArrow)"/>
+  <line x1="118" y1="408" x2="190" y2="368" stroke="#C3A9C3" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#gmArrow)"/>
+
+  <!-- brain, same signal arrives -->
+  <use href="#brainOutline" x="258" y="326" fill="#FFFFFF" stroke="#3F2C3F" stroke-width="2.5"/>
+  <text x="300" y="450" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12" fill="#55585A">Signal still arrives</text>
+
+  <line x1="368" y1="371" x2="430" y2="371" stroke="#C3A9C3" stroke-width="3" marker-end="url(#gmArrow)"/>
+
+  <!-- reward burst, dampened -->
+  <g transform="translate(490,371)">
+    <polygon points="0,-20 5,-6 19,-8 7,1 13,15 0,7 -13,15 -7,1 -19,-8 -5,-6" fill="#D6C2DA"/>
+  </g>
+  <text x="490" y="410" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12.5" fill="#55585A">Reward dampened</text>
+  <text x="490" y="428" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="12" fill="#55585A">fewer cravings for both</text>
+</svg>
