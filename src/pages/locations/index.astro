@@ -5,7 +5,7 @@ import Icon from '../../components/Icon.astro';
 import ImageFeature from '../../components/ImageFeature.astro';
 import Reviews from '../../components/Reviews.astro';
 
-const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalClinic', name: 'Regain Hope Detox and Recovery Center', address: { '@type': 'PostalAddress', streetAddress: '1134 N Lima St', addressLocality: 'Burbank', addressRegion: 'CA', postalCode: '91505', addressCountry: 'US' }, telephone: '+1-818-264-4388', geo: { '@type': 'GeoCoordinates', latitude: 34.1719189, longitude: -118.3451238 }, areaServed: ['Burbank', 'Glendale', 'Pasadena', 'Sherman Oaks', 'Studio City', 'Encino', 'Toluca Lake', 'La Cañada Flintridge'] };
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalClinic', name: 'Regain Hope Detox and Recovery Center', address: { '@type': 'PostalAddress', streetAddress: '1134 N Lima St', addressLocality: 'Burbank', addressRegion: 'CA', postalCode: '91505', addressCountry: 'US' }, telephone: '+1-818-239-7045', geo: { '@type': 'GeoCoordinates', latitude: 34.1719189, longitude: -118.3451238 }, areaServed: ['Burbank', 'Glendale', 'Pasadena', 'Sherman Oaks', 'Studio City', 'Encino', 'Toluca Lake', 'La Cañada Flintridge'] };
 
 const areas = [
   ['detox-glendale', 'Glendale', 'About 15 minutes away via the SR-134.'],
@@ -19,19 +19,19 @@ const areas = [
 ---
 <Layout
   title="Locations & Service Areas | Regain Hope Detox and Recovery Center"
-  description="Physician-led medical detox & residential treatment in Burbank, CA, serving the greater Los Angeles area and welcoming clients from out of state, with travel assistance. Call 24/7."
+  description="Physician-led medical detox & residential treatment in Burbank, CA, serving the greater Los Angeles area and welcoming clients from out of state, with travel assistance. Call us."
   schema={pageSchema}
 >
   <Hero
     variant="reviews"
-    eyebrow="Locations & Service Areas · 24/7"
+    eyebrow="Locations & Service Areas"
     title="Locations & Service Areas"
     byline="Mileidys Gomez Gonzalez, MD"
     chips={['One location in Burbank, CA', 'Serving the greater LA metro', 'Owned & run by two physicians', 'Care in English, Spanish & Korean']}
   />
 
   <div class="trust"><div class="container">
-    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span><span>Joint Commission Accredited</span><span class="sep">|</span><span>California DHCS Licensed</span><span class="sep">|</span><span>LegitScript Certified</span><span class="sep">|</span><span>Physician-owned</span>
+    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span><span>Joint Commission Accredited</span><span class="sep">|</span><span>California DHCS Licensed</span><span class="sep">|</span><span>Physician-owned</span>
   </div></div>
 
   <!-- INTRO (white) -->
@@ -84,7 +84,7 @@ const areas = [
 
   <section class="ctaband"><div class="container">
     <h2>Help is closer than you think</h2>
-    <p>Wherever you are in the Los Angeles area, the first step is one confidential call, answered 24/7.</p>
+    <p>Wherever you are in the Los Angeles area, the first step is one confidential call.</p>
     <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
   </div></section>
 </Layout>
