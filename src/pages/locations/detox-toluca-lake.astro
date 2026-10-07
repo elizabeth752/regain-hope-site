@@ -49,15 +49,15 @@ const faqs = [
   }
 ];
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
-const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalClinic', name: 'Regain Hope Detox and Recovery Center', address: { '@type': 'PostalAddress', streetAddress: '1134 N Lima St', addressLocality: 'Burbank', addressRegion: 'CA', postalCode: '91505', addressCountry: 'US' }, telephone: '+1-818-264-4388', geo: { '@type': 'GeoCoordinates', latitude: 34.1719189, longitude: -118.3451238 }, areaServed: "Toluca Lake, CA" };
+const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalClinic', name: 'Regain Hope Detox and Recovery Center', address: { '@type': 'PostalAddress', streetAddress: '1134 N Lima St', addressLocality: 'Burbank', addressRegion: 'CA', postalCode: '91505', addressCountry: 'US' }, telephone: '+1-818-239-7045', geo: { '@type': 'GeoCoordinates', latitude: 34.1719189, longitude: -118.3451238 }, areaServed: "Toluca Lake, CA" };
 const why = [["stethoscope","Two physicians, on-site daily","The owners are the doctors, and they care for you in person, every day."],["heart","Whole-person medical care","Our lead physician (internal and family medicine) watches your full health through withdrawal."],["home","A private, family-run home","\"Feels like home, not a clinic\" is the recurring theme in our 5.0-star reviews."],["mat","MAT to protect sobriety","Relapse-prevention medication like long-acting Vivitrol, started before discharge."],["globe","Bilingual, culturally-aware care","English, Spanish, and Korean, with a team that respects where you come from."]];
 const continuum = [["detox","Medical Detox","24/7 physician-supervised withdrawal management.","/programs/medical-detox/"],["home","Residential Treatment","Live-in care after detox, in a real home.","/programs/residential-treatment/"],["dual","Dual Diagnosis","Integrated care for co-occurring anxiety, depression, or trauma.","/programs/dual-diagnosis-treatment/"],["mat","Medication-Assisted Treatment","Physician-prescribed medication to ease withdrawal and prevent relapse.","/programs/medication-assisted-treatment/"],["heart","Continuing Care","Trusted local referrals plus personal physician follow-up.","/programs/continuing-care/"]];
 ---
-<Layout title="Medical Detox in Toluca Lake, CA | Regain Hope Detox and Recovery Center" description="Discreet, physician-supervised medical detox for Toluca Lake, CA, right next door in Burbank. Two doctors on-site daily, MAT, private home setting. PPO accepted. Call 24/7." schema={[pageSchema, faqSchema]}>
-  <Hero variant="form" eyebrow="For Toluca Lake, CA · Right Next Door in Burbank · 24/7" title="Medical Detox for Toluca Lake, CA Residents" byline="Mileidys Gomez Gonzalez, MD" chips={["Minutes from Toluca Lake","Owned & run by two physicians","Private & discreet","PPO accepted"]} />
+<Layout title="Medical Detox in Toluca Lake, CA | Regain Hope Detox and Recovery Center" description="Discreet, physician-supervised medical detox for Toluca Lake, CA, right next door in Burbank. Two doctors on-site daily, MAT, private home setting. PPO accepted. Call us." schema={[pageSchema, faqSchema]}>
+  <Hero variant="form" eyebrow="For Toluca Lake, CA · Right Next Door in Burbank" title="Medical Detox for Toluca Lake, CA Residents" byline="Mileidys Gomez Gonzalez, MD" chips={["Minutes from Toluca Lake","Owned & run by two physicians","Private & discreet","PPO accepted"]} />
 
   <div class="trust"><div class="container">
-    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span><span>Joint Commission Accredited</span><span class="sep">|</span><span>California DHCS Licensed</span><span class="sep">|</span><span>LegitScript Certified</span><span class="sep">|</span><span>Two physicians on-site daily</span>
+    <span><span class="star">★</span> 5.0 on Google</span><span class="sep">|</span><span>Joint Commission Accredited</span><span class="sep">|</span><span>California DHCS Licensed</span><span class="sep">|</span><span>Two physicians on-site daily</span>
   </div></div>
 
   <section><div class="container rich" style="max-width:820px;">
@@ -130,7 +130,7 @@ const continuum = [["detox","Medical Detox","24/7 physician-supervised withdrawa
 
   <section class="ctaband"><div class="container">
     <h2>Help is right next door to Toluca Lake</h2>
-    <p>One confidential call is all it takes. Our admissions line is open 24/7.</p>
+    <p>One confidential call is all it takes. Our admissions line is open.</p>
     <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
   </div></section>
 </Layout>
