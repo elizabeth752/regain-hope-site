@@ -13,7 +13,7 @@ const faqs = [
   { q: 'What medications are used in MAT?', a: 'FDA-approved options including Vivitrol (extended-release naltrexone) and oral naltrexone, prescribed and monitored by a physician.' },
   { q: 'What does MAT treat?', a: 'Primarily alcohol and opioid use disorders, often alongside co-occurring mental health conditions.' },
   { q: 'How long does MAT last?', a: 'It varies, your physician sets the plan. Long-acting options like monthly Vivitrol can keep protecting you after you step down.' },
-  { q: 'Is MAT supervised by a doctor?', a: "Yes. A physician prescribes MAT. The Vivitrol injection is given at Dr. Gomez's clinic, not at the detox house." },
+  { q: 'Is MAT supervised by a doctor?', a: "Yes. A physician prescribes MAT, and we offer the Vivitrol injection before you leave our care." },
   { q: 'Does insurance cover MAT?', a: 'Most PPO plans do. As an out-of-network provider, we verify your benefits for free before you commit.' },
 ];
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
@@ -30,7 +30,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 ---
 <Layout
   title="Medication-Assisted Treatment (MAT) | Regain Hope Detox and Recovery Center"
-  description="Physician-led medication-assisted treatment (MAT) in the Los Angeles area. Vivitrol and other FDA-approved medications ease withdrawal and prevent relapse. The Vivitrol injection is given at Dr. Gomez's clinic. PPO accepted."
+  description="Physician-led medication-assisted treatment (MAT) in the Los Angeles area. Vivitrol and other FDA-approved medications ease withdrawal and prevent relapse, and we offer the Vivitrol injection. PPO accepted."
   schema={[pageSchema, faqSchema]}
 >
   <!-- HERO (money page → consistent bg + insurance form, short) -->
@@ -39,7 +39,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
     eyebrow="Programs · Serving Los Angeles"
     title="Medication-Assisted Treatment (MAT) in the Los Angeles Area"
     byline="Mileidys Gomez Gonzalez, MD"
-    chips={['Physician-prescribed', 'Non-narcotic options (Vivitrol)', 'Vivitrol given at Dr. Gomez\'s clinic', 'Care in English, Spanish & Korean']}
+    chips={['Physician-prescribed', 'Non-narcotic options (Vivitrol)', 'Vivitrol injection offered', 'Care in English, Spanish & Korean']}
   />
 
   <!-- TRUST -->
@@ -51,7 +51,7 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   <section><div class="container rich" style="max-width:820px;">
     <h2>What is medication-assisted treatment?</h2>
     <p><b>Medication-assisted treatment (MAT) is the use of FDA-approved medications, combined with counseling and therapy, to treat alcohol and opioid use disorders.</b> The medications ease withdrawal, reduce cravings, and help prevent relapse, so you can focus on recovery instead of fighting your body.</p>
-    <p>At Regain Hope Detox and Recovery Center, a physician prescribes MAT as part of detox and residential care. The Vivitrol injection is given at Dr. Gomez's clinic, not on site at the house.</p>
+    <p>At Regain Hope Detox and Recovery Center, a physician prescribes MAT as part of detox and residential care. We offer the Vivitrol injection before you leave our care.</p>
   </div></section>
 
   <!-- ACCREDITATIONS -->
@@ -84,20 +84,20 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
       <div class="pcard"><div class="ico"><Icon name="prescription" /></div><h3>Oral naltrexone</h3><p>A daily, non-narcotic alternative for craving and relapse protection.</p></div>
       <div class="pcard"><div class="ico"><Icon name="stethoscope" /></div><h3>Other FDA-approved medications</h3><p>Additional options prescribed when clinically appropriate, always under physician supervision.</p></div>
     </div>
-    <p style="text-align:center;margin-top:24px;color:var(--muted);font-size:14.5px;max-width:720px;margin-left:auto;margin-right:auto;">Regain Hope Detox and Recovery Center is <b>not</b> a methadone clinic or opioid treatment program. There is no methadone maintenance. MAT is physician-prescribed. The Vivitrol injection is given at Dr. Gomez's clinic.</p>
+    <p style="text-align:center;margin-top:24px;color:var(--muted);font-size:14.5px;max-width:720px;margin-left:auto;margin-right:auto;">Regain Hope Detox and Recovery Center is <b>not</b> a methadone clinic or opioid treatment program. There is no methadone maintenance. MAT is physician-prescribed, and we offer the Vivitrol injection.</p>
   </div></section>
 
   <!-- ★ STARTED BEFORE YOU LEAVE (scenario highlight) -->
   <ScenarioHighlight
     eyebrow="The differentiator"
     title="Relapse protection that starts before discharge"
-    intro="Pills are easy to forget once you're home. Your physician can prescribe a long-acting option like monthly Vivitrol before you leave our care. <b>The injection is given at Dr. Gomez's clinic</b>, so protection does not depend on remembering a daily pill."
+    intro="Pills are easy to forget once you're home. Your physician can prescribe a long-acting option like monthly Vivitrol before you leave our care. <b>We offer the injection</b>, so protection does not depend on remembering a daily pill."
     badTitle="The usual handoff"
     bad={['A prescription to fill on your own', 'A daily pill that’s easy to skip or forget', 'Protection that lapses the moment motivation dips']}
-    good={['A long-acting injection given at Dr. Gomez\'s clinic', 'Weeks of craving protection, automatically', 'A plan built so sobriety doesn’t hinge on willpower']}
+    good={['A long-acting injection we arrange before you leave', 'Weeks of craving protection, automatically', 'A plan built so sobriety doesn’t hinge on willpower']}
     momentLabel="Why it matters"
     scenarios={[
-      ['mat', 'The day you leave', 'The injection is arranged at Dr. Gomez\'s clinic, so there is a plan before you get home.'],
+      ['mat', 'The day you leave', 'The injection is arranged before you leave, so there is a plan before you get home.'],
       ['cycle', 'Two weeks home, a craving hits', 'The medication is still quietly blocking it, no pill to have remembered.'],
       ['stethoscope', 'A missed appointment', 'Because it’s long-acting, one off day doesn’t undo your protection.'],
     ]}
