@@ -8,38 +8,63 @@ import PhysicianLed from '../../components/PhysicianLed.astro';
 import ImageFeature from '../../components/ImageFeature.astro';
 import InsuranceBanner from '../../components/InsuranceBanner.astro';
 
+// Fentanyl leads this page (Elizabeth, 2026-10-12): the URL already ranks for the
+// fentanyl and opiate detox Los Angeles terms, so fentanyl is expanded here instead
+// of on a new page, and the generic opioid copy is trimmed. FAQs stay specific to
+// Regain Hope: physicians on site, the small program, Vivitrol timing, detox only.
 const faqs = [
-  { q: 'Is opioid withdrawal dangerous?', a: "It's rarely fatal on its own but intensely uncomfortable, and overdose risk spikes after a relapse. Medical detox is far safer and more humane." },
-  { q: 'How long does opioid detox take?', a: 'Often around 5–10 days depending on the opioid and your history; your physician sets the plan.' },
-  { q: 'Do you use methadone?', a: "No, Regain Hope Detox and Recovery Center isn't a methadone clinic. We lead with naltrexone/Vivitrol within physician-led detox and residential care." },
-  { q: 'What is Vivitrol?', a: 'A monthly, non-narcotic naltrexone injection that blocks opioid effects and reduces cravings.' },
-  { q: 'Do you treat fentanyl addiction?', a: 'Yes, fentanyl is an opioid; we provide medically supervised detox and treatment for it.' },
-  { q: 'Does insurance cover opioid treatment?', a: 'Most PPO plans do. As an out-of-network provider, we verify your benefits for free.' },
+  { q: 'How long does fentanyl withdrawal last?', a: 'For most people, symptoms start within about 8 to 24 hours of the last use, are at their worst around days 2 and 3, and the acute phase settles within about 4 to 10 days. Fentanyl is stored in body fat, so withdrawal can start later or drag on longer than it does with heroin or pills. At Regain Hope, our physicians see you in person every day and adjust your medications as your symptoms change.' },
+  { q: 'Who supervises fentanyl detox at Regain Hope?', a: 'Regain Hope is owned and run by two physicians, and they are on site in person every day. They do your intake assessment, manage your withdrawal medications at the bedside, and treat other conditions like high blood pressure or diabetes alongside your detox, instead of a doctor checking in by phone.' },
+  { q: 'What medications help with fentanyl withdrawal?', a: 'Our physicians use medications that ease the aches, nausea, diarrhea, anxiety, and sleeplessness of withdrawal, and adjust them daily. Once you have been opioid free long enough, they can start naltrexone, including the monthly Vivitrol injection, before you leave, so you go home protected against relapse.' },
+  { q: 'Why can\'t I start Vivitrol right away after using fentanyl?', a: 'Vivitrol blocks opioids, so starting it while fentanyl is still in your system can trigger sudden, severe withdrawal. The FDA label recommends being opioid free for at least 7 to 10 days first, and fentanyl can stay in the body longer than other opioids. Our physicians time the first injection for you during your stay.' },
+  { q: 'Can you detox from fentanyl and benzos or alcohol at the same time?', a: 'Yes. It is common to use fentanyl or pain pills together with benzodiazepines or alcohol, and it is one of the main reasons to detox with physicians. Benzo and alcohol withdrawal can cause seizures, so our physicians plan and monitor both withdrawals together in one medical detox.' },
+  { q: 'Can I come to Regain Hope for detox only?', a: 'Yes, you can come for medical detox only. Our physicians usually recommend continuing into residential treatment, typically around 2 to 4 weeks after detox, because the first weeks off fentanyl are when relapse and overdose risk are highest. Your length of stay is a clinical decision made with you.' },
+  { q: 'Do you treat OxyContin, Norco, and other prescription opioid dependence?', a: 'Yes. We treat dependence on oxycodone (OxyContin, Percocet), hydrocodone (Norco), and other pain medications, including dependence that started with a legitimate prescription. Our physicians, trained in internal and family medicine, also look at the pain or health condition behind the prescription.' },
+  { q: 'Do you use methadone or Suboxone?', a: 'Regain Hope is not a methadone clinic. Our physicians lead with naltrexone and Vivitrol, which are non-narcotic, and talk through the medication options that fit your history during your assessment.' },
+  { q: 'Where is Regain Hope, and do you have language support?', a: 'We are a small, home-like detox and residential program at 1134 N Lima St in Burbank, serving people from across Los Angeles. Care is available in English, Spanish, and Korean.' },
+  { q: 'How do I start fentanyl detox at Regain Hope?', a: 'Call us or send your details through our insurance form. Our admissions team checks your PPO benefits for free, usually quickly, and a physician reviews your situation before you arrive. Admissions calls are answered 7 days a week; after hours, leave a voicemail and we will call you back.' },
 ];
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
-const pageSchema = { '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'Opioid & Fentanyl Detox in Los Angeles', about: { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' }, reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' } };
+const pageSchema = {
+  '@context': 'https://schema.org', '@type': 'MedicalWebPage',
+  name: 'Fentanyl & Opioid Detox in Los Angeles',
+  about: [{ '@type': 'MedicalCondition', name: 'Fentanyl withdrawal' }, { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' }],
+  reviewedBy: { '@type': 'Person', name: 'Mileidys Gomez Gonzalez, MD' },
+};
 
+const timeline = [
+  ['8 to 24 hours', 'First symptoms: anxiety, sweating, yawning, runny nose, cravings'],
+  ['Days 2 to 3', 'Peak: aches, chills, nausea, vomiting, diarrhea, insomnia'],
+  ['Days 4 to 10', 'Physical symptoms ease as the body stabilizes'],
+  ['Weeks after', 'Sleep, mood, and cravings can linger; relapse risk stays high'],
+];
+const steps = [
+  ['Free insurance check', 'Call or send your details. Admissions verifies your PPO benefits and a physician reviews your situation before you arrive.'],
+  ['Physician assessment on day 1', 'One of our two physicians examines you in person, reviews every substance you use, and sets your medication plan.'],
+  ['Medicated, monitored withdrawal', 'Physicians see you every day and adjust your medications at the bedside, so the worst days are managed, not endured.'],
+  ['Vivitrol before you leave', 'Once you have been opioid free long enough, your physician can start Vivitrol so you leave protected against relapse.'],
+  ['Residential care and a plan home', 'Most people continue into residential treatment, then step down to local outpatient care or sober living with personal follow-up.'],
+];
 const continuum = [
-  ['detox', 'Medical Detox', 'Medically managed opioid withdrawal, 24/7.', '/programs/medical-detox/'],
+  ['detox', 'Medical Detox', 'Physician-managed fentanyl and opioid withdrawal.', '/programs/medical-detox/'],
   ['home', 'Residential Treatment', 'Therapy and skills in a home-like setting.', '/programs/residential-treatment/'],
   ['mat', 'Medication-Assisted Treatment', 'Naltrexone/Vivitrol to block opioids and reduce cravings.', '/programs/medication-assisted-treatment/'],
   ['dual', 'Dual-Diagnosis Care', 'Treating co-occurring depression, anxiety, or trauma.', '/programs/dual-diagnosis-treatment/'],
   ['heart', 'Continuing Care', 'Relapse-prevention planning + personal follow-up.', '/programs/continuing-care/'],
 ];
 const NIDA = 'https://nida.nih.gov/research-topics/opioids';
-const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
 ---
 <Layout
-  title="Opioid & Fentanyl Detox in Los Angeles | Regain Hope Detox and Recovery Center"
-  description="Physician-supervised opioid and fentanyl detox in the Los Angeles area. Medically managed withdrawal, MAT, and whole-person care for opioid use disorder. PPO accepted. Call us."
+  title="Fentanyl & Opioid Detox in Los Angeles | Physicians On Site"
+  description="Medical fentanyl and opioid detox in Burbank, serving Los Angeles. How withdrawal feels, how long it lasts, medications that help, and what comes next."
   schema={[pageSchema, faqSchema]}
 >
   <Hero
     variant="form"
     eyebrow="What We Treat · Serving Los Angeles"
-    title="Opioid & Fentanyl Detox & Treatment in the Los Angeles Area"
+    title="Fentanyl Detox & Opioid Treatment in Los Angeles"
     byline="Mileidys Gomez Gonzalez, MD"
-    chips={['Physician-supervised, 24/7 medical detox', 'Naltrexone/Vivitrol started before discharge', 'Owned & run by two physicians', 'Care in English, Spanish & Korean']}
+    chips={['Two physicians on site, every day', 'Vivitrol started before discharge', 'Fentanyl, pain pills & heroin', 'Care in English, Spanish & Korean']}
   />
 
   <div class="trust"><div class="container">
@@ -47,9 +72,35 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   </div></div>
 
   <section><div class="container rich" style="max-width:820px;">
-    <h2>What is opioid use disorder?</h2>
-    <p><b>Opioid use disorder (OUD) is a chronic, treatable medical condition involving the compulsive use of opioids despite harmful consequences</b> (National Institute on Drug Abuse, NIDA). Opioids include prescription painkillers (such as oxycodone, hydrocodone, and morphine), heroin, and, increasingly, <b>fentanyl</b>, a synthetic opioid up to 50 times stronger than heroin that now drives the majority of overdose deaths in the U.S. OUD changes brain chemistry in ways that make stopping extraordinarily hard without help, which is why it's treated as a medical condition, not a choice.</p>
-    <p>Left untreated, opioid use disorder carries a serious risk of overdose, especially in the fentanyl era, when the potency of the illicit supply is unpredictable from one use to the next. But it is also one of the most treatable substance use disorders: with medically supervised detox, FDA-approved medication, and genuine support, most people can stabilize and rebuild. The earlier treatment begins, the more options, and the more life, you protect.</p>
+    <h2>Fentanyl detox in Los Angeles, with physicians on site</h2>
+    <p><b>Fentanyl detox is the medically supervised process of getting through fentanyl withdrawal safely, with medication to ease symptoms and physicians monitoring you around the clock.</b> Fentanyl is a synthetic opioid roughly 50 times more potent than heroin (DEA), and it now drives the majority of overdose deaths in the U.S., often hidden in counterfeit pills made to look like oxycodone or Percocet.</p>
+    <p>Regain Hope Detox and Recovery Center in Burbank is owned and run by two physicians who care for you in person every day. In a small, home-like program, they manage your fentanyl withdrawal at the bedside, treat any other health conditions alongside it, and start the medication that protects you from relapse before you leave.</p>
+  </div></section>
+
+  <section class="bg-cream"><div class="container rich" style="max-width:820px;">
+    <h2>Why fentanyl withdrawal is different from other opioids</h2>
+    <ul>
+      <li><b>It lingers in the body.</b> Fentanyl is stored in fat tissue. In one study of people with daily use, fentanyl stayed detectable in urine for an average of 7 days after the last use, and its byproduct norfentanyl for 13 days (Huhn et al., 2020). Withdrawal can start later and last longer than people expect.</li>
+      <li><b>Medication timing matters more.</b> Starting an opioid blocker like Vivitrol too early can set off sudden, severe withdrawal, so physicians have to time it carefully.</li>
+      <li><b>The supply is mixed.</b> Street fentanyl is often cut with other drugs, including the veterinary sedative xylazine, and many people also use benzodiazepines or alcohol. Each of these changes how detox has to be managed.</li>
+      <li><b>Overdose risk after detox is high.</b> Tolerance drops quickly during withdrawal, so returning to the same amount of fentanyl can be fatal. That is why detox should lead directly into treatment.</li>
+    </ul>
+  </div></section>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Fentanyl withdrawal timeline</h2>
+    <p>Every person is different, and heavy daily fentanyl use can stretch these stages out. A typical course looks like this:</p>
+    <div class="timeline" style="margin:28px 0 8px;">
+      {timeline.map(([d, t]) => (<div class="tl"><div class="dot"></div><div class="d">{d}</div><p>{t}</p></div>))}
+    </div>
+    <h3>Fentanyl withdrawal symptoms</h3>
+    <ul>
+      <li>Muscle and bone aches, restlessness, and leg kicking</li>
+      <li>Nausea, vomiting, stomach cramps, and diarrhea</li>
+      <li>Sweating, chills, goosebumps, runny nose, and watery eyes</li>
+      <li>Anxiety, irritability, insomnia, and intense cravings</li>
+    </ul>
+    <p>Fentanyl withdrawal is rarely life threatening on its own, but it is miserable enough that most people who try to quit alone use again to make it stop. People who stopped a prescribed <b>fentanyl patch</b> go through the same stages and should taper or detox with a physician, not stop on their own.</p>
   </div></section>
 
   <ImageFeature
@@ -58,34 +109,32 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
     alt="A person feeling supported and at peace in recovery"
     side="left"
     eyebrow="There is a way through"
-    title="Opioid recovery, made survivable"
-    body="Opioid withdrawal is brutal enough to make people give up. With physicians on-site and medication to ease it, we make the hardest days bearable, and the next chapter possible."
-    points={[['stethoscope', '24/7 physician supervision'], ['mat', 'Vivitrol to protect against relapse'], ['heart', 'Compassion, never judgment']]}
+    title="Fentanyl recovery, made survivable"
+    body="Fentanyl withdrawal is brutal enough to make people give up. With physicians on site and medication to ease it, we make the hardest days bearable, and the next chapter possible."
+    points={[['stethoscope', 'Physicians on site every day'], ['mat', 'Vivitrol to protect against relapse'], ['heart', 'Compassion, never judgment']]}
   />
 
   <section><div class="container rich" style="max-width:820px;">
-    <h2>Signs of opioid use disorder</h2>
-    <p>Common signs include:</p>
-    <ul>
-      <li>Using more, or longer, than intended</li>
-      <li>Strong cravings to use</li>
-      <li>Needing more to feel the same effect (tolerance)</li>
-      <li>Withdrawal symptoms when not using</li>
-      <li>Failed attempts to cut down or stop</li>
-      <li>Neglecting responsibilities or relationships</li>
-      <li>Continuing to use despite clear harm</li>
-    </ul>
-    <p>Physical <b>withdrawal</b> and <b>tolerance</b> alone don't mean addiction (they can occur with prescribed use), but combined with loss of control, they point to OUD.</p>
+    <h2>What fentanyl detox looks like at Regain Hope</h2>
+    <ol>
+      {steps.map(([t, d]) => (<li><b>{t}.</b> {d}</li>))}
+    </ol>
+    <p>See how <a href="/programs/medical-detox/">medical detox</a> works across every substance we treat.</p>
   </div></section>
 
   <section class="bg-cream"><div class="container rich" style="max-width:820px;">
-    <h2>Why opioid detox needs medical supervision</h2>
-    <p>Opioid withdrawal is rarely life-threatening on its own, but it is <b>intensely painful</b> (muscle aches, nausea, vomiting, diarrhea, chills, insomnia, severe cravings), and that misery is exactly why most people relapse trying to detox alone. The greater danger is <b>overdose after a relapse</b>, because tolerance drops quickly during withdrawal. <a href="/programs/medical-detox/">Medical detox</a> makes the process far more comfortable and dramatically safer, with physicians on-site 24/7 and medication to ease symptoms.</p>
+    <h2>Fentanyl mixed with benzos, alcohol, or xylazine</h2>
+    <p>Fentanyl is rarely the only substance in play. Withdrawal from <a href="/what-we-treat/benzodiazepines/">benzodiazepines</a> or <a href="/what-we-treat/alcohol/">alcohol</a> can cause seizures, and xylazine does not respond to naloxone (Narcan) the way opioids do. Our physicians plan for every substance in your system from day one and monitor them together, which is why <a href="/what-we-treat/polysubstance/">polysubstance detox</a> belongs in a medical setting.</p>
   </div></section>
 
+  <section><div class="container rich" style="max-width:820px;">
+    <h2>Opiate detox for OxyContin, Norco, and heroin</h2>
+    <p>The same physician-led detox treats every opioid: oxycodone (OxyContin, Percocet), hydrocodone (Norco), morphine, codeine, heroin, and fentanyl. Many of our patients started with a legitimate pain prescription and never saw themselves as addicted until withdrawal hit. Our physicians are trained in internal and family medicine, so they look at the pain behind the prescription as well as the dependence. Learn more about <a href="/what-we-treat/prescription-drugs/">prescription drug detox</a>.</p>
+    <p><b>Opioid use disorder (OUD) is a chronic, treatable medical condition</b> (NIDA). Signs include using more than intended, cravings, needing more for the same effect, withdrawal between uses, and failed attempts to stop. Tolerance and withdrawal can happen with prescribed use too; combined with loss of control, they point to OUD.</p>
+  </div></section>
 
   <section class="bg-cream"><div class="container">
-    <div class="sec-head"><span class="eyebrow">Our approach</span><h2>How we treat opioid addiction</h2></div>
+    <div class="sec-head"><span class="eyebrow">Our approach</span><h2>How we treat fentanyl and opioid addiction</h2></div>
     <div class="grid3">
       {continuum.map(([ico, t, d, href]) => (
         <a class="pcard" href={href} style="text-decoration:none;display:block;"><div class="ico"><Icon name={ico} /></div><h3>{t}</h3><p>{d}</p><span class="more">Learn more →</span></a>
@@ -94,18 +143,18 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   </div></section>
 
   <section><div class="container rich" style="max-width:820px;">
-    <h2>MAT for opioid use disorder</h2>
-    <p>NIDA recognizes FDA-approved medications for OUD, <b>buprenorphine, methadone, and naltrexone</b>, as effective, evidence-based care. At Regain Hope Detox and Recovery Center, our physicians lead with <b>naltrexone, including the long-acting injection Vivitrol</b>, which is non-narcotic and blocks the effects of opioids; we often start it <b>before discharge</b> to protect against relapse. We are <b>not a methadone clinic</b>. We provide <a href="/programs/medication-assisted-treatment/">medication-assisted treatment</a> within physician-led detox and residential care.</p>
+    <h2>Vivitrol after fentanyl detox</h2>
+    <p>NIDA recognizes FDA-approved medications for OUD, <b>buprenorphine, methadone, and naltrexone</b>, as effective, evidence-based care. At Regain Hope Detox and Recovery Center, our physicians lead with <b>naltrexone, including the monthly Vivitrol injection</b>, which is non-narcotic and blocks the effects of opioids. Because Vivitrol needs an opioid-free window first, our physicians time it during your stay and often start it <b>before discharge</b>. We are <b>not a methadone clinic</b>. We provide <a href="/programs/medication-assisted-treatment/">medication-assisted treatment</a> within physician-led detox and residential care.</p>
   </div></section>
 
   <section class="bg-cream"><div class="container rich" style="max-width:820px;">
-    <h2>Opioids and co-occurring mental health</h2>
-    <p>Opioid use very often overlaps with depression, anxiety, chronic pain, and trauma. Our integrated <a href="/programs/dual-diagnosis-treatment/">dual-diagnosis care</a> treats these together rather than in isolation.</p>
+    <h2>Holistic fentanyl treatment alongside medical care</h2>
+    <p>Recovery from fentanyl takes more than getting through withdrawal. In <a href="/programs/residential-treatment/">residential treatment</a>, medical care is paired with yoga and mindfulness, music and art therapy, hikes in the foothills toward the Hollywood sign, home-cooked meals, and family sessions on request. Fentanyl use often overlaps with depression, anxiety, chronic pain, and trauma, so our <a href="/programs/dual-diagnosis-treatment/">dual-diagnosis care</a> treats them together.</p>
   </div></section>
 
   <section><div class="container rich" style="max-width:820px;">
-    <h2>When to seek help for opioid use</h2>
-    <p>With fentanyl in nearly the entire illicit opioid supply, the risk of a fatal overdose has never been higher, and there's no safe amount of time to wait. If you or someone you love is using opioids (prescription or illicit), can't stop despite wanting to, or is experiencing withdrawal between uses, reach out now. Treatment works, and the first call is free and confidential. <b>If someone is overdosing, call 911 and use naloxone (Narcan) if available.</b></p>
+    <h2>When to seek help for fentanyl use</h2>
+    <p>With fentanyl in nearly the entire illicit opioid supply, the risk of a fatal overdose has never been higher, and there's no safe amount of time to wait. If you or someone you love is using fentanyl or other opioids, can't stop despite wanting to, or is going into withdrawal between uses, reach out now. Treatment works, and the first call is free and confidential. <b>If someone is overdosing, call 911 and use naloxone (Narcan) if available.</b></p>
   </div></section>
 
   <PhysicianLed bg="cream" />
@@ -115,16 +164,27 @@ const GBP = 'https://maps.app.goo.gl/S3YvacbqJG8mVm457';
   <InsuranceBanner />
 
   <section><div class="container">
-    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Opioid treatment, frequently asked questions</h2></div>
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Fentanyl and opioid detox, frequently asked questions</h2></div>
     <div class="faqwrap">{faqs.map((f, i) => (<details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
-    <p style="text-align:center;margin-top:26px;color:var(--muted);font-size:13px;">Clinical information on this page is informed by the <a href={NIDA} target="_blank" rel="noopener">National Institute on Drug Abuse (NIDA)</a>.</p>
+  </div></section>
+
+  <section><div class="container rich" style="max-width:820px;">
+    <h2 id="sources">Sources</h2>
+    <ol>
+      <li>National Institute on Drug Abuse (NIDA): <a href={NIDA} target="_blank" rel="noopener"><i>Opioids.</i></a></li>
+      <li>U.S. Drug Enforcement Administration (DEA): <a href="https://www.dea.gov/resources/facts-about-fentanyl" target="_blank" rel="noopener"><i>Facts about fentanyl.</i></a></li>
+      <li>National Library of Medicine (PMC): <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11126434/" target="_blank" rel="noopener"><i>Xylazine: A Drug Adulterant of Clinical Concern.</i></a></li>
+      <li>Huhn AS, et al. <a href="https://pubmed.ncbi.nlm.nih.gov/32650192/" target="_blank" rel="noopener"><i>Protracted renal clearance of fentanyl in persons with opioid use disorder.</i></a> Drug and Alcohol Dependence, 2020.</li>
+      <li>VIVITROL (naltrexone for extended-release injectable suspension): <a href="https://labeling.alkermes.com/uspi_vivitrol.pdf" target="_blank" rel="noopener"><i>Full prescribing information.</i></a></li>
+      <li>MedlinePlus: <a href="https://medlineplus.gov/ency/article/000949.htm" target="_blank" rel="noopener"><i>Opiate and opioid withdrawal.</i></a></li>
+    </ol>
   </div></section>
 
   <TeamStrip bg="cream" />
 
   <section class="ctaband"><div class="container">
-    <h2>Recovery from opioids starts with one call</h2>
-    <p>Opioid withdrawal is safer and more humane with doctors who are actually there. One confidential call is the first step.</p>
+    <h2>Recovery from fentanyl starts with one call</h2>
+    <p>Fentanyl withdrawal is safer and more humane with doctors who are actually there. One confidential call is the first step.</p>
     <div class="hero-cta" style="justify-content:center;"><a href="/admissions/verify-insurance/" class="btn btn-gold">Verify Your Insurance</a></div>
   </div></section>
 </Layout>
