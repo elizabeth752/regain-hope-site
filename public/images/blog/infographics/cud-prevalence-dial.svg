@@ -1,0 +1,34 @@
+<svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="cpdTitle cpdDesc">
+  <title id="cpdTitle">3 in 10 cannabis users have cannabis use disorder</title>
+  <desc id="cpdDesc">Among people in the U.S. who use cannabis, close to 3 in 10 meet criteria for cannabis use disorder.</desc>
+
+  <text x="380" y="40" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="24" font-weight="700" fill="#3B1A3F">Cannabis Use Disorder Is Common</text>
+  <text x="380" y="66" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="15" fill="#55585A">Among people who use cannabis in the U.S.</text>
+
+  <!-- 10 person icons, 3 highlighted -->
+  <g transform="translate(90,110)">
+    <!-- 10 figures laid out in two rows of 5 -->
+    <g id="row">
+      <!-- figure 1 (highlighted) -->
+      <g transform="translate(0,0)"><circle cx="0" cy="0" r="14" fill="#3C7E8E"/><rect x="-16" y="16" width="32" height="46" rx="14" fill="#3C7E8E"/></g>
+      <!-- figure 2 (highlighted) -->
+      <g transform="translate(64,0)"><circle cx="0" cy="0" r="14" fill="#3C7E8E"/><rect x="-16" y="16" width="32" height="46" rx="14" fill="#3C7E8E"/></g>
+      <!-- figure 3 (highlighted) -->
+      <g transform="translate(128,0)"><circle cx="0" cy="0" r="14" fill="#3C7E8E"/><rect x="-16" y="16" width="32" height="46" rx="14" fill="#3C7E8E"/></g>
+      <!-- figures 4-10 (not highlighted) -->
+      <g transform="translate(192,0)"><circle cx="0" cy="0" r="14" fill="#D6C2DA"/><rect x="-16" y="16" width="32" height="46" rx="14" fill="#D6C2DA"/></g>
+      <g transform="translate(256,0)"><circle cx="0" cy="0" r="14" fill="#D6C2DA"/><rect x="-16" y="16" width="32" height="46" rx="14" fill="#D6C2DA"/></g>
+      <g transform="translate(320,0)"><circle cx="0" cy="0" r="14" fill="#D6C2DA"/><rect x="-16" y="16" width="32" height="46" rx="14" fill="#D6C2DA"/></g>
+      <g transform="translate(384,0)"><circle cx="0" cy="0" r="14" fill="#D6C2DA"/><rect x="-16" y="16" width="32" height="46" rx="14" fill="#D6C2DA"/></g>
+      <g transform="translate(448,0)"><circle cx="0" cy="0" r="14" fill="#D6C2DA"/><rect x="-16" y="16" width="32" height="46" rx="14" fill="#D6C2DA"/></g>
+      <g transform="translate(512,0)"><circle cx="0" cy="0" r="14" fill="#D6C2DA"/><rect x="-16" y="16" width="32" height="46" rx="14" fill="#D6C2DA"/></g>
+      <g transform="translate(576,0)"><circle cx="0" cy="0" r="14" fill="#D6C2DA"/><rect x="-16" y="16" width="32" height="46" rx="14" fill="#D6C2DA"/></g>
+    </g>
+  </g>
+
+  <!-- stat callout -->
+  <rect x="90" y="206" width="580" height="80" rx="16" fill="#FFFFFF" stroke="#E6D6E6" stroke-width="2"/>
+  <text x="130" y="244" font-family="'Fraunces', Georgia, serif" font-size="40" font-weight="700" fill="#3C7E8E">~30%</text>
+  <text x="280" y="236" font-family="'Poppins', system-ui, sans-serif" font-size="16" font-weight="600" fill="#19211F">meet criteria for cannabis use disorder (CUD)</text>
+  <text x="280" y="260" font-family="'Poppins', system-ui, sans-serif" font-size="14" fill="#55585A">roughly 3 in 10 people who use cannabis in the past year</text>
+</svg>

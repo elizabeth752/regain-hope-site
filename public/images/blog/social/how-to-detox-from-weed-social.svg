@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080" role="img" aria-labelledby="soc-title">
+  <title id="soc-title">How to detox from weed. Social media card for Regain Hope Detox and Recovery Center</title>
+  <defs>
+    <linearGradient id="bgSoc2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FBF6EC"/>
+      <stop offset="1" stop-color="#F1E6EF"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1080" height="1080" fill="url(#bgSoc2)"/>
+
+  <!-- soft decorative circles -->
+  <circle cx="960" cy="110" r="190" fill="#E6D6E6" opacity="0.5"/>
+  <circle cx="60" cy="980" r="190" fill="#BFDAE0" opacity="0.4"/>
+  <circle cx="1010" cy="950" r="130" fill="#D6C2DA" opacity="0.3"/>
+
+  <!-- eyebrow pill -->
+  <rect x="90" y="96" width="170" height="44" rx="22" fill="#3F2C3F"/>
+  <text x="175" y="124" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="16" font-weight="700" letter-spacing="1.5" fill="#FFFFFF">CANNABIS</text>
+
+  <!-- headline -->
+  <text x="90" y="232" font-family="'Fraunces', Georgia, serif" font-size="58" font-weight="700" fill="#3B1A3F">How to Detox</text>
+  <text x="90" y="300" font-family="'Fraunces', Georgia, serif" font-size="58" font-weight="700" fill="#3B1A3F">From Weed</text>
+
+  <!-- illustration: leaf dissolving into sunrise, centered -->
+  <g transform="translate(330,560)">
+    <g fill="#3B1A3F" opacity="0.92">
+      <path d="M0,20 C-10,-30 -14,-100 0,-168 C14,-100 10,-30 0,20 Z"/>
+      <path d="M0,24 C-26,-12 -58,-66 -78,-132 C-46,-92 -18,-44 0,24 Z" transform="rotate(-22)"/>
+      <path d="M0,24 C-26,-12 -58,-66 -78,-132 C-46,-92 -18,-44 0,24 Z" transform="rotate(22) scale(-1,1)"/>
+      <path d="M0,26 C-20,-6 -46,-52 -60,-104 C-32,-70 -10,-34 0,26 Z" transform="rotate(-48)"/>
+      <path d="M0,26 C-20,-6 -46,-52 -60,-104 C-32,-70 -10,-34 0,26 Z" transform="rotate(48) scale(-1,1)"/>
+      <path d="M0,24 C-14,2 -32,-32 -40,-70 C-20,-46 -6,-20 0,24 Z" transform="rotate(-78)"/>
+      <path d="M0,24 C-14,2 -32,-32 -40,-70 C-20,-46 -6,-20 0,24 Z" transform="rotate(78) scale(-1,1)"/>
+    </g>
+  </g>
+
+  <path d="M430,560 C500,580 560,540 630,550" fill="none" stroke="#C3A9C3" stroke-width="4" stroke-linecap="round" stroke-dasharray="2,16" opacity="0.7"/>
+
+  <g transform="translate(760,540)">
+    <line x1="-100" y1="0" x2="100" y2="0" stroke="#3C7E8E" stroke-width="3" opacity="0.5"/>
+    <circle cx="0" cy="0" r="80" fill="#F6E3B4" opacity="0.9"/>
+    <circle cx="0" cy="0" r="80" fill="none" stroke="#C77B2B" stroke-width="4" opacity="0.6"/>
+  </g>
+
+  <!-- subtext card -->
+  <rect x="90" y="760" width="900" height="130" rx="18" fill="#FFFFFF" opacity="0.72" stroke="#E6D6E6" stroke-width="2"/>
+  <text x="120" y="812" font-family="'Poppins', system-ui, sans-serif" font-size="27" font-weight="600" fill="#19211F">Medical detox eases cravings and</text>
+  <text x="120" y="852" font-family="'Poppins', system-ui, sans-serif" font-size="27" font-weight="600" fill="#19211F">withdrawal, safely.</text>
+
+  <!-- footer / brand -->
+  <text x="90" y="970" font-family="'Fraunces', Georgia, serif" font-size="30" font-weight="700" fill="#3F2C3F">Regain Hope Detox</text>
+  <text x="90" y="1004" font-family="'Poppins', system-ui, sans-serif" font-size="18" fill="#55585A">Burbank, CA &#183; regainhopedetox.com</text>
+</svg>

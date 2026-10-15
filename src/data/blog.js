@@ -59,6 +59,15 @@ export const team = ['gomez', 'alexis', 'nora', 'jack'].map((k) => authors[k]);
 
 export const posts = [
   {
+    slug: 'how-to-detox-from-weed',
+    title: 'How to Detox From Weed',
+    category: 'Cannabis',
+    author: 'gomez',
+    date: 'October 15, 2026',
+    image: '/images/blog/how-to-detox-from-weed.svg',
+    excerpt: 'Around 3 in 10 people who use cannabis have cannabis use disorder, and stopping can bring real withdrawal symptoms. Here\'s what causes CUD, what withdrawal feels like, and how medical detox helps you through it safely.',
+  },
+  {
     slug: 'does-ozempic-help-with-alcohol-cravings',
     title: 'Does Ozempic Help With Alcohol Cravings?',
     category: 'Alcohol',
