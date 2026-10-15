@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="hdw-title">
+  <title id="hdw-title">A cannabis leaf dissolving into drifting particles on the left, giving way to a calm, rising sun on the right, representing clearing the body of weed and moving toward stability</title>
+  <defs>
+    <linearGradient id="bgHdw" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FBF6EC"/>
+      <stop offset="1" stop-color="#F1E6EF"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bgHdw)"/>
+
+  <!-- soft decorative circles -->
+  <circle cx="1060" cy="120" r="170" fill="#E6D6E6" opacity="0.55"/>
+  <circle cx="1140" cy="500" r="200" fill="#BFDAE0" opacity="0.4"/>
+  <circle cx="110" cy="500" r="140" fill="#D6C2DA" opacity="0.35"/>
+
+  <!-- rising sun / calm horizon, right of center -->
+  <g>
+    <line x1="760" y1="470" x2="1150" y2="470" stroke="#3C7E8E" stroke-width="3" opacity="0.5"/>
+    <circle cx="900" cy="470" r="110" fill="#F6E3B4" opacity="0.9"/>
+    <circle cx="900" cy="470" r="110" fill="none" stroke="#C77B2B" stroke-width="4" opacity="0.6"/>
+    <g stroke="#C77B2B" stroke-width="4" stroke-linecap="round" opacity="0.55">
+      <line x1="900" y1="330" x2="900" y2="300"/>
+      <line x1="990" y1="365" x2="1012" y2="342"/>
+      <line x1="1025" y1="455" x2="1056" y2="455"/>
+      <line x1="810" y1="365" x2="788" y2="342"/>
+    </g>
+  </g>
+
+  <!-- cannabis leaf, left of center, rendered as a radial fan of leaflets (letting go) -->
+  <g transform="translate(360,340)">
+    <g fill="#3B1A3F" opacity="0.92">
+      <!-- center leaflet -->
+      <path d="M0,20 C-10,-30 -14,-100 0,-168 C14,-100 10,-30 0,20 Z"/>
+      <!-- inner pair -->
+      <path d="M0,24 C-26,-12 -58,-66 -78,-132 C-46,-92 -18,-44 0,24 Z" transform="rotate(-22)"/>
+      <path d="M0,24 C-26,-12 -58,-66 -78,-132 C-46,-92 -18,-44 0,24 Z" transform="rotate(22) scale(-1,1)"/>
+      <!-- mid pair -->
+      <path d="M0,26 C-20,-6 -46,-52 -60,-104 C-32,-70 -10,-34 0,26 Z" transform="rotate(-48)"/>
+      <path d="M0,26 C-20,-6 -46,-52 -60,-104 C-32,-70 -10,-34 0,26 Z" transform="rotate(48) scale(-1,1)"/>
+      <!-- outer pair, smaller -->
+      <path d="M0,24 C-14,2 -32,-32 -40,-70 C-20,-46 -6,-20 0,24 Z" transform="rotate(-78)"/>
+      <path d="M0,24 C-14,2 -32,-32 -40,-70 C-20,-46 -6,-20 0,24 Z" transform="rotate(78) scale(-1,1)"/>
+    </g>
+    <!-- center vein -->
+    <line x1="0" y1="20" x2="0" y2="-168" stroke="#2E1230" stroke-width="2" opacity="0.4"/>
+  </g>
+
+  <!-- leaf dissolving into drifting particles, trailing toward the sun -->
+  <g fill="#5A3F5A">
+    <circle cx="520" cy="330" r="9" opacity="0.6"/>
+    <circle cx="580" cy="300" r="7" opacity="0.5"/>
+    <circle cx="630" cy="350" r="6" opacity="0.4"/>
+    <circle cx="670" cy="290" r="5" opacity="0.35"/>
+    <circle cx="715" cy="330" r="4" opacity="0.25"/>
+    <circle cx="750" cy="300" r="3" opacity="0.2"/>
+  </g>
+
+  <!-- gentle upward path from leaf to sunrise -->
+  <path d="M430,360 C500,380 560,330 650,340 C720,348 780,400 830,430" fill="none" stroke="#C3A9C3" stroke-width="4" stroke-linecap="round" stroke-dasharray="2,16" opacity="0.7"/>
+</svg>

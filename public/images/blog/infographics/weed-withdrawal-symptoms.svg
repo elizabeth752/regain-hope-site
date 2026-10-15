@@ -1,0 +1,34 @@
+<svg viewBox="0 0 760 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="wwsTitle wwsDesc">
+  <title id="wwsTitle">About half of people who use weed experience withdrawal when they stop</title>
+  <desc id="wwsDesc">Common withdrawal symptoms include anxiety, irritability, aggression, trouble sleeping, low mood, and loss of appetite, along with chills, headaches, tension, sweating, and stomach pain.</desc>
+
+  <text x="380" y="40" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="24" font-weight="700" fill="#3B1A3F">Weed Withdrawal Is Common</text>
+  <text x="380" y="66" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="15" fill="#55585A">When regular use stops or drops sharply</text>
+
+  <!-- half-filled circle stat -->
+  <g transform="translate(150,170)">
+    <circle cx="0" cy="0" r="86" fill="#E6D6E6" opacity="0.5"/>
+    <path d="M0,-86 A86,86 0 0 1 0,86 Z" fill="#3C7E8E"/>
+    <circle cx="0" cy="0" r="86" fill="none" stroke="#3B1A3F" stroke-width="3" opacity="0.25"/>
+    <text x="0" y="14" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="42" font-weight="700" fill="#3B1A3F">~1/2</text>
+  </g>
+  <text x="150" y="282" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="15" font-weight="600" fill="#19211F">of people who use weed</text>
+  <text x="150" y="304" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="15" font-weight="600" fill="#19211F">experience withdrawal</text>
+
+  <!-- symptom list -->
+  <g font-family="'Poppins', system-ui, sans-serif" font-size="16" fill="#19211F">
+    <text x="330" y="110" font-weight="700" fill="#3B1A3F">Common symptoms</text>
+    <circle cx="336" cy="135" r="4" fill="#3C7E8E"/><text x="350" y="140">Anxiety &amp; irritability</text>
+    <circle cx="336" cy="161" r="4" fill="#3C7E8E"/><text x="350" y="166">Aggression</text>
+    <circle cx="336" cy="187" r="4" fill="#3C7E8E"/><text x="350" y="192">Trouble sleeping</text>
+    <circle cx="336" cy="213" r="4" fill="#3C7E8E"/><text x="350" y="218">Low mood &amp; loss of appetite</text>
+
+    <text x="330" y="258" font-weight="700" fill="#3B1A3F">Also reported</text>
+    <circle cx="336" cy="283" r="4" fill="#C3A9C3"/><text x="350" y="288">Chills &amp; headaches</text>
+    <circle cx="336" cy="309" r="4" fill="#C3A9C3"/><text x="350" y="314">Muscle tension &amp; sweating</text>
+    <circle cx="336" cy="335" r="4" fill="#C3A9C3"/><text x="350" y="340">Stomach pain</text>
+  </g>
+
+  <rect x="20" y="370" width="720" height="34" rx="12" fill="#F1E6EF"/>
+  <text x="380" y="392" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13.5" fill="#55585A">Symptoms aren&#8217;t life-threatening, but can last weeks without support.</text>
+</svg>
