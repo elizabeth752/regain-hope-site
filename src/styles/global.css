@@ -135,8 +135,11 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.95);backdro
 /* card grids */
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.grid4 .pcard{padding:24px 16px;} .grid4 .pcard h3,.grid4 .pcard p{text-wrap:pretty;}
+@media(max-width:1080px){.grid4{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:880px){.grid3{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:560px){.grid3,.grid2{grid-template-columns:1fr;}}
+@media(max-width:560px){.grid4,.grid3,.grid2{grid-template-columns:1fr;}}
 .pcard{background:#fff;border:1px solid #ece3cf;border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);transition:.18s;}
 /* accent card (the "not sure / call us" CTA in a grid) — the one pink card */
 .pcard.accent{background:var(--caoba-soft);border-color:#cdb8d2;}
