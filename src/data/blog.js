@@ -59,6 +59,15 @@ export const team = ['gomez', 'alexis', 'nora', 'jack'].map((k) => authors[k]);
 
 export const posts = [
   {
+    slug: 'vivitrol-shot-how-it-works-and-how-long-it-lasts',
+    title: 'The Vivitrol Shot: How It Works for Alcohol and How Long It Lasts',
+    category: 'Alcohol',
+    author: 'gomez',
+    date: 'November 11, 2026',
+    image: '/images/blog/vivitrol-shot-how-it-works-and-how-long-it-lasts.png',
+    excerpt: 'Vivitrol is a monthly injection that helps lower alcohol cravings as part of a broader treatment plan. Here\'s how it blocks the brain\'s reward response, how long it stays in your system, and what to expect.',
+  },
+  {
     slug: 'how-to-detox-from-weed',
     title: 'How to Detox From Weed',
     category: 'Cannabis',

@@ -1,0 +1,37 @@
+<svg viewBox="0 0 760 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="vseTitle vseDesc">
+  <title id="vseTitle">Common and serious side effects of the Vivitrol shot</title>
+  <desc id="vseDesc">Common side effects include nausea, sleepiness, headache, dizziness, and joint or muscle pain, and usually improve within a few days. Serious side effects, including allergic reaction and mood changes, need prompt medical attention.</desc>
+
+  <text x="380" y="40" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="24" font-weight="700" fill="#3B1A3F">Side Effects of the Vivitrol Shot</text>
+  <text x="380" y="66" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="15" fill="#55585A">Most are mild and ease within a few days</text>
+
+  <g font-family="'Poppins', system-ui, sans-serif" font-size="15.5" fill="#19211F">
+    <rect x="30" y="92" width="330" height="26" rx="13" fill="#BFDAE0"/>
+    <text x="48" y="110" font-weight="700" fill="#19211F">Common, usually mild</text>
+
+    <circle cx="48" cy="146" r="4.5" fill="#3C7E8E"/><text x="64" y="151">Nausea &amp; decreased appetite</text>
+    <circle cx="48" cy="174" r="4.5" fill="#3C7E8E"/><text x="64" y="179">Sleepiness &amp; trouble sleeping</text>
+    <circle cx="48" cy="202" r="4.5" fill="#3C7E8E"/><text x="64" y="207">Headache &amp; dizziness</text>
+    <circle cx="48" cy="230" r="4.5" fill="#3C7E8E"/><text x="64" y="235">Joint pain &amp; muscle cramps</text>
+    <circle cx="48" cy="258" r="4.5" fill="#3C7E8E"/><text x="64" y="263">Cold symptoms &amp; toothache</text>
+  </g>
+
+  <line x1="390" y1="92" x2="390" y2="330" stroke="#E6D6E6" stroke-width="1.5"/>
+
+  <g font-family="'Poppins', system-ui, sans-serif" font-size="15.5" fill="#19211F">
+    <rect x="410" y="92" width="320" height="26" rx="13" fill="#F1E6EF"/>
+    <text x="428" y="110" font-weight="700" fill="#3B1A3F">Serious&#8212;seek care right away</text>
+
+    <circle cx="428" cy="146" r="4.5" fill="#C77B2B"/><text x="444" y="151">Allergic reaction: rash, chest</text>
+    <text x="444" y="169">pain, swelling of eyes/mouth</text>
+
+    <circle cx="428" cy="197" r="4.5" fill="#C77B2B"/><text x="444" y="202">Shortness of breath, wheezing,</text>
+    <text x="444" y="220">or a persistent cough</text>
+
+    <circle cx="428" cy="248" r="4.5" fill="#C77B2B"/><text x="444" y="253">Depressed mood, hopelessness,</text>
+    <text x="444" y="271">or suicidal thoughts</text>
+  </g>
+
+  <rect x="20" y="360" width="720" height="44" rx="12" fill="#FBF6EC"/>
+  <text x="380" y="388" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13.5" fill="#55585A">Contact your care team right away if mood, sleep, or appetite change sharply.</text>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" width="760" height="340" role="img" aria-labelledby="vm-title vm-desc">
+  <title id="vm-title">How the Vivitrol shot blocks alcohol's reward pathway</title>
+  <desc id="vm-desc">Vivitrol is injected once a month and occupies opioid receptors in the brain. When those receptors are blocked, alcohol can't produce the pleasurable "high," so cravings and reward lessen over time.</desc>
+
+  <defs>
+    <marker id="arrowVivLilac" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#C3A9C3"/>
+    </marker>
+  </defs>
+
+  <text x="380" y="34" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="22" font-weight="700" fill="#3B1A3F">How the Vivitrol Shot Works</text>
+  <text x="380" y="56" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="14" fill="#55585A">One intramuscular injection, given about once a month</text>
+
+  <!-- step 1: injection -->
+  <g transform="translate(90,170)">
+    <circle cx="0" cy="0" r="40" fill="#E6D6E6"/>
+    <rect x="-5" y="-26" width="10" height="36" rx="4" fill="#3F2C3F"/>
+    <rect x="-16" y="-30" width="32" height="10" rx="3" fill="#3C7E8E"/>
+  </g>
+  <text x="90" y="232" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13" font-weight="600" fill="#19211F">Monthly injection</text>
+
+  <line x1="140" y1="170" x2="210" y2="170" stroke="#C3A9C3" stroke-width="3" marker-end="url(#arrowVivLilac)"/>
+
+  <!-- step 2: bloodstream / slow release -->
+  <g transform="translate(260,170)">
+    <circle cx="0" cy="0" r="40" fill="#D6C2DA"/>
+    <circle cx="-10" cy="-8" r="6" fill="#3C7E8E"/>
+    <circle cx="10" cy="4" r="6" fill="#3C7E8E"/>
+    <circle cx="-2" cy="14" r="6" fill="#3C7E8E"/>
+  </g>
+  <text x="260" y="232" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13" font-weight="600" fill="#19211F">Slow release in the body</text>
+
+  <line x1="310" y1="170" x2="380" y2="170" stroke="#C3A9C3" stroke-width="3" marker-end="url(#arrowVivLilac)"/>
+
+  <!-- step 3: receptor blocked -->
+  <g transform="translate(430,170)">
+    <circle cx="0" cy="0" r="40" fill="#FFFFFF" stroke="#3F2C3F" stroke-width="2.5"/>
+    <circle cx="0" cy="0" r="16" fill="#3F2C3F"/>
+    <line x1="-26" y1="-26" x2="26" y2="26" stroke="#3F2C3F" stroke-width="3.5"/>
+  </g>
+  <text x="430" y="232" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13" font-weight="600" fill="#19211F">Opioid receptors blocked</text>
+
+  <line x1="480" y1="170" x2="550" y2="170" stroke="#C3A9C3" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowVivLilac)"/>
+
+  <!-- step 4: alcohol can't reward -->
+  <g transform="translate(600,170)">
+    <path d="M-20,-24 L20,-24 L12,24 L-12,24 Z" fill="#FFFFFF" stroke="#3F2C3F" stroke-width="2.5"/>
+    <path d="M-11,8 L11,8 L8,24 L-8,24 Z" fill="#D6C2DA"/>
+  </g>
+  <text x="600" y="232" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13" font-weight="600" fill="#19211F">No "high" from alcohol</text>
+
+  <rect x="20" y="268" width="720" height="48" rx="12" fill="#F1E6EF"/>
+  <text x="380" y="290" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13.5" fill="#55585A">Without the reward response, alcohol-seeking behavior</text>
+  <text x="380" y="308" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13.5" fill="#55585A">and cravings tend to lessen over time.</text>
+</svg>
