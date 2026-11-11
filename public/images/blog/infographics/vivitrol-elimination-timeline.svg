@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="vet-title vet-desc">
+  <title id="vet-title">Vivitrol takes 25 to 50 days to fully leave the body</title>
+  <desc id="vet-desc">Vivitrol has a half-life of 5 to 10 days. It takes about five half-lives for a drug to be fully eliminated, so Vivitrol clears the body in roughly 25 to 50 days depending on the person.</desc>
+
+  <defs>
+    <linearGradient id="vetBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FBF6EC"/>
+      <stop offset="100%" stop-color="#F1E6EF"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="630" fill="url(#vetBg)"/>
+  <circle cx="1120" cy="70" r="110" fill="#E6D6E6" opacity="0.5"/>
+  <circle cx="60" cy="580" r="90" fill="#BFDAE0" opacity="0.4"/>
+
+  <text x="80" y="110" font-family="'Fraunces', Georgia, serif" font-size="40" font-weight="700" fill="#3B1A3F">How Long Does</text>
+  <text x="80" y="160" font-family="'Fraunces', Georgia, serif" font-size="40" font-weight="700" fill="#3B1A3F">Vivitrol Last?</text>
+
+  <text x="80" y="300" font-family="'Fraunces', Georgia, serif" font-size="96" font-weight="700" fill="#C77B2B">25&#8211;50</text>
+  <text x="80" y="340" font-family="'Poppins', system-ui, sans-serif" font-size="24" font-weight="600" fill="#3F2C3F">days to fully clear the body</text>
+  <text x="80" y="378" font-family="'Poppins', system-ui, sans-serif" font-size="17" fill="#5A3F5A">Half-life of 5&#8211;10 days &#183; about 5 half-lives to eliminate</text>
+
+  <!-- decay bars: amount of Vivitrol remaining after each half-life -->
+  <g font-family="'Poppins', system-ui, sans-serif">
+    <!-- baseline -->
+    <line x1="80" y1="560" x2="1100" y2="560" stroke="#3B1A3F" stroke-width="2" opacity="0.25"/>
+
+    <!-- bar 1: 100% -->
+    <rect x="80" y="420" width="130" height="140" rx="8" fill="#3C7E8E"/>
+    <text x="145" y="408" text-anchor="middle" font-size="15" font-weight="700" fill="#3B1A3F">100%</text>
+    <text x="145" y="588" text-anchor="middle" font-size="14" fill="#55585A">Day 0</text>
+
+    <!-- bar 2: 50% -->
+    <rect x="270" y="490" width="130" height="70" rx="8" fill="#3C7E8E" opacity="0.8"/>
+    <text x="335" y="478" text-anchor="middle" font-size="15" font-weight="700" fill="#3B1A3F">50%</text>
+    <text x="335" y="588" text-anchor="middle" font-size="14" fill="#55585A">Day 5&#8211;10</text>
+
+    <!-- bar 3: 25% -->
+    <rect x="460" y="525" width="130" height="35" rx="8" fill="#5A3F5A" opacity="0.75"/>
+    <text x="525" y="513" text-anchor="middle" font-size="15" font-weight="700" fill="#3B1A3F">25%</text>
+    <text x="525" y="588" text-anchor="middle" font-size="14" fill="#55585A">Day 10&#8211;20</text>
+
+    <!-- bar 4: 12.5% -->
+    <rect x="650" y="542" width="130" height="18" rx="6" fill="#C3A9C3" opacity="0.8"/>
+    <text x="715" y="530" text-anchor="middle" font-size="15" font-weight="700" fill="#3B1A3F">12.5%</text>
+    <text x="715" y="588" text-anchor="middle" font-size="14" fill="#55585A">Day 20&#8211;30</text>
+
+    <!-- bar 5: ~3% -->
+    <rect x="840" y="551" width="130" height="9" rx="4" fill="#D6C2DA"/>
+    <text x="905" y="539" text-anchor="middle" font-size="15" font-weight="700" fill="#3B1A3F">&#126;3%</text>
+    <text x="905" y="588" text-anchor="middle" font-size="14" fill="#55585A">Day 40&#8211;50</text>
+  </g>
+</svg>
