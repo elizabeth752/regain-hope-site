@@ -1,0 +1,23 @@
+---
+import Divider from './Divider.astro';
+// Client interview video (vertical, self-hosted). Poster keeps it light: the MP4 only loads on play.
+export interface Props { bg?: 'white' | 'cream'; divider?: boolean; }
+const { bg = 'white', divider = true } = Astro.props;
+---
+<section id="client-story" class={bg === 'cream' ? 'bg-cream' : ''}><div class="container">
+  {divider && <Divider />}
+  <div class="story">
+    <div class="story-txt">
+      <span class="eyebrow">Client story</span>
+      <h2>Hear it from someone who's been here</h2>
+      <p>A former client sat down with us to talk about her experience at Regain Hope Detox and Recovery Center, in her own words.</p>
+      <p><a href="/admissions/verify-insurance/" class="btn btn-primary">Verify Your Benefits</a></p>
+    </div>
+    <div class="story-vid">
+      <video controls playsinline preload="none" poster="/videos/client-interview-poster.jpg" width="720" height="1280" aria-label="Client interview video">
+        <source src="/videos/client-interview.mp4" type="video/mp4" />
+        Your browser does not support embedded video.
+      </video>
+    </div>
+  </div>
+</div></section>
