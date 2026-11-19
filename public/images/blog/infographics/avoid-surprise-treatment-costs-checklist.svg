@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560" width="760" height="560" role="img" aria-labelledby="asctTitle asctDesc">
+  <title id="asctTitle">Six steps to avoid surprise addiction treatment costs</title>
+  <desc id="asctDesc">Verify your insurance is in-network, request a full cost breakdown, know your deductible, confirm whether copay or coinsurance applies to each service, keep records of every payment, and ask about payment plans.</desc>
+
+  <rect x="2" y="2" width="756" height="556" rx="18" fill="#FBF6EC" stroke="#E6D6E6" stroke-width="2"/>
+  <circle cx="705" cy="50" r="58" fill="#BFDAE0" opacity="0.35"/>
+
+  <text x="380" y="46" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="25" font-weight="700" fill="#3B1A3F">6 Steps to Avoid Surprise Costs</text>
+  <text x="380" y="70" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="14.5" fill="#55585A">Before you start addiction treatment</text>
+
+  <!-- row template: circle number at x=70, text starting x=116 -->
+  <g font-family="'Poppins', system-ui, sans-serif">
+    <!-- row 1 -->
+    <circle cx="70" cy="128" r="26" fill="#3C7E8E"/>
+    <text x="70" y="136" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="20" font-weight="700" fill="#FFFFFF">1</text>
+    <text x="116" y="122" font-size="17" font-weight="700" fill="#3B1A3F">Verify your insurance is in-network</text>
+    <text x="116" y="144" font-size="13.5" fill="#55585A">Confirm the addiction center you want to attend accepts your plan</text>
+
+    <!-- row 2 -->
+    <circle cx="70" cy="200" r="26" fill="#5A3F5A"/>
+    <text x="70" y="208" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="20" font-weight="700" fill="#FFFFFF">2</text>
+    <text x="116" y="194" font-size="17" font-weight="700" fill="#3B1A3F">Request a full cost breakdown</text>
+    <text x="116" y="216" font-size="13.5" fill="#55585A">Assessment, detox, therapy, and medication costs, itemized</text>
+
+    <!-- row 3 -->
+    <circle cx="70" cy="272" r="26" fill="#C77B2B"/>
+    <text x="70" y="280" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="20" font-weight="700" fill="#FFFFFF">3</text>
+    <text x="116" y="266" font-size="17" font-weight="700" fill="#3B1A3F">Know your deductible</text>
+    <text x="116" y="288" font-size="13.5" fill="#55585A">Ask how much you&#8217;ve already met and how much is left</text>
+
+    <!-- row 4 -->
+    <circle cx="70" cy="344" r="26" fill="#3C7E8E"/>
+    <text x="70" y="352" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="20" font-weight="700" fill="#FFFFFF">4</text>
+    <text x="116" y="338" font-size="17" font-weight="700" fill="#3B1A3F">Confirm copay vs coinsurance per service</text>
+    <text x="116" y="360" font-size="13.5" fill="#55585A">Eligibility can change depending on the type of service</text>
+
+    <!-- row 5 -->
+    <circle cx="70" cy="416" r="26" fill="#5A3F5A"/>
+    <text x="70" y="424" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="20" font-weight="700" fill="#FFFFFF">5</text>
+    <text x="116" y="410" font-size="17" font-weight="700" fill="#3B1A3F">Keep records of every payment</text>
+    <text x="116" y="432" font-size="13.5" fill="#55585A">Estimates, receipts, and communication with your insurer</text>
+
+    <!-- row 6 -->
+    <circle cx="70" cy="488" r="26" fill="#C77B2B"/>
+    <text x="70" y="496" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="20" font-weight="700" fill="#FFFFFF">6</text>
+    <text x="116" y="482" font-size="17" font-weight="700" fill="#3B1A3F">Ask about payment plans</text>
+    <text x="116" y="504" font-size="13.5" fill="#55585A">Some centers offer sliding scales or incremental financing</text>
+  </g>
+</svg>

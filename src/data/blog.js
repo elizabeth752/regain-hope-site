@@ -59,6 +59,15 @@ export const team = ['gomez', 'alexis', 'nora', 'jack'].map((k) => authors[k]);
 
 export const posts = [
   {
+    slug: 'copay-vs-coinsurance-what-you-will-actually-pay-for-treatment',
+    title: 'Copay vs Coinsurance: What You Will Actually Pay for Treatment',
+    category: 'Insurance',
+    author: 'gomez',
+    date: 'November 19, 2026',
+    image: '/images/blog/copay-vs-coinsurance-what-you-will-actually-pay-for-treatment.png',
+    excerpt: 'Copay is a fixed price, coinsurance is a percentage you pay after your deductible, and both count toward your out-of-pocket maximum. Here\'s what each term actually means for the cost of addiction treatment.',
+  },
+  {
     slug: 'vivitrol-shot-how-it-works-and-how-long-it-lasts',
     title: 'The Vivitrol Shot: How It Works for Alcohol and How Long It Lasts',
     category: 'Alcohol',

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="cvcTitle cvcDesc">
+  <title id="cvcTitle">Copay is a fixed price, coinsurance is a percentage</title>
+  <desc id="cvcDesc">A copay is a set amount you pay for a service, like $30 for an office visit. Coinsurance is a percentage you pay after meeting your deductible, like 25%. Both count toward your annual out-of-pocket maximum.</desc>
+
+  <defs>
+    <linearGradient id="cvcBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FBF6EC"/>
+      <stop offset="100%" stop-color="#F1E6EF"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="630" fill="url(#cvcBg)"/>
+  <circle cx="1130" cy="60" r="110" fill="#E6D6E6" opacity="0.5"/>
+  <circle cx="50" cy="90" r="70" fill="#BFDAE0" opacity="0.4"/>
+
+  <text x="600" y="78" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="34" font-weight="700" fill="#3B1A3F">Copay vs Coinsurance</text>
+
+  <line x1="600" y1="110" x2="600" y2="500" stroke="#E6D6E6" stroke-width="2"/>
+
+  <!-- LEFT: COPAY -->
+  <text x="300" y="150" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="20" font-weight="700" fill="#3F2C3F" letter-spacing="1">COPAY</text>
+  <text x="300" y="290" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="110" font-weight="700" fill="#C77B2B">$30</text>
+  <text x="300" y="340" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="19" font-weight="600" fill="#3F2C3F">A fixed price, every time</text>
+  <text x="300" y="372" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="15" fill="#5A3F5A">Set by your plan for a specific service,</text>
+  <text x="300" y="394" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="15" fill="#5A3F5A">like an office visit or prescription</text>
+
+  <rect x="190" y="430" width="220" height="34" rx="9" fill="#D6C2DA"/>
+  <text x="300" y="453" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13.5" font-weight="600" fill="#19211F">Usually doesn&#8217;t count toward deductible</text>
+
+  <!-- RIGHT: COINSURANCE -->
+  <text x="900" y="150" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="20" font-weight="700" fill="#2E6B78" letter-spacing="1">COINSURANCE</text>
+  <text x="900" y="290" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="110" font-weight="700" fill="#3C7E8E">25%</text>
+  <text x="900" y="340" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="19" font-weight="600" fill="#3F2C3F">Your share of the bill</text>
+  <text x="900" y="372" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="15" fill="#5A3F5A">A percentage you pay after you&#8217;ve met</text>
+  <text x="900" y="394" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="15" fill="#5A3F5A">your deductible, insurance covers the rest</text>
+
+  <rect x="790" y="430" width="220" height="34" rx="9" fill="#BFDAE0"/>
+  <text x="900" y="453" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="13.5" font-weight="600" fill="#19211F">Stops at your out-of-pocket max</text>
+
+  <!-- bottom banner -->
+  <rect x="120" y="520" width="960" height="60" rx="14" fill="#3B1A3F"/>
+  <text x="600" y="558" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="18" font-weight="600" fill="#FBF6EC">Both count toward your annual out-of-pocket maximum</text>
+</svg>
