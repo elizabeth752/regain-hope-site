@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400" role="img" aria-labelledby="cweTitle cweDesc">
+  <title id="cweTitle">75/25 coinsurance example on a $9,000 treatment bill</title>
+  <desc id="cweDesc">After a $2,000 deductible, remaining treatment costs are $9,000. With 75/25 coinsurance, the insurance provider pays $6,750 and the patient pays $2,250.</desc>
+
+  <rect x="2" y="2" width="756" height="396" rx="18" fill="#FBF6EC" stroke="#E6D6E6" stroke-width="2"/>
+  <circle cx="700" cy="55" r="60" fill="#D6C2DA" opacity="0.35"/>
+
+  <text x="40" y="52" font-family="'Poppins', system-ui, sans-serif" font-size="13" font-weight="700" fill="#5A3F5A" letter-spacing="1">AFTER YOUR $2,000 DEDUCTIBLE</text>
+  <text x="40" y="95" font-family="'Fraunces', Georgia, serif" font-size="30" font-weight="700" fill="#3B1A3F">$9,000 remaining bill, 75/25 coinsurance</text>
+
+  <!-- stacked bar -->
+  <rect x="40" y="140" width="680" height="64" rx="10" fill="#E6D6E6" opacity="0.4"/>
+  <rect x="40" y="140" width="510" height="64" rx="10" fill="#3C7E8E"/>
+  <rect x="550" y="140" width="170" height="64" rx="10" fill="#C77B2B"/>
+
+  <text x="295" y="182" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="20" font-weight="700" fill="#FBF6EC">75%</text>
+  <text x="635" y="182" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="20" font-weight="700" fill="#FBF6EC">25%</text>
+
+  <!-- labels under bar -->
+  <circle cx="55" cy="245" r="7" fill="#3C7E8E"/>
+  <text x="72" y="250" font-family="'Poppins', system-ui, sans-serif" font-size="17" font-weight="600" fill="#3F2C3F">Insurance pays</text>
+  <text x="72" y="276" font-family="'Fraunces', Georgia, serif" font-size="30" font-weight="700" fill="#3C7E8E">$6,750</text>
+
+  <circle cx="420" cy="245" r="7" fill="#C77B2B"/>
+  <text x="437" y="250" font-family="'Poppins', system-ui, sans-serif" font-size="17" font-weight="600" fill="#3F2C3F">You pay</text>
+  <text x="437" y="276" font-family="'Fraunces', Georgia, serif" font-size="30" font-weight="700" fill="#C77B2B">$2,250</text>
+
+  <rect x="40" y="320" width="680" height="50" rx="12" fill="#3B1A3F"/>
+  <text x="380" y="351" text-anchor="middle" font-family="'Poppins', system-ui, sans-serif" font-size="15.5" font-weight="600" fill="#FBF6EC">Both amounts count toward your out-of-pocket maximum for the plan year</text>
+</svg>
