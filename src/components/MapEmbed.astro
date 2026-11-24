@@ -1,0 +1,39 @@
+---
+// Google map that loads only when the visitor asks for it (elev8.io HIPAA, Privacy & Accessibility Standard):
+// nothing is requested from Google before "Load map" is pressed. Never use a plain Maps iframe on this site.
+export interface Props { title: string }
+const { title } = Astro.props;
+const SRC = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3300.9999518658433!2d-118.34512380000001!3d34.1719189!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2953e35a0fe73%3A0xfb985e3d6fdb6993!2sRegain%20hope%20detox%20and%20recovery%20center!5e0!3m2!1sen!2sco!4v1781487303442!5m2!1sen!2sco';
+const name = `${title.charAt(0).toLowerCase()}${title.slice(1)}`;
+---
+<div class="locmap mapgate" data-map-src={SRC} data-map-title={title}>
+  <div class="mapgate-ph">
+    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+    <p class="mapgate-addr">1134 N Lima St, Burbank, CA 91505</p>
+    <button type="button" class="btn btn-primary mapgate-btn" data-map-load aria-label={`Load map: ${name}`}>Load map</button>
+    <p class="mapgate-note">Loads Google Maps, which may set its own cookies.</p>
+  </div>
+</div>
+
+<style>
+  .mapgate { position: relative; background: var(--caoba-soft); }
+  .mapgate-ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 20px; text-align: center; color: var(--caoba); background: radial-gradient(circle at 50% 40%, var(--paper) 0, var(--caoba-soft) 70%); }
+  .mapgate-addr { font-weight: 600; color: var(--title); }
+  .mapgate-btn { height: 45px; padding: 0 28px; white-space: nowrap; }
+  .mapgate-note { max-width: 30ch; font-size: 13.5px; line-height: 1.45; color: var(--ink); text-wrap: balance; }
+  .mapgate :global(iframe) { position: absolute; inset: 0; }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-map-src]').forEach((box) => {
+    box.querySelector('[data-map-load]')?.addEventListener('click', () => {
+      const f = document.createElement('iframe');
+      f.src = box.dataset.mapSrc || '';
+      f.title = box.dataset.mapTitle || 'Map';
+      f.referrerPolicy = 'no-referrer-when-downgrade';
+      box.querySelector('.mapgate-ph')?.remove();
+      box.appendChild(f);
+      f.focus();
+    }, { once: true });
+  });
+</script>
