@@ -158,7 +158,6 @@ function validate(body: LeadBody): string | null {
     return 'Policy ID can only include letters, numbers, hyphens, and underscores.';
   }
   if (body.date_of_birth && !dobForCtm(body.date_of_birth)) return 'Please enter a valid date of birth.';
-  if (!body.consent) return 'Consent is required to request a callback.';
   return null;
 }
 

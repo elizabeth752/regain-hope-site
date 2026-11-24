@@ -95,9 +95,10 @@ const {
           {/* CTM's visitor session id, filled at submit. Without it CTM files every
               lead as a referral from our own server instead of the real source. */}
           <input type="hidden" name="visitor_sid" value="" data-visitor-sid />
-          <label class="optin"><input type="checkbox" name="sms_consent" value="1" required style="width:auto;margin:2px 0 0;" /> <span>I agree to receive calls/texts from Regain Hope Detox and Recovery Center about treatment. Msg &amp; data rates may apply. Reply STOP to opt out. Consent is not a condition of treatment.</span></label>
+          <label class="optin"><input type="checkbox" name="sms_consent" value="1" style="width:auto;margin:2px 0 0;" /> <span>I agree to receive calls/texts from Regain Hope Detox and Recovery Center about treatment. Msg &amp; data rates may apply. Reply STOP to opt out. Consent is not a condition of treatment. <span class="optional">(optional)</span></span></label>
           <p class="form-error" hidden role="alert"></p>
           <button type="submit">Request My Callback</button>
+          <p class="hipaa">See our <a href="/privacy/" target="_blank" rel="noopener">Privacy Policy</a>, <a href="/notice-of-privacy-practices/" target="_blank" rel="noopener">Notice of Privacy Practices</a> and <a href="/sms-terms/" target="_blank" rel="noopener">SMS Terms</a>.</p>
           <p class="hipaa">Your information is private and confidential. We do not send policy IDs or dates of birth to advertising tools.</p>
         </form>
       </div>
