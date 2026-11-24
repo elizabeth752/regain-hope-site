@@ -149,6 +149,13 @@ function cleanSid(raw: string): string {
   return /^[A-Za-z0-9_-]{1,100}$/.test(raw) ? raw : '';
 }
 
+// CTM's error text can quote what was typed. Submitted values and any run of digits never reach the logs.
+function safeText(text: string | undefined, body: LeadBody): string {
+  let t = text ?? '';
+  for (const v of [body.name, body.phone, body.policy_id, body.date_of_birth]) if (v.length > 1) t = t.split(v).join('[redacted]');
+  return t.replace(/\S+@\S+/g, '[redacted]').replace(/\d[\d\s().+/-]*\d/g, '#').slice(0, 160);
+}
+
 function validate(body: LeadBody): string | null {
   if (body.name.length < 2 || body.name.length > 80) return 'Please enter your full name.';
   const digits = body.phone.replace(/\D/g, '');
@@ -232,7 +239,7 @@ export const POST: APIRoute = async ({ request }) => {
     // an OK response proves nothing. Only that explicit error counts as a failure.
     const res = (await ctm.json().catch(() => null)) as { status?: string; text?: string } | null;
     if (res?.status === 'error') {
-      console.error('CTM FormReactor rejected the lead:', res.text ?? '');
+      console.error('CTM FormReactor rejected the lead:', safeText(res.text, body));
       return asJson
         ? json(502, { ok: false, error: 'We could not send your request. Please call (818) 264-4388 or try again.' })
         : new Response('We could not send your request. Please call (818) 264-4388.', { status: 502 });
