@@ -1,0 +1,26 @@
+---
+// Google consent mode defaults, inline in <head> BEFORE the GTM loader (elev8.io HIPAA, Privacy & Accessibility
+// Standard 4.2 and 4.5). Nothing is granted until the visitor chooses in the banner (CookieConsent.astro).
+// Global Privacy Control keeps advertising off; ad_personalization is always denied. A returning visitor's saved
+// choice (cookie rhd_consent) is applied in the DEFAULT itself, so a visitor who rejected never starts as granted,
+// and is announced with the same `consent_update` event the GTM consent triggers listen for.
+---
+<script is:inline>
+  (function () {
+    var dl = (window.dataLayer = window.dataLayer || []);
+    function gtag() { dl.push(arguments); }
+    var gpc = navigator.globalPrivacyControl === true, c = null;
+    try { var m = document.cookie.match(/(?:^|; )rhd_consent=([^;]*)/); c = m ? JSON.parse(decodeURIComponent(m[1])) : null; } catch (e) {}
+    if (c && c.v !== 1) c = null;
+    var a = c && c.analytics ? "granted" : "denied";
+    var ad = c && c.advertising && !gpc ? "granted" : "denied";
+    gtag("consent", "default", {
+      ad_storage: ad, ad_user_data: ad, ad_personalization: "denied", analytics_storage: a,
+      functionality_storage: "granted", security_storage: "granted", wait_for_update: 500,
+    });
+    gtag("set", "allow_ad_personalization_signals", false);
+    gtag("set", "ads_data_redaction", true);
+    window.__consent = { chosen: !!c, analytics: a === "granted", advertising: ad === "granted", gpc: gpc };
+    if (c) dl.push({ event: "consent_update", consent_source: "return_visit", consent_analytics: a, consent_advertising: ad, consent_gpc: gpc });
+  })();
+</script>

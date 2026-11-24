@@ -1,0 +1,142 @@
+---
+// Cookie banner (elev8.io HIPAA, Privacy & Accessibility Standard 4.2): Accept All, Reject All (one click, same size)
+// and Customize; Necessary always on, Analytics and Advertising off until accepted; a Do Not Sell or Share link;
+// Global Privacy Control honored. The choice is kept for a year in the rhd_consent cookie and can be changed from any
+// [data-cookie-prefs] element ("Cookie Preferences" in the footer); [data-cookie-dns] opts out of sale or sharing.
+// Every choice updates Google consent mode, pushes `consent_update` to the dataLayer and fires a `rhd:consent` DOM
+// event. Turning analytics or advertising off also deletes the _ga / _gcl_ cookies. Defaults: ConsentDefaults.astro.
+---
+<div id="cc-banner" class="cc" role="dialog" aria-modal="false" aria-labelledby="cc-title" tabindex="-1" hidden>
+  <p id="cc-title" class="cc__title">Cookies and Tracking Technologies</p>
+  <div class="cc__body">
+    <p>We use cookies and similar technologies to run this website and keep it secure, understand how it is used, and measure our outreach. Analytics and advertising tools stay off until you accept them with Accept All or Customize. You can change your choice at any time from Cookie Preferences.</p>
+    <p><button type="button" class="cc__inline" data-cookie-dns>Do Not Sell or Share My Personal Information</button></p>
+    <details>
+      <summary>Read full cookie notice</summary>
+      <p>These technologies may collect information such as your IP address, browser and device information, pages visited, and interactions with our website. We may use third-party analytics and advertising services to help us understand website traffic and measure advertising performance.</p>
+      <p>Because we provide behavioral health services, we take privacy seriously. We do not intend to use this website to collect or disclose information about an individual's health or treatment needs through advertising technologies. We take steps to manage tracking technologies in accordance with applicable privacy requirements.</p>
+      <p>You can change your choice at any time from "Cookie Preferences" at the bottom of every page. California residents may have additional privacy rights, including the right to opt out of the sale or sharing of personal information. If your browser sends a Global Privacy Control signal, we treat it as that opt-out. See our <a href="/privacy/">Privacy Policy</a>, <a href="/notice-of-privacy-practices/">Notice of Privacy Practices</a> and <a href="/your-privacy-choices/">Your Privacy Choices</a>.</p>
+    </details>
+  </div>
+  <p class="cc__note" data-cc-gpc role="note" hidden>We detected a Global Privacy Control signal from your browser, so advertising cookies stay off.</p>
+  <p class="cc__note" data-cc-note role="status" hidden></p>
+  <fieldset class="cc__prefs" hidden>
+    <legend>Cookie preferences</legend>
+    <label><input type="checkbox" checked disabled /> <span><strong>Necessary</strong> Needed for the site to work, for phone call tracking and to remember this choice. Always on.</span></label>
+    <label><input type="checkbox" name="analytics" /> <span><strong>Analytics</strong> Helps us understand how visitors use the site.</span></label>
+    <label><input type="checkbox" name="advertising" /> <span><strong>Advertising</strong> Measures the performance of our advertising.</span></label>
+  </fieldset>
+  <div class="cc__actions">
+    <button type="button" class="cc__btn cc__btn--ghost" data-cc="customize">Customize</button>
+    <button type="button" class="cc__btn cc__btn--ghost" data-cc="save" hidden>Save My Preferences</button>
+    <button type="button" class="cc__btn" data-cc="reject">Reject All</button>
+    <button type="button" class="cc__btn" data-cc="accept">Accept All</button>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var NAME = "rhd_consent", V = 1, VERSION = "2026-11-23.1", ROOT = "regainhopedetox.com";
+    var box = document.getElementById("cc-banner");
+    if (!box || window.__e8ConsentBanner) return;
+    window.__e8ConsentBanner = true;
+    var gpc = navigator.globalPrivacyControl === true;
+    var prefs = box.querySelector(".cc__prefs"), note = box.querySelector("[data-cc-note]"), opener = null;
+    var input = function (n) { return box.querySelector('input[name="' + n + '"]'); };
+    var btn = function (n) { return box.querySelector('[data-cc="' + n + '"]'); };
+    var gtag = function () { (window.dataLayer = window.dataLayer || []).push(arguments); };
+    var read = function () {
+      try { var m = document.cookie.match(new RegExp("(?:^|; )" + NAME + "=([^;]*)")), c = m ? JSON.parse(decodeURIComponent(m[1])) : null; return c && c.v === V ? c : null; } catch (e) { return null; }
+    };
+    // Delete Google Analytics (_ga*) and Ads (_gcl_*) cookies on every parent domain when that category is off.
+    var purge = function (analytics, ads) {
+      var parts = location.hostname.split("."), doms = [""];
+      for (var i = 0; i < parts.length - 1; i++) doms.push("; domain=." + parts.slice(i).join("."));
+      document.cookie.split("; ").forEach(function (kv) {
+        var k = kv.split("=")[0];
+        if ((!analytics && /^_ga($|_)/.test(k)) || (!ads && /^_gcl_/.test(k)))
+          doms.forEach(function (d) { document.cookie = k + "=; Max-Age=0; Path=/" + d; });
+      });
+    };
+    var save = function (s, source) {
+      if (gpc && s.advertising && source !== "do_not_sell") source = "gpc";
+      var c = { v: V, analytics: !!s.analytics, advertising: !!s.advertising && !gpc, source: source, gpc: gpc, version: VERSION, at: new Date().toISOString() };
+      var a = c.analytics ? "granted" : "denied", ad = c.advertising ? "granted" : "denied";
+      window.__consent = { chosen: true, analytics: c.analytics, advertising: c.advertising, gpc: gpc };
+      // ad_personalization stays denied even on Accept All (standard 4.5, step 2).
+      gtag("consent", "update", { analytics_storage: a, ad_storage: ad, ad_user_data: ad, ad_personalization: "denied" });
+      window.dataLayer.push({ event: "consent_update", consent_source: source, consent_version: VERSION, consent_analytics: a, consent_advertising: ad, consent_gpc: gpc });
+      var host = location.hostname, dom = host === ROOT || host.slice(-ROOT.length - 1) === "." + ROOT ? "; Domain=." + ROOT : "";
+      document.cookie = NAME + "=" + encodeURIComponent(JSON.stringify(c)) + "; Max-Age=31536000; Path=/; SameSite=Lax" + dom + (location.protocol === "https:" ? "; Secure" : "");
+      purge(c.analytics, c.advertising);
+      document.dispatchEvent(new CustomEvent("rhd:consent"));
+    };
+    // The open banner never covers the footer: the footer gets the banner's height as extra bottom padding.
+    var clear = function () { document.documentElement.style.setProperty("--cc-clear", box.hidden ? "0px" : box.offsetHeight + 24 + "px"); };
+    var custom = function (on) { prefs.hidden = !on; btn("customize").hidden = on; btn("save").hidden = !on; clear(); };
+    var show = function (msg, open) {
+      var c = read();
+      input("analytics").checked = !!(c && c.analytics);
+      input("advertising").checked = !!(c && c.advertising) && !gpc;
+      note.textContent = msg || ""; note.hidden = !msg;
+      box.hidden = false;
+      custom(!!open);
+    };
+    var hide = function () { box.hidden = true; clear(); if (opener) { opener.focus(); opener = null; } };
+    if (gpc) { input("advertising").disabled = true; box.querySelector("[data-cc-gpc]").hidden = false; }
+    btn("accept").addEventListener("click", function () { save({ analytics: true, advertising: true }, "accept_all"); hide(); });
+    btn("reject").addEventListener("click", function () { save({}, "reject_all"); hide(); });
+    btn("customize").addEventListener("click", function () { custom(true); input("analytics").focus(); });
+    btn("save").addEventListener("click", function () { save({ analytics: input("analytics").checked, advertising: input("advertising").checked }, "custom"); hide(); });
+    box.querySelector("details").addEventListener("toggle", clear);
+    window.addEventListener("resize", clear, { passive: true });
+    document.addEventListener("click", function (e) {
+      var t = e.target && e.target.closest ? e.target.closest("[data-cookie-prefs],[data-cookie-dns]") : null;
+      if (!t) return;
+      e.preventDefault();
+      if (!box.contains(t)) opener = t;
+      if (t.hasAttribute("data-cookie-prefs")) show("", true);
+      else {
+        save({ analytics: (read() || {}).analytics, advertising: false }, "do_not_sell");
+        show("You have opted out of the sale or sharing of your personal information. Advertising cookies are off.", true);
+      }
+      box.focus();
+    });
+    if (!read()) show();
+  })();
+</script>
+
+<style is:global>
+  #cc-banner[hidden], #cc-banner [hidden] { display: none !important; }
+  #cc-banner {
+    position: fixed; left: 20px; bottom: 20px; z-index: 2147483000;
+    width: min(440px, calc(100vw - 32px)); max-height: calc(100dvh - 40px); overflow-y: auto; overscroll-behavior: contain;
+    padding: 22px 22px 18px; background: #fff; color: var(--ink); border: 1px solid #e6d9c2; border-radius: var(--radius);
+    box-shadow: 0 10px 40px rgba(42, 20, 48, .28); font-size: 14px; line-height: 1.55; text-align: left;
+  }
+  #cc-banner .cc__title { margin: 0 0 10px; font: 600 20px/1.25 var(--serif); color: var(--title); }
+  #cc-banner .cc__body p { margin: 0 0 10px; }
+  #cc-banner .cc__body a { text-decoration: underline; text-underline-offset: 3px; }
+  #cc-banner details { margin: 0 0 12px; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; }
+  #cc-banner summary { display: list-item; list-style: disclosure-closed inside; cursor: pointer; margin: 0; padding: 4px 0; font: 600 14px/1.55 var(--sans); color: var(--caoba); }
+  #cc-banner details[open] summary { list-style-type: disclosure-open; margin-bottom: 8px; }
+  #cc-banner summary::after, #cc-banner summary::before { content: none; }
+  #cc-banner details p { margin: 0 0 10px; padding: 0; font-size: 14px; color: var(--ink); }
+  #cc-banner .cc__note { margin: 0 0 12px; padding: 10px 12px; border-radius: 10px; background: var(--caoba-soft); font-weight: 500; }
+  #cc-banner .cc__prefs { margin: 0 0 14px; padding: 10px 12px; border: 1px solid #e6d9c2; border-radius: 10px; }
+  #cc-banner .cc__prefs legend { padding: 0 4px; font-weight: 600; }
+  #cc-banner .cc__prefs label { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; cursor: pointer; }
+  #cc-banner .cc__prefs input { flex: none; width: 16px; height: 16px; margin: 4px 0 0; accent-color: var(--caoba); }
+  #cc-banner .cc__prefs strong { display: block; font-weight: 600; }
+  #cc-banner .cc__actions { display: flex; flex-wrap: wrap; gap: 8px; }
+  #cc-banner .cc__btn { flex: 1 1 0; min-width: 110px; height: 45px; padding: 0 14px; border: 2px solid var(--caoba); border-radius: 10px; background: var(--caoba); color: #fff; font: 600 14px/1 var(--sans); cursor: pointer; }
+  #cc-banner .cc__btn:hover { background: var(--blue-deep); border-color: var(--blue-deep); }
+  #cc-banner .cc__btn--ghost { flex-basis: 100%; background: transparent; color: var(--caoba); }
+  #cc-banner .cc__btn--ghost:hover { background: var(--caoba-soft); color: var(--caoba); border-color: var(--caoba); }
+  #cc-banner .cc__inline { padding: 0; border: 0; background: none; text-align: left; color: var(--caoba); text-decoration: underline; text-underline-offset: 3px; font: 500 14px/1.55 var(--sans); cursor: pointer; }
+  #cc-banner:focus { outline: none; }
+  #cc-banner :is(button, summary, input, a):focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+  @media (max-width: 600px) { #cc-banner { left: 16px; bottom: 16px; padding: 18px 16px 14px; } }
+  /* Room for the floating Google badge, and for the banner while it is open: neither covers a footer link. */
+  footer { padding-bottom: max(104px, calc(26px + var(--cc-clear, 0px))); }
+</style>
