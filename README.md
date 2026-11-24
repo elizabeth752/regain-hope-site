@@ -37,3 +37,12 @@ Si esa clave llegó a aparecer en git o en el HTML público, **rótala en CTM** 
 - [ ] Dominio de producción + redirect `www`
 - [ ] Acceso de colaboradores revisado
 - [ ] Confirmar BAA con CTM (y CRM aguas abajo) si se sigue recogiendo Policy ID
+
+## Privacidad y consentimiento (no romper)
+
+- `ConsentDefaults.astro` va en `<head>` antes de GTM: todo negado hasta que el visitante elija; `ad_personalization` siempre negado.
+- `CookieConsent.astro`: banner, cookie `rhd_consent`, evento `consent_update` (`consent_analytics`, `consent_advertising`, `consent_source`) en cada elección y en cada visita de regreso. `[data-cookie-prefs]` abre preferencias y `[data-cookie-dns]` hace el opt-out.
+- Google Maps solo con `MapEmbed.astro` (carga al hacer clic). Nunca un iframe directo.
+- `lead_accepted` se envía solo en `/thank-you/?sent=1`, después de que CTM acepta el lead.
+- `/api/lead/` nunca escribe en logs lo que envía el visitante (`safeText`).
+- `/privacy/` muestra el Notice of Privacy Practices hasta que el cliente apruebe el texto de una política separada.
