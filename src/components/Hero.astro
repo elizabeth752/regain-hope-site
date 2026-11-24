@@ -189,7 +189,8 @@ const {
             showError(payload.error || 'We could not send your request. Please call (818) 264-4388.');
             return;
           }
-          window.location.href = '/thank-you/';
+          // payload.accepted is true only when CTM took the lead; ?sent=1 makes the thank-you page push lead_accepted.
+          window.location.href = payload.accepted ? '/thank-you/?sent=1' : '/thank-you/';
         } catch (_) {
           showError('We could not send your request. Check your connection or call (818) 264-4388.');
         }

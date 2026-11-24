@@ -28,3 +28,14 @@ import Icon from '../components/Icon.astro';
     <div class="crisis" style="margin-top:30px;text-align:center;background:var(--cream);border-radius:12px;padding:16px 20px;font-size:14px;color:var(--muted);">In crisis? Call or text <b>988</b> (Suicide &amp; Crisis Lifeline) or <b>911</b>, available 24/7.</div>
   </div></section>
 </Layout>
+
+<script is:inline>
+  // ?sent=1 is set only after CTM accepted the lead (api/lead.ts), so lead_accepted is the one signal of a real lead.
+  // GTM is loaded first: an event queued before gtm.js would run ahead of the Google tag.
+  (function () {
+    if (new URLSearchParams(location.search).get('sent') !== '1') return;
+    if (window.__loadGTM) window.__loadGTM();
+    (window.dataLayer = window.dataLayer || []).push({ event: 'lead_accepted' });
+    history.replaceState(null, '', location.pathname); // a reload or a shared link never counts twice
+  })();
+</script>

@@ -111,6 +111,7 @@ const jsonld = [org, ...(schema ? (Array.isArray(schema) ? schema : [schema]) : 
         j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-NRM7J7XP';
         document.head.appendChild(j);
       }
+      window.__loadGTM = loadGTM; // thank-you page: load at once so lead_accepted is not lost
       var opts = { once: true, passive: true };
       ['pointerdown', 'keydown', 'touchstart'].forEach(function (evt) {
         window.addEventListener(evt, loadGTM, opts);

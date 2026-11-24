@@ -67,10 +67,11 @@ function json(status: number, body: Record<string, unknown>): Response {
   });
 }
 
-function redirectThankYou(): Response {
+// `accepted` = CTM took the lead. Only then does the thank-you page push lead_accepted (?sent=1).
+function redirectThankYou(accepted = false): Response {
   return new Response(null, {
     status: 303,
-    headers: { Location: '/thank-you/', 'Cache-Control': 'no-store' },
+    headers: { Location: accepted ? '/thank-you/?sent=1' : '/thank-you/', 'Cache-Control': 'no-store' },
   });
 }
 
@@ -244,7 +245,7 @@ export const POST: APIRoute = async ({ request }) => {
       : new Response('We could not send your request. Please call (818) 264-4388.', { status: 502 });
   }
 
-  return asJson ? json(200, { ok: true }) : redirectThankYou();
+  return asJson ? json(200, { ok: true, accepted: true }) : redirectThankYou(true);
 };
 
 export const GET: APIRoute = () =>
