@@ -28,6 +28,7 @@ export default defineConfig({
         ![
           '/thank-you/',
           '/privacy/',
+          '/notice-of-privacy-practices/',
           '/terms-of-use/',
           '/your-privacy-choices/',
           ...draftBlogPaths,
