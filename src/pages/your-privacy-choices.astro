@@ -7,13 +7,39 @@ import Layout from '../layouts/Layout.astro';
     <h1>Your Privacy Choices</h1>
   </div></section>
   <section><div class="container rich" style="max-width:820px;">
-    <p>California residents (and others with similar rights) may request to <b>opt out of the sale or sharing of personal information</b> and to <b>limit the use of sensitive personal information</b>. Our full process for submitting and honoring these requests is being finalized and is under legal review.</p>
-    <p>To make a privacy request now, contact us:</p>
+    <p>California residents (and others with similar rights) may request to <b>opt out of the sale or sharing of personal information</b> and to <b>limit the use of sensitive personal information</b>.</p>
+    <h3>Opt out on this website</h3>
+    <p>Use the button below to opt out of the sale or sharing of your personal information through advertising cookies on this website. It takes effect right away in this browser. If your browser sends a Global Privacy Control signal, we treat it as the same opt-out automatically.</p>
+    <p class="pc-actions">
+      <button type="button" class="btn btn-primary" data-cookie-dns>Do Not Sell or Share My Personal Information</button>
+      <button type="button" class="btn btn-outline" data-cookie-prefs>Cookie Preferences</button>
+    </p>
+    <p class="callout" role="status" data-pc-status>Analytics and advertising cookies are off on this website until you accept them.</p>
+    <h3>Make a privacy request</h3>
+    <p>To make any other privacy request, contact us:</p>
     <ul>
       <li><b>Privacy:</b> <a href="mailto:privacy@regainhopedetox.com">privacy@regainhopedetox.com</a></li>
       <li><b>Phone:</b> <a href="tel:+18182644388">(818) 264-4388</a></li>
     </ul>
-    <p>See our <a href="/privacy/">Privacy Policy</a> for more on how we handle your information.</p>
+    <p>See our <a href="/privacy/">Privacy Policy</a> and <a href="/notice-of-privacy-practices/">Notice of Privacy Practices</a> for more on how we handle your information.</p>
     <p style="color:var(--muted);font-size:14px;">Regain Hope Detox and Recovery Center, Inc. · 1134 N. Lima St., Burbank, CA 91505</p>
   </div></section>
 </Layout>
+
+<style>
+  .pc-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0; }
+  .pc-actions .btn { min-height: 45px; padding: 0 24px; }
+</style>
+
+<script is:inline>
+  (function () {
+    var el = document.querySelector('[data-pc-status]');
+    function paint() {
+      var c = window.__consent;
+      if (!el || !c) return;
+      el.textContent = 'In this browser right now: analytics cookies are ' + (c.analytics ? 'on' : 'off') + ' and advertising cookies are ' + (c.advertising ? 'on' : 'off') + '.' + (c.gpc ? ' Your browser sends a Global Privacy Control signal, so advertising stays off.' : '');
+    }
+    document.addEventListener('rhd:consent', paint);
+    paint();
+  })();
+</script>
